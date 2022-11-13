@@ -1,5 +1,7 @@
+import { RouterApp } from "routers/RouterApp";
+
 function App() {
-  return <div className="App">Hola Mundo</div>;
+  return <RouterApp />;
 }
 
 export default App;
