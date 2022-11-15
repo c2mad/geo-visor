@@ -1,16 +1,12 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { MapContainer, GeoJSON } from "react-leaflet";
-import L from "leaflet";
-
+import { MapContainer, GeoJSON, WMSTileLayer, Marker } from "react-leaflet";
 import { MapSwitcher } from "./plugins/MapSwitcher";
-import { MeasureControl } from "./plugins/MeasureControl";
 import { Minimap } from "./plugins/Minimap";
 import { RulerControl } from "./plugins/RulerControl";
-
-import treeMarker from "../../images/tree-marker.png";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
+import L from "leaflet";
 import markerShadow from "../../images/marker-shadow.png";
+import treeMarker from "../../images/tree-marker.png";
 
 export const GeoViewerWithReact = () => {
   const [data, setData] = useState(null);
@@ -44,13 +40,13 @@ export const GeoViewerWithReact = () => {
         outputFormat: "application/json",
         request: "GetFeature",
         service: "WFS",
-        typeName: "jose:Isoperiodos",
+        typeName: "jose:parroquias_azuay",
         version: "1.0.0",
       };
 
       const respJose = await axios.get(GEOSERVER, { params: REQUEST_PARAMS_1 });
       setDataJose(respJose.data);
-      console.log(respJose.data);
+      // console.log(respJose.data);
       const REQUEST_PARAMS_2 = {
         outputFormat: "application/json",
         request: "GetFeature",
@@ -86,12 +82,12 @@ export const GeoViewerWithReact = () => {
         width: "100%",
       }}
       center={point}
-      zoom={7}
+      zoom={11}
     >
       <MapSwitcher />
 
       <RulerControl />
-      <MeasureControl />
+
       <Minimap />
 
       <GeoJSON
@@ -118,11 +114,46 @@ export const GeoViewerWithReact = () => {
         data={dataJose}
         style={() => ({
           color: "#4a83ec",
-          weight: 5,
+          weight: 2,
+          fillColor: "#1a1d62",
+          fillOpacity: 0,
+        })}
+        onEachFeature={({ properties }, layer) => {
+          const { OBJECTID, DPA_DESPAR } = properties;
+          if (OBJECTID === 1) {
+            layer.setStyle({
+              fillColor: "#84cc16",
+            });
+          }
+          if (OBJECTID === 3) {
+            layer.setStyle({
+              fillColor: "#8b5cf6",
+            });
+          }
+          if (OBJECTID === 4) {
+            layer.setStyle({
+              fillColor: "#f43f5e",
+            });
+          }
+
+          console.log(DPA_DESPAR);
+          // layer.bindPopup(
+          //   `<h1 className="text-lg text-slate-700">${DPA_DESPAR}</h1> `
+          // );
+
+          // Add text html in layer
+          console.log(layer);
+        }}
+      />
+      {/* <GeoJSON
+        data={dataJose}
+        style={() => ({
+          color: "#4a83ec",
+          weight: 2,
           fillColor: "#1a1d62",
           fillOpacity: 1,
         })}
-      />
+      /> */}
 
       <GeoJSON
         data={dataCate}

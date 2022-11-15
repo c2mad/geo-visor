@@ -1,4 +1,3 @@
-import { GeoViewer } from "components/maps/GeoViewer";
 import { GeoViewerWithReact } from "components/maps/GeoViewerWithReact";
 
 export const MapsPage = () => {
@@ -8,8 +7,7 @@ export const MapsPage = () => {
         <h3 className="text-xl font-semibold">Capas</h3>
       </div> */}
       <div className="h-[calc(100vh_-_80px)] w-full overflow-hidden rounded-lg bg-white shadow-md">
-        <GeoViewer />
-        {/* <GeoViewerWithReact /> */}
+        <GeoViewerWithReact />
       </div>
     </div>
   );
