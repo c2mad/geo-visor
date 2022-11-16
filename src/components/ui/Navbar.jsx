@@ -1,4 +1,5 @@
 import { NavbarLink } from "./NavbarLink";
+import logoImg from "../../images/logo.png";
 
 export const Navbar = () => {
   return (
@@ -7,16 +8,16 @@ export const Navbar = () => {
         <div className="h-12">
           <img
             className="h-full w-full object-cover"
-            src="./images/logo.png"
+            src={logoImg}
             alt="Logo CIITT"
           />
         </div>
         <div>
           <ul className="flex space-x-4">
             <NavbarLink to="/" linkTitle="Inicio" />
-            <NavbarLink to="/mapas" linkTitle="Mapas" />
-            <NavbarLink to="/servicios" linkTitle="Servicios" />
-            <NavbarLink to="/contacto" linkTitle="Contacto" />
+            <NavbarLink to="/mapas/jose" linkTitle="Geo Visor" />
+            {/* <NavbarLink to="/servicios" linkTitle="Servicios" />
+            <NavbarLink to="/contacto" linkTitle="Contacto" /> */}
           </ul>
         </div>
       </div>

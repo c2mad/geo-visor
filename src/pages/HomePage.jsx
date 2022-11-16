@@ -1,33 +1,4 @@
-import axios from "axios";
-import React, { useEffect } from "react";
-
 export const HomePage = () => {
-  useEffect(() => {
-    const ows = async () => {
-      // const resp = await axios.get(
-      //   "http://192.168.10.4:8085/geoserver/cate/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=cate%3AExport_Output&maxFeatures=50&outputFormat=application%2Fjson"
-      // );
-
-      // console.log(resp);
-
-      const GEOSERVER = "http://192.168.10.4:8085/geoserver/wfs";
-
-      const REQUEST_PARAMS = {
-        outputFormat: "application/json",
-        maxFeatures: 250,
-        request: "GetFeature",
-        service: "WFS",
-        typeName: "cate:Export_Output",
-        version: "1.0.0",
-      };
-
-      axios
-        .get(GEOSERVER, { params: REQUEST_PARAMS })
-        .then(({ data }) => console.log(data))
-        .catch((error) => console.log(error));
-    };
-    ows();
-  }, []);
   return (
     <>
       <div className="h-96 w-full">

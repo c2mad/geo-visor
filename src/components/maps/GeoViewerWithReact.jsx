@@ -32,6 +32,7 @@ export const GeoViewerWithReact = () => {
         typeName: "cate:Export_Output",
         version: "1.0.0",
       };
+
       setLoading(true);
       const respCate = await axios.get(GEOSERVER, { params: REQUEST_PARAMS });
       setData(respCate.data);
@@ -40,13 +41,14 @@ export const GeoViewerWithReact = () => {
         outputFormat: "application/json",
         request: "GetFeature",
         service: "WFS",
-        typeName: "jose:parroquias_azuay",
+        // typeName: "jose:parroquias_azuay",
+        typeName: "jose:geo_azuay",
         version: "1.0.0",
       };
 
       const respJose = await axios.get(GEOSERVER, { params: REQUEST_PARAMS_1 });
       setDataJose(respJose.data);
-      // console.log(respJose.data);
+      console.log(respJose.data);
       const REQUEST_PARAMS_2 = {
         outputFormat: "application/json",
         request: "GetFeature",
@@ -119,30 +121,33 @@ export const GeoViewerWithReact = () => {
           fillOpacity: 0,
         })}
         onEachFeature={({ properties }, layer) => {
-          const { OBJECTID, DPA_DESPAR } = properties;
-          if (OBJECTID === 1) {
-            layer.setStyle({
-              fillColor: "#84cc16",
-            });
-          }
-          if (OBJECTID === 3) {
-            layer.setStyle({
-              fillColor: "#8b5cf6",
-            });
-          }
-          if (OBJECTID === 4) {
-            layer.setStyle({
-              fillColor: "#f43f5e",
-            });
-          }
-
-          console.log(DPA_DESPAR);
+          // const { OBJECTID = 0, DPA_DESPAR } = properties;
+          // if (OBJECTID === 1) {
+          //   layer.setStyle({
+          //     fillColor: "#84cc16",
+          //   });
+          // }
+          // if (OBJECTID === 3) {
+          //   layer.setStyle({
+          //     fillColor: "#8b5cf6",
+          //   });
+          // }
+          // if (OBJECTID === 4) {
+          //   layer.setStyle({
+          //     fillColor: "#f43f5e",
+          //   });
+          // }
+          // if (OBJECTID === 72) {
+          //   layer.setStyle({
+          //     fillColor: "#10b981",
+          //   });
+          // }
+          // console.log(DPA_DESPAR);
           // layer.bindPopup(
           //   `<h1 className="text-lg text-slate-700">${DPA_DESPAR}</h1> `
           // );
-
           // Add text html in layer
-          console.log(layer);
+          // console.log(layer);
         }}
       />
       {/* <GeoJSON
