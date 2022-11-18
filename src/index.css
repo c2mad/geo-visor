@@ -5,3 +5,13 @@
 body {
   @apply bg-zinc-200;
 }
+
+.info-geotecnica .leaflet-popup-content {
+  width: 600px !important;
+}
+
+.tooltip-parroquia {
+  @apply px-1 py-1 font-semibold text-slate-700;
+
+  shadow: none;
+}

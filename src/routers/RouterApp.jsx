@@ -1,10 +1,7 @@
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { DefaultLayout } from "layouts/DefaultLayout";
-import { ContactPage } from "pages/ContactPage";
 import { HomePage } from "pages/HomePage";
 import { JoseMapsPage } from "pages/JoseMapsPage";
-import { MapsPage } from "pages/MapsPage";
-import { ServicesPage } from "pages/ServicesPage";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 export const RouterApp = () => {
   return (
