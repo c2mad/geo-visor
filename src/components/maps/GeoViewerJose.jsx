@@ -206,9 +206,6 @@ export const GeoViewerJose = ({
               fillColor: Color,
             });
 
-            console.log(properties);
-
-            // print DPA_DESPAR with tooltip
             layer.bindTooltip(DPA_DESPAR, {
               permanent: true,
               direction: "center",
