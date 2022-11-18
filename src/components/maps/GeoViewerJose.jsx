@@ -244,7 +244,7 @@ const PopupKey0 = ({ properties }) => {
     Vp_Deph_3,
     Vp_Deph_4,
     Vp_Deph_5,
-    Vs_m_s,
+    Vs_m_s_,
     Vs_m_s_1,
     Vs_m_s_2,
     Vs_m_s_3,
@@ -268,6 +268,9 @@ const PopupKey0 = ({ properties }) => {
     SUCS_3,
     SUCS_4,
     SUCS_5,
+    NEC_,
+    SUCS_,
+    Vs30,
   } = properties;
   return (
     <div>
@@ -285,6 +288,9 @@ const PopupKey0 = ({ properties }) => {
           label="Coordenada UTM WGS84 norte (longitud)"
           value={Yo}
         />
+        <PopupItemTable label="NEC_" value={NEC_} />
+        <PopupItemTable label="SUCS_" value={SUCS_} />
+        <PopupItemTable label="Vs30" value={Vs30} />
       </div>
       <div className="mt-2 overflow-hidden">
         <table className="table-fixed border-collapse rounded-lg border border-gray-300 text-slate-700">
@@ -315,7 +321,7 @@ const PopupKey0 = ({ properties }) => {
                 {Vp_Deph}
               </td>
               <td className="border border-gray-300 p-2 text-center">
-                {Vs_m_s}
+                {Vs_m_s_}
               </td>
               <td className="border border-gray-300 p-2 text-center">
                 {Vs_Deph}
