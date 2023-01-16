@@ -85,7 +85,7 @@ export const JoseMapsPage = () => {
             />
 
             <ChoseLayerItem
-              title=" Geología seccionada escala 1:25000"
+              title="Geología proyecto PRECUPA escala 1:25000"
               enabled={key4}
               setEnabled={setKey4}
               isLoading={isLoadingKey4}
