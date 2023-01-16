@@ -64,7 +64,7 @@ export const JoseMapsPage = () => {
             />
 
             <ChoseLayerItem
-              title="Perfiles de suelo profundidad < 5m (calicatas)"
+              title="Perfiles de suelo profundidad < 5m (calicatas), SPT's y perforaciones"
               enabled={key1}
               setEnabled={setKey1}
               isLoading={isLoadingKey1}

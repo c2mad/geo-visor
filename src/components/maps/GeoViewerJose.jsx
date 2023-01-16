@@ -238,40 +238,47 @@ const PopupKey0 = ({ properties }) => {
     Vp_m_s_3,
     Vp_m_s_4,
     Vp_m_s_5,
+    Vp_m_s_6,
     Vp_Deph,
     Vp_Deph_1,
     Vp_Deph_2,
     Vp_Deph_3,
     Vp_Deph_4,
     Vp_Deph_5,
+    Vp_Deph_6,
     Vs_m_s_,
     Vs_m_s_1,
     Vs_m_s_2,
     Vs_m_s_3,
     Vs_m_s_4,
     Vs_m_s_5,
+    Vs_m_s_6,
     Vs_Deph,
     Vs_Deph_1,
     Vs_Deph_2,
     Vs_Deph_3,
     Vs_Deph_4,
     Vs_Deph_5,
+    Vs_Deph_6,
     NEC,
     NEC_1,
     NEC_2,
     NEC_3,
     NEC_4,
     NEC_5,
+    NEC_6,
     SUCS,
     SUCS_1,
     SUCS_2,
     SUCS_3,
     SUCS_4,
     SUCS_5,
+    SUCS_6,
     NEC_,
     SUCS_,
     Vs30,
   } = properties;
+  console.log(properties);
   return (
     <div>
       <h2 className="text-center text-sm font-medium text-slate-700">
@@ -427,6 +434,26 @@ const PopupKey0 = ({ properties }) => {
               </td>
               <td className="border border-gray-300 p-2 text-center">
                 {SUCS_5}
+              </td>
+            </tr>
+            <tr>
+              <td className="border border-gray-300 p-2 text-center">
+                {Vp_m_s_6}
+              </td>
+              <td className="border border-gray-300 p-2 text-center">
+                {Vp_Deph_6}
+              </td>
+              <td className="border border-gray-300 p-2 text-center">
+                {Vs_m_s_6}
+              </td>
+              <td className="border border-gray-300 p-2 text-center">
+                {Vs_Deph_6}
+              </td>
+              <td className="border border-gray-300 p-2 text-center">
+                {NEC_6}
+              </td>
+              <td className="border border-gray-300 p-2 text-center">
+                {SUCS_6}
               </td>
             </tr>
           </tbody>

@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { getLayer } from "api-geo/queries/map.query";
 
-const key_0 = "info_geotecnica";
+const key_0 = "info_geotecnica"; // X
 const key_1 = "exploracion_calicatas";
-const key_2 = "perfil_estratigrаfico";
+const key_2 = "perfil_estratigrаfico"; // X
 const key_3 = "iso_periodos";
 const key_4 = "geo_local";
 const key_5 = "geo_azuay";
