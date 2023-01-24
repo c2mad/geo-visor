@@ -46,7 +46,7 @@ export const GeoViewerJose = ({
       center={centerPoint}
       zoom={11}
     >
-      <PluginWrapper />
+      <PluginWrapper key3={key3} key4={key4} key5={key5} />
       {key0 && infoGeotecnica && (
         <GeoJSON
           key={0}
@@ -74,6 +74,7 @@ export const GeoViewerJose = ({
           }}
         />
       )}
+
       {key1 && expCalicatas && (
         <GeoJSON
           key={1}
@@ -130,6 +131,10 @@ export const GeoViewerJose = ({
             fillOpacity: 1,
           })}
           onEachFeature={({ properties }, layer) => {
+            layer.setStyle({
+              color: properties.color,
+            });
+
             layer.bindPopup(
               ReactDOMServer.renderToString(
                 <PopupKey3 properties={properties} />
@@ -278,7 +283,7 @@ const PopupKey0 = ({ properties }) => {
     SUCS_,
     Vs30,
   } = properties;
-  console.log(properties);
+
   return (
     <div>
       <h2 className="text-center text-sm font-medium text-slate-700">
