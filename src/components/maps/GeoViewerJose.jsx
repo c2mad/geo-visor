@@ -125,7 +125,6 @@ export const GeoViewerJose = ({
           key={3}
           data={isoPeriodos}
           style={() => ({
-            color: "#059669",
             weight: 3,
             fillColor: "#84cc16",
             fillOpacity: 1,
