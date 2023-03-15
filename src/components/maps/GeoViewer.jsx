@@ -4,6 +4,7 @@ import * as ReactDOMServer from "react-dom/server";
 import L from "leaflet";
 import pinMarker from "../../images/pin-marker.png";
 import redMarker from "../../images/red-marker.png";
+import { TableData } from "./TableData";
 
 const centerPoint = [-2.8573835, -78.9633863];
 
@@ -226,62 +227,8 @@ export const GeoViewer = ({
   );
 };
 
-export const Tooltip = () => {
-  return <div>GeoViewerJose</div>;
-};
-
 const PopupKey0 = ({ properties }) => {
-  const {
-    Fuente,
-    Documento,
-    Xo,
-    Yo,
-    Vp_m_s,
-    Vp_m_s_1,
-    Vp_m_s_2,
-    Vp_m_s_3,
-    Vp_m_s_4,
-    Vp_m_s_5,
-    Vp_m_s_6,
-    Vp_Deph,
-    Vp_Deph_1,
-    Vp_Deph_2,
-    Vp_Deph_3,
-    Vp_Deph_4,
-    Vp_Deph_5,
-    Vp_Deph_6,
-    Vs_m_s_,
-    Vs_m_s_1,
-    Vs_m_s_2,
-    Vs_m_s_3,
-    Vs_m_s_4,
-    Vs_m_s_5,
-    Vs_m_s_6,
-    Vs_Deph,
-    Vs_Deph_1,
-    Vs_Deph_2,
-    Vs_Deph_3,
-    Vs_Deph_4,
-    Vs_Deph_5,
-    Vs_Deph_6,
-    NEC,
-    NEC_1,
-    NEC_2,
-    NEC_3,
-    NEC_4,
-    NEC_5,
-    NEC_6,
-    SUCS,
-    SUCS_1,
-    SUCS_2,
-    SUCS_3,
-    SUCS_4,
-    SUCS_5,
-    SUCS_6,
-    NEC_,
-    SUCS_,
-    Vs30,
-  } = properties;
+  const { Fuente, Documento, Xo, Yo, NEC_, SUCS_, Vs30 } = properties;
 
   return (
     <div>
@@ -304,164 +251,7 @@ const PopupKey0 = ({ properties }) => {
         <PopupItemTable label="Vs30" value={Vs30} />
       </div>
       <div className="mt-2 overflow-hidden">
-        <table className="table-fixed border-collapse rounded-lg border border-gray-300 text-slate-700">
-          <thead>
-            <tr>
-              <th className="border border-gray-300 p-2">Vp(m/s)</th>
-              <th className="border border-gray-300 p-2">
-                Profundidad de estrato de Vp(m)
-              </th>
-              <th className="border border-gray-300 p-2">Vs(m/s)</th>
-              <th className="border border-gray-300 p-2">
-                Profundidad de estrato de Vs(m)
-              </th>
-              <th className="border border-gray-300 p-2">
-                Tipo de suelo de acorde a NEC
-              </th>
-              <th className="border border-gray-300 p-2">
-                Tipo de suelo de acorde a SUCS
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vp_m_s}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vp_Deph}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vs_m_s_}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vs_Deph}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">{NEC}</td>
-              <td className="border border-gray-300 p-2 text-center">{SUCS}</td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vp_m_s_1}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vp_Deph_1}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vs_m_s_1}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vs_Deph_1}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {NEC_1}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {SUCS_1}
-              </td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vp_m_s_2}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vp_Deph_2}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vs_m_s_2}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vs_Deph_2}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {NEC_2}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {SUCS_2}
-              </td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vp_m_s_3}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vp_Deph_3}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vs_m_s_3}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vs_Deph_3}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {NEC_3}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {SUCS_3}
-              </td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vp_m_s_4}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vp_Deph_4}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vs_m_s_4}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vs_Deph_4}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {NEC_4}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {SUCS_4}
-              </td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vp_m_s_5}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vp_Deph_5}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vs_m_s_5}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vs_Deph_5}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {NEC_5}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {SUCS_5}
-              </td>
-            </tr>
-            <tr>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vp_m_s_6}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vp_Deph_6}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vs_m_s_6}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {Vs_Deph_6}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {NEC_6}
-              </td>
-              <td className="border border-gray-300 p-2 text-center">
-                {SUCS_6}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <TableData properties={properties} />
       </div>
     </div>
   );
