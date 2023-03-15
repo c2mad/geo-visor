@@ -1,7 +1,5 @@
 import { RouterApp } from "routers/RouterApp";
 
-function App() {
-  return <RouterApp />;
-}
+const App = () => <RouterApp />;
 
 export default App;

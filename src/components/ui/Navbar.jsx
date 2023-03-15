@@ -36,9 +36,7 @@ export const Navbar = () => {
         <div>
           <ul className="flex space-x-4">
             <NavbarLink to="/" linkTitle="Inicio" />
-            <NavbarLink to="/mapas/jose" linkTitle="Geo Visor" />
-            {/* <NavbarLink to="/servicios" linkTitle="Servicios" />
-            <NavbarLink to="/contacto" linkTitle="Contacto" /> */}
+            <NavbarLink to="/mapas/geo-visor" linkTitle="Geo Visor" />
           </ul>
         </div>
       </div>
