@@ -1,0 +1,509 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-80.67888894699996, -0.9461110809999695]]
+         },
+         "properties": {
+            "objectid": 1,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO ELOY ALFARO",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 1,
+            "agg_desc": "Verdadero",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-79.62666673899997, 0.9786111140000457]]
+         },
+         "properties": {
+            "objectid": 2,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO GENERAL RIBADENEIRA",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 1,
+            "agg_desc": "Verdadero",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-76.86944448899999, 0.0922222030000626]]
+         },
+         "properties": {
+            "objectid": 3,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO LAGO AGRIO",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-78.13638899399996, 0.3388889250000489]]
+         },
+         "properties": {
+            "objectid": 4,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO ATAHUALPA",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC) - sin funcionamiento"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-77.70833345499994, 0.8094444380000709]]
+         },
+         "properties": {
+            "objectid": 5,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO TENIENTE CORONEL MANTILLA",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-76.98944449499999, -0.457777736999958]]
+         },
+         "properties": {
+            "objectid": 6,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO FRANCISCO DE ORELLANA",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-78.61583339599997, -0.9069444679999492]]
+         },
+         "properties": {
+            "objectid": 9,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO COTOPAXI INTL",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-78.57472228899996, -1.211944459999927]]
+         },
+         "properties": {
+            "objectid": 10,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO CHACHOÃN",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-78.06250007399996, -1.5052777999999307]]
+         },
+         "properties": {
+            "objectid": 11,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO RÃO AMAZONAS",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-78.65694449999995, -1.6536110789999725]]
+         },
+         "properties": {
+            "objectid": 12,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO CHIMBORAZO",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-79.20861115199995, -0.2483333489999495]]
+         },
+         "properties": {
+            "objectid": 13,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO SANTO DOMINGO",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-80.47222228999993, -1.041666677999956]]
+         },
+         "properties": {
+            "objectid": 14,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO REALES TAMARINDOS",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC) - sin funcionamiento"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-80.40277784999995, -0.6077777329999776]]
+         },
+         "properties": {
+            "objectid": 15,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO LOS PERALES",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-79.88388885799998, -2.1580555689999414]]
+         },
+         "properties": {
+            "objectid": 17,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO INTERNACIONAL JOSÃ JOAQUÃN DE OLMEDO",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 1,
+            "agg_desc": "Verdadero",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-78.98444450499994, -2.8894444919999387]]
+         },
+         "properties": {
+            "objectid": 18,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO MARISCAL LAMAR",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-78.12083343099994, -2.2991667299999676]]
+         },
+         "properties": {
+            "objectid": 19,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO CORONEL EDMUNDO CARVAJAL",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-79.98388897799998, -3.436111197999935]]
+         },
+         "properties": {
+            "objectid": 20,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO REGIONAL SANTA ROSA",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-79.37194444399995, -3.9791667499999335]]
+         },
+         "properties": {
+            "objectid": 21,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO CAMILO PONCE",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-79.94106927099995, -4.378103479999936]]
+         },
+         "properties": {
+            "objectid": 22,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO JOSÃ MARÃA VELASCO IBARRA",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-77.58055563499994, -1.0602778029999627]]
+         },
+         "properties": {
+            "objectid": 23,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO JUMANDY",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-80.98927215999998, -2.2033947319999356]]
+         },
+         "properties": {
+            "objectid": 24,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO GENERAL ULPIANO PÃEZ",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 1,
+            "agg_desc": "Verdadero",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-78.35808151699996, -0.1225888389999454]]
+         },
+         "properties": {
+            "objectid": 25,
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "AEROPUERTO INTERNACIONAL MARISCAL SUCRE",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "",
+            "agg": 1,
+            "agg_desc": "Verdadero",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "Informacion obtenida de la Base de Datos escala 1: 50 000 - Nuevo Aeropuerto Internacional localizado en Tababela"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-89.61756770537681, -0.9091604245923648]]
+         },
+         "properties": {
+            "objectid": "***********",
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "Aeropuerto San CristÃ³bal",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "SEST",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      },
+      {
+         "type": "Feature",
+         "geometry": {
+            "type": "MultiPoint",
+            "coordinates": [[-90.26451237220674, -0.4520626191365675]]
+         },
+         "properties": {
+            "objectid": "***********",
+            "fcode": "GB005",
+            "descripcio": "Zona provista de un conjunto de pistas, instalaciones y servicios destinados al trÃ¡fico regular de aeronaves",
+            "nam": "Terminal AÃ©reo Baltra",
+            "acc": 1,
+            "acc_desc": "Exacta",
+            "iko": "SEGS",
+            "agg": 0,
+            "agg_desc": "Falso",
+            "fuc": 20,
+            "fuc_desc": "TransportaciÃ³n",
+            "txt": "InformaciÃ³n proporcionada por la DirecciÃ³n General de AviaciÃ³n Civil (DGAC)"
+         }
+      }
+   ]
+}
