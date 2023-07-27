@@ -5,6 +5,7 @@ module.exports = function(app) {
       createProxyMiddleware({
         target: 'http://192.168.10.4:8085', // Reemplaza con tu URL de API
         changeOrigin: true,
+        secure: false
       })
     );
   }
