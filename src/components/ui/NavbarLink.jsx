@@ -7,7 +7,7 @@ export const NavbarLink = ({ linkTitle, to }) => {
         to={to}
         title={linkTitle}
         className={({ isActive }) =>
-          "rounded-md px-4 py-2 font-semibold text-slate-700 hover:bg-gray-300" +
+          "rounded-md px-4 py-2 font-semibold text-white hover:bg-gray-300" +
           (isActive ? " bg-rose-600 !text-white hover:bg-rose-600" : "")
         }
       >

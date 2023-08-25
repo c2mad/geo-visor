@@ -1,3 +1,5 @@
+import Footer from "components/ui/footer";
+
 export const HomePage = () => {
   return (
     <>
@@ -74,9 +76,11 @@ export const HomePage = () => {
               </div>
             </div>
           </section>
-          <section className="h-32"></section>
         </div>
       </div>
+      <section className="h-32">
+        <Footer />
+      </section>
     </>
   );
 };
