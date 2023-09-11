@@ -5,7 +5,7 @@ import App from "App";
 
 export const Navbar = () => {
   return (
-    <nav className=" z-40 h-14 w-full bg-black">
+    <nav className=" bg-#545353 z-40 h-14 w-full bg-neutral-800">
       <div className="flex h-full w-full items-center justify-between px-4">
         <div className="flex divide-x-2 divide-gray-300">
           <Link to="/" className="block h-12 pr-6">
@@ -16,31 +16,57 @@ export const Navbar = () => {
               onClick={App}
             />
           </Link>
-          <div className="pl-6 font-medium uppercase text-gray-300">
-            <a
-              href="https://ciitt.ucacue.edu.ec/laboratorios/laboratorio-de-calculo-computacional-modelado-y-analitica-de-datos-c2mad/"
-              className="block transition-colors hover:text-rose-500 hover:underline"
-              target="_blank"
-              rel="noreferrer"
-            >
-              C2MAD
-            </a>
-            <a
-              href="https://ciitt.ucacue.edu.ec/laboratorios/laboratorio-datachademics/"
-              className="block transition-colors hover:text-rose-500 hover:underline"
-              target="_blank"
-              rel="noreferrer"
-            >
-              DatAchademics
-            </a>
-          </div>
         </div>
         <div>
           <ul className="flex space-x-4">
-            <NavbarLink to="/" linkTitle="Inicio" />
-            <NavbarLink to="/mapas/jose" linkTitle="Geo Visor" />
-            <NavbarLink to="/servicios" linkTitle="Servicios" />
-            <NavbarLink to="/contacto" linkTitle="Contacto" />
+            <NavbarLink to="/" linkTitle="Inicio">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </NavbarLink>
+            <NavbarLink to="/servicios" linkTitle="Servicios">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                />
+              </svg>
+            </NavbarLink>
+            <NavbarLink to="/contacto" linkTitle="Contacto">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                />
+              </svg>
+            </NavbarLink>
           </ul>
         </div>
       </div>
