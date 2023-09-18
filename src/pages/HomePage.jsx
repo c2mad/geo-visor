@@ -4,8 +4,6 @@ import imgturismo from "assets/images/mapas-turismo.jpg";
 import video from "../assets/images/video.mp4";
 import "../assets/css/home.css";
 
-import ReactPlayer from "react-player";
-
 export const HomePage = () => {
   return (
     <>
@@ -34,7 +32,7 @@ export const HomePage = () => {
                   </div>
                 </div>
               </div>
-              <div className="place-items-center">
+              <div className="flex h-full items-center justify-end px-40">
                 <div
                   data-element="fields"
                   data-stacked="false"
@@ -49,19 +47,19 @@ export const HomePage = () => {
                     </label>
                     <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5">
                       <svg
-                        class="h-3.5 w-3.5 text-gray-500 dark:text-gray-400"
-                        aria-hidden="true"
+                        className="h-3.5 w-3.5 text-gray-500 dark:text-gray-400"
                         xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
                         fill="currentColor"
-                        viewBox="0 0 20 16"
+                        viewBox="0 0 16 16"
                       >
-                        <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"></path>
-                        <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"></path>
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                       </svg>
                     </div>
                     <input
                       id="member_email"
-                      class="formkit-input block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:bg-red dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-red dark:focus:ring-red"
+                      class="formkit-input block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-rose-500 focus:ring-rose-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-rose-500 dark:focus:ring-rose-500"
                       name="search"
                       aria-label="Buscar "
                       placeholder="Buscar..."
@@ -75,7 +73,7 @@ export const HomePage = () => {
                       <div></div>
                       <div></div>
                     </div>
-                    <span className="cursor-pointer rounded-lg bg-red px-5 py-3 text-center text-sm font-medium text-white hover:bg-red focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <span className="cursor-pointer rounded-lg bg-rose-600 px-5 py-3 text-center text-sm font-medium text-white hover:bg-rose-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                       Buscar
                     </span>
                   </button>
