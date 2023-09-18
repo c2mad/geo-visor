@@ -12,15 +12,26 @@
   shadow: none;
 }
 
-@media (max-width: 768px) {
-  .text {
-    font-size: 16px;
-  }
+body {
+  @apply bg-white;
+  color: #000 !important;
+  /* background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80') no-repeat center center fixed; */
+  /* background-size: cover; */
 }
 
-@media (min-width: 769px) and (max-width: 992px) {
-  .text {
-    font-size: 18px;
+video {
+  object-fit: cover;
+}
+
+div.section {
+  background: #000;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0%;
+    transform: rotateY(90deg);
+    filter: blur(10px);
   }
 }
 

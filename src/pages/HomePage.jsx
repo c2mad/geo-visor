@@ -1,23 +1,25 @@
 import Footer from "components/ui/footer";
 import imgriesgos from "assets/images/mapa-riesgos.jpg";
 import imgturismo from "assets/images/mapas-turismo.jpg";
-
+import "../assets/css/home.css";
 export const HomePage = () => {
   return (
     <>
-      <div className="bg-inherit">
+      <div className="my-10 bg-inherit">
         <div id="tittle and description">
-          <section className="my-2 bg-slate-100">
-            <br />
-            <div className="container py-10 text-center text-gray-600">
-              <h3 className="font-semibold sm:text-6xl">
+          <section className="background-home my-2">
+            <div className="container py-10 text-center text-gray-400">
+              <h3 className="display-5 text-6xl font-semibold">
                 Infraestructura de Datos Espaciales de la Universidad Católica
                 de Cuenca
               </h3>
             </div>
             <div className="mx-auto w-full max-w-7xl px-1">
-              <div className="container text-gray-600">
-                <p className="lead text-justify font-sans sm:text-3xl">
+              <div _ngcontent-ffa-c440 className="container text-white">
+                <p
+                  _ngcontent-ffa-c440
+                  className="lead text-justify font-sans text-3xl"
+                >
                   Una Infraestructura de Datos Espaciales (IDE) es el conjunto
                   de políticas, leyes, normas, estándares, organizaciones,
                   planes, programas, proyectos, recursos humanos, tecnológicos y
