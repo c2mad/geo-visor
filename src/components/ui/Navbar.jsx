@@ -17,10 +17,10 @@ export const Navbar = () => {
         <div className="fixed left-0 right-0 top-0 bg-black py-3 shadow-md">
           <div className="flex justify-between">
             <div>
-              <div className="divide-x-3 flex divide-gray-300 px-10">
-                <Link to="/" className="block h-12 pr-6">
+              <div className="divide-x-3 divide-gray-300 px-10">
+                <Link to="/">
                   <img
-                    className="h-full w-full object-cover"
+                    className="h-10 object-cover"
                     src={logoImg}
                     alt="Logo CIITT"
                     onClick={App}

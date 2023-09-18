@@ -7,25 +7,17 @@ export const HomePage = () => {
     <>
       <div className="bg-inherit">
         <div id="tittle and description">
-          <section _ngcontent-ffa-c440 className="my-2">
-            <div
-              _ngcontent-ffa-c440
-              className="container py-10 text-center text-white"
-            >
-              <h3
-                _ngcontent-ffa-c440
-                className="display-5 text-6xl font-semibold"
-              >
+          <section className="my-2 bg-slate-100">
+            <br />
+            <div className="container py-10 text-center text-gray-600">
+              <h3 className="font-semibold sm:text-6xl">
                 Infraestructura de Datos Espaciales de la Universidad Católica
                 de Cuenca
               </h3>
             </div>
             <div className="mx-auto w-full max-w-7xl px-1">
-              <div _ngcontent-ffa-c440 className="container text-white">
-                <p
-                  _ngcontent-ffa-c440
-                  className="lead text-justify font-sans text-3xl"
-                >
+              <div className="container text-gray-600">
+                <p className="lead text-justify font-sans sm:text-3xl">
                   Una Infraestructura de Datos Espaciales (IDE) es el conjunto
                   de políticas, leyes, normas, estándares, organizaciones,
                   planes, programas, proyectos, recursos humanos, tecnológicos y
@@ -44,7 +36,7 @@ export const HomePage = () => {
         <div id="categorias" className="mx-auto w-full max-w-[1100px] px-3">
           <div className="mt-1  ">
             <section>
-              <h3 className="mb-6 text-center text-4xl font-semibold uppercase text-white">
+              <h3 className="mb-6 text-center text-4xl font-semibold uppercase text-black">
                 Categorias
               </h3>
 
@@ -59,7 +51,7 @@ export const HomePage = () => {
                       src={imgriesgos}
                       alt="Imagen de Mapa de Riesgos"
                     />
-                    <h5 className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-center text-xl font-medium text-white">
+                    <h5 className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-center text-xl font-medium text-black">
                       Mapas de Riesgos
                     </h5>
                   </a>
@@ -75,7 +67,7 @@ export const HomePage = () => {
                       src={imgturismo}
                       alt="Imagen de mapas turisticos"
                     />
-                    <h5 className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-center text-xl font-medium leading-tight text-white">
+                    <h5 className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-center text-xl font-medium leading-tight text-black">
                       Mapas Turísticos
                     </h5>
                   </a>
@@ -134,7 +126,7 @@ export const HomePage = () => {
                     />
                   </a>
                   <div className="p-6">
-                    <h5 className="mb-2 text-center text-xl font-medium leading-tight text-white">
+                    <h5 className="mb-2 text-center text-xl font-medium leading-tight text-black">
                       Mapas de Infraestructura
                     </h5>
                   </div>
