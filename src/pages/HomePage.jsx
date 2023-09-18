@@ -1,6 +1,7 @@
 import Footer from "components/ui/footer";
 import imgriesgos from "assets/images/mapa-riesgos.jpg";
 import imgturismo from "assets/images/mapas-turismo.jpg";
+import video from "../assets/images/video.mp4";
 import "../assets/css/home.css";
 
 import ReactPlayer from "react-player";
@@ -10,35 +11,74 @@ export const HomePage = () => {
     <>
       <div className="my-10 bg-inherit">
         <div id="tittle and description">
-          <section className="my-2">
-            <ReactPlayer
-              url="https://www.pexels.com/es-es/video/proyeccion-digital-de-un-planeta-de-simetria-geometrica-con-relacion-al-espacio-exterior-3141208/"
-              className="react-player"
-              playing
-              width="100%"
-              height="100%"
-            />
-            <div className="grid grid-cols-2">
-              <div className="container px-6 py-20 text-center text-gray-400">
-                <h3 className="display-5 font-semibold sm:text-4xl">
-                  Infraestructura de Datos Espaciales de la Universidad Católica
-                  de Cuenca
-                </h3>
-                <div className="mx-auto w-full max-w-7xl px-1">
-                  <div className="container py-14 text-gray-400">
-                    <p className="lead text-justify font-sans sm:text-2xl">
-                      Una Infraestructura de Datos Espaciales (IDE) es el
-                      conjunto de políticas, leyes, normas, estándares,
-                      organizaciones, planes, programas, proyectos, recursos
-                      humanos, tecnológicos y financieros, integrados
-                      adecuadamente para facilitar la producción, el acceso y
-                      uso de la geo-información regional, nacional o local, para
-                      el apoyo al desarrollo social, económico y ambiental de
-                      los pueblos. Se forma de servicios que permiten compartir,
-                      intercambiar, combinar, analizar y acceder a la
-                      Información Geográfica (IG).
+          <section className="background-home video-wrapper py-20">
+            <div className="header grid grid-cols-2 content-center items-stretch  gap-4 pt-10 text-white">
+              <div className="mx-40 ">
+                <div className="bt-6 container pb-6  text-white">
+                  <h3 className="display-5 text-6xl">
+                    <span className="font-bold"> GEOPORTAL</span>{" "}
+                    <span className="font-semibold text-rose-600"> UCACUE</span>
+                  </h3>
+                </div>
+                <div className="mx-auto w-full max-w-7xl px-1 py-20">
+                  <div className="container text-white">
+                    <p className="lead font-sans ">
+                      La Universidad Cátolica de Cuenca, pone a disposición de
+                      la ciudadanía en general, una herramienta que permite a
+                      los usuarios el acceso a una serie de recursos y servicios
+                      basados en información geográfica referenciada del Cantón
+                      Cuenca. La misma está diseñada para explorar y descargar
+                      una variedad de datos que son de utilidad para un mayor
+                      conocimiento del territorio.
                     </p>
                   </div>
+                </div>
+              </div>
+              <div className="place-items-center">
+                <div
+                  data-element="fields"
+                  data-stacked="false"
+                  class="seva-fields formkit-fields mb-3 flex w-full max-w-md items-center"
+                >
+                  <div class="formkit-field relative mr-3 w-full">
+                    <label
+                      for="member_email"
+                      class="mb-2 block hidden text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >
+                      Email address
+                    </label>
+                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5">
+                      <svg
+                        class="h-3.5 w-3.5 text-gray-500 dark:text-gray-400"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 20 16"
+                      >
+                        <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"></path>
+                        <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"></path>
+                      </svg>
+                    </div>
+                    <input
+                      id="member_email"
+                      class="formkit-input block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                      name="search"
+                      aria-label="Buscar "
+                      placeholder="Buscar..."
+                      required=""
+                      type="search"
+                    />
+                  </div>
+                  <button data-element="submit" className="formkit-submit">
+                    <div className="formkit-spinner">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <span className="cursor-pointer rounded-lg bg-rose-600 px-5 py-3 text-center text-sm font-medium text-white hover:bg-rose-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      Buscar
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
