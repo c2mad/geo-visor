@@ -8,82 +8,142 @@ export default function Listado() {
   const initialItems = [
     {
       id: 1,
-      title: "Vial",
+      title: "Estructura Vial de la Ciudad de Cuenca",
       imageUrl:
-        "https://us.123rf.com/450wm/bsd555/bsd5552003/bsd555200304114/143535533-conjunto-de-iconos-de-color-rgb-de-obras-viales-cono-de-tr%C3%A1fico-barrera-vial-carro-de-rodillos.jpg?ver=6",
+        "https://img.freepik.com/vector-gratis/concepto-cartografia-mapa-mundial-vintage_52683-26377.jpg?w=996&t=st=1694624780~exp=1694625380~hmac=c88ea11eeddf234ce3e67a26054e6ffd998268aa8e8731a310d34cef3166d448",
+      publication: "12 de Agosto 2023",
+      description:
+        "Ut pretium ultricies dignissim. Sed sit amet mi eget urna placerat vulputate. Ut vulputate est non quam dignissim elementum. Donec a ullamcorper diam.",
+      autor: "DatAchademics",
+      layeritem: "Leer más",
     },
     {
       id: 2,
       title: "Suelo",
       imageUrl:
-        "https://i.pinimg.com/originals/e2/54/f1/e254f165f0c63e235aa9ecb49ea489a2.jpg",
+        "https://img.freepik.com/vector-gratis/dibujo-tema-vintage-mapa-mundial_52683-26577.jpg?w=996&t=st=1694466163~exp=1694466763~hmac=772fae750ab1eda669bf83604d7bb8d8ce7de80a4f228dbd9a9e72f2d9a71c71",
+      publication: "12 de Agosto 2023",
+      description:
+        "It is difficult to believe that we have become so used to having instant access to information at.",
+      autor: "C2MAD",
+      layeritem: "Leer más",
     },
     {
       id: 3,
       title: "Turístico",
       imageUrl:
-        "https://static.vecteezy.com/system/resources/previews/008/201/844/non_2x/travel-agency-tourism-app-and-trips-logo-outdoor-adventure-emblems-emblem-design-on-white-background-vector.jpg",
+        "https://img.freepik.com/vector-gratis/mapa-mundo-tecnologia-global-o-red-conexion-social-nodos-enlaces-ilustracion-vectorial_1284-1968.jpg?w=996&t=st=1694467334~exp=1694467934~hmac=52dde44b546abe97fe3fe6c7971ec29c83f514494102398ec6b30b30249731ae",
+      publication: "12 de Agosto 2023",
+      description:
+        "It is difficult to believe that we have become so used to having instant access to information at.",
+      autor: "DatAchademics",
+      layeritem: "Leer más",
     },
     {
       id: 4,
       title: "Infraestructura",
       imageUrl:
         "https://us.123rf.com/450wm/bsd555/bsd5552102/bsd555210201744/163486742-icono-de-color-rgb-de-ingenier%C3%ADa-de-infraestructura-municipal-construcci%C3%B3n-urbana-negocio.jpg",
+      publication: "12 de Agosto 2023",
+      description:
+        "It is difficult to believe that we have become so used to having instant access to information at.",
+      autor: "RIOUC",
+      layeritem: "Leer más",
     },
     {
       id: 5,
       title: "Infraestructura",
       imageUrl:
         "https://us.123rf.com/450wm/bsd555/bsd5552102/bsd555210201744/163486742-icono-de-color-rgb-de-ingenier%C3%ADa-de-infraestructura-municipal-construcci%C3%B3n-urbana-negocio.jpg",
+      publication: "12 de Agosto 2023",
+      description:
+        "It is difficult to believe that we have become so used to having instant access to information at.",
+      autor: "RIOUC",
+      layeritem: "Leer más",
     },
     {
       id: 6,
       title: "Turístico",
       imageUrl:
         "https://static.vecteezy.com/system/resources/previews/008/201/844/non_2x/travel-agency-tourism-app-and-trips-logo-outdoor-adventure-emblems-emblem-design-on-white-background-vector.jpg",
+      publication: "12 de Agosto 2023",
+      description:
+        "It is difficult to believe that we have become so used to having instant access to information at.",
+      autor: "DatAchademics",
+      layeritem: "Leer más",
     },
     {
       id: 7,
       title: "Suelo",
       imageUrl:
         "https://i.pinimg.com/originals/e2/54/f1/e254f165f0c63e235aa9ecb49ea489a2.jpg",
+      publication: "12 de Agosto 2023",
+      description:
+        "It is difficult to believe that we have become so used to having instant access to information at.",
+      autor: "DatAchademics",
+      layeritem: "Leer más",
     },
     {
       id: 8,
       title: "Vial",
       imageUrl:
         "https://us.123rf.com/450wm/bsd555/bsd5552003/bsd555200304114/143535533-conjunto-de-iconos-de-color-rgb-de-obras-viales-cono-de-tr%C3%A1fico-barrera-vial-carro-de-rodillos.jpg?ver=6",
+      publication: "12 de Agosto 2023",
+      description:
+        "It is difficult to believe that we have become so used to having instant access to information at.",
+      autor: "C2MAD",
+      layeritem: "Leer más",
     },
     {
       id: 9,
       title: "Vial",
       imageUrl:
         "https://us.123rf.com/450wm/bsd555/bsd5552003/bsd555200304114/143535533-conjunto-de-iconos-de-color-rgb-de-obras-viales-cono-de-tr%C3%A1fico-barrera-vial-carro-de-rodillos.jpg?ver=6",
+      publication: "12 de Agosto 2023",
+      description:
+        "It is difficult to believe that we have become so used to having instant access to information at.",
+      autor: "DatAchademics",
+      layeritem: "Leer más",
     },
     {
       id: 10,
       title: "Suelo",
       imageUrl:
         "https://i.pinimg.com/originals/e2/54/f1/e254f165f0c63e235aa9ecb49ea489a2.jpg",
+      publication: "12 de Agosto de 2023",
+      description:
+        "It is difficult to believe that we have become so used to having instant access to information at",
+      autor: "DatAchademics",
+      layeritem: "Leer más",
     },
     {
       id: 11,
       title: "Turístico",
       imageUrl:
         "https://static.vecteezy.com/system/resources/previews/008/201/844/non_2x/travel-agency-tourism-app-and-trips-logo-outdoor-adventure-emblems-emblem-design-on-white-background-vector.jpg",
+      publication: "12 de Agosto de 2023",
+      description:
+        "It is difficult to believe that we have become so used to having instant access to information at",
+      autor: "C2MAD",
+      layeritem: "Leer más",
     },
     {
       id: 12,
       title: "Infraestructura",
       imageUrl:
         "https://us.123rf.com/450wm/bsd555/bsd5552102/bsd555210201744/163486742-icono-de-color-rgb-de-ingenier%C3%ADa-de-infraestructura-municipal-construcci%C3%B3n-urbana-negocio.jpg",
+      publication: "12 de Agosto de 2023",
+      description:
+        "It is difficult to believe that we have become so used to having instant access to information at",
+      autor: "RIOUC",
+      layeritem: "Leer más",
     },
     // ... (tus elementos)
   ];
 
   const [items, setItems] = useState(initialItems);
   const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 8;
+  const itemsPerPage = 9; // item por página
   const pageCount = Math.ceil(items.length / itemsPerPage);
 
   const handlePageClick = ({ selected }) => {
@@ -106,54 +166,81 @@ export default function Listado() {
   };
   return (
     <>
-      <div>
-        <Search onSearch={search2} />
-        {""}
-      </div>
-
-      <div id="lista_categorias">
-        <div
-          id="map_cat"
-          className="grid w-full grid-cols-3 gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4"
-        >
-          {itemsToDisplay.map((item) => (
-            <div
-              key={item.id}
-              className="bg-base-100 relative flex h-64 w-full flex-col items-center justify-center overflow-hidden rounded-lg p-4 hover:shadow"
-            >
-              <div className="flex h-full w-full justify-center rounded-lg bg-gray-100">
-                <a href="/mapas/jose">
-                  <img
-                    src={item.imageUrl}
-                    alt={item.title}
-                    className="flex h-48 justify-center"
-                  />
-                </a>
-              </div>
-              <h2 className="mt-2 line-clamp-1 text-sm font-semibold text-black">
-                {item.title}
-              </h2>
-            </div>
-          ))}
+      <div className="mx-auto w-full max-w-[1100px] px-3">
+        <div id="tittle" className="text-center font-sans text-2xl">
+          <br />
+          <h1>Listado de proyectos en Mapas de riesgos</h1>
         </div>
-        <ReactPaginate
-          previousLabel={"«"}
-          nextLabel={"»"}
-          breakLabel={"..."}
-          pageCount={pageCount}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination flex mt-4 justify-center"}
-          pageClassName={"mr-2 p-3 border rounded-full"}
-          previousClassName={"mr-2 p-3 bg-rose-600 border rounded-full"}
-          nextClassName={"mr-2 p-3 bg-rose-600 border rounded-full"}
-          activeClassName={"bg-rose-600 text-white rounded-full"}
-          previousLinkClassName={"text-white"}
-          nextLinkClassName={"text-white"}
-        />
+        <div>
+          <Search onSearch={search2} />
+          {""}
+        </div>
+
+        <div id="lista_categorias" className="container mx-auto my-24 md:px-6">
+          <section class="mb-32 text-center">
+            <div id="map_cat" className="grid gap-6 lg:grid-cols-3 xl:gap-x-12">
+              {itemsToDisplay.map((item) => (
+                <div key={item.id} className="mb-6 lg:mb-0">
+                  <div
+                    className="mb-6 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20"
+                    data-te-ripple-init
+                    data-te-ripple-color="light"
+                  >
+                    <a href="/mapas/jose">
+                      <img
+                        src={item.imageUrl}
+                        alt={item.title}
+                        className="w-full"
+                      />
+                    </a>
+                  </div>
+                  <h5 className="mb-3 text-lg font-bold text-white">
+                    {item.title}
+                  </h5>
+                  <p className="mb-6 text-neutral-500 dark:text-white">
+                    <small>
+                      Publicado <u>{item.publication}</u> por{" "}
+                      <a href="https://ciitt.ucacue.edu.ec/laboratorios/laboratorio-datachademics/">
+                        {item.autor}
+                      </a>
+                    </small>
+                  </p>
+                  <p className="text-justify text-neutral-500 dark:text-white">
+                    {item.description}
+                  </p>
+                  <p>
+                    <a
+                      href="/mapas/jose"
+                      data-te-ripple-init
+                      data-te-ripple-color="light"
+                      className="hover:bg-primary-600 focus:bg-primary-600 active:bg-primary-700 inline-block rounded-full bg-red px-6 pb-2 pt-2.5 text-center text-xs font-medium text-white"
+                    >
+                      {item.layeritem}
+                    </a>
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <ReactPaginate
+            previousLabel={"«"}
+            nextLabel={"»"}
+            breakLabel={"..."}
+            pageCount={pageCount}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClick}
+            containerClassName={"pagination flex mt-4 justify-center"}
+            pageClassName={"mr-2 p-3 border rounded-full"}
+            previousClassName={"mr-2 p-3 bg-red border rounded-full"}
+            nextClassName={"mr-2 p-3 bg-red border rounded-full"}
+            activeClassName={"bg-red text-white rounded-full"}
+            previousLinkClassName={"text-white"}
+            nextLinkClassName={"text-white"}
+          />
+        </div>
       </div>
-      <section className="h-20"></section>
     </>
   );
 }

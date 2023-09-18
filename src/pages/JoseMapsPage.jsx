@@ -1,6 +1,5 @@
 import { ChoseLayerItem } from "components/maps/ChoseLayerItem";
 import { GeoViewerJose } from "components/maps/GeoViewerJose";
-import { GeoViewerWithReact } from "components/maps/GeoViewerWithReact";
 
 import {
   useExpCalicatas,

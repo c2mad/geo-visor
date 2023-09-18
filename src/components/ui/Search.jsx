@@ -13,7 +13,7 @@ const Search = ({ onSearch }) => {
       onSubmit={handleSearch}
       className="mx-auto w-full max-w-[1100px] px-3"
     >
-      <div className="relative flex rounded-md shadow-lg">
+      <div className=" flex rounded-md shadow-lg">
         <input
           type="text"
           placeholder="Buscar MAPA"
@@ -35,7 +35,7 @@ const Search = ({ onSearch }) => {
         </div>
         <button
           type="submit"
-          className="inline-flex flex-shrink-0 items-center justify-center rounded-r-md border border-transparent bg-rose-600 px-4 py-3 text-sm font-semibold text-white transition-all hover:bg-rose-600 focus:z-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="inline-flex flex-shrink-0 items-center justify-center rounded-r-md border border-transparent bg-red px-4 py-3 text-sm font-semibold text-white transition-all hover:bg-red focus:z-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           Buscar
         </button>
