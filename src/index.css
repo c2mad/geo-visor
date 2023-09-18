@@ -19,24 +19,4 @@ body {
   /* background-size: cover; */
 }
 
-video {
-  object-fit: cover;
-}
 
-div.section {
-  background: #000;
-}
-
-@keyframes animate {
-  0% {
-    opacity: 0%;
-    transform: rotateY(90deg);
-    filter: blur(10px);
-  }
-}
-
-@media (min-width: 993px) {
-  .text {
-    font-size: 20px;
-  }
-}
