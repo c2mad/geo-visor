@@ -198,8 +198,8 @@ export default function Listado() {
                         className="relative w-48"
                       />
                     </a>
-                    <div>
-                      <h5 className="mb-3 text-lg font-bold text-black">
+                    <div className="text-left">
+                      <h5 className="mb-3 text-left text-lg font-bold text-black">
                         {item.title}
                       </h5>
                       <p className="mb-6 text-neutral-500 dark:text-black">
@@ -210,21 +210,17 @@ export default function Listado() {
                           </a>
                         </small>
                       </p>
-                      <p className="text-justify text-neutral-500 dark:text-black">
+                      <p className="text-left text-neutral-500 dark:text-black">
                         {item.description}
                       </p>
                     </div>
-                    <div>
-                      <p>
-                        <a
-                          href="/mapas/jose"
-                          data-te-ripple-init
-                          data-te-ripple-color="light"
-                          className="hover:bg-primary-600 focus:bg-primary-600 active:bg-primary-700 items-center rounded-full bg-white px-6 pb-2 pt-2.5 text-center text-xs font-medium text-black"
-                        >
-                          {item.layeritem}
-                        </a>
-                      </p>
+                    <div className="bg-red">
+                      <a
+                        href="/mapas/jose"
+                        className="text-white hover:bg-black"
+                      >
+                        {item.layeritem}
+                      </a>
                     </div>
                   </div>
                 </div>

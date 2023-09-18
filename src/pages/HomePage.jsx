@@ -61,7 +61,7 @@ export const HomePage = () => {
                     </div>
                     <input
                       id="member_email"
-                      class="formkit-input block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                      class="formkit-input block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:bg-red dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-red dark:focus:ring-red"
                       name="search"
                       aria-label="Buscar "
                       placeholder="Buscar..."
@@ -75,7 +75,7 @@ export const HomePage = () => {
                       <div></div>
                       <div></div>
                     </div>
-                    <span className="cursor-pointer rounded-lg bg-rose-600 px-5 py-3 text-center text-sm font-medium text-white hover:bg-rose-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <span className="cursor-pointer rounded-lg bg-red px-5 py-3 text-center text-sm font-medium text-white hover:bg-red focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                       Buscar
                     </span>
                   </button>
