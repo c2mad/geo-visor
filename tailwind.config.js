@@ -7,6 +7,9 @@ module.exports = {
       colors: {
         red: "#E20613",
       },
+      backgroundImage: {
+        'home-background': "url('assets/images/fondo-home.jpg')",
+      }
     },
   },
 

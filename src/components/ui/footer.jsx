@@ -83,9 +83,7 @@ const Footer = () => {
                       src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7969.724696605074!2d-78.9656163!3d-2.8560806!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd1733f70eca17%3A0xbe544f95d8070fc6!2sCIITT%20-%20Universidad%20Cat%C3%B3lica%20de%20Cuenca!5e0!3m2!1ses!2sec!4v1693337053326!5m2!1ses!2sec"
                       width="400"
                       height="230"
-                      allowfullscreen=""
                       loading="lazy"
-                      referrerpolicy="no-referrer-when-downgrade"
                       title="maps"
                     ></iframe>
                   </ul>
