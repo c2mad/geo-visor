@@ -16,12 +16,7 @@ export const ContactPage = () => {
               </h2>
               {/* Campos de formulario */}
               <div className="mb-4">
-                <label
-                  htmlFor="nombre"
-                  className="block font-medium text-white "
-                >
-                  Nombre
-                </label>
+                <label className="block font-medium text-white ">Nombre</label>
                 <input
                   type="text"
                   id="nombre"
@@ -31,7 +26,7 @@ export const ContactPage = () => {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="email" className="block font-medium text-white">
+                <label className="block font-medium text-white">
                   Correo Electrónico
                 </label>
                 <input
@@ -43,12 +38,7 @@ export const ContactPage = () => {
                 />
               </div>
               <div className="mb-4">
-                <label
-                  htmlFor="mensaje"
-                  className="block font-medium text-white"
-                >
-                  Mensaje
-                </label>
+                <label className="block font-medium text-white">Mensaje</label>
                 <textarea
                   id="mensaje"
                   name="mensaje"
