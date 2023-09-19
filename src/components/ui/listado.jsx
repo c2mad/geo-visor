@@ -182,7 +182,7 @@ export default function Listado() {
           id="lista_categorias"
           className="container col-span-2 mx-auto my-24 md:px-6"
         >
-          <section class="mb-32 text-center">
+          <section className="mb-32 text-center">
             <div id="map_cat" className="gap-6 xl:gap-x-12">
               {itemsToDisplay.map((item) => (
                 <div key={item.id} className="mb-6 lg:mb-0">
