@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 import "tailwindcss/tailwind.css";
 import Search from "./Search";
-
+import categories from "../../utils/categories";
 export default function Listado() {
   // Define tu lista de elementos
   const initialItems = [
@@ -14,9 +14,13 @@ export default function Listado() {
       publication: "12 de Agosto 2023",
       description:
         "It is difficult to believe that we have become so used to having instant access to information at.",
-      autor: "DatAchademics",
+      fuente: "DatAchademics",
       layeritem: "Leer más",
-      category: 1,
+      category: 6,
+      autores: [
+        { id: 1, name: "Sandra Cobos" },
+        { id: 2, name: "Setefano Torrachi" },
+      ],
     },
     {
       id: 2,
@@ -26,9 +30,13 @@ export default function Listado() {
       publication: "12 de Agosto 2023",
       description:
         "It is difficult to believe that we have become so used to having instant access to information at.",
-      autor: "C2MAD",
+      fuente: "C2MAD",
       layeritem: "Leer más",
       category: 2,
+      autores: [
+        { id: 1, name: "Sandra Cobos" },
+        { id: 2, name: "Setefano Torrachi" },
+      ],
     },
     {
       id: 3,
@@ -38,9 +46,13 @@ export default function Listado() {
       publication: "12 de Agosto 2023",
       description:
         "It is difficult to believe that we have become so used to having instant access to information at.",
-      autor: "DatAchademics",
+      fuente: "DatAchademics",
       layeritem: "Leer más",
-      category: 1,
+      category: 5,
+      autores: [
+        { id: 1, name: "Sandra Cobos" },
+        { id: 2, name: "Setefano Torrachi" },
+      ],
     },
     {
       id: 4,
@@ -50,9 +62,13 @@ export default function Listado() {
       publication: "12 de Agosto 2023",
       description:
         "It is difficult to believe that we have become so used to having instant access to information at.",
-      autor: "RIOUC",
+      fuente: "RIOUC",
       layeritem: "Leer más",
       category: 1,
+      autores: [
+        { id: 1, name: "Sandra Cobos" },
+        { id: 2, name: "Setefano Torrachi" },
+      ],
     },
     {
       id: 5,
@@ -62,9 +78,13 @@ export default function Listado() {
       publication: "12 de Agosto 2023",
       description:
         "It is difficult to believe that we have become so used to having instant access to information at.",
-      autor: "RIOUC",
+      fuente: "RIOUC",
       layeritem: "Leer más",
       category: 1,
+      autores: [
+        { id: 1, name: "Sandra Cobos" },
+        { id: 2, name: "Setefano Torrachi" },
+      ],
     },
     {
       id: 6,
@@ -74,9 +94,13 @@ export default function Listado() {
       publication: "12 de Agosto 2023",
       description:
         "It is difficult to believe that we have become so used to having instant access to information at.",
-      autor: "DatAchademics",
+      fuente: "DatAchademics",
       layeritem: "Leer más",
       category: 1,
+      autores: [
+        { id: 1, name: "Sandra Cobos" },
+        { id: 2, name: "Setefano Torrachi" },
+      ],
     },
     {
       id: 7,
@@ -86,9 +110,13 @@ export default function Listado() {
       publication: "12 de Agosto 2023",
       description:
         "It is difficult to believe that we have become so used to having instant access to information at.",
-      autor: "DatAchademics",
+      fuente: "DatAchademics",
       layeritem: "Leer más",
       category: 1,
+      autores: [
+        { id: 1, name: "Sandra Cobos" },
+        { id: 2, name: "Setefano Torrachi" },
+      ],
     },
     {
       id: 8,
@@ -98,9 +126,13 @@ export default function Listado() {
       publication: "12 de Agosto 2023",
       description:
         "It is difficult to believe that we have become so used to having instant access to information at.",
-      autor: "C2MAD",
+      fuente: "C2MAD",
       layeritem: "Leer más",
       category: 1,
+      autores: [
+        { id: 1, name: "Sandra Cobos" },
+        { id: 2, name: "Setefano Torrachi" },
+      ],
     },
     {
       id: 9,
@@ -110,9 +142,13 @@ export default function Listado() {
       publication: "12 de Agosto 2023",
       description:
         "It is difficult to believe that we have become so used to having instant access to information at.",
-      autor: "DatAchademics",
+      fuente: "DatAchademics",
       layeritem: "Leer más",
       category: 1,
+      autores: [
+        { id: 1, name: "Sandra Cobos" },
+        { id: 2, name: "Setefano Torrachi" },
+      ],
     },
     {
       id: 10,
@@ -122,9 +158,13 @@ export default function Listado() {
       publication: "12 de Agosto de 2023",
       description:
         "It is difficult to believe that we have become so used to having instant access to information at",
-      autor: "DatAchademics",
+      fuente: "DatAchademics",
       layeritem: "Leer más",
       category: 1,
+      autores: [
+        { id: 1, name: "Sandra Cobos" },
+        { id: 2, name: "Setefano Torrachi" },
+      ],
     },
     {
       id: 11,
@@ -134,9 +174,13 @@ export default function Listado() {
       publication: "12 de Agosto de 2023",
       description:
         "It is difficult to believe that we have become so used to having instant access to information at",
-      autor: "C2MAD",
+      fuente: "C2MAD",
       layeritem: "Leer más",
-      category: 1,
+      category: 6,
+      autores: [
+        { id: 1, name: "Sandra Cobos" },
+        { id: 2, name: "Setefano Torrachi" },
+      ],
     },
     {
       id: 12,
@@ -146,9 +190,13 @@ export default function Listado() {
       publication: "12 de Agosto de 2023",
       description:
         "It is difficult to believe that we have become so used to having instant access to information at",
-      autor: "RIOUC",
+      fuente: "RIOUC",
       layeritem: "Leer más",
-      category: 1,
+      category: 3,
+      autores: [
+        { id: 1, name: "Sandra Cobos" },
+        { id: 2, name: "Setefano Torrachi" },
+      ],
     },
     // ... (tus elementos)
   ];
@@ -218,7 +266,18 @@ export default function Listado() {
                         <small>
                           Publicado <u>{item.publication}</u> por{" "}
                           <a href="https://ciitt.ucacue.edu.ec/laboratorios/laboratorio-datachademics/">
-                            {item.autor}
+                            {item.fuente}
+                          </a>
+                          {item.autores.map((autor) => (
+                            <a>{autor.name}</a>
+                          ))}
+                          <a>
+                            {" "}
+                            {
+                              categories.find(
+                                (category) => category.id === item.category
+                              ).name
+                            }
                           </a>
                         </small>
                       </p>
