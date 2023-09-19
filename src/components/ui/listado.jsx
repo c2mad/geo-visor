@@ -175,75 +175,92 @@ export default function Listado() {
           <Search onSearch={search2} />
           {""}
         </div>
-        <div id="filter" className="col-span-1">
-          <h1>Filtros de busqueda</h1>
-        </div>
-        <div
-          id="lista_categorias"
-          className="container col-span-2 mx-auto my-24 md:px-6"
-        >
-          <section className="mb-32 text-center">
-            <div id="map_cat" className="gap-6 xl:gap-x-12">
-              {itemsToDisplay.map((item) => (
-                <div key={item.id} className="mb-6 lg:mb-0">
-                  <div
-                    className="mb-6 grid grid-flow-col overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20"
-                    data-te-ripple-init
-                    data-te-ripple-color="light"
-                  >
-                    <a href="/mapas/jose">
-                      <img
-                        src={item.imageUrl}
-                        alt={item.title}
-                        className="relative w-48"
-                      />
-                    </a>
-                    <div className="text-left">
-                      <h5 className="mb-3 text-left text-lg font-bold text-black">
-                        {item.title}
-                      </h5>
-                      <p className="mb-6 text-neutral-500 dark:text-black">
-                        <small>
-                          Publicado <u>{item.publication}</u> por{" "}
-                          <a href="https://ciitt.ucacue.edu.ec/laboratorios/laboratorio-datachademics/">
-                            {item.autor}
-                          </a>
-                        </small>
-                      </p>
-                      <p className="text-left text-neutral-500 dark:text-black">
-                        {item.description}
-                      </p>
-                    </div>
-                    <div className="bg-red">
+
+        <div className="grid max-w-[1300px] flex-1 grid-flow-col">
+          <div id="filter">
+            <h1>Filtros de busqueda</h1>
+            <div class="container mx-auto p-4">
+              <label
+                for="filtro"
+                class="mb-2 block text-sm font-semibold text-gray-600"
+              >
+                Filtrar por:
+              </label>
+              <select
+                id="filtro"
+                class="w-full rounded-lg border px-4 py-2 focus:border-blue-500 focus:outline-none"
+              >
+                <option value="opcion1">Autor</option>
+                <option value="opcion2">Laboratorio</option>
+                <option value="opcion3">Fecha de publicación</option>
+              </select>
+            </div>
+          </div>
+          <div
+            id="lista_categorias"
+            className="container col-span-2 mx-auto my-24  md:px-6"
+          >
+            <section class="mb-32 text-center">
+              <div id="map_cat" className="gap-6 xl:gap-x-12">
+                {itemsToDisplay.map((item) => (
+                  <div key={item.id} className="mb-6 lg:mb-0">
+                    <div
+                      className="mb-6 grid grid-flow-col overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20"
+                      data-te-ripple-init
+                      data-te-ripple-color="light"
+                    >
+                      <a href="/mapas/jose">
+                        <img
+                          src={item.imageUrl}
+                          alt={item.title}
+                          className="relative w-48"
+                        />
+                      </a>
+                      <div className="text-left">
+                        <h5 className="mb-3 text-left text-lg font-bold text-black">
+                          {item.title}
+                        </h5>
+                        <p className="mb-6 text-neutral-500 dark:text-black">
+                          <small>
+                            Publicado <u>{item.publication}</u> por{" "}
+                            <a href="https://ciitt.ucacue.edu.ec/laboratorios/laboratorio-datachademics/">
+                              {item.autor}
+                            </a>
+                          </small>
+                        </p>
+                        <p className="text-left text-neutral-500 dark:text-black">
+                          {item.description}
+                        </p>
+                      </div>
                       <a
                         href="/mapas/jose"
-                        className="text-white hover:bg-black"
+                        className="items-center justify-center bg-red text-white hover:bg-black"
                       >
                         {item.layeritem}
                       </a>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </section>
+                ))}
+              </div>
+            </section>
 
-          <ReactPaginate
-            previousLabel={"«"}
-            nextLabel={"»"}
-            breakLabel={"..."}
-            pageCount={pageCount}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={handlePageClick}
-            containerClassName={"pagination flex mt-4 justify-center"}
-            pageClassName={"mr-2 p-3 border rounded-full"}
-            previousClassName={"mr-2 p-3 bg-red border rounded-full"}
-            nextClassName={"mr-2 p-3 bg-red border rounded-full"}
-            activeClassName={"bg-red text-black rounded-full"}
-            previousLinkClassName={"text-black"}
-            nextLinkClassName={"text-black"}
-          />
+            <ReactPaginate
+              previousLabel={"«"}
+              nextLabel={"»"}
+              breakLabel={"..."}
+              pageCount={pageCount}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination flex mt-4 justify-center"}
+              pageClassName={"mr-2 p-3 border rounded-full"}
+              previousClassName={"mr-2 p-3 bg-red border rounded-full"}
+              nextClassName={"mr-2 p-3 bg-red border rounded-full"}
+              activeClassName={"bg-red text-black rounded-full"}
+              previousLinkClassName={"text-black"}
+              nextLinkClassName={"text-black"}
+            />
+          </div>
         </div>
       </div>
     </>
