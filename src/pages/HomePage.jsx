@@ -37,7 +37,7 @@ export const HomePage = () => {
                   data-stacked="false"
                   className="seva-fields formkit-fields mb-3 flex  w-full max-w-md items-center px-10"
                 >
-                  <div className="formkit-field relative mr-3 ">
+                  <div className="formkit-field mr-3 ">
                     <label className="mb-2  hidden text-sm font-medium text-gray-900 dark:text-gray-300">
                       Buscar
                     </label>
@@ -94,7 +94,7 @@ export const HomePage = () => {
                     >
                       <a
                         href={item.to}
-                        className="relative block overflow-hidden rounded-lg"
+                        className=" block overflow-hidden rounded-lg"
                       >
                         <img
                           className="h-auto w-full rounded-lg"
