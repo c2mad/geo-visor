@@ -42,10 +42,10 @@ export default function Listado() {
           {""}
         </div>
 
-        <div className="grid max-w-[1300px] flex-1 grid-flow-col">
-          <div id="filter">
+        <div className="mx-auto grid max-w-[1400px] grid-flow-col border border-solid">
+          <div id="filter" className="border border-solid">
             <h1>Filtros de busqueda</h1>
-            <div class="container mx-auto p-4">
+            <div class="container mx-auto  p-4">
               <label
                 for="filtro"
                 class="mb-2 block text-sm font-semibold text-gray-600"
@@ -62,27 +62,24 @@ export default function Listado() {
               </select>
             </div>
           </div>
-          <div
-            id="lista_categorias"
-            className="container col-span-2 mx-auto my-24  md:px-6"
-          >
-            <section class="mb-32 text-center">
+          <div id="lista_categorias" className="my-5 px-5">
+            <section class="mb-32">
               <div id="map_cat" className="gap-6 xl:gap-x-12">
                 {itemsToDisplay.map((item) => (
                   <div key={item.id} className="mb-6 lg:mb-0">
                     <div
-                      className="mb-6 grid grid-flow-col overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20"
+                      className="mb-6 grid grid-flow-col overflow-hidden rounded-lg border border-gray-500 bg-no-repeat object-cover shadow-lg dark:shadow-black/20"
                       data-te-ripple-init
                       data-te-ripple-color="light"
                     >
-                      <a href="/mapas/jose">
+                      <a href="/mapas/jose" className="object-cover p-4">
                         <img
                           src={item.imageUrl}
                           alt={item.title}
-                          className="relative w-48 object-cover"
+                          className="divide h-32 w-auto rounded-lg"
                         />
                       </a>
-                      <div className="text-left">
+                      <div className=" p-4 text-left">
                         <h5 className="mb-3 text-left text-lg font-bold text-black">
                           {item.title}
                         </h5>
@@ -109,14 +106,14 @@ export default function Listado() {
                               }
                             </a>
                           </small>
-                        </p>
-                        <p className="text-left text-neutral-500 dark:text-black">
-                          {item.description}
+                          <p className="text-left text-base">
+                            {item.description}
+                          </p>
                         </p>
                       </div>
                       <a
                         href="/mapas/jose"
-                        className="items-center justify-center bg-red text-white hover:bg-black"
+                        className="flex h-full items-center justify-center bg-red text-center text-white hover:bg-slate-600"
                       >
                         {item.layeritem}
                       </a>

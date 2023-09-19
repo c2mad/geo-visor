@@ -70,7 +70,7 @@ export const HomePage = () => {
                       <div></div>
                       <div></div>
                     </div>
-                    <span className="cursor-pointer rounded-lg bg-rose-600 px-5 py-3 text-center text-sm font-medium text-white hover:bg-rose-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <span className="cursor-pointer rounded-lg bg-rose-600 px-5 py-3 text-center text-sm font-medium text-white hover:bg-rose-800 focus:ring-4 focus:ring-blue-300 dark:bg-red dark:hover:bg-red dark:focus:bg-red">
                       Buscar
                     </span>
                   </button>
