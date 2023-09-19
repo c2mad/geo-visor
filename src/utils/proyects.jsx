@@ -14,6 +14,7 @@ const proyects = [
       { id: 1, name: "Sandra Cobos" },
       { id: 2, name: "Setefano Torrachi" },
     ],
+    to: "/mapas/jose",
   },
   {
     id: 2,
@@ -30,6 +31,7 @@ const proyects = [
       { id: 1, name: "Sandra Cobos" },
       { id: 2, name: "Setefano Torrachi" },
     ],
+    to: "/mapas/jose",
   },
   {
     id: 3,
@@ -46,6 +48,7 @@ const proyects = [
       { id: 1, name: "Sandra Cobos" },
       { id: 2, name: "Setefano Torrachi" },
     ],
+    to: "/mapas/jose",
   },
   {
     id: 4,
@@ -62,6 +65,7 @@ const proyects = [
       { id: 1, name: "Sandra Cobos" },
       { id: 2, name: "Setefano Torrachi" },
     ],
+    to: "/mapas/jose",
   },
   {
     id: 5,
@@ -78,6 +82,7 @@ const proyects = [
       { id: 1, name: "Sandra Cobos" },
       { id: 2, name: "Setefano Torrachi" },
     ],
+    to: "/mapas/jose",
   },
   {
     id: 6,
@@ -94,6 +99,7 @@ const proyects = [
       { id: 1, name: "Sandra Cobos" },
       { id: 2, name: "Setefano Torrachi" },
     ],
+    to: "/mapas/jose",
   },
   {
     id: 7,
@@ -110,6 +116,7 @@ const proyects = [
       { id: 1, name: "Sandra Cobos" },
       { id: 2, name: "Setefano Torrachi" },
     ],
+    to: "/mapas/jose",
   },
   {
     id: 8,
@@ -126,6 +133,7 @@ const proyects = [
       { id: 1, name: "Sandra Cobos" },
       { id: 2, name: "Setefano Torrachi" },
     ],
+    to: "/mapas/jose",
   },
   {
     id: 9,
@@ -142,6 +150,7 @@ const proyects = [
       { id: 1, name: "Sandra Cobos" },
       { id: 2, name: "Setefano Torrachi" },
     ],
+    to: "/mapas/jose",
   },
   {
     id: 10,
@@ -158,6 +167,7 @@ const proyects = [
       { id: 1, name: "Sandra Cobos" },
       { id: 2, name: "Setefano Torrachi" },
     ],
+    to: "/mapas/jose",
   },
   {
     id: 11,
@@ -174,6 +184,7 @@ const proyects = [
       { id: 1, name: "Sandra Cobos" },
       { id: 2, name: "Setefano Torrachi" },
     ],
+    to: "/mapas/jose",
   },
   {
     id: 12,
@@ -190,6 +201,7 @@ const proyects = [
       { id: 1, name: "Sandra Cobos" },
       { id: 2, name: "Setefano Torrachi" },
     ],
+    to: "/mapas/jose",
   },
   // ... (tus elementos)
 ];
