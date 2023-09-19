@@ -273,7 +273,7 @@ export default function Listado() {
                         <img
                           src={item.imageUrl}
                           alt={item.title}
-                          className="relative w-48"
+                          className="relative w-48 object-cover"
                         />
                       </a>
                       <div className="text-left">
@@ -282,9 +282,25 @@ export default function Listado() {
                         </h5>
                         <p className="mb-6 text-neutral-500 dark:text-black">
                           <small>
-                            Publicado <u>{item.publication}</u> por{" "}
+                            <label className="font-bold">Publicación: </label>
+                            {item.publication}{" "}
+                            <label className="font-bold">Fuente: </label>
                             <a href="https://ciitt.ucacue.edu.ec/laboratorios/laboratorio-datachademics/">
-                              {item.autor}
+                              {item.fuente}
+                            </a>
+                            <br />
+                            <label className="font-bold">Autores: </label>
+                            {item.autores.map((autor) => (
+                              <a>{autor.name}</a>
+                            ))}
+                            <a>
+                              {" "}
+                              <label className="font-bold">Categoría: </label>
+                              {
+                                categories.find(
+                                  (category) => category.id === item.category
+                                ).name
+                              }
                             </a>
                           </small>
                         </p>
