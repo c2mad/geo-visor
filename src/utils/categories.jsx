@@ -3,7 +3,7 @@ const categories = [
   {
     id: 1,
     name: "Mapas de Riesgos",
-    description: "Mapa de Riesgos",
+    description: "Consulta los datos espaciales relacionados con los riesgos",
     image: imgturismo,
     to: "/proyects",
   },

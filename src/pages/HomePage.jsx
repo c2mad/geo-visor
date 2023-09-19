@@ -82,8 +82,8 @@ export const HomePage = () => {
         <div id="categorias" className="mx-auto w-full max-w-[1100px] px-3">
           <div className="mt-1  ">
             <section>
-              <h3 className="mb-6 text-center text-4xl font-semibold uppercase text-black">
-                Categorias
+              <h3 className="mb-6 text-center text-4xl font-semibold text-black">
+                Categorias de Datos
               </h3>
               <div className="grid-cols-1 sm:grid md:grid-cols-3 ">
                 {categoties.map((item) => {
@@ -99,11 +99,12 @@ export const HomePage = () => {
                         <img
                           className="h-auto w-full rounded-lg"
                           src={item.image}
-                          alt={item.description}
+                          alt={item.name}
                         />
-                        <h5 className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-center text-xl font-medium text-white">
+                        <p className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-center  font-medium text-white">
                           {item.name}
-                        </h5>
+                          <p className="text-[14px]">{item.description}</p>
+                        </p>
                       </a>
                     </div>
                   );

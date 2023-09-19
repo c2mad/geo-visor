@@ -16,6 +16,7 @@ export default function Listado() {
         "It is difficult to believe that we have become so used to having instant access to information at.",
       autor: "DatAchademics",
       layeritem: "Leer más",
+      category: 1,
     },
     {
       id: 2,
@@ -27,6 +28,7 @@ export default function Listado() {
         "It is difficult to believe that we have become so used to having instant access to information at.",
       autor: "C2MAD",
       layeritem: "Leer más",
+      category: 2,
     },
     {
       id: 3,
@@ -38,6 +40,7 @@ export default function Listado() {
         "It is difficult to believe that we have become so used to having instant access to information at.",
       autor: "DatAchademics",
       layeritem: "Leer más",
+      category: 1,
     },
     {
       id: 4,
@@ -49,6 +52,7 @@ export default function Listado() {
         "It is difficult to believe that we have become so used to having instant access to information at.",
       autor: "RIOUC",
       layeritem: "Leer más",
+      category: 1,
     },
     {
       id: 5,
@@ -60,6 +64,7 @@ export default function Listado() {
         "It is difficult to believe that we have become so used to having instant access to information at.",
       autor: "RIOUC",
       layeritem: "Leer más",
+      category: 1,
     },
     {
       id: 6,
@@ -71,6 +76,7 @@ export default function Listado() {
         "It is difficult to believe that we have become so used to having instant access to information at.",
       autor: "DatAchademics",
       layeritem: "Leer más",
+      category: 1,
     },
     {
       id: 7,
@@ -82,6 +88,7 @@ export default function Listado() {
         "It is difficult to believe that we have become so used to having instant access to information at.",
       autor: "DatAchademics",
       layeritem: "Leer más",
+      category: 1,
     },
     {
       id: 8,
@@ -93,6 +100,7 @@ export default function Listado() {
         "It is difficult to believe that we have become so used to having instant access to information at.",
       autor: "C2MAD",
       layeritem: "Leer más",
+      category: 1,
     },
     {
       id: 9,
@@ -104,6 +112,7 @@ export default function Listado() {
         "It is difficult to believe that we have become so used to having instant access to information at.",
       autor: "DatAchademics",
       layeritem: "Leer más",
+      category: 1,
     },
     {
       id: 10,
@@ -115,6 +124,7 @@ export default function Listado() {
         "It is difficult to believe that we have become so used to having instant access to information at",
       autor: "DatAchademics",
       layeritem: "Leer más",
+      category: 1,
     },
     {
       id: 11,
@@ -126,6 +136,7 @@ export default function Listado() {
         "It is difficult to believe that we have become so used to having instant access to information at",
       autor: "C2MAD",
       layeritem: "Leer más",
+      category: 1,
     },
     {
       id: 12,
@@ -137,6 +148,7 @@ export default function Listado() {
         "It is difficult to believe that we have become so used to having instant access to information at",
       autor: "RIOUC",
       layeritem: "Leer más",
+      category: 1,
     },
     // ... (tus elementos)
   ];
