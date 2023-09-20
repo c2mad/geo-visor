@@ -1,4 +1,4 @@
-import imgcat from "assets/images/imgcate.png";
+import imgcat from "assets/images/imgplantilla.jpg";
 const proyects = [
   {
     id: 1,
