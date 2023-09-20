@@ -82,7 +82,10 @@ export const Navbar = () => {
                 </svg>
               </button>
               <ul title="Menú" className="w-60">
-                <div className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red">
+                <div
+                  className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
+                  onClick={() => setOpen(false)}
+                >
                   <NavbarLink to="/" linkTitle="Inicio">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +103,10 @@ export const Navbar = () => {
                     </svg>
                   </NavbarLink>
                 </div>
-                <div className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red">
+                <div
+                  className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
+                  onClick={() => setOpen(false)}
+                >
                   <NavbarLink to="/servicios" linkTitle="Servicios">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +124,10 @@ export const Navbar = () => {
                     </svg>
                   </NavbarLink>
                 </div>
-                <div className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red">
+                <div
+                  className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
+                  onClick={() => setOpen(false)}
+                >
                   <NavbarLink to="/contacto" linkTitle="Contacto">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
