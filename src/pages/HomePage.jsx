@@ -1,10 +1,13 @@
 import Footer from "components/ui/footer";
+import React, { useState } from "react";
 // import imgriesgos from "assets/images/mapa-riesgos.jpg";
 // import imgturismo from "assets/images/mapas-turismo.jpg";
 import "../assets/css/home.css";
-import categoties from "../utils/categories";
-import proyects from "../utils/proyects";
+import categorias from "../utils/categories";
+import proyectos from "../utils/proyects";
 export const HomePage = () => {
+  const [proyects, setProyects] = useState(proyectos);
+  const [categories, setCategories] = useState(categorias);
   return (
     <>
       <div className="bg-inherit">
@@ -87,7 +90,7 @@ export const HomePage = () => {
                 Categorias de Datos
               </h3>
               <div className="grid-cols-1 sm:grid md:grid-cols-3 ">
-                {categoties.map((item) => {
+                {categories.map((item) => {
                   return (
                     <div
                       className="relative mx-3 mt-6 flex flex-col bg-inherit"
@@ -120,13 +123,13 @@ export const HomePage = () => {
             Recientemente publicados
           </h3>
           {proyects.slice(0, 3).map((proyect) => (
-            <div className="my-5  w-full">
+            <div className="my-5  w-full" key={proyect.id}>
               <a
                 href={proyect.to}
                 className="flex flex-col items-center rounded-lg border border-gray-200 bg-white shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 md:flex-row"
               >
                 <img
-                  className="h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+                  className="h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg  xl:h-auto"
                   src={proyect.imageUrl}
                   alt=""
                 />
@@ -134,10 +137,10 @@ export const HomePage = () => {
                   <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     {proyect.title}
                   </h5>
-                  <p class="mb-1 font-normal text-gray-700 dark:text-gray-400">
+                  <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
                     {proyect.description}
                   </p>
-                  <p class="mb-3 font-normal text-gray-400 dark:text-gray-400">
+                  <p className="mb-3 font-normal text-gray-400 dark:text-gray-400">
                     <span>
                       {"Publicado: "}
                       {proyect.publication}
@@ -146,9 +149,9 @@ export const HomePage = () => {
                     {"Fuente: "}
                     <span>{proyect.fuente}</span>
                     {" | "}
-                    {"Categoria: "}
+                    {"Categoría: "}
                     {
-                      categoties.find(
+                      categories.find(
                         (category) => category.id === proyect.category
                       ).name
                     }
