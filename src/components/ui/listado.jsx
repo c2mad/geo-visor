@@ -107,13 +107,16 @@ export default function Listado() {
                                   ).name
                                 }
                               </p>
+                              <p className="text-rose-600 hover:text-rose-800">
+                                Ver mapa →
+                              </p>
                             </div>
-                            <a
+                            {/* <a
                               href={proyect.to}
-                              className="flex h-full items-center justify-center bg-red text-center text-white hover:bg-slate-600"
+                              className="h-full flex-auto items-center justify-center rounded-lg  bg-red text-center text-white hover:bg-slate-600"
                             >
                               {proyect.layeritem}
-                            </a>
+                            </a> */}
                           </a>
                         </div>
                       ))}
