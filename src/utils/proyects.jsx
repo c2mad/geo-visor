@@ -6,7 +6,7 @@ const proyects = [
     imageUrl: imgcat,
     publication: "12 de Agosto 2023",
     description:
-      "It is difficult to believe that we have become so used to having instant access to information at.",
+      "It is difficult to believe that we have become so used to having instant access to information at. Aunque no posee actualmente fuentes para justificar sus hipótesis,  It is difficult to believe that we have become so used to having instant access to information at. Aunque no posee actualmente fuentes para justificar sus hipótesis,",
     fuente: "DatAchademics",
     layeritem: "Leer más",
     category: 6,

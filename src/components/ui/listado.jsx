@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import "tailwindcss/tailwind.css";
 import Search from "./Search";
 import categories from "../../utils/categories";
 import proyects from "../../utils/proyects";
+import DateRangePicker from "flowbite-datepicker/DateRangePicker";
+import Datepicker from "flowbite-datepicker/Datepicker";
 export default function Listado() {
   // Define tu lista de elementos
 
@@ -30,6 +32,15 @@ export default function Listado() {
     setItems(filteredItems);
     setCurrentPage(0);
   };
+  // const dateRangePickerEl = document.getElementById("dateRangePickerId");
+  // new DateRangePicker(dateRangePickerEl, {
+  //   // options
+  // });
+  useEffect(() => {
+    const datepickerEl = document?.getElementById("datepickerId");
+    // console.log(datepickerEl);
+    new Datepicker(datepickerEl, {});
+  }, []);
   return (
     <>
       <div className="mx-auto w-full max-w-[1500px] px-3">
@@ -45,24 +56,95 @@ export default function Listado() {
         <div className="w-full px-3">
           <div className="grid-cols-1 gap-4 sm:grid sm:px-0 md:grid-cols-3 md:px-3">
             <div className="row-span-3 mb-5">
-              {" "}
-              <div id="filter" className="rounded-lg border border-solid">
-                <p className="pl-4 pt-10 font-semibold">Filtros de busqueda</p>
-                <div class="container mx-auto  p-4">
-                  <label
-                    for="filtro"
-                    class="mb-2 block text-sm font-semibold text-gray-600"
-                  >
-                    Filtrar por:
+              <div
+                id="filter"
+                className="mb-5 rounded-lg border border-solid p-5"
+              >
+                <p className="font-semibold">Filtros de busqueda</p>
+              </div>
+
+              <div
+                id="filter"
+                className="mb-5 rounded-lg border border-solid p-5"
+              >
+                <div className="container mx-auto p-2">
+                  <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                    Select an option
                   </label>
                   <select
-                    id="filtro"
-                    class="w-full rounded-lg border px-4 py-2 focus:border-blue-500 focus:outline-none"
+                    id="countries"
+                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                   >
-                    <option value="opcion1">Autor</option>
-                    <option value="opcion2">Laboratorio</option>
-                    <option value="opcion3">Fecha de publicación</option>
+                    <option selected>Choose a country</option>
+                    <option value="US">United States</option>
+                    <option value="CA">Canada</option>
+                    <option value="FR">France</option>
+                    <option value="DE">Germany</option>
                   </select>
+                </div>
+              </div>
+              <div
+                id="filter"
+                className="mb-5 rounded-lg border border-solid p-5"
+              >
+                <div className="container mx-auto p-2">
+                  <label className="mb-2 block text-sm font-semibold text-gray-600">
+                    Fecha de publicación:
+                  </label>
+                  <input
+                    datepicker
+                    datepicker-autohide
+                    type="text"
+                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    placeholder="Select date"
+                    onSelect={(e) => console.log(e.target.value)}
+                    // onClick={(e) => dobHandler(e)}
+                    // onClick={(e) => console.log(e.target.value)}
+                    // onChange={(e) => console.log(e)}
+                    id="datepickerId"
+                  />
+
+                  {/* <div date-rangepicker className="flex items-center">
+                    <div className="relative">
+                      <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                        <svg
+                          className="h-4 w-4 text-gray-500 dark:text-gray-400"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                        </svg>
+                      </div>
+                      <input
+                        name="start"
+                        type="text"
+                        className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                        placeholder="Select date start"
+                      />
+                    </div>
+                    <span className="mx-4 text-gray-500">to</span>
+                    <div className="relative">
+                      <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                        <svg
+                          className="h-4 w-4 text-gray-500 dark:text-gray-400"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                        </svg>
+                      </div>
+                      <input
+                        name="end"
+                        type="text"
+                        className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                        placeholder="Select date end"
+                      />
+                    </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -70,7 +152,7 @@ export default function Listado() {
               {" "}
               <div className="mx-auto grid max-w-[1400px] grid-flow-col rounded-lg border border-solid">
                 <div id="lista_categorias" className="my-5 px-5">
-                  <section class="mb-32">
+                  <section className="mb-32">
                     <div id="map_cat" className="gap-6 xl:gap-x-12">
                       {itemsToDisplay.map((proyect) => (
                         <div className="mb-5  w-full" key={proyect.id}>
