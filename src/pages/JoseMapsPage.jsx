@@ -50,8 +50,8 @@ export const JoseMapsPage = () => {
   });
 
   return (
-    <div className="flex space-x-3 p-3">
-      <div className="h-[calc(100vh_-_80px)] w-[400px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md">
+    <div className="flex space-x-0 p-3 md:space-x-3 lg:space-x-3">
+      <div className="hidden h-[calc(100vh_-_80px)] w-[400px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md md:lg:block lg:block">
         <div className="border-b border-gray-300 pb-1">
           <h3 className="text-xl font-semibold text-slate-700">Capas</h3>
         </div>
@@ -109,6 +109,25 @@ export const JoseMapsPage = () => {
         </div>
       </div>
       <div className="h-[calc(100vh_-_80px)] w-full overflow-hidden rounded-lg bg-white shadow-md">
+        <div className="bottom-10 inline-flex items-center p-2 font-medium md:inline-flex lg:hidden">
+          <button className="mr-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor" // Cambia "currentColor" al color que desees, por ejemplo, "red"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="black"
+              className="h-8 w-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
+          {"CAPA DE DATOS"}
+        </div>
         <GeoViewerJose
           key0={key0}
           key1={key1}
