@@ -167,7 +167,7 @@ export const HomePage = () => {
             <div className="mb-5  w-full" key={proyect.id}>
               <a
                 href={proyect.to}
-                className="flex flex-col items-center rounded-lg border border-gray-200 bg-white shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 md:flex-row"
+                className="flex flex-col items-center rounded-lg border border-gray-200 bg-white shadow hover:bg-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 md:flex-row"
               >
                 <img
                   className="h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg  xl:h-auto"
@@ -196,11 +196,11 @@ export const HomePage = () => {
                         (category) => category.id === proyect.category
                       ).name
                     }
-                    {/* {" | "}
+                    <br />
                     {"Autor: "}
                     {proyect.autores.map((autor) => (
-                      <span>{autor.name}</span>
-                    ))} */}
+                      <span className="space-x-1">{autor.name}</span>
+                    ))}
                   </p>
                 </div>
               </a>
