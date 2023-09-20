@@ -44,9 +44,9 @@ export default function Listado() {
         {/* grid-cols-1 sm:grid md:grid-cols-3  */}
         <div className="w-full px-3">
           <div className="grid-cols-1 gap-4 sm:grid sm:px-0 md:grid-cols-3 md:px-3">
-            <div className="row-span-3">
+            <div className="row-span-3 mb-5">
               {" "}
-              <div id="filter" className="border border-solid">
+              <div id="filter" className="rounded-lg border border-solid">
                 <p className="pl-4 pt-10 font-semibold">Filtros de busqueda</p>
                 <div class="container mx-auto  p-4">
                   <label
@@ -68,7 +68,7 @@ export default function Listado() {
             </div>
             <div className="col-span-2">
               {" "}
-              <div className="mx-auto grid max-w-[1400px] grid-flow-col border border-solid">
+              <div className="mx-auto grid max-w-[1400px] grid-flow-col rounded-lg border border-solid">
                 <div id="lista_categorias" className="my-5 px-5">
                   <section class="mb-32">
                     <div id="map_cat" className="gap-6 xl:gap-x-12">
