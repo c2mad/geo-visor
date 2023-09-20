@@ -108,12 +108,12 @@ export default function Listado() {
                                 }
                               </p>
                             </div>
-                          </a>
-                          <a
-                            href={proyect.to}
-                            className="flex h-full items-center justify-center bg-red text-center text-white hover:bg-slate-600"
-                          >
-                            {proyect.layeritem}
+                            <a
+                              href={proyect.to}
+                              className="flex h-full items-center justify-center bg-red text-center text-white hover:bg-slate-600"
+                            >
+                              {proyect.layeritem}
+                            </a>
                           </a>
                         </div>
                       ))}
