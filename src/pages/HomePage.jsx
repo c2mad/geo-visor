@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import "../assets/css/home.css";
 import categorias from "../utils/categories";
 import proyectos from "../utils/proyects";
+import Post from "components/ui/post";
 export const HomePage = () => {
   const [proyects, setProyects] = useState(proyectos);
   const [categories, setCategories] = useState(categorias);
@@ -163,49 +164,7 @@ export const HomePage = () => {
             en biodiversidad y urbanismo sostenible, estas publicaciones
             representan la vanguardia del conocimiento geoespacial.
           </p>
-          {proyects.slice(0, 3).map((proyect) => (
-            <div className="mb-5  w-full" key={proyect.id}>
-              <a
-                href={proyect.to}
-                className="flex flex-col items-center rounded-lg border border-gray-200 bg-white shadow hover:bg-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 md:flex-row"
-              >
-                <img
-                  className="h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg  xl:h-auto"
-                  src={proyect.imageUrl}
-                  alt=""
-                />
-                <div className="flex flex-col justify-between p-4 leading-normal">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    {proyect.title}
-                  </h5>
-                  <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
-                    {proyect.description}
-                  </p>
-                  <p className="mb-3 font-normal text-gray-400 dark:text-gray-400">
-                    <span>
-                      {"Publicado: "}
-                      {proyect.publication}
-                    </span>
-                    {" | "}
-                    {"Fuente: "}
-                    <span>{proyect.fuente}</span>
-                    {" | "}
-                    {"Categoría: "}
-                    {
-                      categories.find(
-                        (category) => category.id === proyect.category
-                      ).name
-                    }
-                    <br />
-                    {"Autor: "}
-                    {proyect.autores.map((autor) => (
-                      <span className="space-x-1">{autor.name}</span>
-                    ))}
-                  </p>
-                </div>
-              </a>
-            </div>
-          ))}
+          <Post proyects={proyects.slice(0, 3)} categories={categories}></Post>
         </div>
         <div>
           <Footer />

@@ -33,7 +33,7 @@ const categories = [
     name: "Mapas de sueldo",
     description: "Mapas de sueldo",
     image: imgturismo,
-    to: "/lista/cat",
+    to: "/proyects",
   },
   {
     id: 6,
