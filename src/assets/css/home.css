@@ -28,3 +28,6 @@ div.section {
     font-size: 20px;
   }
 }
+.leaflet-container{
+  position: sticky!important;
+}
