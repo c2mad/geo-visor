@@ -110,10 +110,13 @@ export const HomePage = () => {
           </section>
         </div>
         <br />
-        <div id="categorias" className="mx-auto w-full max-w-[1100px] px-3">
+        <div
+          id="categorias"
+          className="mx-auto w-full max-w-[1100px] px-3 dark:text-white"
+        >
           <div className="mt-1  ">
             <section>
-              <h3 className="mb-6 text-center text-4xl font-semibold text-black">
+              <h3 className="mb-6 text-center text-4xl font-semibold text-black dark:text-white">
                 Categorias de Datos
               </h3>
               <p className="lead pb-5 pt-5 font-sans ">
@@ -153,10 +156,10 @@ export const HomePage = () => {
           </div>
         </div>
         <div className="mx-auto mt-20 w-full max-w-[1100px] px-3 pb-20">
-          <h3 className="mb-6 text-center text-4xl font-semibold text-black">
+          <h3 className="mb-6 text-center text-4xl font-semibold text-black dark:text-white">
             Publicaciones destacadas
           </h3>
-          <p className="lead pb-10 pt-5 font-sans ">
+          <p className="lead pb-10 pt-5 font-sans dark:text-white">
             En esta sección, le ofrecemos un vistazo a las publicaciones
             destacadas de datos geoespaciales derivados de investigaciones
             recientes que están transformando nuestra comprensión del mundo que
