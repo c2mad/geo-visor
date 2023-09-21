@@ -159,7 +159,7 @@ export default function Listado() {
             <div className="col-span-2">
               <div className="mx-auto grid max-w-[1400px] grid-flow-col rounded-lg border border-solid">
                 <div id="lista_categorias" className="my-5 px-5">
-                  <section className="mb-32">
+                  <section className="mb-16">
                     <div id="map_cat" className="gap-6 xl:gap-x-12">
                       <Post
                         proyects={itemsToDisplay}
