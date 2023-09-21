@@ -44,7 +44,7 @@ const Post = ({ proyects, categories }) => {
                     {autor.name}{" "}
                     {proyect.autores.length > 1 &&
                     proyect.autores.indexOf(autor) + 1 < proyect.autores.length
-                      ? " | "
+                      ? ", "
                       : ""}
                   </span>
                 ))}
