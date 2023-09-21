@@ -19,7 +19,7 @@ export const Navbar = ({ isGeoportal = false }) => {
           <div className="flex justify-between">
             <div>
               <div className="divide-x-3 divide-gray-300 px-10">
-                <Link to="/">
+                <Link to={isGeoportal ? "/geoportal" : "/"}>
                   <img
                     className="h-10 object-cover"
                     src={isGeoportal ? logogeoportal : logoIDE}
