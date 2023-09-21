@@ -1,12 +1,13 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { DefaultLayout } from "layouts/DefaultLayout";
+import { GeoportalLayaut } from "layouts/GeoportalLayaut";
 import { HomePage } from "pages/HomePage";
 import ProyectPage from "pages/ProyectPage";
 import { ThemeProvider } from "@material-tailwind/react";
 import { JoseMapsPage } from "pages/JoseMapsPage";
 import { ContactPage } from "pages/ContactPage";
 import { ServicesPage } from "pages/ServicesPage";
-import { Switch } from "@headlessui/react";
+import { GeoportalPage } from "pages/GeoportalPage";
 
 export const RouterApp = () => {
   return (
@@ -26,11 +27,14 @@ export const RouterApp = () => {
           <Route path="/contacto" element={<DefaultLayout />}>
             <Route index element={<ContactPage />} />
           </Route>
-          <Route path="/proyects">
+          <Route path="/proyects" element={<GeoportalLayaut />}>
             <Route index element={<ProyectPage />}></Route>
           </Route>
           <Route path="/proyects/category/:id">
             <Route index element={<ProyectPage />}></Route>
+          </Route>
+          <Route path="/Geoportal" element={<GeoportalLayaut />}>
+            <Route index element={<GeoportalPage />}></Route>
           </Route>
 
           <Route path="*" element={<Navigate to="/" />} />

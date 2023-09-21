@@ -1,10 +1,11 @@
 import { NavbarLink } from "./NavbarLink";
-import logoImg from "../../assets/images/logo-ucacue-geoportal.png";
+import logoIDE from "../../assets/images/logo-ucacue-ide.png";
+import logogeoportal from "../../assets/images/logo-ucacue-geoportal.png";
 import { Link } from "react-router-dom";
 import App from "App";
 import React, { useState } from "react";
 
-export const Navbar = () => {
+export const Navbar = ({ isGeoportal = false }) => {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -18,11 +19,15 @@ export const Navbar = () => {
           <div className="flex justify-between">
             <div>
               <div className="divide-x-3 divide-gray-300 px-10">
-                <Link to="/">
+                <Link to={isGeoportal ? "/geoportal" : "/"}>
                   <img
                     className="h-10 object-cover"
-                    src={logoImg}
-                    alt="Logo CIITT"
+                    src={isGeoportal ? logogeoportal : logoIDE}
+                    alt={
+                      isGeoportal
+                        ? "Logo IDE - UCACUE"
+                        : "Logo Geoportal - UCACUE"
+                    }
                     onClick={App}
                   />
                 </Link>
@@ -86,7 +91,7 @@ export const Navbar = () => {
                   className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
                   onClick={() => setOpen(false)}
                 >
-                  <NavbarLink to="/" linkTitle="Inicio">
+                  <NavbarLink to="/" linkTitle={isGeoportal ? "IDE" : "Inicio"}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-6 w-6"
@@ -103,6 +108,31 @@ export const Navbar = () => {
                     </svg>
                   </NavbarLink>
                 </div>
+                {!isGeoportal ? (
+                  <div
+                    className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
+                    onClick={() => setOpen(false)}
+                  >
+                    <NavbarLink to="/geoportal" linkTitle="Geoportal">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                        />
+                      </svg>
+                    </NavbarLink>
+                  </div>
+                ) : (
+                  <></>
+                )}
                 <div
                   className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
                   onClick={() => setOpen(false)}
