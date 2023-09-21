@@ -91,7 +91,7 @@ export const Navbar = ({ isGeoportal = false }) => {
                   className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
                   onClick={() => setOpen(false)}
                 >
-                  <NavbarLink to="/" linkTitle="Inicio">
+                  <NavbarLink to="/" linkTitle={isGeoportal ? "IDE" : "Inicio"}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-6 w-6"
