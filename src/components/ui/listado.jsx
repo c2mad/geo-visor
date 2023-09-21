@@ -5,7 +5,7 @@ import Search from "./Search";
 import categories from "../../utils/categories";
 import proyects from "../../utils/proyects";
 import DateRangePicker from "flowbite-datepicker/DateRangePicker";
-import Datepicker from "flowbite-datepicker/Datepicker";
+import Post from "../../components/ui/post";
 export default function Listado() {
   // Define tu lista de elementos
 
@@ -37,10 +37,16 @@ export default function Listado() {
   //   // options
   // });
   useEffect(() => {
-    const datepickerEl = document?.getElementById("datepickerId");
-    // console.log(datepickerEl);
-    new Datepicker(datepickerEl, {});
+    const dateRangePickerEl = document.getElementById("dateRangePickerId");
+    new DateRangePicker(dateRangePickerEl, {
+      // options
+    });
   }, []);
+  // useEffect(() => {
+  //   const datepickerEl = document?.getElementById("datepickerId");
+  //   // console.log(datepickerEl);
+  //   new Datepicker(datepickerEl, {});
+  // }, []);
   return (
     <>
       <div className="mx-auto w-full max-w-[1500px] px-3">
@@ -68,18 +74,17 @@ export default function Listado() {
                 className="mb-5 rounded-lg border border-solid p-5"
               >
                 <div className="container mx-auto p-2">
-                  <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                    Select an option
+                  <label className="mb-5 block text-sm font-medium text-gray-900 dark:text-white">
+                    Fuente
                   </label>
                   <select
                     id="countries"
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                   >
-                    <option selected>Choose a country</option>
-                    <option value="US">United States</option>
-                    <option value="CA">Canada</option>
-                    <option value="FR">France</option>
-                    <option value="DE">Germany</option>
+                    <option selected>Seleccione la fuente</option>
+                    <option value="US">C2MAD</option>
+                    <option value="CA">RIOUC</option>
+                    <option value="FR">SIGDATA</option>
                   </select>
                 </div>
               </div>
@@ -88,23 +93,24 @@ export default function Listado() {
                 className="mb-5 rounded-lg border border-solid p-5"
               >
                 <div className="container mx-auto p-2">
-                  <label className="mb-2 block text-sm font-semibold text-gray-600">
+                  <label className="mb-5 block text-sm font-medium text-gray-900 dark:text-white">
+                    Autor
+                  </label>
+                </div>
+              </div>
+              <div
+                id="filter"
+                className="mb-5 rounded-lg border border-solid p-5"
+              >
+                <div className="container mx-auto p-2">
+                  <label className="mb-5 block text-sm font-semibold text-gray-600">
                     Fecha de publicación:
                   </label>
-                  <input
-                    datepicker
-                    datepicker-autohide
-                    type="text"
-                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-                    placeholder="Select date"
-                    onSelect={(e) => console.log(e.target.value)}
-                    // onClick={(e) => dobHandler(e)}
-                    // onClick={(e) => console.log(e.target.value)}
-                    // onChange={(e) => console.log(e)}
-                    id="datepickerId"
-                  />
-
-                  {/* <div date-rangepicker className="flex items-center">
+                  <div
+                    date-rangepicker
+                    className="flex items-center"
+                    id="dateRangePickerId"
+                  >
                     <div className="relative">
                       <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                         <svg
@@ -118,6 +124,7 @@ export default function Listado() {
                         </svg>
                       </div>
                       <input
+                        readonly="readonly"
                         name="start"
                         type="text"
                         className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
@@ -138,70 +145,26 @@ export default function Listado() {
                         </svg>
                       </div>
                       <input
+                        readonly="readonly"
                         name="end"
                         type="text"
                         className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                         placeholder="Select date end"
                       />
                     </div>
-                  </div> */}
+                  </div>
                 </div>
               </div>
             </div>
             <div className="col-span-2">
-              {" "}
               <div className="mx-auto grid max-w-[1400px] grid-flow-col rounded-lg border border-solid">
                 <div id="lista_categorias" className="my-5 px-5">
                   <section className="mb-32">
                     <div id="map_cat" className="gap-6 xl:gap-x-12">
-                      {itemsToDisplay.map((proyect) => (
-                        <div className="mb-5  w-full" key={proyect.id}>
-                          <a
-                            href={proyect.to}
-                            className="flex flex-col items-center rounded-lg border border-gray-200 bg-white shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 md:flex-row"
-                          >
-                            <img
-                              className="h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg  xl:h-auto"
-                              src={proyect.imageUrl}
-                              alt=""
-                            />
-                            <div className="flex flex-col justify-between p-4 leading-normal">
-                              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                {proyect.title}
-                              </h5>
-                              <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
-                                {proyect.description}
-                              </p>
-                              <p className="mb-3 font-normal text-gray-400 dark:text-gray-400">
-                                <span>
-                                  {"Publicado: "}
-                                  {proyect.publication}
-                                </span>
-                                {" | "}
-                                {"Fuente: "}
-                                <span>{proyect.fuente}</span>
-                                {" | "}
-                                {"Categoría: "}
-                                {
-                                  categories.find(
-                                    (category) =>
-                                      category.id === proyect.category
-                                  ).name
-                                }
-                              </p>
-                              <p className="text-rose-600 hover:text-rose-800">
-                                Ver mapa →
-                              </p>
-                            </div>
-                            {/* <a
-                              href={proyect.to}
-                              className="h-full flex-auto items-center justify-center rounded-lg  bg-red text-center text-white hover:bg-slate-600"
-                            >
-                              {proyect.layeritem}
-                            </a> */}
-                          </a>
-                        </div>
-                      ))}
+                      <Post
+                        proyects={itemsToDisplay}
+                        categories={categories}
+                      ></Post>
                     </div>
                   </section>
 
@@ -214,12 +177,12 @@ export default function Listado() {
                     pageRangeDisplayed={5}
                     onPageChange={handlePageClick}
                     containerClassName={"pagination flex mt-4 justify-center"}
-                    pageClassName={"mr-2 p-3 border rounded-full"}
-                    previousClassName={"mr-2 p-3 bg-red border rounded-full"}
-                    nextClassName={"mr-2 p-3 bg-red border rounded-full"}
-                    activeClassName={"bg-red text-black rounded-full"}
-                    previousLinkClassName={"text-black"}
-                    nextLinkClassName={"text-black"}
+                    pageClassName={"mr-2 p-3 border rounded"}
+                    previousClassName={"mr-2 p-3 rounded-full"}
+                    nextClassName={"mr-2 p-3  rounded-full"}
+                    activeClassName={"text-white rounded-full bg-black "}
+                    previousLinkClassName={"text-black "}
+                    nextLinkClassName={"text-black "}
                   />
                 </div>
               </div>
