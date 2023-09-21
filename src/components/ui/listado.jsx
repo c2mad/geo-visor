@@ -77,7 +77,9 @@ export default function Listado() {
                 id="filter"
                 className="mb-5 rounded-lg border border-solid p-5"
               >
-                <p className="font-semibold">Filtros de busqueda</p>
+                <p className="font-semibold dark:text-white">
+                  Filtros de busqueda
+                </p>
                 <div className="mt-5">
                   <button
                     type="button"
@@ -163,7 +165,7 @@ export default function Listado() {
                 className="mb-5 rounded-lg border border-solid p-5"
               >
                 <div className="container mx-auto p-2">
-                  <label className="mb-5 block text-sm font-semibold text-gray-600">
+                  <label className="mb-5 block text-sm font-semibold text-gray-600 dark:text-white">
                     Fecha de publicación:
                   </label>
                   <div
@@ -237,12 +239,12 @@ export default function Listado() {
                     pageRangeDisplayed={5}
                     onPageChange={handlePageClick}
                     containerClassName={"pagination flex mt-4 justify-center"}
-                    pageClassName={"mr-2 p-3 border rounded"}
+                    pageClassName={"mr-2 p-3 border rounded dark:text-white"}
                     previousClassName={"mr-2 p-3 rounded-full"}
-                    nextClassName={"mr-2 p-3  rounded-full"}
+                    nextClassName={"mr-2 p-3  rounded-full "}
                     activeClassName={"text-white rounded-full bg-black "}
-                    previousLinkClassName={"text-black "}
-                    nextLinkClassName={"text-black "}
+                    previousLinkClassName={"text-black dark:text-white"}
+                    nextLinkClassName={"text-black dark:text-white "}
                   />
                 </div>
               </div>

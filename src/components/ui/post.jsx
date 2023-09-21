@@ -4,7 +4,7 @@ const Post = ({ proyects, categories }) => {
   return (
     <>
       {proyects.map((proyect) => (
-        <div className="mb-5  w-full" key={proyect.id}>
+        <div className="mb-5  w-full " key={proyect.id}>
           <a
             href={proyect.to}
             className="flex flex-col items-center rounded-lg border border-gray-200 bg-white shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 md:flex-row"
@@ -18,7 +18,7 @@ const Post = ({ proyects, categories }) => {
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 {proyect.title}
               </h5>
-              <p className="mb-1 font-normal text-gray-700 dark:text-gray-400">
+              <p className="mb-1 font-normal text-gray-700 dark:text-gray-200">
                 {proyect.description}
               </p>
               <p className="mb-1 mt-2 text-[14px] font-normal text-gray-400 dark:text-gray-400">

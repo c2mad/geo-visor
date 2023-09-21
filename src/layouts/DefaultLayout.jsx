@@ -7,7 +7,9 @@ export const DefaultLayout = () => {
       <div id="page-wrap">
         <Navbar />
         <main style={{ scrollBehavior: "smooth" }}>
-          <Outlet />
+          <div className=" bg-white dark:bg-gray-900">
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>

@@ -9,7 +9,7 @@ const ProyectPage = () => {
         <div>
           <Navbar />
         </div>
-        <div id="lista_mapa" className="h-auto">
+        <div id="lista_mapa" className="h-auto  bg-white dark:bg-gray-900">
           <Listado />
         </div>
         <section className="h-20"></section>
