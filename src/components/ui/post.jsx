@@ -10,7 +10,7 @@ const Post = ({ proyects, categories }) => {
             className="flex flex-col items-center rounded-lg border border-gray-200 bg-white shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 md:flex-row"
           >
             <img
-              className="lg:96 h-48 w-full rounded-t-lg object-cover md:h-52 md:w-48 md:rounded-none md:rounded-l-lg  xl:h-auto"
+              className="lg:96 rounden-lg h-48 w-full rounded-t-lg md:h-52 md:w-48 md:rounded-none md:rounded-l-lg  xl:h-auto"
               src={proyect.imageUrl}
               alt=""
             />

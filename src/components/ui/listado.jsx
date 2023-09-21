@@ -58,12 +58,39 @@ export default function Listado() {
   //   // console.log(datepickerEl);
   //   new Datepicker(datepickerEl, {});
   // }, []);
+  const [selectedOption, setSelectedOption] = useState("");
+  const [datestart, setDateStart] = useState("");
+  const handleOptionChange = (selectedValue) => {
+    setSelectedOption(selectedValue);
+
+    // Aquí puedes ejecutar diferentes funciones según la opción seleccionada
+    switch (selectedValue) {
+      case "C2MAD":
+        {
+          proyects.map((proyect) => proyect.fuente == "C2MAD");
+        }
+        break;
+      case "RIOUC":
+        // Lógica para la opción 2
+        break;
+      case "SIGDATA":
+        // Lógica para la opción 3
+        break;
+      default:
+        // Lógica por defecto
+        break;
+    }
+  };
+
   return (
     <>
       <div className="mx-auto w-full max-w-[1500px] px-3">
-        <div id="tittle" className="text-center font-sans text-2xl">
+        <div
+          id="tittle"
+          className="text-center font-sans text-2xl dark:text-white"
+        >
           <br />
-          <h1>Listado de proyectos en Mapas de riesgos</h1>
+          {/*<h1>Listado de proyectos en Mapas de riesgos</h1>*/}
         </div>
         <div className="py-10">
           <Search onSearch={search2} />
@@ -86,7 +113,7 @@ export default function Listado() {
                     class="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
                   >
                     <span className="mr-2 text-[12px]">
-                      <strong>Publicados:</strong> 01/05/2023{" "}
+                      <strong>Publicados:</strong> {datestart}{" "}
                       <strong>to</strong> 01/09/2023
                     </span>
                     <svg
@@ -110,7 +137,7 @@ export default function Listado() {
                     class="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
                   >
                     <span className="mr-2 text-[12px]">
-                      <strong>Fuente:</strong> C2MAD
+                      <strong>Fuente:</strong> {selectedOption}
                     </span>
                     <svg
                       class="h-2 w-2"
@@ -142,11 +169,13 @@ export default function Listado() {
                   <select
                     id="countries"
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    value={selectedOption}
+                    onChange={(e) => setSelectedOption(e.target.value)}
                   >
                     <option selected>Seleccione la fuente</option>
-                    <option value="US">C2MAD</option>
-                    <option value="CA">RIOUC</option>
-                    <option value="FR">SIGDATA</option>
+                    <option value="C2MAD">C2MAD</option>
+                    <option value="RIOUC">RIOUC</option>
+                    <option value="SIGDATA">SIGDATA</option>
                   </select>
                 </div>
               </div>
@@ -212,6 +241,8 @@ export default function Listado() {
                         type="text"
                         className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                         placeholder="Select date end"
+                        value={datestart}
+                        onChange={(e) => setDateStart(e.target.value)}
                       />
                     </div>
                   </div>
