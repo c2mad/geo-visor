@@ -67,6 +67,55 @@ export default function Listado() {
                 className="mb-5 rounded-lg border border-solid p-5"
               >
                 <p className="font-semibold">Filtros de busqueda</p>
+                <div className="mt-5">
+                  <button
+                    type="button"
+                    class="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
+                  >
+                    <span className="mr-2 text-[12px]">
+                      <strong>Publicados:</strong> 01/05/2023{" "}
+                      <strong>to</strong> 01/09/2023
+                    </span>
+                    <svg
+                      class="h-2 w-2"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 14 14"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    class="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
+                  >
+                    <span className="mr-2 text-[12px]">
+                      <strong>Fuente:</strong> C2MAD
+                    </span>
+                    <svg
+                      class="h-2 w-2"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 14 14"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
 
               <div
