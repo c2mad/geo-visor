@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@googlemaps/react-wrapper": "^1.1.35",
@@ -27,6 +29,7 @@
     "leaflet.fullscreen": "^2.4.0",
     "leaflet.locatecontrol": "^0.78.0",
     "react": "^18.2.0",
+    "react-datepicker": "^4.18.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-infinite-scroll-component": "^6.1.0",

@@ -62,12 +62,14 @@ export const HomePage = () => {
                           href={item.to}
                           className=" block overflow-hidden rounded-lg"
                         >
-                          <img
-                            className="h-auto w-full rounded-lg"
-                            src={item.image}
-                            alt={item.name}
-                          />
-                          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-center  font-medium text-white">
+                          <div className="flex items-center justify-center p-5">
+                            <img
+                              className="flex max-h-48 w-48 items-center justify-center rounded-lg"
+                              src={item.image}
+                              alt={item.name}
+                            />
+                          </div>
+                          <div className="bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-center  font-medium text-white">
                             <p>{item.name}</p>
                             {/* <p className="text-[14px]">{item.description}</p> */}
                           </div>
