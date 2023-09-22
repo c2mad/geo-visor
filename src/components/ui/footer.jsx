@@ -14,7 +14,7 @@ const Footer = () => {
               <div className="text-justify-center grid grid-flow-col gap-2">
                 <div>
                   <ul id="laboratorios">
-                    <li className="h-12">
+                    {/* <li className="h-12">
                       <a
                         href="https://ciitt.ucacue.edu.ec/laboratorios/laboratorio-de-calculo-computacional-modelado-y-analitica-de-datos-c2mad/"
                         className="block border-b-2 border-gray-200 pb-4  transition-colors hover:text-rose-500 hover:underline"
@@ -23,15 +23,15 @@ const Footer = () => {
                       >
                         C2MAD
                       </a>
-                    </li>
+                    </li> */}
                     <li>
                       <a
                         href="https://ciitt.ucacue.edu.ec/laboratorios/laboratorio-datachademics/"
-                        className="block border-b-2 border-gray-200 pb-4 transition-colors hover:text-rose-500 hover:underline"
+                        className="block border-b-2 border-t-2 border-gray-200 pb-4 pt-4 transition-colors hover:text-rose-500 hover:underline"
                         target="_blank"
                         rel="noreferrer"
                       >
-                        DatAchademics
+                        SIGDATA
                       </a>
                     </li>
                   </ul>

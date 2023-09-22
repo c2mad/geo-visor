@@ -28,10 +28,10 @@ export const GeoportalPage = () => {
                       La Universidad Cátolica de Cuenca, pone a disposición de
                       la ciudadanía en general, una herramienta que permite a
                       los usuarios el acceso a una serie de recursos y servicios
-                      basados en información geográfica referenciada del Cantón
-                      Cuenca. La misma está diseñada para explorar y descargar
-                      una variedad de datos que son de utilidad para un mayor
-                      conocimiento del territorio.
+                      basados en información geográfica dentro del area de sus
+                      competencias. La misma está diseñada para explorar y
+                      descargar una variedad de datos que son de utilidad para
+                      un mayor conocimiento del territorio.
                     </p>
                   </div>
                 </div>
@@ -82,9 +82,9 @@ export const GeoportalPage = () => {
                         id="search-dropdown"
                         className="z-20 block w-full rounded-r-lg border border-l-2 border-gray-300 border-l-gray-50 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-rose-500 focus:ring-rose-500 dark:border-gray-600 dark:border-l-gray-700  dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-rose-500"
                         placeholder="Buscar..."
-                        required
                       />
-                      <button
+                      <a
+                        href="/proyects"
                         type="submit"
                         className="absolute right-0 top-0 h-full rounded-r-lg border border-rose-700 bg-rose-700 p-2.5 text-sm font-medium text-white hover:bg-rose-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800"
                       >
@@ -101,7 +101,7 @@ export const GeoportalPage = () => {
                           />
                         </svg>
                         <span className="sr-only">Search</span>
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </form>
@@ -119,14 +119,14 @@ export const GeoportalPage = () => {
               <h3 className="mb-6 text-center text-4xl font-semibold text-black dark:text-white">
                 Categorias de Datos
               </h3>
-              <p className="lead pb-5 pt-5 font-sans ">
+              {/* <p className="lead pb-5 pt-5 font-sans ">
                 Explore nuestro catálogo de datos geoespaciales para descubrir
                 una amplia gama de información relacionada con ubicaciones
                 geográficas. Desde mapas detallados hasta imágenes satelitales
                 de alta resolución, aquí encontrará recursos esenciales para la
                 navegación, planificación urbana, investigaciones científicas y
                 mucho más.
-              </p>
+              </p> */}
               <div className="grid-cols-1 sm:grid md:grid-cols-3 ">
                 {categories.map((item) => {
                   return (
@@ -145,7 +145,7 @@ export const GeoportalPage = () => {
                         />
                         <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-center  font-medium text-white">
                           <p>{item.name}</p>
-                          <p className="text-[14px]">{item.description}</p>
+                          {/* <p className="text-[14px]">{item.description}</p> */}
                         </div>
                       </a>
                     </div>
@@ -164,7 +164,7 @@ export const GeoportalPage = () => {
             destacadas de datos geoespaciales derivados de investigaciones
             recientes que están transformando nuestra comprensión del mundo que
             habitamos. Desde estudios de cambio climático hasta investigaciones
-            en biodiversidad y urbanismo sostenible, estas publicaciones
+            en biodiversidad y urbanismo sostenible. Estas publicaciones
             representan la vanguardia del conocimiento geoespacial.
           </p>
           <Post proyects={proyects.slice(0, 3)} categories={categories}></Post>
