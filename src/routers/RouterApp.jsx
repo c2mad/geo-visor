@@ -17,7 +17,7 @@ export const RouterApp = () => {
           <Route path="/" element={<DefaultLayout />}>
             <Route index element={<HomePage />} />
           </Route>
-          <Route path="/mapas/jose" element={<DefaultLayout />}>
+          <Route path="/mapas/jose" element={<GeoportalLayaut />}>
             {/* <Route index element={<MapsPage />} /> */}
             <Route index element={<JoseMapsPage />} />
           </Route>
