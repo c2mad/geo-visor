@@ -1,10 +1,11 @@
 import imgturismo from "../assets/images/mapa-riesgos.jpg";
+import imgmap from "../assets/images/gps.gif";
 const ide_elements = [
   {
     id: 1,
     name: "Geoportal",
     description: "Consulta los datos espaciales relacionados con los riesgos",
-    image: imgturismo,
+    image: imgmap,
     to: "/geoportal",
   },
   {
