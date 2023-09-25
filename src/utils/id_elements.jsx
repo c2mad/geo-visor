@@ -32,7 +32,7 @@ const ide_elements = [
     name: "Normativa legal",
     description: "Documentos legales para funcionamiento de la IDE",
     image: imgnorm,
-    to: "/Normativa",
+    to: "/normativa",
   },
   {
     id: 5,

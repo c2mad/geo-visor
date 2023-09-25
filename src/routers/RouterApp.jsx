@@ -37,7 +37,10 @@ export const RouterApp = () => {
           <Route path="/Geoportal" element={<GeoportalLayaut />}>
             <Route index element={<GeoportalPage />}></Route>
           </Route>
-          <Route path="/Normativa" element={<GeoportalLayaut />}>
+          <Route path="/normativa" element={<GeoportalLayaut />}>
+            <Route index element={<Normativa />}></Route>
+          </Route>
+          <Route path="/geoserivios" element={<GeoportalLayaut />}>
             <Route index element={<Normativa />}></Route>
           </Route>
 

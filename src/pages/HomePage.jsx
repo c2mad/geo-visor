@@ -48,14 +48,13 @@ export const HomePage = () => {
             <div className="mt-1">
               <section>
                 <h3 className="mb-6 mt-10 text-center text-4xl font-semibold text-black dark:text-white">
-                  Accesos
+                  Accesos de la IDE
                 </h3>
-                <p className="lead pb-5 pt-5 font-sans "></p>
-                <div className="grid-cols-1  sm:grid md:grid-cols-3">
+                <div className="grid-cols-1 sm:grid md:grid-cols-3">
                   {id_elements.map((item) => {
                     return (
                       <div
-                        className="group relative mx-3 mt-6 flex flex-col rounded-lg border border-solid border-inherit transition duration-300 ease-in-out hover:bg-gray-300 dark:bg-white dark:text-black"
+                        className="group relative mx-3 mt-6 flex flex-col rounded-lg border border-inherit bg-gray-100 transition duration-300 ease-in-out hover:bg-gray-300 dark:text-black"
                         key={item.id}
                       >
                         <a
@@ -75,7 +74,7 @@ export const HomePage = () => {
                         </a>
                         <a
                           href={item.to}
-                          className="absolute inset-0 rounded-lg border-inherit bg-slate-400 text-black opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"
+                          className="absolute inset-0 rounded-lg border-inherit bg-inherit text-black opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"
                         >
                           <div className="flex h-full flex-col items-center justify-center">
                             <p className="text-center">{item.description}</p>

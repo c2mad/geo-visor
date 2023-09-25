@@ -4,8 +4,8 @@ export const ContactPage = () => {
     <>
       <div className="background-contact justify-center p-4 ">
         <div className="w-full md:w-auto">
-          <div className=" w-[700px] items-end rounded-lg bg-inherit p-12 shadow-lg">
-            <form className=" bg-inherit">
+          <div className="rounded-lg bg-inherit shadow-lg sm:max-w-lg sm:pl-4 md:w-[700px] md:pl-20">
+            <form className="p-4">
               {/* Título */}
               <h2 className="mb-4 text-4xl font-semibold text-white">
                 Contáctanos
