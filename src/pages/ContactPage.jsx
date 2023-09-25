@@ -1,15 +1,11 @@
+import "../assets/css/home.css";
 export const ContactPage = () => {
   return (
     <>
-      <div className="container">
-        <h1>Contact</h1>
-        <br />
-      </div>
-      {/* Columna del formulario debajo de la imagen */}
-      <div className="justify-center p-12">
+      <div className="background-contact justify-center p-4 ">
         <div className="w-full md:w-auto">
-          <div className="items-end rounded-lg bg-inherit p-12 shadow-lg">
-            <form className="">
+          <div className=" w-[700px] items-end rounded-lg bg-inherit p-12 shadow-lg">
+            <form className=" bg-inherit">
               {/* Título */}
               <h2 className="mb-4 text-4xl font-semibold text-white">
                 Contáctanos
@@ -21,8 +17,9 @@ export const ContactPage = () => {
                   type="text"
                   id="nombre"
                   name="nombre"
-                  className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none"
+                  className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
                   placeholder="Tu nombre"
+                  aria-required
                 />
               </div>
               <div className="mb-4">
@@ -33,8 +30,33 @@ export const ContactPage = () => {
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none"
+                  className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
                   placeholder="Tu correo electrónico"
+                  aria-required
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block font-medium text-white">
+                  Institución
+                </label>
+                <input
+                  type="text"
+                  id="institucion"
+                  name="institucion"
+                  className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
+                  placeholder="Institución a la que pertenece"
+                  aria-required
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block font-medium text-white">Asunto</label>
+                <input
+                  type="text"
+                  id="asunto"
+                  name="asunto"
+                  className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
+                  placeholder="Asunto"
+                  aria-required
                 />
               </div>
               <div className="mb-4">
@@ -43,14 +65,15 @@ export const ContactPage = () => {
                   id="mensaje"
                   name="mensaje"
                   rows="4"
-                  className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none"
+                  className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
                   placeholder="Escribe tu mensaje aquí"
+                  aria-required
                 ></textarea>
               </div>
               {/* Botón de envío */}
               <button
                 type="submit"
-                className="w-full rounded-lg bg-red px-4 py-2 font-semibold text-white transition duration-300 hover:bg-blue-600"
+                className="w-full rounded-lg bg-red px-4 py-2 font-semibold text-white transition duration-300 hover:bg-gray-400"
               >
                 Enviar Mensaje
               </button>

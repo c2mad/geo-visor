@@ -193,6 +193,5 @@ const proyects = [
   //   autores: [{ id: 1, name: "Dra. Sandra Cobos" }],
   //   to: "/mapas/jose",
   // },
-  // ... (tus elementos)
 ];
 export default proyects;

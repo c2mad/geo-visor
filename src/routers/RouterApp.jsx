@@ -8,6 +8,7 @@ import { JoseMapsPage } from "pages/JoseMapsPage";
 import { ContactPage } from "pages/ContactPage";
 import { ServicesPage } from "pages/ServicesPage";
 import { GeoportalPage } from "pages/GeoportalPage";
+import Normativa from "pages/Normativa";
 
 export const RouterApp = () => {
   return (
@@ -35,6 +36,9 @@ export const RouterApp = () => {
           </Route>
           <Route path="/Geoportal" element={<GeoportalLayaut />}>
             <Route index element={<GeoportalPage />}></Route>
+          </Route>
+          <Route path="/Normativa" element={<GeoportalLayaut />}>
+            <Route index element={<Normativa />}></Route>
           </Route>
 
           <Route path="*" element={<Navigate to="/" />} />
