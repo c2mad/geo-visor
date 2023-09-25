@@ -45,11 +45,7 @@ export const Navbar = ({ isGeoportal = false }) => {
                 stroke="white"
                 className="h-8 w-6"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
+                <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
               </svg>
             </button>
           </div>
@@ -79,11 +75,7 @@ export const Navbar = ({ isGeoportal = false }) => {
                   stroke="currentColor"
                   className="h-6 w-6"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                  <path d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
               <ul title="Menú" className="w-60">
@@ -99,12 +91,7 @@ export const Navbar = ({ isGeoportal = false }) => {
                       viewBox="0 0 24 24"
                       stroke="currentColor"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4 6h16M4 12h16M4 18h16"
-                      />
+                      <path strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                   </NavbarLink>
                 </div>
@@ -122,8 +109,6 @@ export const Navbar = ({ isGeoportal = false }) => {
                         stroke="currentColor"
                       >
                         <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
                           strokeWidth={2}
                           d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
                         />
@@ -146,8 +131,6 @@ export const Navbar = ({ isGeoportal = false }) => {
                       stroke="currentColor"
                     >
                       <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
                         strokeWidth={2}
                         d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
                       />
@@ -167,8 +150,6 @@ export const Navbar = ({ isGeoportal = false }) => {
                       stroke="currentColor"
                     >
                       <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
                         strokeWidth={2}
                         d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
                       />

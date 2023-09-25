@@ -7,49 +7,53 @@ const Post = ({ proyects, categories }) => {
         <div className="mb-5  w-full " key={proyect.id}>
           <a
             href={proyect.to}
-            className="flex flex-col items-center rounded-lg border border-gray-200 bg-white shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 md:flex-row"
+            class="flex w-full flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700  md:flex-row"
           >
             <img
-              className="lg:96 rounden-lg h-48 w-full rounded-t-lg md:h-52 md:w-48 md:rounded-none md:rounded-l-lg  xl:h-auto"
+              class="h-96 w-full rounded-t-lg object-cover md:h-auto md:w-64 md:!rounded-none md:!rounded-l-lg"
+              // src="https://tecdn.b-cdn.net/wp-content/uploads/2020/06/vertical.jpg"
               src={proyect.imageUrl}
               alt=""
             />
-            <div className="flex flex-col justify-between p-4 leading-normal">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <div class="flex w-full flex-col justify-start p-6">
+              <h5 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
                 {proyect.title}
               </h5>
-              <p className="mb-1 font-normal text-gray-700 dark:text-gray-200">
+              <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
                 {proyect.description}
               </p>
-              <p className="mb-1 mt-2 text-[14px] font-normal text-gray-400 dark:text-gray-400">
-                <span>
-                  {"Publicado: "}
-                  {proyect.publication}
-                </span>
-                {" | "}
-                {"Fuente: "}
-                <span>{proyect.fuente}</span>
-                {" | "}
-                {"Categoría: "}
-                {
-                  categories.find(
-                    (category) => category.id === proyect.category
-                  ).name
-                }
-              </p>
-              <p className="mb-3 text-[14px] font-normal text-gray-400 dark:text-gray-400">
-                {proyect.autores.length > 1 ? "Autores: " : "Autor: "}
-                {proyect.autores.map((autor) => (
+              <p class="text-xs text-neutral-500 dark:text-neutral-300">
+                <p className="mb-1 mt-2 text-[14px] font-normal text-gray-400 dark:text-gray-400">
                   <span>
-                    {autor.name}{" "}
-                    {proyect.autores.length > 1 &&
-                    proyect.autores.indexOf(autor) + 1 < proyect.autores.length
-                      ? ", "
-                      : ""}
+                    {"Publicado: "}
+                    {proyect.publication}
                   </span>
-                ))}
+                  {" | "}
+                  {"Fuente: "}
+                  <span>{proyect.fuente}</span>
+                  {" | "}
+                  {"Categoría: "}
+                  {
+                    categories.find(
+                      (category) => category.id === proyect.category
+                    ).name
+                  }
+                </p>
+                <p className="mb-3 text-[14px] font-normal text-gray-400 dark:text-gray-400">
+                  {proyect.autores.length > 1 ? "Autores: " : "Autor: "}
+                  {proyect.autores.map((autor) => (
+                    <span>
+                      {autor.name}{" "}
+                      {proyect.autores.length > 1 &&
+                      proyect.autores.indexOf(autor) + 1 <
+                        proyect.autores.length
+                        ? ", "
+                        : ""}
+                    </span>
+                  ))}
+                </p>
+                <p className="text-rose-600 hover:text-rose-800">Ver mapa →</p>
               </p>
-              <p className="text-rose-600 hover:text-rose-800">Ver mapa →</p>
             </div>
           </a>
         </div>
