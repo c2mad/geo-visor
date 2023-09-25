@@ -25,7 +25,7 @@ const ide_elements = [
     name: "Geoservicios",
     description: "Los servicios web que se utiliza en esta IDE",
     image: imggeoserv,
-    to: "/proyects",
+    to: "/geoservicios",
   },
   {
     id: 4,

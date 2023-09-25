@@ -8,7 +8,8 @@ import { JoseMapsPage } from "pages/JoseMapsPage";
 import { ContactPage } from "pages/ContactPage";
 import { ServicesPage } from "pages/ServicesPage";
 import { GeoportalPage } from "pages/GeoportalPage";
-import Normativa from "pages/Normativa";
+import Normativa from "pages/NormativaPage";
+import GeoservicesPage from "pages/GeoservicesPage";
 
 export const RouterApp = () => {
   return (
@@ -40,8 +41,8 @@ export const RouterApp = () => {
           <Route path="/normativa" element={<GeoportalLayaut />}>
             <Route index element={<Normativa />}></Route>
           </Route>
-          <Route path="/geoserivios" element={<GeoportalLayaut />}>
-            <Route index element={<Normativa />}></Route>
+          <Route path="/geoservicios" element={<GeoportalLayaut />}>
+            <Route index element={<GeoservicesPage />}></Route>
           </Route>
 
           <Route path="*" element={<Navigate to="/" />} />
