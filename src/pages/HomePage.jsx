@@ -54,7 +54,7 @@ export const HomePage = () => {
                   {id_elements.map((item) => {
                     return (
                       <div
-                        className="group relative mx-3 mt-6 flex flex-col rounded-lg border border-inherit bg-gray-100 transition duration-300 ease-in-out hover:bg-gray-300 dark:text-black"
+                        className="group relative mx-3 mt-6 flex flex-col rounded-lg bg-white transition duration-300 ease-in-out hover:bg-white dark:text-black"
                         key={item.id}
                       >
                         <a
