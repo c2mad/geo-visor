@@ -54,7 +54,7 @@ export const HomePage = () => {
                   {id_elements.map((item) => {
                     return (
                       <div
-                        className="group relative mx-3 mt-6 flex flex-col rounded-lg bg-white transition duration-300 ease-in-out hover:bg-white dark:text-black"
+                        className="group relative mx-3 mt-6 flex transform flex-col rounded-lg border bg-white p-4 shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-gray-100 dark:text-black"
                         key={item.id}
                       >
                         <a
@@ -63,7 +63,7 @@ export const HomePage = () => {
                         >
                           <div className="flex items-center justify-center p-5">
                             <img
-                              className="flex h-[128px] w-[128px] items-center justify-center rounded-lg "
+                              className="mb-2 flex h-[128px] w-[128px] items-center justify-center rounded-lg text-xl font-semibold"
                               src={item.image}
                               alt={item.name}
                             />
@@ -77,7 +77,9 @@ export const HomePage = () => {
                           className="absolute inset-0 rounded-lg border-inherit bg-inherit text-black opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"
                         >
                           <div className="flex h-full flex-col items-center justify-center">
-                            <p className="text-center">{item.description}</p>
+                            <p className="text-center text-gray-700">
+                              {item.description}
+                            </p>
                           </div>
                         </a>
                       </div>

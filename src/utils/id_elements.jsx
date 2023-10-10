@@ -3,7 +3,7 @@ import imgdw from "../assets/images/download_128.png";
 import imggeoserv from "../assets/images/geoweb_128.png";
 import imgnorm from "../assets/images/normativa_128.png";
 import imgmetadatos from "../assets/images/metadatos_128.png";
-import imgotros from "../assets/images/otros.png";
+
 const ide_elements = [
   {
     id: 1,
@@ -39,13 +39,6 @@ const ide_elements = [
     name: "Metadatos",
     description: "Metadatos de cada proyecto",
     image: imgmetadatos,
-    to: "/proyects",
-  },
-  {
-    id: 6,
-    name: "Otros",
-    description: "Proyectos",
-    image: imgotros,
     to: "/proyects",
   },
 ];
