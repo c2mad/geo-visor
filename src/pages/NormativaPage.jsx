@@ -5,6 +5,7 @@ import iconEspaña from "../assets/icons/españa.png";
 import iconUK from "../assets/icons/reino-unido.png";
 import iconAustralia from "../assets/icons/australia.png";
 import iconCanada from "../assets/icons/canada.png";
+import iconBrasil from "../assets/icons/brasil.png";
 
 const Normativa = () => {
   const normativasPorPais = [
@@ -13,7 +14,7 @@ const Normativa = () => {
       normativa: "Normativa de IDE de EEUU",
       urlnormativa: "https://www.fgdc.gov/policyandplanningn",
       image: iconEEUU,
-      portal: "IDEE",
+      portal: "GP",
       urlportal: "https://www.fgdc.gov/",
     },
     {
@@ -40,8 +41,9 @@ const Normativa = () => {
       normativa: "Normativa de IDE de Australia",
       urlnormativa: "https://www.icsm.gov.au/about/legal",
       image: iconAustralia,
-      portal: "GP",
-      urlportal: "https://www.geoplatform.gov/",
+      portal: "ASDI",
+      urlportal:
+        "https://www.icsm.gov.au/australian-spatial-data-infrastructure-asdi",
     },
     {
       pais: "España",
@@ -59,17 +61,17 @@ const Normativa = () => {
       portal: "IDEE",
       urlportal: "https://www.idee.es/",
     },
+    {
+      pais: "Brasil",
+      normativa: "Normativa de IDE de Brasil",
+      urlnormativa: "https://inde.gov.br/NormasPadroes",
+      image: iconBrasil,
+      portal: "INDE",
+      urlportal: "https://www.inde.gov.br/",
+    },
     // {
     //   pais: "España",
-    //   normativa: "Normativa de IDE de España",
-    //   urlnormativa: "https://www.idee.es/web/idee/documentaci%C3%B3n",
-    //   image: iconEspaña,
-    //   portal: "IDEE",
-    //   urlportal: "https://www.idee.es/",
-    // },
-    // {
-    //   pais: "España",
-    //   normativa: "Normativa de IDE de España",
+    //   normativa: "Normativa de IDE de ",
     //   urlnormativa: "https://www.idee.es/web/idee/documentaci%C3%B3n",
     //   image: iconEspaña,
     //   portal: "IDEE",
@@ -82,7 +84,7 @@ const Normativa = () => {
     <>
       <div className="container mx-auto max-w-[1100px] p-4">
         <h1 className="mb-4 text-3xl font-semibold">
-          Normativas de IDE por País
+          Normativas y portales de IDE por País
         </h1>
         <div className="grid grid-cols-3 gap-4  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
           {normativasPorPais.map((paisInfo, index) => (
