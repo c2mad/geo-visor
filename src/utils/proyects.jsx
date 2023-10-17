@@ -1,13 +1,13 @@
-import imgcat from "assets/images/imgplantilla.jpg";
+import imgjoseproject from "assets/images/imgjoseproject.png";
 const proyects = [
   {
     id: 1,
     title:
       "Implementación de un geovisor para la visualización de las propiedades geodinámicas y geomorfológicas del subsuelo: caso de estudio Cuenca, Azuay, Ecuador",
-    imageUrl: imgcat,
-    publication: "12 de Agosto 2023",
+    imageUrl: imgjoseproject,
+    publication: "2023",
     description:
-      "It is difficult to believe that we have become so used to having instant access to information at. Aunque no posee actualmente fuentes para justificar sus hipótesis,  It is difficult to believe that we have become so used to having instant access to information at. Aunque no posee actualmente fuentes para justificar sus hipótesis,",
+      "El crecimiento urbano y la falta de estudios de suelos adecuados antes de construir edificaciones generan vulnerabilidad estructural. Para abordar este problema, se propone la creación de una base de datos estandarizada que reúna información sísmica y geotécnica en un geovisor de fácil acceso. Esto mejorará la toma de decisiones en la construcción de infraestructuras en la región de Cuenca, Azuay, Ecuador, reduciendo riesgos y omisiones en proyectos civiles.",
     fuente: "SIGDATA",
     layeritem: "Leer más",
     category: 1,

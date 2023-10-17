@@ -3,6 +3,7 @@ import imgdw from "../assets/images/download_128.png";
 import imggeoserv from "../assets/images/geoweb_128.png";
 import imgnorm from "../assets/images/normativa_128.png";
 import imgmetadatos from "../assets/images/metadatos_128.png";
+import imgmanual from "../assets/images/manual.png";
 
 const ide_elements = [
   {
@@ -39,7 +40,14 @@ const ide_elements = [
     name: "Metadatos",
     description: "Metadatos de cada proyecto",
     image: imgmetadatos,
-    to: "/proyects",
+    to: "/metadatos",
+  },
+  {
+    id: 6,
+    name: "Manual",
+    description: "Manual de usuario o tutorial de la IDE",
+    image: imgmanual,
+    to: "/manual",
   },
 ];
 export default ide_elements;
