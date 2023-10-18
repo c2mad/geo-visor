@@ -2,13 +2,8 @@ import React, { useState } from "react";
 // import imgriesgos from "assets/images/mapa-riesgos.jpg";
 // import imgturismo from "assets/images/mapas-turismo.jpg";
 import "../assets/css/home.css";
-import categorias from "../utils/categories";
 import id_elements from "../utils/id_elements";
-import proyectos from "../utils/proyects";
-import Post from "components/ui/post";
 export const HomePage = () => {
-  const [proyects, setProyects] = useState(proyectos);
-  const [categories, setCategories] = useState(categorias);
   return (
     <>
       <div className=" bg-inherit">

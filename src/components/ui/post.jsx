@@ -30,7 +30,9 @@ const Post = ({ proyects, categories }) => {
                   </span>
                   {" | "}
                   {"Fuente: "}
-                  <span>{proyect.fuente}</span>
+                  {proyect.fuente.map((f) => (
+                    <span>{f.name}</span>
+                  ))}
                   {" | "}
                   {"Categoría: "}
                   {
