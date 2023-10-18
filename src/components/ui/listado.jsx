@@ -70,7 +70,7 @@ export default function Listado() {
         content: (
           <>
             <span className="mr-2 text-[12px]">
-              <strong>Fuente:</strong> {selectedOption}
+              <strong>Fuente:</strong> {selectedValue}
             </span>
           </>
         ),
@@ -78,30 +78,47 @@ export default function Listado() {
       });
     } else {
       // Busca el índice del elemento a eliminar por su id
-      const indexToDelete = filtros.findIndex((project) => project.id === 1);
+      const indexToDelete = filtros.findIndex((item) => item.id === 1);
 
       // Si el índice es encontrado, elimina el elemento con splice
       if (indexToDelete !== -1) {
         filtros.splice(indexToDelete, 1);
       }
     }
-    // switch (selectedValue) {
-    //   case "C2MAD":
-    //     {
-    //       proyects.map((proyect) => proyect.fuente == "C2MAD");
-    //     }
-    //     break;
-    //   case "RIOUC":
-    //     // Lógica para la opción 2
-    //     break;
-    //   case "SIGDATA":
-    //     // Lógica para la opción 3
-    //     break;
-    //   default:
-    //     // Lógica por defecto
-    //     break;
-    // }
   };
+
+  const handleDateChange = (start, date) => {
+    console.log(existe);
+    if (start) setStartDate(date);
+    else setEndDate(date);
+    // Aquí puedes ejecutar diferentes funciones según la opción seleccionada
+    const existe = filtros.find((item) => item.id === 2);
+    if (existe == null) {
+      filtros.push({
+        id: 2,
+        content: (
+          <>
+            <span className="mr-2 text-[12px]">
+              <strong>Publicados:</strong> {datestart} <strong>to</strong>{" "}
+              {endDate}
+            </span>
+          </>
+        ),
+        description: startDate + " to " + endDate,
+      });
+    } else {
+      existe.content = (
+        <>
+          <span className="mr-2 text-[12px]">
+            <strong>Publicados:</strong> {datestart} <strong>to</strong>{" "}
+            {endDate}
+          </span>
+        </>
+      );
+      existe.description = startDate + " to " + endDate;
+    }
+  };
+
   const uniqueSources = proyects.reduce((accumulator, project) => {
     project.fuente.forEach((source) => {
       // Comprobamos si la fuente ya existe en el acumulador
@@ -139,14 +156,12 @@ export default function Listado() {
                 </p>
                 <div className="mt-5">
                   {filtros.map((fil) => (
-                    <>Hola</>
-                  ))}
-                  {filtros.map((fil) => (
                     <button
+                      key={fil.id}
                       type="button"
                       className="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
                     >
-                      {fil.selectedValue}
+                      {fil.content}
                       <svg
                         className="h-2 w-2"
                         aria-hidden="true"
@@ -214,10 +229,10 @@ export default function Listado() {
                     Fuente
                   </label>
                   <select
-                    id="countries"
+                    id="fuente"
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                     value={selectedOption}
-                    onChange={(e) => setSelectedOption(e.target.value)}
+                    onChange={(e) => handleOptionChange(e.target.value)}
                   >
                     <option value={"Seleccione la fuente"}>
                       {"Seleccione la fuente"}
@@ -269,8 +284,10 @@ export default function Listado() {
                         readOnly={true}
                         name="start"
                         type="text"
+                        // value={startDate}
                         className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                         placeholder="Select date start"
+                        onChange={(e) => handleDateChange(true, e.target.value)}
                       />
                     </div>
                     <span className="mx-4 text-gray-500">to</span>
@@ -292,8 +309,10 @@ export default function Listado() {
                         type="text"
                         className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                         placeholder="Select date end"
-                        value={datestart}
-                        onChange={(e) => setDateStart(e.target.value)}
+                        // value={endDate}
+                        onChange={(e) =>
+                          handleDateChange(false, e.target.value)
+                        }
                       />
                     </div>
                   </div>
