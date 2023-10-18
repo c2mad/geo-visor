@@ -60,28 +60,58 @@ export default function Listado() {
   // }, []);
   const [selectedOption, setSelectedOption] = useState("");
   const [datestart, setDateStart] = useState("");
+  const [filtros, setFiltros] = useState([]);
   const handleOptionChange = (selectedValue) => {
     setSelectedOption(selectedValue);
-
     // Aquí puedes ejecutar diferentes funciones según la opción seleccionada
-    switch (selectedValue) {
-      case "C2MAD":
-        {
-          proyects.map((proyect) => proyect.fuente == "C2MAD");
-        }
-        break;
-      case "RIOUC":
-        // Lógica para la opción 2
-        break;
-      case "SIGDATA":
-        // Lógica para la opción 3
-        break;
-      default:
-        // Lógica por defecto
-        break;
-    }
-  };
+    if (selectedValue != "Seleccione la fuente") {
+      filtros.push({
+        id: 1,
+        content: (
+          <>
+            <span className="mr-2 text-[12px]">
+              <strong>Fuente:</strong> {selectedOption}
+            </span>
+          </>
+        ),
+        description: selectedValue,
+      });
+    } else {
+      // Busca el índice del elemento a eliminar por su id
+      const indexToDelete = filtros.findIndex((project) => project.id === 1);
 
+      // Si el índice es encontrado, elimina el elemento con splice
+      if (indexToDelete !== -1) {
+        filtros.splice(indexToDelete, 1);
+      }
+    }
+    // switch (selectedValue) {
+    //   case "C2MAD":
+    //     {
+    //       proyects.map((proyect) => proyect.fuente == "C2MAD");
+    //     }
+    //     break;
+    //   case "RIOUC":
+    //     // Lógica para la opción 2
+    //     break;
+    //   case "SIGDATA":
+    //     // Lógica para la opción 3
+    //     break;
+    //   default:
+    //     // Lógica por defecto
+    //     break;
+    // }
+  };
+  const uniqueSources = proyects.reduce((accumulator, project) => {
+    project.fuente.forEach((source) => {
+      // Comprobamos si la fuente ya existe en el acumulador
+      const existingSource = accumulator.find((item) => item.id === source.id);
+      if (!existingSource) {
+        accumulator.push(source);
+      }
+    });
+    return accumulator;
+  }, []);
   return (
     <>
       <div className="mx-auto w-full max-w-[1500px] px-3">
@@ -108,7 +138,30 @@ export default function Listado() {
                   Filtros de busqueda
                 </p>
                 <div className="mt-5">
-                  <button
+                  {filtros.map((fil) => (
+                    <>Hola</>
+                  ))}
+                  {filtros.map((fil) => (
+                    <button
+                      type="button"
+                      className="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
+                    >
+                      {fil.selectedValue}
+                      <svg
+                        className="h-2 w-2"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          stroke="currentColor"
+                          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                        />
+                      </svg>
+                    </button>
+                  ))}
+                  {/* <button
                     type="button"
                     className="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
                   >
@@ -128,8 +181,8 @@ export default function Listado() {
                         d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
                       />
                     </svg>
-                  </button>
-                  <button
+                  </button> */}
+                  {/* <button
                     type="button"
                     className="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
                   >
@@ -148,7 +201,7 @@ export default function Listado() {
                         d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
                       />
                     </svg>
-                  </button>
+                  </button> */}
                 </div>
               </div>
 
@@ -166,10 +219,14 @@ export default function Listado() {
                     value={selectedOption}
                     onChange={(e) => setSelectedOption(e.target.value)}
                   >
-                    <option selected>Seleccione la fuente</option>
-                    <option value="C2MAD">C2MAD</option>
-                    <option value="RIOUC">RIOUC</option>
-                    <option value="SIGDATA">SIGDATA</option>
+                    <option value={"Seleccione la fuente"}>
+                      {"Seleccione la fuente"}
+                    </option>
+                    {uniqueSources.map((fuent) => (
+                      <option key={fuent.id} value={fuent.name}>
+                        {fuent.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -192,7 +249,7 @@ export default function Listado() {
                     Fecha de publicación:
                   </label>
                   <div
-                    date-rangepicker
+                    date-rangepicker="true"
                     className="flex items-center"
                     id="dateRangePickerId"
                   >
@@ -209,7 +266,7 @@ export default function Listado() {
                         </svg>
                       </div>
                       <input
-                        readOnly="readOnly"
+                        readOnly={true}
                         name="start"
                         type="text"
                         className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
@@ -230,7 +287,7 @@ export default function Listado() {
                         </svg>
                       </div>
                       <input
-                        readonly="readonly"
+                        readOnly={true}
                         name="end"
                         type="text"
                         className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
