@@ -40,11 +40,28 @@ export default function Listado() {
   // new DateRangePicker(dateRangePickerEl, {
   //   // options
   // });
+
   useEffect(() => {
+    const options = {
+      startDate: new Date(), // Fecha de inicio predeterminada
+      endDate: new Date(), // Fecha de fin predeterminada
+      format: "yyyy-mm-dd", // Formato de fecha
+      numberOfMonths: 2, // Número de meses visibles en el calendario
+      minDate: null, // Fecha mínima permitida
+      maxDate: null, // Fecha máxima permitida
+      allowSelectDates: true, // Permite la selección de fechas
+      onSelect: (date) => {
+        console.log("Fecha seleccionada:", date);
+      },
+      // Otras opciones específicas de la biblioteca
+    };
+    const onchange = (selectedDates, dateStr, instance) => {
+      // Aquí puedes controlar cuando la fecha cambia
+      console.log("Fechas seleccionadas:", selectedDates);
+      console.log("Fecha como cadena:", dateStr);
+    };
     const dateRangePickerEl = document.getElementById("dateRangePickerId");
-    new DateRangePicker(dateRangePickerEl, {
-      // options
-    });
+    new DateRangePicker(dateRangePickerEl, onchange, options);
   }, []);
   // useEffect(() => {
   //   const datepickerEl = document?.getElementById("datepickerId");
@@ -53,7 +70,6 @@ export default function Listado() {
   // }, []);
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedAutor, setAutor] = useState("");
-  const [datestart] = useState("");
   const [filtros, setFiltros] = useState([]);
   const handleOptionChange = (selectedValue) => {
     setSelectedOption(selectedValue);
@@ -122,6 +138,13 @@ export default function Listado() {
       case 1:
         setSelectedOption("Seleccione la fuente");
         break;
+      case 2:
+        setStartDate("");
+        setEndDate("");
+        break;
+      case 3:
+        setAutor("");
+        break;
       default:
         break;
     }
@@ -138,23 +161,31 @@ export default function Listado() {
         content: (
           <>
             <span className="mr-2 text-[12px]">
-              <strong>Publicados:</strong> {datestart} <strong>to</strong>{" "}
-              {endDate}
+              <strong>Publicados:</strong> {start ? date : startDate}{" "}
+              <strong>to</strong> {!start ? date : endDate}
             </span>
           </>
         ),
-        description: startDate + " to " + endDate,
+        description: start
+          ? date
+          : startDate + " to " + !start
+          ? date
+          : endDate,
       });
     } else {
       existe.content = (
         <>
           <span className="mr-2 text-[12px]">
-            <strong>Publicados:</strong> {datestart} <strong>to</strong>{" "}
-            {endDate}
+            <strong>Publicados:</strong> {start ? date : startDate}{" "}
+            <strong>to</strong> {!start ? date : endDate}
           </span>
         </>
       );
-      existe.description = startDate + " to " + endDate;
+      existe.description = start
+        ? date
+        : startDate + " to " + !start
+        ? date
+        : endDate;
     }
     setFiltros(filtros);
   };
@@ -308,6 +339,7 @@ export default function Listado() {
                   <label className="mb-5 block text-sm font-semibold text-gray-600 dark:text-white">
                     Fecha de publicación:
                   </label>
+
                   <div
                     date-rangepicker="true"
                     className="flex items-center"
@@ -332,7 +364,8 @@ export default function Listado() {
                         // value={startDate}
                         className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-rose-500 focus:ring-rose-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-rose-500 dark:focus:ring-rose-500"
                         placeholder="Select date start"
-                        onChange={(e) => handleDateChange(true, e.target.value)}
+                        onSelect={(e) => handleDateChange(true, e.target.value)}
+                        // onChange={(e) => handleDateChange(true, e.target.value)}
                       />
                     </div>
                     <span className="mx-4 text-gray-500">to</span>
@@ -354,10 +387,13 @@ export default function Listado() {
                         type="text"
                         className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-rose-500 focus:ring-rose-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-rose-500 dark:focus:ring-rose-500"
                         placeholder="Select date end"
-                        // value={endDate}
-                        onChange={(e) =>
+                        onSelect={(e) =>
                           handleDateChange(false, e.target.value)
                         }
+                        // value={endDate}
+                        // onChange={(e) =>
+                        //   handleDateChange(false, e.target.value)
+                        // }
                       />
                     </div>
                   </div>
