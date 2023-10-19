@@ -8,7 +8,10 @@ const proyects = [
     publication: "12 de Agosto 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at. Aunque no posee actualmente fuentes para justificar sus hipótesis,  It is difficult to believe that we have become so used to having instant access to information at. Aunque no posee actualmente fuentes para justificar sus hipótesis,",
-    fuente: [{ id: 1, name: "SIGDATA" }],
+    fuente: [
+      { id: 1, name: "SIGDATA" },
+      { id: 2, name: "C2MAD" },
+    ],
     layeritem: "Leer más",
     category: 1,
     autores: [{ id: 2, name: "José Guaman" }],

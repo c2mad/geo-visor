@@ -31,7 +31,13 @@ const Post = ({ proyects, categories }) => {
                   {" | "}
                   {"Fuente: "}
                   {proyect.fuente.map((f) => (
-                    <span key={f.id}>{f.name}</span>
+                    <span key={f.id}>
+                      {f.name}{" "}
+                      {proyect.fuente.length > 1 &&
+                      proyect.fuente.indexOf(f) + 1 < proyect.fuente.length
+                        ? ", "
+                        : ""}
+                    </span>
                   ))}
                   {" | "}
                   {"Categoría: "}
