@@ -6,19 +6,12 @@ import categories from "../../utils/categories";
 import proyects from "../../utils/proyects";
 import DateRangePicker from "flowbite-datepicker/DateRangePicker";
 import Post from "../../components/ui/post";
+import SearchAutoComplete from "../../components/ui/SearchAutoComplete";
 export default function Listado() {
   // Define tu lista de elementos
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-
-  const handleEndDateChange = (date) => {
-    if (startDate && date < startDate) {
-      // Si la fecha de final es menor que la fecha de inicio, actualiza la fecha de inicio
-      setStartDate(date);
-    }
-    setEndDate(date);
-  };
 
   const [items, setItems] = useState(proyects);
   const [currentPage, setCurrentPage] = useState(0);
@@ -47,11 +40,28 @@ export default function Listado() {
   // new DateRangePicker(dateRangePickerEl, {
   //   // options
   // });
+
   useEffect(() => {
+    const options = {
+      startDate: new Date(), // Fecha de inicio predeterminada
+      endDate: new Date(), // Fecha de fin predeterminada
+      format: "yyyy-mm-dd", // Formato de fecha
+      numberOfMonths: 2, // Número de meses visibles en el calendario
+      minDate: null, // Fecha mínima permitida
+      maxDate: null, // Fecha máxima permitida
+      allowSelectDates: true, // Permite la selección de fechas
+      onSelect: (date) => {
+        console.log("Fecha seleccionada:", date);
+      },
+      // Otras opciones específicas de la biblioteca
+    };
+    const onchange = (selectedDates, dateStr, instance) => {
+      // Aquí puedes controlar cuando la fecha cambia
+      console.log("Fechas seleccionadas:", selectedDates);
+      console.log("Fecha como cadena:", dateStr);
+    };
     const dateRangePickerEl = document.getElementById("dateRangePickerId");
-    new DateRangePicker(dateRangePickerEl, {
-      // options
-    });
+    new DateRangePicker(dateRangePickerEl, onchange, options);
   }, []);
   // useEffect(() => {
   //   const datepickerEl = document?.getElementById("datepickerId");
@@ -59,29 +69,137 @@ export default function Listado() {
   //   new Datepicker(datepickerEl, {});
   // }, []);
   const [selectedOption, setSelectedOption] = useState("");
-  const [datestart, setDateStart] = useState("");
+  const [selectedAutor, setAutor] = useState("");
+  const [filtros, setFiltros] = useState([]);
   const handleOptionChange = (selectedValue) => {
     setSelectedOption(selectedValue);
-
     // Aquí puedes ejecutar diferentes funciones según la opción seleccionada
-    switch (selectedValue) {
-      case "C2MAD":
-        {
-          proyects.map((proyect) => proyect.fuente == "C2MAD");
-        }
+    if (selectedValue !== "Seleccione la fuente") {
+      filtros.push({
+        id: 1,
+        content: (
+          <>
+            <span className="mr-2 text-[12px]">
+              <strong>Fuente:</strong> {selectedValue}
+            </span>
+          </>
+        ),
+        description: selectedValue,
+      });
+    } else {
+      // Busca el índice del elemento a eliminar por su id
+      const indexToDelete = filtros.findIndex((item) => item.id === 1);
+
+      // Si el índice es encontrado, elimina el elemento con splice
+      if (indexToDelete !== -1) {
+        filtros.splice(indexToDelete, 1);
+      }
+    }
+    setFiltros(filtros);
+  };
+  const obtenerValorAutor = (valor) => {
+    console.log("Valor obtenido:", valor);
+    setAutor(valor.name);
+    const existe = filtros.find((item) => item.id === 3);
+    console.log(existe);
+    if (existe === null || existe === undefined) {
+      console.log("aqui");
+      filtros.push({
+        id: 3,
+        content: (
+          <>
+            <span className="mr-2 text-[12px]">
+              <strong>Autor:</strong> {valor.name}
+            </span>
+          </>
+        ),
+        description: valor.name,
+      });
+    } else {
+      existe.content = (
+        <>
+          <span className="mr-2 text-[12px]">
+            <strong>Autor:</strong> {valor.name}
+          </span>
+        </>
+      );
+      existe.description = valor.name;
+    }
+    setFiltros(filtros);
+    //console.log("Valor obtenido:", valor);
+    // Haz lo que quieras con el valor aquí
+  };
+  const handleDeleteFiltro = (id) => {
+    const updatedFiltros = filtros.filter((item) => item.id !== id);
+    // Actualiza el arreglo filtros con el nuevo arreglo sin el elemento eliminado
+    setFiltros(updatedFiltros);
+    //actualizamos el filtro a valores por defecto
+    switch (id) {
+      case 1:
+        setSelectedOption("Seleccione la fuente");
         break;
-      case "RIOUC":
-        // Lógica para la opción 2
+      case 2:
+        setStartDate("");
+        setEndDate("");
         break;
-      case "SIGDATA":
-        // Lógica para la opción 3
+      case 3:
+        setAutor("");
         break;
       default:
-        // Lógica por defecto
         break;
     }
   };
 
+  const handleDateChange = (start, date) => {
+    if (start) setStartDate(date);
+    else setEndDate(date);
+    // Aquí puedes ejecutar diferentes funciones según la opción seleccionada
+    const existe = filtros.find((item) => item.id === 2);
+    if (existe === null || existe === undefined) {
+      filtros.push({
+        id: 2,
+        content: (
+          <>
+            <span className="mr-2 text-[12px]">
+              <strong>Publicados:</strong> {start ? date : startDate}{" "}
+              <strong>to</strong> {!start ? date : endDate}
+            </span>
+          </>
+        ),
+        description: start
+          ? date
+          : startDate + " to " + !start
+          ? date
+          : endDate,
+      });
+    } else {
+      existe.content = (
+        <>
+          <span className="mr-2 text-[12px]">
+            <strong>Publicados:</strong> {start ? date : startDate}{" "}
+            <strong>to</strong> {!start ? date : endDate}
+          </span>
+        </>
+      );
+      existe.description = start
+        ? date
+        : startDate + " to " + !start
+        ? date
+        : endDate;
+    }
+    setFiltros(filtros);
+  };
+
+  const listado_fuente = proyects.reduce((accumulator, project) => {
+    project.fuente.forEach((source) => {
+      // Comprobamos si la fuente ya existe en el acumulador
+      const existingSource = accumulator.find((item) => item.id === source.id);
+      if (!existingSource) {
+        accumulator.push(source);
+      }
+    });
+    return accumulator;
+  }, []);
   return (
     <>
       <div className="mx-auto w-full max-w-[1500px] px-3">
@@ -108,7 +226,29 @@ export default function Listado() {
                   Filtros de busqueda
                 </p>
                 <div className="mt-5">
-                  <button
+                  {filtros.map((fil) => (
+                    <div
+                      key={fil.id}
+                      className="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
+                    >
+                      {fil.content}
+                      <button onClick={() => handleDeleteFiltro(fil.id)}>
+                        <svg
+                          className="h-2 w-2"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 14 14"
+                        >
+                          <path
+                            stroke="currentColor"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  ))}
+                  {/* <button
                     type="button"
                     className="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
                   >
@@ -128,8 +268,8 @@ export default function Listado() {
                         d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
                       />
                     </svg>
-                  </button>
-                  <button
+                  </button> */}
+                  {/* <button
                     type="button"
                     className="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
                   >
@@ -148,7 +288,7 @@ export default function Listado() {
                         d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
                       />
                     </svg>
-                  </button>
+                  </button> */}
                 </div>
               </div>
 
@@ -161,15 +301,19 @@ export default function Listado() {
                     Fuente
                   </label>
                   <select
-                    id="countries"
-                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    id="fuente"
+                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-rose-500 focus:ring-rose-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-rose-500 dark:focus:ring-rose-500"
                     value={selectedOption}
-                    onChange={(e) => setSelectedOption(e.target.value)}
+                    onChange={(e) => handleOptionChange(e.target.value)}
                   >
-                    <option selected>Seleccione la fuente</option>
-                    <option value="C2MAD">C2MAD</option>
-                    <option value="RIOUC">RIOUC</option>
-                    <option value="SIGDATA">SIGDATA</option>
+                    <option value={"Seleccione la fuente"}>
+                      {"Seleccione la fuente"}
+                    </option>
+                    {listado_fuente.map((fuent) => (
+                      <option key={fuent.id} value={fuent.name}>
+                        {fuent.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -181,6 +325,10 @@ export default function Listado() {
                   <label className="mb-5 block text-sm font-medium text-gray-900 dark:text-white">
                     Autor
                   </label>
+                  <SearchAutoComplete
+                    onClick={obtenerValorAutor}
+                    value={selectedAutor}
+                  />
                 </div>
               </div>
               <div
@@ -191,8 +339,9 @@ export default function Listado() {
                   <label className="mb-5 block text-sm font-semibold text-gray-600 dark:text-white">
                     Fecha de publicación:
                   </label>
+
                   <div
-                    date-rangepicker
+                    date-rangepicker="true"
                     className="flex items-center"
                     id="dateRangePickerId"
                   >
@@ -209,11 +358,14 @@ export default function Listado() {
                         </svg>
                       </div>
                       <input
-                        readOnly="readOnly"
+                        readOnly={true}
                         name="start"
                         type="text"
-                        className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                        // value={startDate}
+                        className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-rose-500 focus:ring-rose-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-rose-500 dark:focus:ring-rose-500"
                         placeholder="Select date start"
+                        onSelect={(e) => handleDateChange(true, e.target.value)}
+                        // onChange={(e) => handleDateChange(true, e.target.value)}
                       />
                     </div>
                     <span className="mx-4 text-gray-500">to</span>
@@ -230,13 +382,18 @@ export default function Listado() {
                         </svg>
                       </div>
                       <input
-                        readonly="readonly"
+                        readOnly={true}
                         name="end"
                         type="text"
-                        className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                        className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-rose-500 focus:ring-rose-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-rose-500 dark:focus:ring-rose-500"
                         placeholder="Select date end"
-                        value={datestart}
-                        onChange={(e) => setDateStart(e.target.value)}
+                        onSelect={(e) =>
+                          handleDateChange(false, e.target.value)
+                        }
+                        // value={endDate}
+                        // onChange={(e) =>
+                        //   handleDateChange(false, e.target.value)
+                        // }
                       />
                     </div>
                   </div>

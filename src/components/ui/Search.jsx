@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import categorias from "../../utils/categories";
 const Search = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [categories, setCategories] = useState(categorias);
+  const [categories] = useState(categorias);
   const handleSearch = (e) => {
     e.preventDefault();
     onSearch(searchQuery);

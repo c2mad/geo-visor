@@ -13,7 +13,7 @@ export const GeoViewerWithReact = () => {
   const [dataJose, setDataJose] = useState(null);
   const [dataCate, setDataCate] = useState(null);
 
-  const [point, setPoint] = useState([-2.8573835, -78.9633863]);
+  const [point] = useState([-2.8573835, -78.9633863]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const ows = async () => {

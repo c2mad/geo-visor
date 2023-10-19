@@ -1,4 +1,3 @@
-import Footer from "components/ui/footer";
 import React, { useState } from "react";
 // import imgriesgos from "assets/images/mapa-riesgos.jpg";
 // import imgturismo from "assets/images/mapas-turismo.jpg";
@@ -7,8 +6,8 @@ import categorias from "../utils/categories";
 import proyectos from "../utils/proyects";
 import Post from "components/ui/post";
 export const GeoportalPage = () => {
-  const [proyects, setProyects] = useState(proyectos);
-  const [categories, setCategories] = useState(categorias);
+  const [proyects] = useState(proyectos);
+  const [categories] = useState(categorias);
   return (
     <>
       <div className="bg-inherit">
