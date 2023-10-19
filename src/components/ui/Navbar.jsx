@@ -83,37 +83,20 @@ export const Navbar = ({ isGeoportal = false }) => {
                   className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
                   onClick={() => setOpen(false)}
                 >
-                  <NavbarLink to="/" linkTitle={isGeoportal ? "IDE" : "Inicio"}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                  </NavbarLink>
+                  <NavbarLink
+                    to="/"
+                    linkTitle={isGeoportal ? "IDE" : "Inicio"}
+                  ></NavbarLink>
                 </div>
                 {!isGeoportal ? (
                   <div
                     className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
                     onClick={() => setOpen(false)}
                   >
-                    <NavbarLink to="/geoportal" linkTitle="Geoportal">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeWidth={2}
-                          d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                        />
-                      </svg>
-                    </NavbarLink>
+                    <NavbarLink
+                      to="/geoportal"
+                      linkTitle="Geoportal"
+                    ></NavbarLink>
                   </div>
                 ) : (
                   <></>
@@ -121,40 +104,12 @@ export const Navbar = ({ isGeoportal = false }) => {
                 <div
                   className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
                   onClick={() => setOpen(false)}
-                >
-                  <NavbarLink to="/servicios" linkTitle="Servicios">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeWidth={2}
-                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                      />
-                    </svg>
-                  </NavbarLink>
-                </div>
+                ></div>
                 <div
                   className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
                   onClick={() => setOpen(false)}
                 >
-                  <NavbarLink to="/contacto" linkTitle="Contacto">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeWidth={2}
-                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                      />
-                    </svg>
-                  </NavbarLink>
+                  <NavbarLink to="/contacto" linkTitle="Contacto"></NavbarLink>
                 </div>
               </ul>
             </div>
