@@ -86,6 +86,17 @@ export default function Listado() {
       }
     }
   };
+  const handleDeleteFiltro = (id) => {
+    const updatedFiltros = filtros.filter((item) => item.id !== id);
+    // Actualiza el arreglo filtros con el nuevo arreglo sin el elemento eliminado
+    setFiltros(updatedFiltros);
+    //actualizamos el filtro a valores por defecto
+    switch (id) {
+      case 1:
+        setSelectedOption("Seleccione la fuente");
+        break;
+    }
+  };
 
   const handleDateChange = (start, date) => {
     console.log(existe);
@@ -156,25 +167,26 @@ export default function Listado() {
                 </p>
                 <div className="mt-5">
                   {filtros.map((fil) => (
-                    <button
+                    <div
                       key={fil.id}
-                      type="button"
                       className="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
                     >
                       {fil.content}
-                      <svg
-                        className="h-2 w-2"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 14 14"
-                      >
-                        <path
-                          stroke="currentColor"
-                          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                        />
-                      </svg>
-                    </button>
+                      <button onClick={() => handleDeleteFiltro(fil.id)}>
+                        <svg
+                          className="h-2 w-2"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 14 14"
+                        >
+                          <path
+                            stroke="currentColor"
+                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                          />
+                        </svg>
+                      </button>
+                    </div>
                   ))}
                   {/* <button
                     type="button"
