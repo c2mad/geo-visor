@@ -7,7 +7,7 @@ const AutocompleteItem = ({ id, name }) => {
       <button className="w-full p-4 hover:bg-gray-50">
         <div style={{ display: "flex", alignItems: "center" }}>
           <svg
-            className="h-6 w-6 text-rose-500 dark:text-white"
+            className="h-6 w-6 text-rose-500 dark:text-rose-500"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -111,12 +111,12 @@ export default function SearchAutoComplete(props) {
       <div className="relative flex w-full rounded-lg border-none bg-gradient-to-tr from-rose-600 to-rose-300">
         <input
           ref={inputRef}
-          className="w-full flex-1 rounded-lg p-2 pl-4"
+          className="w-full flex-1 rounded-lg p-2 pl-4 focus:border-rose-500 focus:ring-rose-500"
           {...inputProps}
         />
         {autocompleteState.isOpen && (
           <div
-            className="absolute left-0 top-0 z-10 mt-16 w-full overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg "
+            className="absolute left-0 top-0 z-10 mt-16 w-full overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg focus:border-rose-500"
             ref={panelRef}
             {...autocomplete.getPanelProps()}
           >
