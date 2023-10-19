@@ -6,19 +6,12 @@ import categories from "../../utils/categories";
 import proyects from "../../utils/proyects";
 import DateRangePicker from "flowbite-datepicker/DateRangePicker";
 import Post from "../../components/ui/post";
+import SearchAutoComplete from "../../components/ui/SearchAutoComplete";
 export default function Listado() {
   // Define tu lista de elementos
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-
-  const handleEndDateChange = (date) => {
-    if (startDate && date < startDate) {
-      // Si la fecha de final es menor que la fecha de inicio, actualiza la fecha de inicio
-      setStartDate(date);
-    }
-    setEndDate(date);
-  };
 
   const [items, setItems] = useState(proyects);
   const [currentPage, setCurrentPage] = useState(0);
@@ -59,12 +52,12 @@ export default function Listado() {
   //   new Datepicker(datepickerEl, {});
   // }, []);
   const [selectedOption, setSelectedOption] = useState("");
-  const [datestart, setDateStart] = useState("");
+  const [datestart] = useState("");
   const [filtros, setFiltros] = useState([]);
   const handleOptionChange = (selectedValue) => {
     setSelectedOption(selectedValue);
     // Aquí puedes ejecutar diferentes funciones según la opción seleccionada
-    if (selectedValue != "Seleccione la fuente") {
+    if (selectedValue !== "Seleccione la fuente") {
       filtros.push({
         id: 1,
         content: (
@@ -95,11 +88,12 @@ export default function Listado() {
       case 1:
         setSelectedOption("Seleccione la fuente");
         break;
+      default:
+        break;
     }
   };
 
   const handleDateChange = (start, date) => {
-    console.log(existe);
     if (start) setStartDate(date);
     else setEndDate(date);
     // Aquí puedes ejecutar diferentes funciones según la opción seleccionada
@@ -265,6 +259,7 @@ export default function Listado() {
                   <label className="mb-5 block text-sm font-medium text-gray-900 dark:text-white">
                     Autor
                   </label>
+                  <SearchAutoComplete />
                 </div>
               </div>
               <div

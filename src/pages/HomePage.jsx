@@ -1,6 +1,3 @@
-import React, { useState } from "react";
-// import imgriesgos from "assets/images/mapa-riesgos.jpg";
-// import imgturismo from "assets/images/mapas-turismo.jpg";
 import "../assets/css/home.css";
 import id_elements from "../utils/id_elements";
 export const HomePage = () => {
