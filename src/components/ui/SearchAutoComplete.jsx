@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import { createAutocomplete } from "@algolia/autocomplete-core";
-
+import proyects from "../../utils/proyects";
 const AutocompleteItem = ({ id, name, onClick, onSelected }) => {
   const handleClick = () => {
     const valor = { id: id, name: name };
@@ -56,6 +56,17 @@ export default function SearchAutoComplete(props) {
   const handleClick = (item) => {
     setSelectedItem(item); // Almacenar el elemento seleccionado en el estado
   };
+
+  const listado_autores = proyects.reduce((accumulator, project) => {
+    project.autores.forEach((source) => {
+      // Comprobamos si la fuente ya existe en el acumulador
+      const existingSource = accumulator.find((item) => item.id === source.id);
+      if (!existingSource) {
+        accumulator.push(source);
+      }
+    });
+    return accumulator;
+  }, []);
   const autocomplete = useMemo(
     () =>
       createAutocomplete({
@@ -67,21 +78,7 @@ export default function SearchAutoComplete(props) {
             getItems: ({ query }) => {
               console.log(query);
               if (!!query) {
-                const autores = [
-                  {
-                    id: 1,
-                    name: "Dra. Sandra Cobos",
-                  },
-                  {
-                    id: 2,
-                    name: "Ing. Junior Leonardo Wachapa",
-                  },
-                  {
-                    id: 3,
-                    name: "Dr. Estefano Torrachi",
-                  },
-                ];
-                const resultados = autores.filter((item) =>
+                const resultados = listado_autores.filter((item) =>
                   item.name.toLowerCase().includes(query.toLowerCase())
                 );
                 return resultados;

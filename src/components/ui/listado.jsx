@@ -190,7 +190,7 @@ export default function Listado() {
     setFiltros(filtros);
   };
 
-  const uniqueSources = proyects.reduce((accumulator, project) => {
+  const listado_fuente = proyects.reduce((accumulator, project) => {
     project.fuente.forEach((source) => {
       // Comprobamos si la fuente ya existe en el acumulador
       const existingSource = accumulator.find((item) => item.id === source.id);
@@ -309,7 +309,7 @@ export default function Listado() {
                     <option value={"Seleccione la fuente"}>
                       {"Seleccione la fuente"}
                     </option>
-                    {uniqueSources.map((fuent) => (
+                    {listado_fuente.map((fuent) => (
                       <option key={fuent.id} value={fuent.name}>
                         {fuent.name}
                       </option>
