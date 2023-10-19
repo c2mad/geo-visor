@@ -3,7 +3,7 @@ import { createAutocomplete } from "@algolia/autocomplete-core";
 
 const AutocompleteItem = ({ id, name }) => {
   return (
-    <li>
+    <li key={id}>
       <button className="w-full p-4 hover:bg-gray-50">
         <div style={{ display: "flex", alignItems: "center" }}>
           <svg
@@ -69,7 +69,7 @@ export default function SearchAutoComplete(props) {
                     name: "Ing. Junior Leonardo Wachapa",
                   },
                   {
-                    id: 2,
+                    id: 3,
                     name: "Dr. Estefano Torrachi",
                   },
                 ];
@@ -107,7 +107,7 @@ export default function SearchAutoComplete(props) {
   });
 
   return (
-    <form ref={formRef} className="mb-20 flex justify-center" {...formProps}>
+    <form ref={formRef} className="mb-3 flex justify-center" {...formProps}>
       <div className="relative flex w-full rounded-lg border-none bg-gradient-to-tr from-rose-600 to-rose-300">
         <input
           ref={inputRef}
