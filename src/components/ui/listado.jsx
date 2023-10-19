@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate";
 import "tailwindcss/tailwind.css";
 import Search from "./Search";
 import categories from "../../utils/categories";
-import proyects from "../../utils/proyects";
+import projects from "../../utils/proyects";
 import DateRangePicker from "flowbite-datepicker/DateRangePicker";
 import Post from "../../components/ui/post";
 import SearchAutoComplete from "../../components/ui/SearchAutoComplete";
@@ -13,7 +13,7 @@ export default function Listado() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const [items, setItems] = useState(proyects);
+  const [items, setItems] = useState(projects);
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 9; // item por página
   const pageCount = Math.ceil(items.length / itemsPerPage);
@@ -26,20 +26,18 @@ export default function Listado() {
   const endIndex = startIndex + itemsPerPage;
   const itemsToDisplay = items.slice(startIndex, endIndex);
 
+  //Busqueda de proyectos
   const search2 = (searchQuery) => {
     // Filtra los elementos que coinciden con la consulta de búsqueda en el título
-    const filteredItems = proyects.filter((item) =>
-      item.title.toLowerCase().includes(searchQuery.toLowerCase())
+    const filteredItems = projects.filter(
+      (item) =>
+        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.description.toLowerCase().includes(searchQuery.toLowerCase())
     );
-
     // Actualiza la lista de elementos y restablece la página actual
     setItems(filteredItems);
     setCurrentPage(0);
   };
-  // const dateRangePickerEl = document.getElementById("dateRangePickerId");
-  // new DateRangePicker(dateRangePickerEl, {
-  //   // options
-  // });
 
   useEffect(() => {
     const options = {
@@ -63,11 +61,7 @@ export default function Listado() {
     const dateRangePickerEl = document.getElementById("dateRangePickerId");
     new DateRangePicker(dateRangePickerEl, onchange, options);
   }, []);
-  // useEffect(() => {
-  //   const datepickerEl = document?.getElementById("datepickerId");
-  //   // console.log(datepickerEl);
-  //   new Datepicker(datepickerEl, {});
-  // }, []);
+
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedAutor, setAutor] = useState("");
   const [filtros, setFiltros] = useState([]);
@@ -190,7 +184,7 @@ export default function Listado() {
     setFiltros(filtros);
   };
 
-  const listado_fuente = proyects.reduce((accumulator, project) => {
+  const listado_fuente = projects.reduce((accumulator, project) => {
     project.fuente.forEach((source) => {
       // Comprobamos si la fuente ya existe en el acumulador
       const existingSource = accumulator.find((item) => item.id === source.id);
@@ -208,13 +202,12 @@ export default function Listado() {
           className="text-center font-sans text-2xl dark:text-white"
         >
           <br />
-          {/*<h1>Listado de proyectos en Mapas de riesgos</h1>*/}
         </div>
         <div className="py-10">
           <Search onSearch={search2} />
           {""}
         </div>
-        {/* grid-cols-1 sm:grid md:grid-cols-3  */}
+
         <div className="w-full px-3">
           <div className="grid-cols-1 gap-4 sm:grid sm:px-0 md:grid-cols-3 md:px-3">
             <div className="row-span-3 mb-5">
@@ -248,47 +241,6 @@ export default function Listado() {
                       </button>
                     </div>
                   ))}
-                  {/* <button
-                    type="button"
-                    className="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
-                  >
-                    <span className="mr-2 text-[12px]">
-                      <strong>Publicados:</strong> {datestart}{" "}
-                      <strong>to</strong> 01/09/2023
-                    </span>
-                    <svg
-                      className="h-2 w-2"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 14 14"
-                    >
-                      <path
-                        stroke="currentColor"
-                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                      />
-                    </svg>
-                  </button> */}
-                  {/* <button
-                    type="button"
-                    className="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
-                  >
-                    <span className="mr-2 text-[12px]">
-                      <strong>Fuente:</strong> {selectedOption}
-                    </span>
-                    <svg
-                      className="h-2 w-2"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 14 14"
-                    >
-                      <path
-                        stroke="currentColor"
-                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                      />
-                    </svg>
-                  </button> */}
                 </div>
               </div>
 

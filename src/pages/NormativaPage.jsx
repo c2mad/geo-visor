@@ -6,6 +6,9 @@ import iconUK from "../assets/icons/reino-unido.png";
 import iconAustralia from "../assets/icons/australia.png";
 import iconCanada from "../assets/icons/canada.png";
 import iconBrasil from "../assets/icons/brasil.png";
+import iconChile from "../assets/icons/chile.png";
+import iconColombia from "../assets/icons/colombia.png";
+import iconArgentina from "../assets/icons/argentina.png";
 
 const Normativa = () => {
   const normativasPorPais = [
@@ -54,14 +57,6 @@ const Normativa = () => {
       urlportal: "https://www.idee.es/",
     },
     {
-      pais: "Ecuador",
-      normativa: "Normativa de IDE de Ecuador",
-      urlnormativa: "https://www.idee.es/web/idee/documentaci%C3%B3n",
-      image: iconEcuador,
-      portal: "IDEE",
-      urlportal: "https://www.idee.es/",
-    },
-    {
       pais: "Brasil",
       normativa: "Normativa de IDE de Brasil",
       urlnormativa: "https://inde.gov.br/NormasPadroes",
@@ -69,24 +64,49 @@ const Normativa = () => {
       portal: "INDE",
       urlportal: "https://www.inde.gov.br/",
     },
-    // {
-    //   pais: "España",
-    //   normativa: "Normativa de IDE de ",
-    //   urlnormativa: "https://www.idee.es/web/idee/documentaci%C3%B3n",
-    //   image: iconEspaña,
-    //   portal: "IDEE",
-    //   urlportal: "https://www.idee.es/",
-    // },
-    // Agrega más países y normativas según sea necesario
+    {
+      pais: "Chile",
+      normativa: "Normativa de IDE de Chile",
+      urlnormativa:
+        "https://www.ide.cl/index.php/s-e-snit/area-de-informacion-y-normas/normas-y-estandares-basicos-para-el-desarrollo-de-una-ide",
+      image: iconChile,
+      portal: "IDECHILE",
+      urlportal: "https://www.ide.cl/",
+    },
+    {
+      pais: "Colombia",
+      normativa: "Normativa de IDE de ",
+      urlnormativa: "https://www.icde.gov.co/sobre-nosotros/marco-normativo",
+      image: iconColombia,
+      portal: "IDEE",
+      urlportal: "https://www.icde.gov.co/",
+    },
+    {
+      pais: "Argentina",
+      normativa: "Normativa de IDE de ",
+      urlnormativa: "https://www.idee.es/web/idee/documentaci%C3%B3n",
+      image: iconArgentina,
+      portal: "IDERA",
+      urlportal: "https://www.idera.gob.ar/",
+    },
+    {
+      pais: "Ecuador",
+      normativa: "Normativa de IDE de Ecuador",
+      urlnormativa: "https://www.idee.es/web/idee/documentaci%C3%B3n",
+      image: iconEcuador,
+      portal: "IDEE",
+      urlportal: "https://www.idee.es/",
+    },
+    //Agrega más países y normativas según sea necesario
   ];
 
   return (
     <>
       <div className="container mx-auto max-w-[1100px] p-4">
-        <h1 className="mb-4 text-3xl font-semibold">
+        <h1 className="mb-4 text-center text-3xl font-semibold">
           Normativas y portales de IDE por País
         </h1>
-        <div className="grid grid-cols-3 gap-4  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-4  sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
           {normativasPorPais.map((paisInfo, index) => (
             <div
               key={index}
