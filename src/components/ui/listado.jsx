@@ -52,6 +52,7 @@ export default function Listado() {
   //   new Datepicker(datepickerEl, {});
   // }, []);
   const [selectedOption, setSelectedOption] = useState("");
+  const [selectedAutor, setAutor] = useState("");
   const [datestart] = useState("");
   const [filtros, setFiltros] = useState([]);
   const handleOptionChange = (selectedValue) => {
@@ -78,6 +79,39 @@ export default function Listado() {
         filtros.splice(indexToDelete, 1);
       }
     }
+    setFiltros(filtros);
+  };
+  const obtenerValorAutor = (valor) => {
+    console.log("Valor obtenido:", valor);
+    setAutor(valor.name);
+    const existe = filtros.find((item) => item.id === 3);
+    console.log(existe);
+    if (existe === null || existe === undefined) {
+      console.log("aqui");
+      filtros.push({
+        id: 3,
+        content: (
+          <>
+            <span className="mr-2 text-[12px]">
+              <strong>Autor:</strong> {valor.name}
+            </span>
+          </>
+        ),
+        description: valor.name,
+      });
+    } else {
+      existe.content = (
+        <>
+          <span className="mr-2 text-[12px]">
+            <strong>Autor:</strong> {valor.name}
+          </span>
+        </>
+      );
+      existe.description = valor.name;
+    }
+    setFiltros(filtros);
+    //console.log("Valor obtenido:", valor);
+    // Haz lo que quieras con el valor aquí
   };
   const handleDeleteFiltro = (id) => {
     const updatedFiltros = filtros.filter((item) => item.id !== id);
@@ -98,7 +132,7 @@ export default function Listado() {
     else setEndDate(date);
     // Aquí puedes ejecutar diferentes funciones según la opción seleccionada
     const existe = filtros.find((item) => item.id === 2);
-    if (existe == null) {
+    if (existe === null || existe === undefined) {
       filtros.push({
         id: 2,
         content: (
@@ -122,6 +156,7 @@ export default function Listado() {
       );
       existe.description = startDate + " to " + endDate;
     }
+    setFiltros(filtros);
   };
 
   const uniqueSources = proyects.reduce((accumulator, project) => {
@@ -259,7 +294,10 @@ export default function Listado() {
                   <label className="mb-5 block text-sm font-medium text-gray-900 dark:text-white">
                     Autor
                   </label>
-                  <SearchAutoComplete />
+                  <SearchAutoComplete
+                    onClick={obtenerValorAutor}
+                    value={selectedAutor}
+                  />
                 </div>
               </div>
               <div

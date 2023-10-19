@@ -1,10 +1,15 @@
 import { useMemo, useRef, useState } from "react";
 import { createAutocomplete } from "@algolia/autocomplete-core";
 
-const AutocompleteItem = ({ id, name }) => {
+const AutocompleteItem = ({ id, name, onClick, onSelected }) => {
+  const handleClick = () => {
+    const valor = { id: id, name: name };
+    onClick(valor);
+    onSelected(valor);
+  };
   return (
     <li key={id}>
-      <button className="w-full p-4 hover:bg-gray-50">
+      <button className="w-full p-4 hover:bg-gray-50" onClick={handleClick}>
         <div style={{ display: "flex", alignItems: "center" }}>
           <svg
             className="h-6 w-6 text-rose-500 dark:text-rose-500"
@@ -47,7 +52,10 @@ export default function SearchAutoComplete(props) {
     collections: [],
     isOpen: false,
   });
-
+  const [selectedItem, setSelectedItem] = useState(null);
+  const handleClick = (item) => {
+    setSelectedItem(item); // Almacenar el elemento seleccionado en el estado
+  };
   const autocomplete = useMemo(
     () =>
       createAutocomplete({
@@ -113,6 +121,13 @@ export default function SearchAutoComplete(props) {
           ref={inputRef}
           className="w-full flex-1 rounded-lg p-2 pl-4 focus:border-rose-500 focus:ring-rose-500"
           {...inputProps}
+          value={selectedItem ? selectedItem.name : inputProps.value} // Usar el valor seleccionado si existe
+          onChange={(e) => {
+            if (selectedItem) {
+              setSelectedItem(null); // Limpiar el estado de selectedItem si se modifica el input
+            }
+            inputProps.onChange(e); // Continuar con la lógica predeterminada del input
+          }}
         />
         {autocompleteState.isOpen && (
           <div
@@ -128,7 +143,12 @@ export default function SearchAutoComplete(props) {
                   {items.length > 0 && (
                     <ul {...autocomplete.getListProps()}>
                       {items.map((item) => (
-                        <AutocompleteItem key={item.id} {...item} />
+                        <AutocompleteItem
+                          key={item.id}
+                          {...item}
+                          onClick={props.onClick}
+                          onSelected={handleClick}
+                        />
                       ))}
                     </ul>
                   )}
