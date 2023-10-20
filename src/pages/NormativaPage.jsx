@@ -106,7 +106,7 @@ const Normativa = () => {
         <h1 className="mb-4 text-center text-3xl font-semibold">
           Normativas y portales de IDE por País
         </h1>
-        <div className="grid grid-cols-2 gap-4  sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
+        <div className="grid gap-4  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
           {normativasPorPais.map((paisInfo, index) => (
             <div
               key={index}

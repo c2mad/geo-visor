@@ -7,16 +7,65 @@ import projects from "../../utils/proyects";
 import DateRangePicker from "flowbite-datepicker/DateRangePicker";
 import Post from "../../components/ui/post";
 import SearchAutoComplete from "../../components/ui/SearchAutoComplete";
+
 export default function Listado() {
+  // Función para aplicar los filtros
+
+  const applyFilters = () => {
+    console.log("Antes de aplicar filtros:", projects);
+
+    let filteredItems = projects; // Inicialmente, los proyectos sin filtrar
+
+    // Filtra por fuente
+    console.log("selectedOption:", selectedOption);
+
+    if (selectedOption !== "Seleccione la fuente") {
+      filteredItems = filteredItems.filter((item) =>
+        item.fuente.some((fuente) => {
+          console.log("fuente.name:", fuente.name);
+          console.log("selectedOption:", selectedOption);
+          return fuente.name.toLowerCase() === selectedOption.toLowerCase();
+        })
+      );
+    }
+
+    // Continúa con el resto de tu lógica y uso de filteredItems
+
+    // Filtra por autor
+    // if (selectedAutor) {
+    //   filteredItems = filteredItems.filter((item) =>
+    //     item.autor.toLowerCase().includes(selectedAutor.toLowerCase())
+    //   );
+    // }
+
+    // Filtra por fecha
+    // if (startDate && endDate) {
+    //   filteredItems = filteredItems.filter((item) => {
+    //     const projectDate = new Date(item.fechaPublicacion);
+    //     const start = new Date(startDate);
+    //     const end = new Date(endDate);
+
+    //     return projectDate >= start && projectDate <= end;
+    //   });
+    // }
+
+    // Actualiza la lista de proyectos con los filtros aplicados
+    setItems(filteredItems);
+  };
+
   // Define tu lista de elementos
 
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const [startDate, setStartDate] = useState(null); // Filtro de fecha de inicio
+  const [endDate, setEndDate] = useState(null); // Filtro de fecha de fin
+  //const [filteredItems, setFilteredItems] = useState(projects);
 
-  const [items, setItems] = useState(projects);
+  const [items, setItems] = useState(projects); // Lista original de proyectos
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 9; // item por página
   const pageCount = Math.ceil(items.length / itemsPerPage);
+  const [selectedOption, setSelectedOption] = useState(""); // Filtro de fuente
+  const [selectedAutor, setAutor] = useState(""); // Filtro de autor
+  const [filtros, setFiltros] = useState([]); // Lista de filtros seleccionados
 
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
@@ -62,12 +111,11 @@ export default function Listado() {
     new DateRangePicker(dateRangePickerEl, onchange, options);
   }, []);
 
-  const [selectedOption, setSelectedOption] = useState("");
-  const [selectedAutor, setAutor] = useState("");
-  const [filtros, setFiltros] = useState([]);
   const handleOptionChange = (selectedValue) => {
     setSelectedOption(selectedValue);
-    // Aquí puedes ejecutar diferentes funciones según la opción seleccionada
+    console.log("selectedOption:", selectedValue);
+    applyFilters();
+    //Aquí puedes ejecutar diferentes funciones según la opción seleccionada
     if (selectedValue !== "Seleccione la fuente") {
       filtros.push({
         id: 1,
@@ -81,19 +129,21 @@ export default function Listado() {
         description: selectedValue,
       });
     } else {
-      // Busca el índice del elemento a eliminar por su id
+      //Busca el índice del elemento a eliminar por su id
       const indexToDelete = filtros.findIndex((item) => item.id === 1);
 
-      // Si el índice es encontrado, elimina el elemento con splice
+      //Si el índice es encontrado, elimina el elemento con splice
       if (indexToDelete !== -1) {
         filtros.splice(indexToDelete, 1);
       }
     }
     setFiltros(filtros);
   };
+
   const obtenerValorAutor = (valor) => {
     console.log("Valor obtenido:", valor);
     setAutor(valor.name);
+    //applyFilters();
     const existe = filtros.find((item) => item.id === 3);
     console.log(existe);
     if (existe === null || existe === undefined) {
@@ -182,6 +232,7 @@ export default function Listado() {
         : endDate;
     }
     setFiltros(filtros);
+    applyFilters();
   };
 
   const listado_fuente = projects.reduce((accumulator, project) => {

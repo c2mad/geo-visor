@@ -7,6 +7,8 @@ import React, { useState } from "react";
 
 export const Navbar = ({ isGeoportal = false }) => {
   const [open, setOpen] = useState(false);
+  const [serviciosMenuOpen, setServiciosMenuOpen] = useState(false);
+
   return (
     <>
       <nav className="relative z-40 h-14 w-full bg-black">
@@ -102,28 +104,14 @@ export const Navbar = ({ isGeoportal = false }) => {
                   <></>
                 )}
 
-                <div className="relative">
-                  <div
-                    className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
-                    onClick={() => setOpen(false)}
-                  >
-                    <ul>
-                      <li>2</li>
-                      <li>1</li>
-                    </ul>
-                  </div>
-                  {/* Agregar el menú que se despliega hacia la derecha aquí */}
-                  <div className="absolute right-0 top-0 mt-12 hidden w-48 bg-white shadow-lg">
-                    <ul className="py-2">
-                      <li>
-                        <NavbarLink to="/opcion1" linkTitle="Opción 1" />
-                      </li>
-                      <li>
-                        <NavbarLink to="/opcion2" linkTitle="Opción 2" />
-                      </li>
-                      {/* Agregar más opciones de menú según sea necesario */}
-                    </ul>
-                  </div>
+                <div
+                  className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
+                  onClick={() => setOpen(false)}
+                >
+                  <NavbarLink
+                    to="/servicios"
+                    linkTitle="Servicios"
+                  ></NavbarLink>
                 </div>
 
                 <div
