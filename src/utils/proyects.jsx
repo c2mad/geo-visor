@@ -67,7 +67,7 @@ const proyects = [
     id: 5,
     title: "Infraestructura",
     imageUrl: imgjoseproject,
-    publication: "12 de Agosto 2023",
+    publication: "31 de Octubre 2022",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
     fuente: [{ id: 1, name: "SIGDATA" }],
@@ -85,7 +85,7 @@ const proyects = [
     id: 6,
     title: "Turístico",
     imageUrl: imgjoseproject,
-    publication: "12 de Agosto 2023",
+    publication: "2 de Junio 2021",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
     fuente: [{ id: 1, name: "SIGDATA" }],
@@ -103,7 +103,7 @@ const proyects = [
     id: 7,
     title: "Suelo",
     imageUrl: imgjoseproject,
-    publication: "12 de Agosto 2023",
+    publication: "1 de Enero 2016",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
     fuente: [{ id: 1, name: "SIGDATA" }],
