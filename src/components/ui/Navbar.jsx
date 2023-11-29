@@ -108,7 +108,12 @@ export const Navbar = ({ isGeoportal = false }) => {
                     onClick={() => setOpen(false)}
                   >
                     <ul>
-                      <li>2</li>
+                      <li>
+                        <NavbarLink
+                          to="/geoportal"
+                          linkTitle="Geoportal"
+                        ></NavbarLink>
+                      </li>
                       <li>1</li>
                     </ul>
                   </div>

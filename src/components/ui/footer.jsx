@@ -31,7 +31,7 @@ const Footer = () => {
                         target="_blank"
                         rel="noreferrer"
                       >
-                        SIGDATA
+                        DATACHADEMICS
                       </a>
                     </li>
                   </ul>

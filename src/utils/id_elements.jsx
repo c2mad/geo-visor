@@ -9,7 +9,8 @@ const ide_elements = [
   {
     id: 1,
     name: "Geoportal",
-    description: "Consulta los datos espaciales relacionados con los riesgos",
+    description:
+      "Aqui se proporciona acceso a información geoespacial a través de mapas interactivos, capas de datos geográficos y herramientas de análisis.",
     image: imgmap,
     to: "/geoportal",
   },
@@ -17,21 +18,23 @@ const ide_elements = [
     id: 2,
     name: "Descargas",
     description:
-      "Descarga en diferentes formatos de las información geoespacial",
+      "Descargar en los diferentes formatos la información geoespacial",
     image: imgdw,
     to: "/proyects",
   },
   {
     id: 3,
     name: "Geoservicios",
-    description: "Los servicios web que se utiliza en esta IDE",
+    description:
+      "Se reflejan cuales son los servicios web que utiliza esta IDE",
     image: imggeoserv,
     to: "/geoservicios",
   },
   {
     id: 4,
     name: "Normativa legal",
-    description: "Documentos legales para funcionamiento de la IDE",
+    description:
+      "Documento con la normativa legal para el funcionamiento de la IDE",
     image: imgnorm,
     to: "/normativa",
   },
@@ -45,7 +48,7 @@ const ide_elements = [
   {
     id: 6,
     name: "Manual",
-    description: "Manual de usuario o tutorial de la IDE",
+    description: "Manual de usuario para el uso de la IDE",
     image: imgmanual,
     to: "/manual",
   },
