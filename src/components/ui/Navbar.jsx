@@ -116,7 +116,6 @@ export const Navbar = ({ isGeoportal = false }) => {
                           linkTitle="Geoportal"
                         ></NavbarLink>
                       </li>
-                      <li>1</li>
                     </ul>
                   </div>
                   {/* Agregar el menú que se despliega hacia la derecha aquí */}

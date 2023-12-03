@@ -1,10 +1,15 @@
-import imgturismo from "../assets/images/mapas-turismo.jpg";
+import imgriesgos from "../assets/images/riesgos.jpeg";
+import imgturismo from "../assets/images/turismo.jpeg";
+import imgviabilidad from "../assets/images/viabilidad.jpeg";
+import imgmedioambiente from "../assets/images/medioambiente.jpeg";
+import imgsuelos from "../assets/images/suelos.jpeg";
+import imgurbanismo from "../assets/images/urbanismo.jpeg";
 const categories = [
   {
     id: 1,
     name: "Riesgos",
     description: "Consulta los datos espaciales relacionados con los riesgos",
-    image: imgturismo,
+    image: imgriesgos,
     to: "/proyects",
   },
   {
@@ -18,28 +23,28 @@ const categories = [
     id: 3,
     name: "Viabilidad",
     description: "Viabilidad",
-    image: imgturismo,
+    image: imgviabilidad,
     to: "/proyects",
   },
   {
     id: 4,
     name: "Medio Ambiente",
     description: "Medio Ambiente",
-    image: imgturismo,
+    image: imgmedioambiente,
     to: "/proyects",
   },
   {
     id: 5,
-    name: "Sueldo",
-    description: "Sueldo",
-    image: imgturismo,
+    name: "Suelos",
+    description: "Suelos",
+    image: imgsuelos,
     to: "/proyects",
   },
   {
     id: 6,
     name: "Urbanismo",
     description: "Urbanismo",
-    image: imgturismo,
+    image: imgurbanismo,
     to: "/proyects",
   },
 ];
