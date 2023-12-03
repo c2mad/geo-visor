@@ -9,7 +9,7 @@ const proyects = [
     description:
       "El crecimiento urbano y la falta de estudios de suelos adecuados antes de construir edificaciones generan vulnerabilidad estructural. Para abordar este problema, se propone la creación de una base de datos estandarizada que reúna información sísmica y geotécnica en un geovisor de fácil acceso. Esto mejorará la toma de decisiones en la construcción de infraestructuras en la región de Cuenca, Azuay, Ecuador, reduciendo riesgos y omisiones en proyectos civiles.",
     fuente: [
-      { id: 1, name: "SIGDATA" },
+      { id: 1, name: "DatAchademics" },
       { id: 2, name: "C2MAD" },
     ],
     layeritem: "Leer más",
@@ -25,7 +25,7 @@ const proyects = [
     publication: "12 de Agosto 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
-    fuente: [{ id: 1, name: "SIGDATA" }],
+    fuente: [{ id: 1, name: "DatAchademics" }],
     layeritem: "Leer más",
     category: 2,
     autores: [
@@ -41,7 +41,7 @@ const proyects = [
     publication: "12 de Agosto 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
-    fuente: [{ id: 1, name: "SIGDATA" }],
+    fuente: [{ id: 1, name: "DatAchademics" }],
     layeritem: "Leer más",
     category: 5,
     autores: [
@@ -57,7 +57,7 @@ const proyects = [
     publication: "12 de Agosto 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
-    fuente: [{ id: 1, name: "SIGDATA" }],
+    fuente: [{ id: 1, name: "DatAchademics" }],
     layeritem: "Leer más",
     category: 1,
     autores: [{ id: 1, name: "Bryam Sebastian Carmona" }],
@@ -70,7 +70,7 @@ const proyects = [
     publication: "31 de Octubre 2022",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
-    fuente: [{ id: 1, name: "SIGDATA" }],
+    fuente: [{ id: 1, name: "DatAchademics" }],
     layeritem: "Leer más",
     category: 1,
     autores: [
@@ -88,7 +88,7 @@ const proyects = [
     publication: "2 de Junio 2021",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
-    fuente: [{ id: 1, name: "SIGDATA" }],
+    fuente: [{ id: 1, name: "DatAchademics" }],
     layeritem: "Leer más",
     category: 1,
     autores: [
@@ -106,7 +106,7 @@ const proyects = [
     publication: "1 de Enero 2016",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
-    fuente: [{ id: 1, name: "SIGDATA" }],
+    fuente: [{ id: 1, name: "DatAchademics" }],
     layeritem: "Leer más",
     category: 1,
     autores: [
@@ -124,7 +124,7 @@ const proyects = [
     publication: "12 de Agosto 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
-    fuente: [{ id: 1, name: "SIGDATA" }],
+    fuente: [{ id: 1, name: "DatAchademics" }],
     layeritem: "Leer más",
     category: 1,
     autores: [
@@ -142,7 +142,7 @@ const proyects = [
     publication: "12 de Agosto 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
-    fuente: [{ id: 1, name: "SIGDATA" }],
+    fuente: [{ id: 1, name: "DatAchademics" }],
     layeritem: "Leer más",
     category: 1,
     autores: [
@@ -160,7 +160,7 @@ const proyects = [
     publication: "12 de Agosto de 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at",
-    fuente: [{ id: 1, name: "SIGDATA" }],
+    fuente: [{ id: 1, name: "DatAchademics" }],
     layeritem: "Leer más",
     category: 1,
     autores: [
@@ -178,7 +178,7 @@ const proyects = [
     publication: "12 de Agosto de 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at",
-    fuente: [{ id: 1, name: "SIGDATA" }],
+    fuente: [{ id: 1, name: "DatAchademics" }],
     layeritem: "Leer más",
     category: 6,
     autores: [{ id: 1, name: "Dr. Setefano Torrachi" }],
@@ -191,7 +191,7 @@ const proyects = [
     publication: "12 de Agosto de 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at",
-    fuente: [{ id: 1, name: "SIGDATA" }],
+    fuente: [{ id: 1, name: "DatAchademics" }],
     layeritem: "Leer más",
     category: 3,
     autores: [{ id: 1, name: "Dra. Sandra Cobos" }],
