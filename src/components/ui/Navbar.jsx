@@ -97,12 +97,22 @@ export const Navbar = ({ isGeoportal = false }) => {
                   >
                     <NavbarLink
                       to="/geoportal"
-                      linkTitle="Servicios"
+                      linkTitle="Geoportal"
                     ></NavbarLink>
                   </div>
                 ) : (
                   <></>
                 )}
+
+                <div
+                  className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
+                  onClick={() => setOpen(false)}
+                >
+                  <NavbarLink
+                    to="/servicios"
+                    linkTitle="Servicios"
+                  ></NavbarLink>
+                </div>
 
                 <div
                   className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
