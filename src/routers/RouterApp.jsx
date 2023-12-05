@@ -12,6 +12,7 @@ import Normativa from "pages/NormativaPage";
 import GeoservicesPage from "pages/GeoservicesPage";
 import { ManualPage } from "pages/ManualPage";
 import MetadatosPage from "pages/MetadatosPage";
+import { MoreInfoPage } from "pages/MoreInfoPage";
 
 export const RouterApp = () => {
   return (
@@ -51,6 +52,9 @@ export const RouterApp = () => {
           </Route>
           <Route path="/metadatos" element={<DefaultLayout />}>
             <Route index element={<MetadatosPage />}></Route>
+          </Route>
+          <Route path="/moreinfo" element={<DefaultLayout />}>
+            <Route index element={<MoreInfoPage />}></Route>
           </Route>
 
           <Route path="*" element={<Navigate to="/" />} />

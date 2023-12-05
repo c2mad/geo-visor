@@ -21,8 +21,8 @@ const categories = [
   },
   {
     id: 3,
-    name: "Viabilidad",
-    description: "Viabilidad",
+    name: "Vial",
+    description: "Vial",
     image: imgviabilidad,
     to: "/proyects",
   },
