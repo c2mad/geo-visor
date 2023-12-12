@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-// import imgriesgos from "assets/images/mapa-riesgos.jpg";
-// import imgturismo from "assets/images/mapas-turismo.jpg";
 import "../assets/css/home.css";
 import categorias from "../utils/categories";
 import proyectos from "../utils/proyects";
@@ -10,21 +8,39 @@ import Search from "components/ui/Search";
 export const GeoportalPage = () => {
   const [proyects] = useState(proyectos);
   const [categories] = useState(categorias);
-  const [items, setItems] = useState(proyectos);
+  const [items, setItems] = useState(proyects);
   const [currentPage, setCurrentPage] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [dropdownVisible, setDropdownVisible] = useState(false);
 
   //Busqueda de proyectos
   const search2 = (searchQuery) => {
-    // Filtra los elementos que coinciden con la consulta de búsqueda en el título
-    const filteredItems = proyectos.filter(
-      (item) =>
+    filterItems(searchQuery, selectedCategory);
+  };
+
+  const handleCategoryClick = (categoryId) => {
+    setSelectedCategory(categoryId);
+    setDropdownVisible(false); // Oculta el dropdown después de seleccionar una categoría
+    filterItems("", categoryId);
+  };
+  const filterItems = (searchQuery, category) => {
+    const filteredItems = proyectos.filter((item) => {
+      const includesSearch =
         item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    // Actualiza la lista de elementos y restablece la página actual
+        item.description.toLowerCase().includes(searchQuery.toLowerCase());
+
+      const includesCategory =
+        !category ||
+        item.categoryId === category ||
+        category === "All categories";
+
+      return includesSearch && includesCategory;
+    });
+
     setItems(filteredItems);
     setCurrentPage(0);
   };
+
   return (
     <>
       <div className="bg-inherit">
@@ -55,27 +71,6 @@ export const GeoportalPage = () => {
               <div className="flex h-full items-center justify-center ">
                 <form className="w-full px-10">
                   <div className="flex sm:px-0 md:px-10">
-                    <div
-                      id="dropdown"
-                      className="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700"
-                    >
-                      <ul
-                        className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                        aria-labelledby="dropdown-button"
-                      >
-                        {categories.map((category) => (
-                          <li key={category.id}>
-                            <button
-                              type="button"
-                              className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                            >
-                              {category.name}
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
                     <div className="flex">
                       <Search onSearch={search2} />
                       {""}

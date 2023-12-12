@@ -1,11 +1,20 @@
 import React, { useState } from "react";
 import categorias from "../../utils/categories";
+
 const Search = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All categories");
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const [categories] = useState(categorias);
+
   const handleSearch = (e) => {
     e.preventDefault();
-    onSearch(searchQuery);
+    onSearch(searchQuery, selectedCategory);
+  };
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    setIsDropdownVisible(false); // Oculta el dropdown al seleccionar una categoría
   };
 
   return (
@@ -16,10 +25,13 @@ const Search = ({ onSearch }) => {
           data-dropdown-toggle="dropdown"
           className="z-10 inline-flex flex-shrink-0 items-center rounded-l-lg border border-gray-300 bg-gray-100 px-4 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700"
           type="button"
+          onClick={() => setIsDropdownVisible(!isDropdownVisible)}
         >
-          All categories{" "}
+          {selectedCategory}{" "}
           <svg
-            className="ml-2.5 h-2.5 w-2.5"
+            className={`ml-2.5 h-2.5 w-2.5 ${
+              isDropdownVisible ? "rotate-180 transform" : ""
+            }`}
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -30,7 +42,9 @@ const Search = ({ onSearch }) => {
         </button>
         <div
           id="dropdown"
-          className="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700"
+          className={`${
+            isDropdownVisible ? "block" : "hidden"
+          } z-10 w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
         >
           <ul
             className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -40,7 +54,12 @@ const Search = ({ onSearch }) => {
               <li key={category.id}>
                 <button
                   type="button"
-                  className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  className={`inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white ${
+                    selectedCategory === category.name
+                      ? "bg-gray-200 dark:bg-gray-800"
+                      : ""
+                  }`}
+                  onClick={() => handleCategoryClick(category.name)}
                 >
                   {category.name}
                 </button>

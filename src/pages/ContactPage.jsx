@@ -1,143 +1,129 @@
-import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import "../assets/css/home.css";
+// Importa las dependencias necesarias
+import React, { useState } from "react";
 
 export const ContactPage = () => {
-  const form = useRef();
-  const [isSuccess, setIsSuccess] = useState(false);
+  // Define estados para los campos del formulario
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [institucion, setInstitucion] = useState("");
+  const [asunto, setAsunto] = useState("");
+  const [mensaje, setMensaje] = useState("");
 
-  const sendEmail = (e) => {
+  // Manejar el envío del formulario
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_bblma2u",
-        "template_wfwrk9m",
-        form.current,
-        "aw99XBOV0VN_OI3jm"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setIsSuccess(true);
-          form.current.reset(); //Restablecer el form
+    // Construir el objeto con los datos del formulario
+    const formData = {
+      nombre,
+      email,
+      institucion,
+      asunto,
+      mensaje,
+    };
+
+    try {
+      // Enviar los datos al servidor
+      const response = await fetch("http://localhost:3001/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // El correo se envió con éxito
+        console.log("Correo enviado con éxito");
+      } else {
+        // Hubo un error al enviar el correo
+        console.error("Error al enviar el correo");
+      }
+    } catch (error) {
+      console.error("Error al enviar el correo", error);
+    }
   };
 
   return (
     <div className="background-contact justify-center p-4">
-      <form
-        ref={form}
-        onSubmit={sendEmail}
-        className="mx-auto mt-8 max-w-md rounded p-4 shadow-lg"
-      >
-        {isSuccess && (
-          <div
-            className="relative mb-4 rounded border border-green-400 bg-green-100 px-4 py-3 text-green-700"
-            role="alert"
-          >
-            <strong className="font-bold">Éxito!</strong>
-            <span className="block sm:inline">
-              {" "}
-              Su mensaje ha sido enviado con éxito!.
-            </span>
-          </div>
-        )}
-        <div className="mb-4">
-          <label
-            htmlFor="user_name"
-            className="mb-2 block text-sm font-bold text-white"
-          >
-            Nombre
-          </label>
-          <input
-            type="text"
-            name="user_name"
-            id="user_name"
-            className="w-full rounded-md border px-4 py-2 focus:border-blue-500 focus:outline-none"
-          />
+      <div className="w-full md:w-auto">
+        <div className="rounded-lg bg-inherit shadow-lg sm:max-w-lg sm:pl-4 md:w-[700px] md:pl-20">
+          <form method="POST" className="p-4" onSubmit={handleSubmit}>
+            {/* Título */}
+            <h2 className="mb-4 text-4xl font-semibold text-white">
+              Contáctanos
+            </h2>
+            {/* Campos de formulario */}
+            <div className="mb-4">
+              <label className="block font-medium text-white ">Nombre</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
+                placeholder="Tu nombre"
+                aria-required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block font-medium text-white">
+                Correo Electrónico
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
+                placeholder="Tu correo electrónico"
+                aria-required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block font-medium text-white">
+                Institución
+              </label>
+              <input
+                type="text"
+                id="institucion"
+                name="institucion"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
+                placeholder="Institución a la que pertenece"
+                aria-required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block font-medium text-white">Asunto</label>
+              <input
+                type="text"
+                id="asunto"
+                name="asunto"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
+                placeholder="Asunto"
+                aria-required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block font-medium text-white">Mensaje</label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                rows="4"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
+                placeholder="Escribe tu mensaje aquí"
+                aria-required
+              ></textarea>
+            </div>
+            {/* Botón de envío */}
+            <button
+              type="submit"
+              className="w-full rounded-lg bg-red px-4 py-2 font-semibold text-white transition duration-300 hover:bg-gray-400"
+            >
+              Enviar Mensaje
+            </button>
+          </form>
         </div>
-        <div className="mb-4">
-          <label
-            htmlFor="user_email"
-            className="mb-2 block text-sm font-bold text-white"
-          >
-            Email
-          </label>
-          <input
-            type="email"
-            name="user_email"
-            id="user_email"
-            className="w-full rounded-md border px-4 py-2 focus:border-blue-500 focus:outline-none"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="user_email"
-            className="mb-2 block text-sm font-bold text-white"
-          >
-            Contacto
-          </label>
-          <input
-            type="email"
-            name="user_contacto"
-            id="user_contacto"
-            className="w-full rounded-md border px-4 py-2 focus:border-blue-500 focus:outline-none"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="user_name"
-            className="mb-2 block text-sm font-bold text-white"
-          >
-            Institución a la que pertenece
-          </label>
-          <input
-            type="text"
-            name="institucion"
-            id="institucion"
-            className="w-full rounded-md border px-4 py-2 focus:border-blue-500 focus:outline-none"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="user_name"
-            className="mb-2 block text-sm font-bold text-white"
-          >
-            Asunto
-          </label>
-          <input
-            type="text"
-            name="asunto"
-            id="asunto"
-            className="w-full rounded-md border px-4 py-2 focus:border-blue-500 focus:outline-none"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="message"
-            className="mb-2 block text-sm font-bold text-white"
-          >
-            Mensaje
-          </label>
-          <textarea
-            name="message"
-            id="message"
-            rows="4"
-            className="w-full rounded-md border px-4 py-2 focus:border-blue-500 focus:outline-none"
-          ></textarea>
-        </div>
-        <button
-          type="submit"
-          className="w-full rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-700"
-        >
-          Enviar
-        </button>
-      </form>
+      </div>
     </div>
   );
 };
