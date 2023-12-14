@@ -41,7 +41,7 @@ export const ContactPage = () => {
         console.error("Error al enviar el correo");
       }
     } catch (error) {
-      console.error("Error al enviar el correo", error);
+      console.error("Error al enviar el correo electrónico", error);
     }
   };
 
@@ -61,6 +61,8 @@ export const ContactPage = () => {
                 type="text"
                 id="nombre"
                 name="nombre"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
                 className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
                 placeholder="Tu nombre"
                 aria-required
@@ -74,6 +76,8 @@ export const ContactPage = () => {
                 type="email"
                 id="email"
                 name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
                 placeholder="Tu correo electrónico"
                 aria-required
@@ -87,6 +91,8 @@ export const ContactPage = () => {
                 type="text"
                 id="institucion"
                 name="institucion"
+                value={institucion}
+                onChange={(e) => setInstitucion(e.target.value)}
                 className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
                 placeholder="Institución a la que pertenece"
                 aria-required
@@ -98,6 +104,8 @@ export const ContactPage = () => {
                 type="text"
                 id="asunto"
                 name="asunto"
+                value={asunto}
+                onChange={(e) => setAsunto(e.target.value)}
                 className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
                 placeholder="Asunto"
                 aria-required
@@ -109,6 +117,8 @@ export const ContactPage = () => {
                 id="mensaje"
                 name="mensaje"
                 rows="4"
+                value={mensaje}
+                onChange={(e) => setMensaje(e.target.value)}
                 className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
                 placeholder="Escribe tu mensaje aquí"
                 aria-required

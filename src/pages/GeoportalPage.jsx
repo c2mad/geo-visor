@@ -23,6 +23,7 @@ export const GeoportalPage = () => {
     setDropdownVisible(false); // Oculta el dropdown después de seleccionar una categoría
     filterItems("", categoryId);
   };
+  // Función para filtrar proyectos basados en la categoría y la búsqueda
   const filterItems = (searchQuery, category) => {
     const filteredItems = proyectos.filter((item) => {
       const includesSearch =

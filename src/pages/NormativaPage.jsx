@@ -92,7 +92,7 @@ const Normativa = () => {
     {
       pais: "Ecuador",
       normativa: "Normativa de IDE de Ecuador",
-      urlnormativa: "https://www.idee.es/web/idee/documentaci%C3%B3n",
+      urlnormativa: "https://iedg.sni.gob.ec/servicios/biblioteca/",
       image: iconEcuador,
       portal: "IDEE",
       urlportal: "https://www.idee.es/",
@@ -122,10 +122,22 @@ const Normativa = () => {
               </h2>
 
               <p className="text-gray-700 hover:underline">
-                <a href={paisInfo.urlnormativa}>{paisInfo.normativa}</a>
+                <a
+                  href={paisInfo.urlnormativa}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {paisInfo.normativa}{" "}
+                </a>
               </p>
               <p className="text-gray-700 hover:underline">
-                <a href={paisInfo.urlportal}>{paisInfo.portal}</a>
+                <a
+                  href={paisInfo.urlportal}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {paisInfo.portal}
+                </a>
               </p>
             </div>
           ))}

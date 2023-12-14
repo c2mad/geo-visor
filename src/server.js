@@ -12,19 +12,18 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const corsOptions = {
-  origin: "http://localhost:3001", // Reemplaza con la URL de tu aplicación React en producción
+  origin: "*",
   methods: "POST",
 };
 
 // Configura el transporte de nodemailer
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: "gmail",
   auth: {
-    user: 'pruebaside23@gmail.com',
-    pass: 'ciitt-server23',
+    user: "pruebaside23@gmail.com",
+    pass: "ccsjqdkrfotonwye",
   },
 });
-
 
 // Ruta para enviar correos electrónicos
 app.post("/send-email", async (req, res) => {
@@ -39,27 +38,39 @@ app.post("/send-email", async (req, res) => {
   // Configura el correo electrónico
   const mailOptions = {
     from: "pruebaside23@gmail.com",
-    to: "bcsebas1998@gmail.com", // Coloca la dirección del destinatario
+    to: "pruebaside23@gmail.com", // Coloca la dirección del destinatario
     subject: asunto,
-    text: `Nombre: ${nombre}\nCorreo Electrónico: ${email}\nInstitución: ${institucion}\n\nMensaje: ${mensaje}`,
+    html: `
+    <div className="p-4 bg-gray-100">
+      <p className="text-lg font-bold mb-2">Nombre: ${nombre}</p>
+      <p className="mb-2">Correo electrónico: ${email}</p>
+      <p className="mb-2">Institución: ${institucion}</p>
+      
+      <div className="mt-4">
+        <p className="font-semibold">Mensaje:</p>
+        <p>${mensaje}</p>
+      </div>
+    </div>
+  `,
   };
 
   try {
     const info = await transporter.sendMail(mailOptions);
     console.log("Correo enviado:", info);
 
-    res.status(200).send("Correo electrónico enviado con éxito");
+    // Modifica la respuesta para incluir información sobre el éxito del envío
+    res.status(200).send({
+      message: "Correo electrónico enviado con éxito",
+      success: true,
+    });
   } catch (error) {
-    console.error("Error al enviar el correo electrónico", error);
+    console.error("Error al enviar el correo", error);
 
-    // Manejo de errores específicos
-    if (error.code === "EAUTH") {
-      res
-        .status(401)
-        .send("Error de autenticación. Verifica las credenciales SMTP.");
-    } else {
-      res.status(500).send("Error al enviar el correo electrónico");
-    }
+    // Modifica la respuesta para incluir información sobre el error
+    res.status(500).send({
+      message: "Error al enviar el correo electrónico",
+      success: false,
+    });
   }
 });
 
