@@ -56,7 +56,7 @@ const Search = ({ onSearch }) => {
             id="search-dropdown"
             className="z-20 block w-full rounded-r-lg border border-l-2 border-gray-300 border-l-gray-50 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-rose-500 focus:ring-rose-500 dark:border-gray-600 dark:border-l-gray-700  dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-rose-500"
             placeholder="Buscar..."
-            required
+            // required
           />
           <button
             type="submit"
