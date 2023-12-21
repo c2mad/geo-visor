@@ -12,42 +12,40 @@ export default function Listado() {
   // Función para aplicar los filtros
 
   const applyFilters = () => {
-    console.log("Antes de aplicar filtros:", projects);
+    //console.log("Antes de aplicar filtros:", projects);
 
     let filteredItems = projects; // Inicialmente, los proyectos sin filtrar
 
     // Filtra por fuente
-    console.log("selectedOption:", selectedOption);
+    //console.log("selectedOption:", selectedOption);
 
     if (selectedOption !== "Seleccione la fuente") {
       filteredItems = filteredItems.filter((item) =>
-        item.fuente.some((fuente) => {
-          console.log("fuente.name:", fuente.name);
-          console.log("selectedOption:", selectedOption);
-          return fuente.name.toLowerCase() === selectedOption.toLowerCase();
-        })
+        item.fuente.some(
+          (fuente) => fuente.name.toLowerCase() === selectedOption.toLowerCase()
+        )
       );
     }
 
     // Continúa con el resto de tu lógica y uso de filteredItems
 
     // Filtra por autor
-    // if (selectedAutor) {
-    //   filteredItems = filteredItems.filter((item) =>
-    //     item.autor.toLowerCase().includes(selectedAutor.toLowerCase())
-    //   );
-    // }
+    if (selectedAutor) {
+      filteredItems = filteredItems.filter((item) =>
+        item.autor.toLowerCase().includes(selectedAutor.toLowerCase())
+      );
+    }
 
     // Filtra por fecha
-    // if (startDate && endDate) {
-    //   filteredItems = filteredItems.filter((item) => {
-    //     const projectDate = new Date(item.fechaPublicacion);
-    //     const start = new Date(startDate);
-    //     const end = new Date(endDate);
+    if (startDate && endDate) {
+      filteredItems = filteredItems.filter((item) => {
+        const projectDate = new Date(item.fechaPublicacion);
+        const start = new Date(startDate);
+        const end = new Date(endDate);
 
-    //     return projectDate >= start && projectDate <= end;
-    //   });
-    // }
+        return projectDate >= start && projectDate <= end;
+      });
+    }
 
     // Actualiza la lista de proyectos con los filtros aplicados
     setItems(filteredItems);
@@ -138,6 +136,7 @@ export default function Listado() {
       }
     }
     setFiltros(filtros);
+    applyFilters();
   };
 
   const obtenerValorAutor = (valor) => {

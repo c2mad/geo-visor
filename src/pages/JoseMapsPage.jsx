@@ -119,6 +119,7 @@ export const JoseMapsPage = () => {
                   <button
                     type="button"
                     className="inline-flex items-center rounded-lg bg-rose-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-rose-800 focus:outline-none focus:ring-4 focus:ring-rose-300 dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800"
+                    to="/normativa"
                   >
                     Ver mas
                     <svg

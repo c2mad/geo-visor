@@ -1,3 +1,4 @@
+//import logo from "./assets/images/logo-ucacue-geoportal.png";
 const express = require("express");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
@@ -33,7 +34,6 @@ app.post("/send-email", async (req, res) => {
     return res.status(400).send("Todos los campos son obligatorios.");
   }
 
-  // Resto del código...
 
   // Configura el correo electrónico
   const mailOptions = {
@@ -42,6 +42,7 @@ app.post("/send-email", async (req, res) => {
     subject: asunto,
     html: `
     <div className="p-4 bg-gray-100">
+      <img src={logo}/>
       <p className="text-lg font-bold mb-2">Nombre: ${nombre}</p>
       <p className="mb-2">Correo electrónico: ${email}</p>
       <p className="mb-2">Institución: ${institucion}</p>

@@ -16,6 +16,7 @@ const proyects = [
     category: 1,
     autores: [{ id: 2, name: "José Guaman" }],
     to: "/mapas/jose",
+    visitas: 0,
   },
   {
     id: 2,
@@ -33,6 +34,7 @@ const proyects = [
       { id: 2, name: "Dr. Setefano Torrachi" },
     ],
     to: "/mapas/jose",
+    visitas: 0,
   },
   {
     id: 3,
@@ -49,6 +51,7 @@ const proyects = [
       { id: 2, name: "Bryam Sebastian Carmona" },
     ],
     to: "/mapas/jose",
+    visitas: 0,
   },
   {
     id: 4,
@@ -62,6 +65,7 @@ const proyects = [
     category: 1,
     autores: [{ id: 1, name: "Bryam Sebastian Carmona" }],
     to: "/mapas/jose",
+    visitas: 0,
   },
   {
     id: 5,
@@ -80,6 +84,7 @@ const proyects = [
       { id: 4, name: "Bryam Sebastian Carmona" },
     ],
     to: "/mapas/jose",
+    visitas: 0,
   },
   {
     id: 6,
@@ -98,6 +103,7 @@ const proyects = [
       { id: 4, name: "Bryam Sebastian Carmona" },
     ],
     to: "/mapas/jose",
+    visitas: 0,
   },
   {
     id: 7,
@@ -116,6 +122,7 @@ const proyects = [
       { id: 4, name: "Bryam Sebastian Carmona" },
     ],
     to: "/mapas/jose",
+    visitas: 0,
   },
   {
     id: 8,
@@ -134,6 +141,7 @@ const proyects = [
       { id: 4, name: "Bryam Sebastian Carmona" },
     ],
     to: "/mapas/jose",
+    visitas: 0,
   },
   {
     id: 9,
@@ -152,6 +160,7 @@ const proyects = [
       { id: 4, name: "Bryam Sebastian Carmona" },
     ],
     to: "/mapas/jose",
+    visitas: 0,
   },
   {
     id: 10,
@@ -170,6 +179,7 @@ const proyects = [
       { id: 4, name: "Bryam Sebastian Carmona" },
     ],
     to: "/mapas/jose",
+    visitas: 0,
   },
   {
     id: 11,
@@ -183,6 +193,7 @@ const proyects = [
     category: 6,
     autores: [{ id: 1, name: "Dr. Setefano Torrachi" }],
     to: "/mapas/jose",
+    visitas: 0,
   },
   {
     id: 12,
@@ -196,6 +207,7 @@ const proyects = [
     category: 3,
     autores: [{ id: 1, name: "Dra. Sandra Cobos" }],
     to: "/mapas/jose",
+    visitas: 0,
   },
 ];
 export default proyects;

@@ -35,13 +35,23 @@ export const ContactPage = () => {
 
       if (response.ok) {
         // El correo se envió con éxito
-        console.log("Correo enviado con éxito");
+        alert("Correo electrónico enviado con éxito");
+
+        // Limpiar el formulario restableciendo los estados a una cadena vacía
+        setNombre("");
+        setEmail("");
+        setInstitucion("");
+        setAsunto("");
+        setMensaje("");
       } else {
         // Hubo un error al enviar el correo
-        console.error("Error al enviar el correo");
+        alert(
+          "Error al enviar el correo electrónico. Por favor, inténtalo de nuevo."
+        );
       }
     } catch (error) {
       console.error("Error al enviar el correo electrónico", error);
+      alert("Error de red al intentar enviar el correo electrónico.");
     }
   };
 
@@ -124,6 +134,7 @@ export const ContactPage = () => {
                 aria-required
               ></textarea>
             </div>
+
             {/* Botón de envío */}
             <button
               type="submit"

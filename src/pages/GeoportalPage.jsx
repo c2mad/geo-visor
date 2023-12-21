@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "../assets/css/home.css";
 import categorias from "../utils/categories";
 import proyectos from "../utils/proyects";
@@ -6,16 +7,32 @@ import Post from "components/ui/post";
 import Search from "components/ui/Search";
 
 export const GeoportalPage = () => {
-  const [proyects] = useState(proyectos);
+  const [proyects, setProyects] = useState(proyectos);
   const [categories] = useState(categorias);
   const [items, setItems] = useState(proyects);
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   //Busqueda de proyectos
   const search2 = (searchQuery) => {
     filterItems(searchQuery, selectedCategory);
+    navigate({
+      pathname: "/proyects",
+      search: `?search=${searchQuery}&category=${selectedCategory}`,
+    });
+  };
+
+  const handleProjectView = (projectId) => {
+    const updatedProyectos = proyects.map((project) =>
+      project.id === projectId
+        ? { ...project, visitas: project.visitas + 1 }
+        : project
+    );
+
+    setProyects(updatedProyectos);
   };
 
   const handleCategoryClick = (categoryId) => {
@@ -23,6 +40,7 @@ export const GeoportalPage = () => {
     setDropdownVisible(false); // Oculta el dropdown después de seleccionar una categoría
     filterItems("", categoryId);
   };
+
   // Función para filtrar proyectos basados en la categoría y la búsqueda
   const filterItems = (searchQuery, category) => {
     const filteredItems = proyectos.filter((item) => {
