@@ -1,22 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 const Post = ({ proyects, categories }) => {
-  const navigate = useNavigate();
-
-  const handleVerMapaClick = (projectId) => {
-    // Aquí puedes realizar la lógica necesaria para abrir el proyecto seleccionado
-    // Por ejemplo, podrías navegar a la ruta del proyecto utilizando history.push
-    navigate.push(`/proyectos/${projectId}`);
-  };
   return (
     <>
       {proyects.map((proyect) => (
         <div className="mb-5  w-full " key={proyect.id}>
-          <div
-            className="flex w-full flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700  md:flex-row"
-            onClick={() => handleVerMapaClick(proyect.id)}
-          >
+          <div className="flex w-full flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700  md:flex-row">
             <a
               href={proyect.to}
               className="flex w-full flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700  md:flex-row"
