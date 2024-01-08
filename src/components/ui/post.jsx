@@ -1,6 +1,8 @@
+import { useState } from "react";
 import React from "react";
 
 const Post = ({ proyects, categories }) => {
+  const [selectedProject, setSelectedProject] = useState(null);
   return (
     <>
       {proyects.map((proyect) => (
@@ -9,6 +11,7 @@ const Post = ({ proyects, categories }) => {
             <a
               href={proyect.to}
               className="flex w-full flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700  md:flex-row"
+              onClick={() => setSelectedProject(proyect)}
             >
               <img
                 className="h-96 w-full rounded-t-lg object-cover md:h-auto md:w-64 md:!rounded-none md:!rounded-l-lg"
@@ -25,6 +28,11 @@ const Post = ({ proyects, categories }) => {
                 </p>
                 <div className="text-xs text-neutral-500 dark:text-neutral-300">
                   <p className="mb-1 mt-2 text-[14px] font-normal text-gray-400 dark:text-gray-400">
+                    <span>
+                      {"ID: "}
+                      {proyect.id}
+                    </span>
+                    {" | "}
                     <span>
                       {"Publicado: "}
                       {proyect.publication}

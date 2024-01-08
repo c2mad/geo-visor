@@ -105,12 +105,17 @@ export const Navbar = ({ isGeoportal = false }) => {
                 )}
 
                 <div
-                  className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
+                  className="mb-2 py-3 text-center text-xl text-white"
                   onClick={() => setOpen(false)}
                 >
                   <NavbarLink
-                    to="/servicios"
                     linkTitle="Servicios"
+                    subLinks={[
+                      { to: "/proyects", title: "Descargas" },
+                      { to: "/geoservicios", title: "Geoservicios" },
+                      { to: "/normativa", title: "Normativa" },
+                      { to: "/manual", title: "Manual" },
+                    ]}
                   ></NavbarLink>
                 </div>
 

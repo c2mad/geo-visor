@@ -1,6 +1,5 @@
 import { ChoseLayerItem } from "components/maps/ChoseLayerItem";
 import { GeoViewerJose } from "components/maps/GeoViewerJose";
-import { useNavigate } from "react-router-dom";
 
 import {
   useExpCalicatas,
@@ -11,9 +10,8 @@ import {
   useParrAzuay,
   usePerfilEstra,
 } from "hooks/useMap";
-import React, { useState } from "react";
+import { useState } from "react";
 import proyects from "utils/proyects";
-import { MoreInfoPage } from "./MoreInfoPage";
 
 export const JoseMapsPage = () => {
   const [key0, setKey0] = useState(false);
@@ -51,12 +49,6 @@ export const JoseMapsPage = () => {
   const { data: parrAzuay, isLoading: isLoadingKey6 } = useParrAzuay({
     enabled: key6,
   });
-  const navigate = useNavigate(); // Add this line
-
-  const handleVerMasClick = () => {
-    // Redirige a la ruta "/moreinfo"
-    navigate("/moreinfo");
-  };
 
   return (
     <div className="flex space-x-0 p-3 md:space-x-3 lg:space-x-3">
@@ -90,6 +82,7 @@ export const JoseMapsPage = () => {
           </h2>
           {proyects.map((proyect) => (
             <div
+              key={proyect.id}
               id="accordion-flush-body-1"
               className="hidden"
               aria-labelledby="accordion-flush-heading-1"
@@ -127,7 +120,7 @@ export const JoseMapsPage = () => {
                   <button
                     type="button"
                     className="inline-flex items-center rounded-lg bg-rose-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-rose-800 focus:outline-none focus:ring-4 focus:ring-rose-300 dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800"
-                    onClick={handleVerMasClick}
+                    to="/normativa"
                   >
                     Ver mas
                     <svg
