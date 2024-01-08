@@ -15,6 +15,8 @@ export const GeoportalPage = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const popularProjects = [...proyects].sort((a, b) => b.visitas - a.visitas);
+  const topThreeProjects = popularProjects.slice(0, 3);
 
   //Busqueda de proyectos
   const search2 = (searchQuery) => {
@@ -33,6 +35,8 @@ export const GeoportalPage = () => {
     );
 
     setProyects(updatedProyectos);
+
+    // Si estás utilizando una base de datos, aquí deberías actualizar los datos en la base de datos también
   };
 
   const handleCategoryClick = (categoryId) => {
@@ -88,14 +92,12 @@ export const GeoportalPage = () => {
                 </div>
               </div>
               <div className="flex h-full items-center justify-center ">
-                <form className="w-full px-10">
-                  <div className="flex sm:px-0 md:px-10">
-                    <div className="flex">
-                      <Search onSearch={search2} />
-                      {""}
-                    </div>
+                <div className="flex sm:px-0 md:px-10">
+                  <div className="flex">
+                    <Search onSearch={search2} />
+                    {""}
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </section>
@@ -158,7 +160,7 @@ export const GeoportalPage = () => {
             en biodiversidad y urbanismo sostenible. Estas publicaciones
             representan la vanguardia del conocimiento geoespacial.
           </p>
-          <Post proyects={proyects.slice(0, 3)} categories={categories}></Post>
+          <Post proyects={topThreeProjects} categories={categories}></Post>
         </div>
       </div>
     </>
