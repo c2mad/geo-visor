@@ -2,7 +2,7 @@ import React from "react";
 
 const Post = ({ proyects, categories }) => {
   return (
-    <>
+    <div>
       {proyects.map((proyect) => (
         <div className="mb-5  w-full " key={proyect.id}>
           <a
@@ -66,7 +66,7 @@ const Post = ({ proyects, categories }) => {
           </a>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 

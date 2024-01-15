@@ -102,43 +102,40 @@ const Normativa = () => {
 
   return (
     <>
-      <div className="container mx-auto max-w-[1100px] p-4">
-        <h1 className="mb-4 text-center text-3xl font-semibold">
+      <div className="container mx-auto max-w-[1100px]  p-4">
+        <h1 className="mb-8 text-center text-3xl font-semibold">
           Normativas y portales de IDE por País
         </h1>
-        <div className="grid gap-4  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {normativasPorPais.map((paisInfo, index) => (
             <div
               key={index}
-              className="rounded-md bg-white p-4 shadow-md hover:bg-slate-100"
+              className="rounded-lg bg-white p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl"
             >
-              <h2 className="mb-2 flex justify-between text-xl font-semibold">
-                {paisInfo.pais}{" "}
+              <div className="mb-4 flex items-center justify-between">
+                <h2 className="text-xl font-semibold">{paisInfo.pais}</h2>
                 <img
-                  className="h-[24px] w-[24px]"
+                  className="h-8 w-8"
                   src={paisInfo.image}
-                  alt="Paises"
+                  alt={`${paisInfo.pais} flag`}
                 />
-              </h2>
-
-              <p className="text-gray-700 hover:underline">
-                <a
-                  href={paisInfo.urlnormativa}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {paisInfo.normativa}{" "}
-                </a>
-              </p>
-              <p className="text-gray-700 hover:underline">
-                <a
-                  href={paisInfo.urlportal}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {paisInfo.portal}
-                </a>
-              </p>
+              </div>
+              <a
+                href={paisInfo.urlnormativa}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mb-2 block text-gray-700 hover:text-blue-600 hover:underline"
+              >
+                {paisInfo.normativa}
+              </a>
+              <a
+                href={paisInfo.urlportal}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-blue-600 hover:underline"
+              >
+                {paisInfo.portal}
+              </a>
             </div>
           ))}
         </div>

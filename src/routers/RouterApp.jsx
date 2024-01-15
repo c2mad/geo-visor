@@ -13,7 +13,8 @@ import GeoservicesPage from "pages/GeoservicesPage";
 import { ManualPage } from "pages/ManualPage";
 import MetadatosPage from "pages/MetadatosPage";
 import { MoreInfoPage } from "pages/MoreInfoPage";
-import Download from "pages/Download";
+import Dproyectos from "pages/Dproyectos";
+import Descargas from "components/ui/Descargas";
 
 export const RouterApp = () => {
   return (
@@ -61,7 +62,7 @@ export const RouterApp = () => {
             <Route index element={<MoreInfoPage />}></Route>
           </Route>
           <Route path="/descargas" element={<DefaultLayout />}>
-            <Route index element={<Download />}></Route>
+            <Route index element={<Dproyectos />}></Route>
           </Route>
 
           <Route path="*" element={<Navigate to="/" />} />
