@@ -60,7 +60,7 @@ export const RouterApp = () => {
           <Route path="/moreinfo/:projectId">
             <Route index element={<MoreInfoPage />}></Route>
           </Route>
-          <Route path="/descargas">
+          <Route path="/descargas" element={<DefaultLayout />}>
             <Route index element={<Download />}></Route>
           </Route>
 
