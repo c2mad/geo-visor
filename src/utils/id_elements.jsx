@@ -20,7 +20,7 @@ const ide_elements = [
     description:
       "Descargar en los diferentes formatos la información geoespacial",
     image: imgdw,
-    to: "/proyects",
+    to: "/descargas",
   },
   {
     id: 3,
