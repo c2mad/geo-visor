@@ -20,11 +20,15 @@ export const GeoportalPage = () => {
 
   //Busqueda de proyectos
   const search2 = (searchQuery) => {
-    filterItems(searchQuery, selectedCategory);
-    navigate({
-      pathname: "/proyects",
-      search: `?search=${searchQuery}&category=${selectedCategory}`,
-    });
+    // Filtra los elementos que coinciden con la consulta de búsqueda en el título
+    const filteredItems = proyectos.filter(
+      (item) =>
+        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.description.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    // Actualiza la lista de elementos y restablece la página actual
+    setItems(filteredItems);
+    setCurrentPage(0);
   };
 
   const handleProjectView = (projectId) => {
@@ -37,29 +41,6 @@ export const GeoportalPage = () => {
     setProyects(updatedProyectos);
 
     // Si estás utilizando una base de datos, aquí deberías actualizar los datos en la base de datos también
-  };
-
-  const handleCategoryClick = (categoryId) => {
-    navigate(`/proyects/category/${categoryId}`);
-  };
-
-  // Función para filtrar proyectos basados en la categoría y la búsqueda
-  const filterItems = (searchQuery, category) => {
-    const filteredItems = proyectos.filter((item) => {
-      const includesSearch =
-        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase());
-
-      const includesCategory =
-        !category ||
-        item.categoryId === category ||
-        category === "All categories";
-
-      return includesSearch && includesCategory;
-    });
-
-    setItems(filteredItems);
-    setCurrentPage(0);
   };
 
   return (
@@ -124,7 +105,6 @@ export const GeoportalPage = () => {
                     <div
                       className="relative mx-3 mt-6 flex flex-col bg-inherit"
                       key={item.id}
-                      onClick={handleCategoryClick(categories.id)}
                     >
                       <a
                         href={item.to}
