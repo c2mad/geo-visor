@@ -14,7 +14,7 @@ const proyects = [
     ],
     layeritem: "Leer más",
     category: 1,
-    autores: [{ id: 2, name: "José Guaman" }],
+    autores: [{ id: 5, name: "José Guaman" }],
     to: "/mapas/jose",
   },
   {
@@ -30,7 +30,7 @@ const proyects = [
     category: 2,
     autores: [
       { id: 1, name: "Dra. Sandra Cobos" },
-      { id: 2, name: "Dr. Setefano Torrachi" },
+      { id: 2, name: "Dr. Stefano Torrachi" },
     ],
     to: "/mapas/jose",
   },
@@ -45,8 +45,8 @@ const proyects = [
     layeritem: "Leer más",
     category: 5,
     autores: [
-      { id: 1, name: "Erika Trujillo" },
-      { id: 2, name: "Bryam Sebastian Carmona" },
+      { id: 3, name: "Erika Trujillo" },
+      { id: 4, name: "Bryam Sebastian Carmona" },
     ],
     to: "/mapas/jose",
   },
@@ -60,7 +60,7 @@ const proyects = [
     fuente: [{ id: 1, name: "SIGDATA" }],
     layeritem: "Leer más",
     category: 1,
-    autores: [{ id: 1, name: "Bryam Sebastian Carmona" }],
+    autores: [{ id: 4, name: "Bryam Sebastian Carmona" }],
     to: "/mapas/jose",
   },
   {
@@ -181,7 +181,7 @@ const proyects = [
     fuente: [{ id: 1, name: "SIGDATA" }],
     layeritem: "Leer más",
     category: 6,
-    autores: [{ id: 1, name: "Dr. Setefano Torrachi" }],
+    autores: [{ id: 2, name: "Dr. Setefano Torrachi" }],
     to: "/mapas/jose",
   },
   {
