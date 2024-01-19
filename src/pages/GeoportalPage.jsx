@@ -40,9 +40,7 @@ export const GeoportalPage = () => {
   };
 
   const handleCategoryClick = (categoryId) => {
-    setSelectedCategory(categoryId);
-    setDropdownVisible(false); // Oculta el dropdown después de seleccionar una categoría
-    filterItems("", categoryId);
+    navigate(`/proyects/category/${categoryId}`);
   };
 
   // Función para filtrar proyectos basados en la categoría y la búsqueda
@@ -73,7 +71,7 @@ export const GeoportalPage = () => {
               <div className="px-10 sm:px-10 md:px-20 lg:px-40">
                 <div className="bt-6 pb-6  text-white">
                   <h3 className="display-5 text-[38px]">
-                    <span className="font-bold"> GEOPORTAL</span>{" "}
+                    <span className="font-bold"> Catálogo de proyectos</span>{" "}
                     <span className="font-semibold text-rose-600"> UCACUE</span>
                   </h3>
                 </div>
@@ -126,6 +124,7 @@ export const GeoportalPage = () => {
                     <div
                       className="relative mx-3 mt-6 flex flex-col bg-inherit"
                       key={item.id}
+                      onClick={handleCategoryClick(categories.id)}
                     >
                       <a
                         href={item.to}

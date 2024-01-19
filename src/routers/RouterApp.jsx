@@ -11,10 +11,9 @@ import { GeoportalPage } from "pages/GeoportalPage";
 import Normativa from "pages/NormativaPage";
 import GeoservicesPage from "pages/GeoservicesPage";
 import { ManualPage } from "pages/ManualPage";
-import MetadatosPage from "pages/MetadatosPage";
+import MetadatosPage from "pages/MetadatosPage";  
 import { MoreInfoPage } from "pages/MoreInfoPage";
 import Dproyectos from "pages/Dproyectos";
-import Descargas from "components/ui/Descargas";
 
 export const RouterApp = () => {
   return (
@@ -35,10 +34,7 @@ export const RouterApp = () => {
             <Route index element={<ContactPage />} />
           </Route>
           <Route path="/proyects" element={<GeoportalLayaut />}>
-            <Route index element={<ProyectPage />}></Route>
-          </Route>
-          <Route path="/proyects/category/:id">
-            <Route index element={<ProyectPage />}></Route>
+            <Route index element={<ProyectPage />} />
           </Route>
           <Route path="/Geoportal" element={<GeoportalLayaut />}>
             <Route index element={<GeoportalPage />}></Route>
@@ -64,7 +60,6 @@ export const RouterApp = () => {
           <Route path="/descargas" element={<DefaultLayout />}>
             <Route index element={<Dproyectos />}></Route>
           </Route>
-
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </ThemeProvider>

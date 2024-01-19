@@ -14,7 +14,7 @@ export const Navbar = ({ isGeoportal = false }) => {
       <nav className="relative z-40 h-14 w-full bg-black">
         <div className="flex h-full w-full items-center justify-between px-4">
           <div>
-            <ul className="flex space-x-4"></ul>
+            <ul className="flex space-x-4">Menú</ul>
           </div>
         </div>
         <div className="fixed left-0 right-0 top-0 bg-black py-3 shadow-md">
@@ -57,7 +57,9 @@ export const Navbar = ({ isGeoportal = false }) => {
               !open && "hidden"
             } fixed left-0 right-0 top-0 min-h-screen w-auto bg-gray-600/50 backdrop-blur-sm`}
             onClick={() => setOpen(false)}
-          ></div>
+          >
+            Menú
+          </div>
 
           <div
             className={`${

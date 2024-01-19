@@ -26,12 +26,12 @@ const Footer = () => {
                     </li> */}
                     <li>
                       <a
-                        href="https://ciitt.ucacue.edu.ec/laboratorios/laboratorio-datachademics/"
+                        href="https://ciitt.ucacue.edu.ec/laboratorios/laboratorio-SIGDATA/"
                         className="block border-b-2 border-t-2 border-gray-200 pb-4 pt-4 transition-colors hover:text-rose-500 hover:underline"
                         target="_blank"
                         rel="noreferrer"
                       >
-                        DATACHADEMICS
+                        SIGDATA
                       </a>
                     </li>
                   </ul>
