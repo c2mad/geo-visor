@@ -12,7 +12,7 @@ const ide_elements = [
     description:
       "Aqui se proporciona acceso a información geoespacial a través de mapas interactivos, capas de datos geográficos y herramientas de análisis.",
     image: imgmap,
-    to: "/geoportal",
+    to: "/catalogodatos",
   },
   {
     id: 2,

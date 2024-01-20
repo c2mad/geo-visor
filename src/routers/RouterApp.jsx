@@ -5,15 +5,15 @@ import { HomePage } from "pages/HomePage";
 import ProyectPage from "pages/ProyectPage";
 import { ThemeProvider } from "@material-tailwind/react";
 import { JoseMapsPage } from "pages/JoseMapsPage";
-import { ContactPage } from "pages/ContactPage";
 import { ServicesPage } from "pages/ServicesPage";
-import { GeoportalPage } from "pages/GeoportalPage";
 import Normativa from "pages/NormativaPage";
 import GeoservicesPage from "pages/GeoservicesPage";
 import { ManualPage } from "pages/ManualPage";
 import MetadatosPage from "pages/MetadatosPage";
 import { MoreInfoPage } from "pages/MoreInfoPage";
 import Dproyectos from "pages/Dproyectos";
+import { CatologoPage } from "pages/CatologoPage";
+import { ContactPage } from "pages/ContactPage";
 
 export const RouterApp = () => {
   return (
@@ -36,8 +36,8 @@ export const RouterApp = () => {
           <Route path="/proyects" element={<GeoportalLayaut />}>
             <Route index element={<ProyectPage />} />
           </Route>
-          <Route path="/Geoportal" element={<GeoportalLayaut />}>
-            <Route index element={<GeoportalPage />}></Route>
+          <Route path="/catalogodatos" element={<GeoportalLayaut />}>
+            <Route index element={<CatologoPage />}></Route>
           </Route>
           <Route path="/normativa" element={<DefaultLayout />}>
             <Route index element={<Normativa />}></Route>

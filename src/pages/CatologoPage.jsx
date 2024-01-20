@@ -6,7 +6,7 @@ import proyectos from "../utils/proyects";
 import Post from "components/ui/post";
 import Search from "components/ui/Search";
 
-export const GeoportalPage = () => {
+export const CatologoPage = () => {
   const [proyects, setProyects] = useState(proyectos);
   const [categories] = useState(categorias);
   const [items, setItems] = useState(proyects);
