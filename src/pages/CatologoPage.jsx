@@ -14,6 +14,7 @@ export const CatologoPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const navigate = useNavigate();
+
   const location = useLocation();
   const popularProjects = [...proyects].sort((a, b) => b.visitas - a.visitas);
   const topThreeProjects = popularProjects.slice(0, 3);
@@ -29,18 +30,6 @@ export const CatologoPage = () => {
     // Actualiza la lista de elementos y restablece la página actual
     setItems(filteredItems);
     setCurrentPage(0);
-  };
-
-  const handleProjectView = (projectId) => {
-    const updatedProyectos = proyects.map((project) =>
-      project.id === projectId
-        ? { ...project, visitas: project.visitas + 1 }
-        : project
-    );
-
-    setProyects(updatedProyectos);
-
-    // Si estás utilizando una base de datos, aquí deberías actualizar los datos en la base de datos también
   };
 
   return (
@@ -101,10 +90,17 @@ export const CatologoPage = () => {
               </p> */}
               <div className="grid-cols-1 sm:grid md:grid-cols-3 ">
                 {categories.map((item) => {
+                  const handleCategoryClick = (category) => {
+                    setSelectedCategory(category);
+                    // Opcionalmente, puedes realizar la redirección aquí si lo deseas
+                    navigate(`/projects/${category.id}`);
+                  };
+
                   return (
                     <div
                       className="relative mx-3 mt-6 flex flex-col bg-inherit"
                       key={item.id}
+                      onClick={() => handleCategoryClick(item)}
                     >
                       <a
                         href={item.to}
@@ -139,7 +135,6 @@ export const CatologoPage = () => {
             en biodiversidad y urbanismo sostenible. Estas publicaciones
             representan la vanguardia del conocimiento geoespacial.
           </p>
-          <Post proyects={topThreeProjects} categories={categories}></Post>
         </div>
       </div>
     </>

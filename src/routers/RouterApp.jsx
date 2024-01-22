@@ -33,7 +33,7 @@ export const RouterApp = () => {
           <Route path="/contacto" element={<DefaultLayout />}>
             <Route index element={<ContactPage />} />
           </Route>
-          <Route path="/proyects" element={<GeoportalLayaut />}>
+          <Route path="/proyects/:category" element={<GeoportalLayaut />}>
             <Route index element={<ProyectPage />} />
           </Route>
           <Route path="/catalogodatos" element={<GeoportalLayaut />}>

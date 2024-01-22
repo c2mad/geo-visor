@@ -1,9 +1,13 @@
 import React from "react";
 
-const Post = ({ proyects, categories }) => {
+const Post = ({ proyects, categories, selectedCategory }) => {
+  const filteredProyects = selectedCategory
+    ? proyects.filter((proyect) => proyect.category === selectedCategory)
+    : proyects;
+
   return (
     <div>
-      {proyects.map((proyect) => (
+      {filteredProyects.map((proyect) => (
         <div className="mb-5  w-full " key={proyect.id}>
           <a
             href={proyect.to}
