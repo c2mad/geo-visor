@@ -34,16 +34,14 @@ export default function ProyectPage() {
   // Luego, puedes usar projectsRelatedToCategory para mostrar los proyectos
   // relacionados con la categoría en tu componente.
   const applyFilters = () => {
+    //console.log("Antes de aplicar filtros:", projects);
+
     let filteredItems = projects; // Inicialmente, los proyectos sin filtrar
 
     // Filtra por fuente
-    if (selectedOption !== "Seleccione la fuente") {
-      filteredItems = filteredItems.filter((item) =>
-        item.fuente.some(
-          (fuente) => fuente.name.toLowerCase() === selectedOption.toLowerCase()
-        )
-      );
-    }
+    //console.log("selectedOption:", selectedOption);
+
+    // Continúa con el resto de tu lógica y uso de filteredItems
 
     // Filtra por autor
     if (selectedAutor) {
@@ -52,7 +50,16 @@ export default function ProyectPage() {
       );
     }
 
-    // Filtra por fecha (mantén este bloque como está)
+    // Filtra por fecha
+    if (startDate && endDate) {
+      filteredItems = filteredItems.filter((item) => {
+        const projectDate = new Date(item.fechaPublicacion);
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+
+        return projectDate >= start && projectDate <= end;
+      });
+    }
 
     // Actualiza la lista de proyectos con los filtros aplicados
     setItems(filteredItems);
@@ -131,20 +138,44 @@ export default function ProyectPage() {
       // Si se selecciona "Seleccione la fuente", muestra todos los proyectos sin filtrar
       setItems(projects);
     }
-
-    // Aplicar otros filtros, incluido el filtro de autor
-    applyFilters();
+    <span className="mr-2 text-[12px]">
+      <strong>Fuente:</strong> {selectedValue}
+    </span>;
   };
+
   const obtenerValorAutor = (valor) => {
-    console.log("Valor obtenido:", valor.name);
-
-    // Actualiza el estado selectedAutor con el autor seleccionado
+    console.log("Valor obtenido:", valor);
     setAutor(valor.name);
-
-    // Aplica los filtros, incluido el filtro de autor
-    applyFilters();
+    //applyFilters();
+    const existe = filtros.find((item) => item.id === 3);
+    console.log(existe);
+    if (existe === null || existe === undefined) {
+      console.log("aqui");
+      filtros.push({
+        id: 3,
+        content: (
+          <>
+            <span className="mr-2 text-[12px]">
+              <strong>Autor:</strong> {valor.name}
+            </span>
+          </>
+        ),
+        description: valor.name,
+      });
+    } else {
+      existe.content = (
+        <>
+          <span className="mr-2 text-[12px]">
+            <strong>Autor:</strong> {valor.name}
+          </span>
+        </>
+      );
+      existe.description = valor.name;
+    }
+    setFiltros(filtros);
+    //console.log("Valor obtenido:", valor);
+    // Haz lo que quieras con el valor aquí
   };
-
   const handleDeleteFiltro = (id) => {
     const updatedFiltros = filtros.filter((item) => item.id !== id);
     // Actualiza el arreglo filtros con el nuevo arreglo sin el elemento eliminado
