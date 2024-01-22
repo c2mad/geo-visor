@@ -1,23 +1,71 @@
-// ProjectDetails.js
-
 import React from "react";
-import proyects from "utils/proyects";
+import firstProjects from "utils/proyects";
 
-const ProjectDetails = ({ projectId }) => {
-  // Encuentra el proyecto específico según el ID
-  const project = proyects.find((p) => p.id === projectId);
+const ProjectDetails = () => {
+  // Obtén el primer proyecto de la matriz
+  const firstProject = firstProjects[0];
 
-  if (!project) {
-    return <p>Proyecto no encontrado</p>;
+  if (!firstProject) {
+    return <p className="text-red-500">Proyecto no encontrado</p>;
   }
 
-  // Muestra los detalles del proyecto
+  // Muestra los detalles del primer proyecto
   return (
-    <div>
-      <h2>{project.title}</h2>
-      <img src={project.imageUrl} alt={project.title} />
-      <p>{project.description}</p>
-      {/* Agrega aquí más detalles según sea necesario */}
+    <div className="mx-auto w-full max-w-[1500px] px-4 py-8">
+      <h2 className="mb-6 text-center text-3xl font-bold">
+        {firstProject.title}
+      </h2>
+
+      <div className="flex flex-col items-center md:flex-row">
+        {/* Imagen en la columna izquierda con borde */}
+        <div className="mb-4 md:mb-0 md:mr-6 md:w-1/2">
+          <img
+            src={firstProject.imageUrl}
+            alt={firstProject.title}
+            className="h-auto w-full rounded-lg border border-gray-300"
+          />
+        </div>
+
+        {/* Descripción en la columna derecha con borde */}
+        <div className="rounded-lg border border-gray-300 p-4 md:w-1/2">
+          <p className="text-lg text-gray-700">{firstProject.description}</p>
+        </div>
+      </div>
+
+      <div className="mt-8 text-xl text-neutral-500 dark:text-neutral-300">
+        <table className="w-full">
+          <tbody>
+            <tr>
+              <td className="pr-2 font-semibold">Publicado:</td>
+              <td>{firstProject.publication}</td>
+            </tr>
+            <tr>
+              <td className="pr-2 font-semibold">Fuente:</td>
+              <td>
+                {firstProject.fuente.map((f, index) => (
+                  <span key={f.id}>
+                    {f.name}
+                    {index < firstProject.fuente.length - 1 && ", "}
+                  </span>
+                ))}
+              </td>
+            </tr>
+            <tr>
+              <td className="pr-2 font-semibold">
+                {firstProject.autores.length > 1 ? "Autores:" : "Autor:"}
+              </td>
+              <td>
+                {firstProject.autores.map((autor, index) => (
+                  <span key={autor.id}>
+                    {autor.name}
+                    {index < firstProject.autores.length - 1 && ", "}
+                  </span>
+                ))}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

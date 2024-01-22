@@ -1,5 +1,7 @@
 import { ChoseLayerItem } from "components/maps/ChoseLayerItem";
 import { GeoViewerJose } from "components/maps/GeoViewerJose";
+import MenuDescargas from "components/ui/MenuDescargas";
+import { Link } from "react-router-dom";
 
 import {
   useExpCalicatas,
@@ -12,6 +14,7 @@ import {
 } from "hooks/useMap";
 import { useState } from "react";
 import proyects from "utils/proyects";
+import { MoreInfoPage } from "./MoreInfoPage";
 
 export const JoseMapsPage = () => {
   const [key0, setKey0] = useState(false);
@@ -52,7 +55,7 @@ export const JoseMapsPage = () => {
 
   return (
     <div className="flex space-x-0 p-3 md:space-x-3 lg:space-x-3">
-      <div className="hidden h-[calc(100vh_-_80px)] w-[400px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md md:lg:block lg:block">
+      <div className="hidden h-[calc(100vh_-_80px)] w-[400px] overflow-hidden overflow-y-auto rounded-lg bg-inherit p-3 text-white shadow-md md:lg:block lg:block">
         <div
           id="accordion-flush"
           data-accordion="collapse"
@@ -80,8 +83,9 @@ export const JoseMapsPage = () => {
               </svg>
             </button>
           </h2>
-          {proyects.map((proyect) => (
+          {proyects.map((proyect, index) => (
             <div
+              key={index}
               id="accordion-flush-body-1"
               className="hidden"
               aria-labelledby="accordion-flush-heading-1"
@@ -98,44 +102,30 @@ export const JoseMapsPage = () => {
                   {proyect.publication}
                 </p>
                 <div className="mt-5 inline-flex items-center">
-                  <button
-                    type="button"
-                    className="mr-2 inline-flex items-center rounded-lg bg-rose-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-rose-800 focus:outline-none focus:ring-4 focus:ring-rose-300 dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800"
-                    onClick={() =>
-                      (window.location.href =
-                        "http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Aexploracion_calicatas&maxFeatures=50")
-                    }
-                  >
-                    <svg
-                      className="mr-2 h-3.5 w-3.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 20 19"
-                    >
-                      <path
-                        stroke="currentColor"
-                        d="M15 15h.01M4 12H2a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-3M9.5 1v10.93m4-3.93-4 4-4-4"
-                      />
-                    </svg>
-                    Descargas
-                  </button>
+                  <div>
+                    <MenuDescargas />
+                  </div>
 
-                  <button
-                    type="button"
-                    className="inline-flex items-center rounded-lg bg-rose-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-rose-800 focus:outline-none focus:ring-4 focus:ring-rose-300 dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800"
-                  >
-                    Ver mas
-                    <svg
-                      className="ml-2 h-3.5 w-3.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 14 10"
+                  <Link to="/moreinfo">
+                    <button
+                      type="button"
+                      className="inline-flex items-center rounded-lg bg-red px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red focus:outline-none focus:ring-4 focus:ring-red dark:bg-red dark:hover:bg-red dark:focus:ring-red"
                     >
-                      <path stroke="currentColor" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                    </svg>
-                  </button>
+                      Ver más
+                      <svg
+                        className="ml-2 h-3.5 w-3.5"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 14 10"
+                      >
+                        <path
+                          stroke="currentColor"
+                          d="M1 5h12m0 0L9 1m4 4L9 9"
+                        />
+                      </svg>
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -171,49 +161,49 @@ export const JoseMapsPage = () => {
               <div className="mt-2">
                 <ul className="space-y-3">
                   <ChoseLayerItem
-                    title="Propiedades geodinámicas de suelos"
+                    title="Capa 1 - Propiedades geodinámicas de suelos"
                     enabled={key0}
                     setEnabled={setKey0}
                     isLoading={isLoadingKey0}
                   />
 
                   <ChoseLayerItem
-                    title="Perfiles de suelo profundidad < 5m (calicatas), SPT's y perforaciones"
+                    title=" Capa 2 - Perfiles de suelo profundidad < 5m (calicatas), SPT's y perforaciones"
                     enabled={key1}
                     setEnabled={setKey1}
                     isLoading={isLoadingKey1}
                   />
 
                   <ChoseLayerItem
-                    title="Perfiles estratigráficos profundidad > 30m"
+                    title="Capa 3 - Perfiles estratigráficos profundidad > 30m"
                     enabled={key2}
                     setEnabled={setKey2}
                     isLoading={isLoadingKey2}
                   />
 
                   <ChoseLayerItem
-                    title="Isoperiodos parroquia urbana Cuenca"
+                    title="Capa 4 - Isoperiodos parroquia urbana Cuenca"
                     enabled={key3}
                     setEnabled={setKey3}
                     isLoading={isLoadingKey3}
                   />
 
                   <ChoseLayerItem
-                    title="Geología proyecto PRECUPA escala 1:25000"
+                    title="Capa 5 - Geología proyecto PRECUPA escala 1:25000"
                     enabled={key4}
                     setEnabled={setKey4}
                     isLoading={isLoadingKey4}
                   />
 
                   <ChoseLayerItem
-                    title="Geología del Azuay escala 1:200000"
+                    title="Capa 6 - Geología del Azuay escala 1:200000"
                     enabled={key5}
                     setEnabled={setKey5}
                     isLoading={isLoadingKey5}
                   />
 
                   <ChoseLayerItem
-                    title="Parroquias del Azuay"
+                    title="Capa 7 - Parroquias del Azuay"
                     enabled={key6}
                     setEnabled={setKey6}
                     isLoading={isLoadingKey6}

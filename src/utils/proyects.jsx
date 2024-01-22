@@ -60,7 +60,7 @@ const proyects = [
     publication: "12 de Agosto 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
-    fuente: [{ id: 1, name: "SIGDATA" }],
+    fuente: [{ id: 1, name: "C2MAD" }],
     layeritem: "Leer más",
     category: 4,
     autores: [{ id: 1, name: "Bryam Sebastian Carmona" }],

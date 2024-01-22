@@ -135,6 +135,7 @@ export const CatologoPage = () => {
             en biodiversidad y urbanismo sostenible. Estas publicaciones
             representan la vanguardia del conocimiento geoespacial.
           </p>
+          <Post proyects={topThreeProjects} categories={categories}></Post>
         </div>
       </div>
     </>
