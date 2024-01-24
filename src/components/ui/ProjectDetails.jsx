@@ -6,7 +6,9 @@ const ProjectDetails = () => {
   const firstProject = firstProjects[0];
 
   if (!firstProject) {
-    return <p className="text-red-500">Proyecto no encontrado</p>;
+    return (
+      <p className="text-red-500 dark:text-white">Proyecto no encontrado</p>
+    );
   }
 
   // Muestra los detalles del primer proyecto

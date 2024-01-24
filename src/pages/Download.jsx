@@ -15,7 +15,7 @@ const Download = ({ proyects, categories }) => {
 
   return (
     <>
-      <span className="items-center justify-center text-3xl">
+      <span className="items-center justify-center text-center text-3xl dark:text-white">
         Componente que permite la descarga de archivos de información geográfica
       </span>
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 p-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
@@ -31,11 +31,11 @@ const Download = ({ proyects, categories }) => {
             />
             <div className="flex h-full flex-col justify-between p-4">
               <div>
-                <h5 className="mb-2 text-lg font-semibold text-gray-800 dark:text-white">
+                <h5 className="mb-2 text-lg font-semibold text-gray-800 dark:text-black">
                   {proyect.title}
                 </h5>
                 <p
-                  className={`text-sm text-gray-600 dark:text-gray-300 ${
+                  className={`text-sm text-black dark:text-black ${
                     expandedCardIndex === index ? "" : "line-clamp-3"
                   }`}
                 >
@@ -45,7 +45,7 @@ const Download = ({ proyects, categories }) => {
               <div className="mt-4">
                 {proyect.description.length > 15 && (
                   <button
-                    className="text-slate-500 hover:underline"
+                    className="text-black hover:underline dark:text-black"
                     onClick={() => toggleCardExpand(index)}
                   >
                     {expandedCardIndex === index ? "Leer menos" : "Leer más"}
