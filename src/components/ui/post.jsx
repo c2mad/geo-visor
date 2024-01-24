@@ -11,7 +11,7 @@ const Post = ({ proyects, categories, selectedCategory }) => {
         <div className="mb-5  w-full " key={proyect.id}>
           <a
             href={proyect.to}
-            className="flex w-full flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700  md:flex-row"
+            className="flex w-full flex-col rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] md:flex-row  dark:bg-neutral-700"
           >
             <img
               className="h-96 w-full rounded-t-lg object-cover md:h-auto md:w-64 md:!rounded-none md:!rounded-l-lg"
@@ -33,7 +33,7 @@ const Post = ({ proyects, categories, selectedCategory }) => {
                     {proyect.publication}
                   </span>
                   {" | "}
-                  {"Fuente: "}
+                  {"Instituciones ejecutoras/co-ejecutoras: "}
                   {proyect.fuente.map((f) => (
                     <span key={f.id}>
                       {f.name}{" "}
@@ -48,7 +48,7 @@ const Post = ({ proyects, categories, selectedCategory }) => {
                   {
                     categories.find(
                       (category) => category.id === proyect.category
-                    ).name
+                    )?.name
                   }
                 </p>
                 <p className="mb-3 text-[14px] font-normal text-gray-400 dark:text-gray-400">
