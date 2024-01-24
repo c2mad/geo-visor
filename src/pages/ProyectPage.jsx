@@ -27,7 +27,6 @@ export default function ProyectPage() {
     );
 
     // Imprimir los proyectos filtrados en la consola
-    console.log("Proyectos relacionados a la categoría:", filteredProjects);
 
     setProjectsRelatedToCategory(filteredProjects);
   }, [selectedCategory]);
@@ -144,38 +143,50 @@ export default function ProyectPage() {
   };
 
   const obtenerValorAutor = (valor) => {
-    console.log("Valor obtenido:", valor);
+    // Actualiza el estado de selectedAutor
     setAutor(valor.name);
-    //applyFilters();
+    console.log(obtenerValorAutor);
+
+    // Filtra los proyectos por autor y actualiza la lista de proyectos
+    const filteredProjects = projects.filter(
+      (project) =>
+        typeof project.autores === "string" &&
+        project.autores.toLowerCase().includes(valor.name.toLowerCase())
+    );
+
+    // Actualiza la lista de proyectos con los proyectos filtrados
+    setItems(filteredProjects);
+
+    // Verifica si ya existe un filtro de autor en la lista filtros
     const existe = filtros.find((item) => item.id === 3);
-    console.log(existe);
-    if (existe === null || existe === undefined) {
-      console.log("aqui");
-      filtros.push({
-        id: 3,
-        content: (
-          <>
-            <span className="mr-2 text-[12px]">
-              <strong>Autor:</strong> {valor.name}
-            </span>
-          </>
-        ),
-        description: valor.name,
-      });
-    } else {
-      existe.content = (
+
+    // Actualiza o agrega el filtro de autor en la lista filtros
+    const filtroAutor = {
+      id: 3,
+      content: (
         <>
           <span className="mr-2 text-[12px]">
             <strong>Autor:</strong> {valor.name}
           </span>
         </>
-      );
-      existe.description = valor.name;
+      ),
+      description: valor.name,
+    };
+
+    if (existe === null || existe === undefined) {
+      filtros.push(filtroAutor);
+    } else {
+      existe.content = filtroAutor.content;
+      existe.description = filtroAutor.description;
     }
-    setFiltros(filtros);
-    //console.log("Valor obtenido:", valor);
-    // Haz lo que quieras con el valor aquí
+
+    // Actualiza la lista de filtros
+    setFiltros([...filtros]);
+
+    // Aplica los filtros restantes (fuente, fecha, etc.)
+    applyFilters();
   };
+
   const handleDeleteFiltro = (id) => {
     const updatedFiltros = filtros.filter((item) => item.id !== id);
     // Actualiza el arreglo filtros con el nuevo arreglo sin el elemento eliminado

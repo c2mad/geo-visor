@@ -8,36 +8,36 @@ import imgmanual from "../assets/images/manual.png";
 const ide_elements = [
   {
     id: 1,
-    name: "Geoportal",
+    name: "Catalogo de proyectos",
     description:
       "Aqui se proporciona acceso a información geoespacial a través de mapas interactivos, capas de datos geográficos y herramientas de análisis.",
     image: imgmap,
     to: "/catalogodatos",
   },
+  // {
+  //   id: 2,
+  //   name: "Descargas",
+  //   description:
+  //     "Descargar en los diferentes formatos la información geoespacial",
+  //   image: imgdw,
+  //   to: "/descargas",
+  // },
   {
     id: 2,
-    name: "Descargas",
-    description:
-      "Descargar en los diferentes formatos la información geoespacial",
-    image: imgdw,
-    to: "/descargas",
-  },
-  {
-    id: 3,
     name: "Geoservicios",
     description:
       "Se reflejan cuales son los servicios web que utiliza esta IDE",
     image: imggeoserv,
     to: "/geoservicios",
   },
-  {
-    id: 4,
-    name: "Normativa legal",
-    description:
-      "Documento con la normativa legal para el funcionamiento de la IDE",
-    image: imgnorm,
-    to: "/normativa",
-  },
+  // {
+  //   id: 4,
+  //   name: "Normativa legal",
+  //   description:
+  //     "Documento con la normativa legal para el funcionamiento de la IDE",
+  //   image: imgnorm,
+  //   to: "/normativa",
+  // },
   // {
   //   id: 5,
   //   name: "Metadatos",
@@ -46,7 +46,7 @@ const ide_elements = [
   //   to: "/metadatos",
   // },
   {
-    id: 6,
+    id: 3,
     name: "Manual",
     description: "Manual de usuario para el uso de la IDE",
     image: imgmanual,

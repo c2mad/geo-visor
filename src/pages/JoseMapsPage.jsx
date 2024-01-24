@@ -17,6 +17,17 @@ import proyects from "utils/proyects";
 import { MoreInfoPage } from "./MoreInfoPage";
 
 export const JoseMapsPage = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleDownloadClick = () => {
+    // Abre el modal cuando se hace clic en el botón de descargar
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    // Cierra el modal
+    setShowModal(false);
+  };
   const [key0, setKey0] = useState(false);
   const [key1, setKey1] = useState(false);
   const [key2, setKey2] = useState(false);
