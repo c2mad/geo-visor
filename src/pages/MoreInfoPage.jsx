@@ -5,7 +5,6 @@ export const MoreInfoPage = () => {
   return (
     <>
       <div>
-        <h1>Detalles del Proyecto</h1>
         <ProjectDetails /* Pasa los detalles del proyecto como propiedades */ />
       </div>
     </>

@@ -36,19 +36,21 @@ export const Navbar = ({ isGeoportal = false }) => {
               </div>
             </div>
             <button
-              className="ml-2 bg-current px-10"
+              className="ml-6 w-48 bg-current px-10"
               onClick={() => setOpen(true)}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor" // Cambia "currentColor" al color que desees, por ejemplo, "red"
+                fill="currentColor"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="white"
-                className="h-8 w-6"
+                className="mr-2 inline-block h-8 w-6" // Agregamos el estilo inline-block y un margen derecho (mr-2)
               >
                 <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
               </svg>
+              <span className="inline-block text-white">Menú</span>{" "}
+              {/* Agregamos el estilo inline-block */}
             </button>
           </div>
 
@@ -98,8 +100,8 @@ export const Navbar = ({ isGeoportal = false }) => {
                     onClick={() => setOpen(false)}
                   >
                     <NavbarLink
-                      to="/geoportal"
-                      linkTitle="Geoportal"
+                      to="/catalogo"
+                      linkTitle="Catalogo de proyectos"
                     ></NavbarLink>
                   </div>
                 ) : (
@@ -113,9 +115,7 @@ export const Navbar = ({ isGeoportal = false }) => {
                   <NavbarLink
                     linkTitle="Servicios"
                     subLinks={[
-                      { to: "/proyects", title: "Descargas" },
                       { to: "/geoservicios", title: "Geoservicios" },
-                      { to: "/normativa", title: "Normativa" },
                       { to: "/manual", title: "Manual" },
                     ]}
                   ></NavbarLink>
