@@ -82,6 +82,7 @@ export const JoseMapsPage = () => {
           </h2>
           {proyects.map((proyect) => (
             <div
+              key={proyect.id}
               id="accordion-flush-body-1"
               className="hidden"
               aria-labelledby="accordion-flush-heading-1"
