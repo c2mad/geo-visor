@@ -107,7 +107,7 @@ const GeoservicesPage = () => {
                         </td>
                         <td className="px-6 py-4">
                           <a
-                            href="http://192.168.10.4:8085/geoserver/jose/wms/kml?layers=jose%3Aexploracion_calicatas"
+                            href="http://192.168.10.4:8085/geoserver/jose/ows?service=WMS&request=GetCapabilities"
                             target="_blank"
                             rel="noopener noreferrer"
                           >
@@ -184,7 +184,7 @@ const GeoservicesPage = () => {
                         </td>
                         <td className="px-6 py-4">
                           <a
-                            href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Aexploracion_calicatas&maxFeatures=50"
+                            href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&request=GetCapabilities"
                             target="_blank"
                             rel="noopener noreferrer"
                           >
