@@ -10,9 +10,6 @@ export const CatologoPage = () => {
   const [proyects] = useState(proyectos);
   const [categories] = useState(categorias);
   const [items, setItems] = useState(proyects);
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-  const navigate = useNavigate();
 
   //Busqueda de proyectos
   const search2 = (searchQuery) => {
@@ -77,10 +74,6 @@ export const CatologoPage = () => {
                 <div
                   className="relative mx-3 mt-6 flex flex-col bg-inherit"
                   key={item.id}
-                  onClick={() => {
-                    setSelectedCategory(item);
-                    navigate(`/projects/${item.id}`);
-                  }}
                 >
                   <a
                     href={item.to}
