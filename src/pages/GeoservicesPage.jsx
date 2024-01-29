@@ -83,10 +83,10 @@ const GeoservicesPage = () => {
                     <thead className="bg-slate-400 text-xs uppercase text-white dark:bg-gray-700 dark:text-gray-200">
                       <tr>
                         <th scope="col" className="px-6 py-3">
-                          Autor
+                          AUTOR
                         </th>
                         <th scope="col" className="px-6 py-3">
-                          Proyecto
+                          CAPAS
                         </th>
                         <th scope="col" className="px-6 py-3">
                           URL
@@ -107,7 +107,7 @@ const GeoservicesPage = () => {
                         </td>
                         <td className="px-6 py-4">
                           <a
-                            href="http://192.168.10.4:8085/geoserver/jose/wms?service=WMS&version=1.1.0&request=GetMap&layers=jose%3Ageo_azuay&bbox=-79.7641371114835%2C-3.63131157466202%2C-78.41983190729567%2C-2.495085062454964&width=768&height=649&srs=EPSG%3A4326&styles=&format=image%2Fpng"
+                            href="http://192.168.10.4:8085/geoserver/jose/wms/kml?layers=jose%3Aexploracion_calicatas"
                             target="_blank"
                             rel="noopener noreferrer"
                           >
@@ -164,7 +164,7 @@ const GeoservicesPage = () => {
                           AUTOR
                         </th>
                         <th scope="col" className="px-6 py-3">
-                          PROYECTO
+                          CAPAS
                         </th>
                         <th scope="col" className="px-6 py-3">
                           URL
@@ -184,7 +184,7 @@ const GeoservicesPage = () => {
                         </td>
                         <td className="px-6 py-4">
                           <a
-                            href="http://192.168.10.4:8085/geoserver/jose/wms?service=WMS&version=1.1.0&request=GetMap&layers=jose%3Ageo_azuay&bbox=-79.7641371114835%2C-3.63131157466202%2C-78.41983190729567%2C-2.495085062454964&width=768&height=649&srs=EPSG%3A4326&styles=&format=image%2Fpng"
+                            href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Aexploracion_calicatas&maxFeatures=50"
                             target="_blank"
                             rel="noopener noreferrer"
                           >
