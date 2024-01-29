@@ -3,69 +3,12 @@ import ReactPaginate from "react-paginate";
 import "tailwindcss/tailwind.css";
 import Search from "../components/ui/Search";
 import categories from "../utils/categories";
-import proyects from "../utils/proyects";
 import projects from "../utils/proyects";
 import DateRangePicker from "flowbite-datepicker/DateRangePicker";
 import Post from "../components/ui/post";
 import SearchAutoComplete from "../components/ui/SearchAutoComplete";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 export default function ProyectPage() {
-  const { category } = useParams();
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  // Inicializa selectedCategory con el valor de la categoría desde la URL
-  const [projectsRelatedToCategory, setProjectsRelatedToCategory] = useState(
-    []
-  );
-
-  // Filtra los proyectos relacionados con la categoría seleccionada
-  useEffect(() => {
-    // Filtra los proyectos relacionados con la categoría seleccionada
-    const filteredProjects = proyects.filter(
-      (project) => project.category === selectedCategory
-    );
-
-    // Imprimir los proyectos filtrados en la consola
-
-    setProjectsRelatedToCategory(filteredProjects);
-  }, [selectedCategory]);
-  // Luego, puedes usar projectsRelatedToCategory para mostrar los proyectos
-  // relacionados con la categoría en tu componente.
-  const applyFilters = () => {
-    //console.log("Antes de aplicar filtros:", projects);
-
-    let filteredItems = projects; // Inicialmente, los proyectos sin filtrar
-
-    // Filtra por fuente
-    //console.log("selectedOption:", selectedOption);
-
-    // Continúa con el resto de tu lógica y uso de filteredItems
-
-    // Filtra por autor
-    if (selectedAutor) {
-      filteredItems = filteredItems.filter((item) =>
-        item.autores.toLowerCase().includes(selectedAutor.toLowerCase())
-      );
-    }
-
-    // Filtra por fecha
-    if (startDate && endDate) {
-      filteredItems = filteredItems.filter((item) => {
-        const projectDate = new Date(item.fechaPublicacion);
-        const start = new Date(startDate);
-        const end = new Date(endDate);
-
-        return projectDate >= start && projectDate <= end;
-      });
-    }
-
-    // Actualiza la lista de proyectos con los filtros aplicados
-    setItems(filteredItems);
-  };
-
-  // Define tu lista de elementos
-
   const [startDate, setStartDate] = useState(null); // Filtro de fecha de inicio
   const [endDate, setEndDate] = useState(null); // Filtro de fecha de fin
   //const [filteredItems, setFilteredItems] = useState(projects);
@@ -182,9 +125,6 @@ export default function ProyectPage() {
 
     // Actualiza la lista de filtros
     setFiltros([...filtros]);
-
-    // Aplica los filtros restantes (fuente, fecha, etc.)
-    applyFilters();
   };
 
   const handleDeleteFiltro = (id) => {
@@ -246,7 +186,6 @@ export default function ProyectPage() {
         : endDate;
     }
     setFiltros(filtros);
-    applyFilters();
   };
 
   const listado_fuente = projects.reduce((accumulator, project) => {
