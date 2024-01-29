@@ -1,7 +1,8 @@
 import axios from "axios";
+import host_api from "utils/host_api";
 
 //const baseURL = "http://192.168.10.4:8085";
-const baseURL = "https://13b0-190-15-134-178.ngrok-free.app";
+const baseURL = host_api;
 
 const geoApi = axios.create({ baseURL });
 
