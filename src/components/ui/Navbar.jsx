@@ -117,6 +117,7 @@ export const Navbar = ({ isGeoportal = false }) => {
                     subLinks={[
                       { to: "/geoservicios", title: "Geoservicios" },
                       { to: "/manual", title: "Manual" },
+                      { to: "/modal", title: "Modal" },
                     ]}
                   ></NavbarLink>
                 </div>

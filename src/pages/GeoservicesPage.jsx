@@ -106,30 +106,10 @@ const GeoservicesPage = () => {
                           Propiedades geodinámicas de suelos
                         </td>
                         <td className="px-6 py-4">
-                          <a
-                            href="http://192.168.10.4:8085/geoserver/jose/ows?service=WMS&request=GetCapabilities"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Link
-                          </a>
+                          <th target="_blank" rel="noopener noreferrer">
+                            http://192.168.10.4:8085/geoserver/jose/ows?service=WMS&request=GetCapabilities
+                          </th>
                         </td>
-                      </tr>
-                      <tr className="border-b dark:border-gray-700 dark:bg-gray-800">
-                        <th
-                          scope="row"
-                          className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                        ></th>
-                        <td className="px-6 py-4"></td>
-                        <td className="px-6 py-4">-</td>
-                      </tr>
-                      <tr className="dark:bg-gray-800">
-                        <th
-                          scope="row"
-                          className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                        ></th>
-                        <td className="px-6 py-4"></td>
-                        <td className="px-6 py-4">-</td>
                       </tr>
                     </tbody>
                   </table>
@@ -183,30 +163,10 @@ const GeoservicesPage = () => {
                           Propiedades geodinámicas de suelos
                         </td>
                         <td className="px-6 py-4">
-                          <a
-                            href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&request=GetCapabilities"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Link
-                          </a>
+                          <th target="_blank" rel="noopener noreferrer">
+                            http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&request=GetCapabilities
+                          </th>
                         </td>
-                      </tr>
-                      <tr className="border-b dark:border-gray-700 dark:bg-gray-800">
-                        <th
-                          scope="row"
-                          className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                        ></th>
-                        <td className="px-6 py-4"></td>
-                        <td className="px-6 py-4">-</td>
-                      </tr>
-                      <tr className="dark:bg-gray-800">
-                        <th
-                          scope="row"
-                          className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                        ></th>
-                        <td className="px-6 py-4"></td>
-                        <td className="px-6 py-4">-</td>
                       </tr>
                     </tbody>
                   </table>
