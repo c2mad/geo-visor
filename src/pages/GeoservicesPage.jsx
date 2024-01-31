@@ -165,9 +165,13 @@ const GeoservicesPage = () => {
                           subsuelo: caso de estudio Cuenca, Azuay, Ecuador
                         </td>
                         <td className="px-6 py-4">
-                          <th>
-                            http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&request=GetCapabilities
-                          </th>
+                          <a
+                            href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&request=GetCapabilities"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Link
+                          </a>
                         </td>
                       </tr>
                     </tbody>

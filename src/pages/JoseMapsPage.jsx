@@ -1,6 +1,5 @@
 import { ChoseLayerItem } from "components/maps/ChoseLayerItem";
 import { GeoViewerJose } from "components/maps/GeoViewerJose";
-import MenuDescargas from "components/ui/MenuDescargas";
 import { Link } from "react-router-dom";
 
 import {
@@ -15,6 +14,7 @@ import {
 import { useState } from "react";
 import proyects from "utils/proyects";
 import { MoreInfoPage } from "./MoreInfoPage";
+import { Modalformulario } from "components/ui/Modalformulario";
 
 export const JoseMapsPage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -114,7 +114,7 @@ export const JoseMapsPage = () => {
                 </p>
                 <div className="mt-5 inline-flex items-center">
                   <div>
-                    <MenuDescargas />
+                    <Modalformulario />
                   </div>
 
                   <Link to="/moreinfo">

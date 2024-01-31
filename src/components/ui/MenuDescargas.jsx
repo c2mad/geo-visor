@@ -1,20 +1,6 @@
 import React, { useState } from "react";
 
 const MenuDescargas = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
-
-  // Función para abrir el modal y configurar el elemento seleccionado
-  const openModal = (item) => {
-    setSelectedItem(item);
-    setModalOpen(true);
-  };
-
-  // Función para cerrar el modal
-  const closeModal = () => {
-    setSelectedItem(null);
-    setModalOpen(false);
-  };
   return (
     <>
       <div id="descargasxcapas">
@@ -23,8 +9,7 @@ const MenuDescargas = () => {
             id="multiLevelDropdownButton"
             data-dropdown-toggle="multi-dropdown"
             className="inline-flex items-center rounded-lg bg-red px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red focus:outline-none focus:ring-4 focus:ring-red dark:bg-red dark:hover:bg-red dark:focus:ring-red"
-            type="button"
-            onClick={() => openModal(null)}
+            type="submit"
           >
             Descargas
           </button>

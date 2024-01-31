@@ -14,6 +14,7 @@ import { MoreInfoPage } from "pages/MoreInfoPage";
 import Dproyectos from "pages/Dproyectos";
 import { CatologoPage } from "pages/CatologoPage";
 import { ContactPage } from "pages/ContactPage";
+import { Modalformulario } from "components/ui/Modalformulario";
 
 export const RouterApp = () => {
   return (
@@ -58,7 +59,10 @@ export const RouterApp = () => {
             <Route index element={<MoreInfoPage />}></Route>
           </Route>
           <Route path="/descargas" element={<DefaultLayout />}>
-            <Route index element={<Dproyectos />}></Route>
+            <Route index el ement={<Dproyectos />}></Route>
+          </Route>
+          <Route path="/modal" element={<DefaultLayout />}>
+            <Route index element={<Modalformulario />}></Route>
           </Route>
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
