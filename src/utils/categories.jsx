@@ -12,13 +12,13 @@ const categories = [
     image: imgriesgos,
     to: "/proyects/riesgos",
   },
-  {
-    id: 2,
-    name: "Turísticos",
-    description: "Turísticos",
-    image: imgturismo,
-    to: "/proyects",
-  },
+  //{
+  //id: 2,
+  //name: "Turísticos",
+  //description: "Turísticos",
+  //image: imgturismo,
+  //to: "/proyects",
+  //},
   // {
   //   id: 3,
   //   name: "Vial",

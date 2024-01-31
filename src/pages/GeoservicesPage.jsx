@@ -86,7 +86,7 @@ const GeoservicesPage = () => {
                           AUTOR
                         </th>
                         <th scope="col" className="px-6 py-3">
-                          CAPAS
+                          PROYECTO
                         </th>
                         <th scope="col" className="px-6 py-3">
                           URL
@@ -103,33 +103,13 @@ const GeoservicesPage = () => {
                         </th>
                         <td className="px-6 py-4">
                           {" "}
-                          Propiedades geodinámicas de suelos
+                          Implementación de un geovisor para la visualización de
+                          las propiedades geodinámicas y geomorfológicas del
+                          subsuelo: caso de estudio Cuenca, Azuay, Ecuador
                         </td>
-                        <td className="px-6 py-4">
-                          <a
-                            href="http://192.168.10.4:8085/geoserver/jose/ows?service=WMS&request=GetCapabilities"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Link
-                          </a>
-                        </td>
-                      </tr>
-                      <tr className="border-b dark:border-gray-700 dark:bg-gray-800">
-                        <th
-                          scope="row"
-                          className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                        ></th>
-                        <td className="px-6 py-4"></td>
-                        <td className="px-6 py-4">-</td>
-                      </tr>
-                      <tr className="dark:bg-gray-800">
-                        <th
-                          scope="row"
-                          className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                        ></th>
-                        <td className="px-6 py-4"></td>
-                        <td className="px-6 py-4">-</td>
+                        <th>
+                          http://192.168.10.4:8085/geoserver/jose/ows?service=WMS&request=GetCapabilities
+                        </th>
                       </tr>
                     </tbody>
                   </table>
@@ -164,7 +144,7 @@ const GeoservicesPage = () => {
                           AUTOR
                         </th>
                         <th scope="col" className="px-6 py-3">
-                          CAPAS
+                          PROYECTO
                         </th>
                         <th scope="col" className="px-6 py-3">
                           URL
@@ -180,33 +160,15 @@ const GeoservicesPage = () => {
                           Jose Guaman
                         </th>
                         <td className="px-6 py-4">
-                          Propiedades geodinámicas de suelos
+                          Implementación de un geovisor para la visualización de
+                          las propiedades geodinámicas y geomorfológicas del
+                          subsuelo: caso de estudio Cuenca, Azuay, Ecuador
                         </td>
                         <td className="px-6 py-4">
-                          <a
-                            href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&request=GetCapabilities"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Link
-                          </a>
+                          <th>
+                            http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&request=GetCapabilities
+                          </th>
                         </td>
-                      </tr>
-                      <tr className="border-b dark:border-gray-700 dark:bg-gray-800">
-                        <th
-                          scope="row"
-                          className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                        ></th>
-                        <td className="px-6 py-4"></td>
-                        <td className="px-6 py-4">-</td>
-                      </tr>
-                      <tr className="dark:bg-gray-800">
-                        <th
-                          scope="row"
-                          className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                        ></th>
-                        <td className="px-6 py-4"></td>
-                        <td className="px-6 py-4">-</td>
                       </tr>
                     </tbody>
                   </table>
