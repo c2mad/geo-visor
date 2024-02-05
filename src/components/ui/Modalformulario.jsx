@@ -1,6 +1,20 @@
 import { useState } from "react";
 import React from "react";
 import MenuDescargas from "./MenuDescargas";
+import shgeotecnica from "../../utils/Shapefile/info_geotecnica.zip";
+import shgeoazuay from "../../utils/Shapefile/geo_azuay.zip";
+import shgeolocal from "../../utils/Shapefile/geo_local.zip";
+import shcalicatas from "../../utils/Shapefile/exploracion_calicatas.zip";
+import shiso from "../../utils/Shapefile/iso_periodos.zip";
+import shazuay from "../../utils/Shapefile/parroquias_azuay.zip";
+import shperfil from "../../utils/Shapefile/perfil_estratigrаfico.zip";
+import tiffpgs from "../../utils/jose-info_geotecnica.tif";
+import tiffgeoazuay from "../../utils/Shapefile/geo_azuay.zip";
+import tiffgeolocal from "../../utils/Shapefile/geo_local.zip";
+import tiffcalicatas from "../../utils/Shapefile/exploracion_calicatas.zip";
+import tiffiso from "../../utils/Shapefile/iso_periodos.zip";
+import tiffazuay from "../../utils/Shapefile/parroquias_azuay.zip";
+import tiffperfil from "../../utils/Shapefile/perfil_estratigrаfico.zip";
 
 export const Modalformulario = () => {
   const [nombre, setNombre] = useState("");
@@ -222,7 +236,7 @@ export const Modalformulario = () => {
                           >
                             <li>
                               <a
-                                href="/src/utils/jose-info_geotecnica.tif"
+                                href={tiffpgs}
                                 download="jose-info_geotecnica.tif"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
@@ -249,7 +263,7 @@ export const Modalformulario = () => {
                             </li>
                             <li>
                               <a
-                                href="/src/utils/shape/info_geotecnica.zip"
+                                href={shgeotecnica}
                                 download="info_geotecnica.zip"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
@@ -280,7 +294,7 @@ export const Modalformulario = () => {
                           >
                             <li>
                               <a
-                                href="/src/utils/jose-exploracion_calicatas.tif"
+                                href={tiffcalicatas}
                                 download="jose-exploracion_calicatas.tif"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
@@ -308,8 +322,8 @@ export const Modalformulario = () => {
                             </li>
                             <li>
                               <a
-                                href="/src/utils/shape/exploracion_calicatas.zip"
-                                download="info_geotecnica.zip"
+                                href={shcalicatas}
+                                download="perfil_estratigrаfico.zip"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 Shapefile
@@ -338,7 +352,7 @@ export const Modalformulario = () => {
                           >
                             <li>
                               <a
-                                href="/src/utils/jose-perfil_estratigr fico.tif"
+                                href={tiffperfil}
                                 download="jose-perfil_estratigr fico.tif"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
@@ -365,7 +379,7 @@ export const Modalformulario = () => {
                             </li>
                             <li>
                               <a
-                                href="/src/utils/shape/perfil_estratigrаfico.zip"
+                                href={shperfil}
                                 download="perfil_estratigrаfico.zip"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
@@ -395,7 +409,7 @@ export const Modalformulario = () => {
                           >
                             <li>
                               <a
-                                href="/src/utils/jose-iso_periodos.tif"
+                                href={tiffiso}
                                 download="jose-iso_periodos.tif"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
@@ -422,8 +436,8 @@ export const Modalformulario = () => {
                             </li>
                             <li>
                               <a
-                                href="/src/utils/shape/iso_periodos.zip"
-                                download="info_geotecnica.zip"
+                                href={shiso}
+                                download="iso_periodos.zip"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 Shapefile
@@ -452,7 +466,7 @@ export const Modalformulario = () => {
                           >
                             <li>
                               <a
-                                href="/src/utils/jose-geo_local.tif"
+                                href={tiffgeolocal}
                                 download="jose-geo_local.tif"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
@@ -479,7 +493,7 @@ export const Modalformulario = () => {
                             </li>
                             <li>
                               <a
-                                href="/src/utils/shape/geo_local.zip"
+                                href={shgeolocal}
                                 download="geo_local.zip"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
@@ -509,7 +523,7 @@ export const Modalformulario = () => {
                           >
                             <li>
                               <a
-                                href="/src/utils/jose-geo_azuay.tif"
+                                href={tiffgeoazuay}
                                 download="jose-geo_azuay.tif"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
@@ -536,7 +550,7 @@ export const Modalformulario = () => {
                             </li>
                             <li>
                               <a
-                                href="/src/utils/shape/geo_azuay.zip"
+                                href={shgeoazuay}
                                 download="geo_azuay.zip"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
@@ -566,7 +580,7 @@ export const Modalformulario = () => {
                           >
                             <li>
                               <a
-                                href="/src/utils/jose-parroquias_azuay.tif"
+                                href={tiffazuay}
                                 download="jose-parroquias_azuay.tif"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
@@ -593,7 +607,7 @@ export const Modalformulario = () => {
                             </li>
                             <li>
                               <a
-                                href="/src/utils/shape/parroquias_azuay.zip"
+                                href={shazuay}
                                 download="parroquias_azuay.zip"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
