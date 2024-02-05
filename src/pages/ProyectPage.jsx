@@ -85,46 +85,21 @@ export default function ProyectPage() {
     </span>;
   };
 
-  const obtenerValorAutor = (valor) => {
-    // Actualiza el estado de selectedAutor
-    setAutor(valor.name);
-    console.log(obtenerValorAutor);
-
-    // Filtra los proyectos por autor y actualiza la lista de proyectos
-    const filteredProjects = projects.filter(
-      (project) =>
-        typeof project.autores === "string" &&
-        project.autores.toLowerCase().includes(valor.name.toLowerCase())
-    );
-
-    // Actualiza la lista de proyectos con los proyectos filtrados
-    setItems(filteredProjects);
-
-    // Verifica si ya existe un filtro de autor en la lista filtros
-    const existe = filtros.find((item) => item.id === 3);
-
-    // Actualiza o agrega el filtro de autor en la lista filtros
-    const filtroAutor = {
-      id: 3,
-      content: (
-        <>
-          <span className="mr-2 text-[12px]">
-            <strong>Autor:</strong> {valor.name}
-          </span>
-        </>
-      ),
-      description: valor.name,
-    };
-
-    if (existe === null || existe === undefined) {
-      filtros.push(filtroAutor);
-    } else {
-      existe.content = filtroAutor.content;
-      existe.description = filtroAutor.description;
+  const obtenerValorAutor = (autorSeleccionado) => {
+    // Verifica si autorSeleccionado es una cadena
+    if (typeof autorSeleccionado !== "string") {
+      console.error("autorSeleccionado debe ser una cadena");
+      return;
     }
 
-    // Actualiza la lista de filtros
-    setFiltros([...filtros]);
+    // Continúa con la lógica previa, ahora sabiendo que autorSeleccionado es una cadena
+    const filteredProjects = projects.filter((project) =>
+      project.autores.some(
+        (autor) => autor.name.toLowerCase() === autorSeleccionado.toLowerCase()
+      )
+    );
+    setItems(filteredProjects);
+    setCurrentPage(0); // Restablece a la primera página
   };
 
   const handleDeleteFiltro = (id) => {
