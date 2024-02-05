@@ -160,19 +160,14 @@ const GeoservicesPage = () => {
                           Jose Guaman
                         </th>
                         <td className="px-6 py-4">
+                          {" "}
                           Implementación de un geovisor para la visualización de
                           las propiedades geodinámicas y geomorfológicas del
                           subsuelo: caso de estudio Cuenca, Azuay, Ecuador
                         </td>
-                        <td className="px-6 py-4">
-                          <a
-                            href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&request=GetCapabilities"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Link
-                          </a>
-                        </td>
+                        <th>
+                          http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&request=GetCapabilities
+                        </th>
                       </tr>
                     </tbody>
                   </table>
