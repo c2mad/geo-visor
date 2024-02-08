@@ -86,7 +86,7 @@ const GeoservicesPage = () => {
                           AUTOR
                         </th>
                         <th scope="col" className="px-6 py-3">
-                          CAPAS
+                          PROYECTO
                         </th>
                         <th scope="col" className="px-6 py-3">
                           URL
@@ -103,13 +103,13 @@ const GeoservicesPage = () => {
                         </th>
                         <td className="px-6 py-4">
                           {" "}
-                          Propiedades geodinámicas de suelos
+                          Implementación de un geovisor para la visualización de
+                          las propiedades geodinámicas y geomorfológicas del
+                          subsuelo: caso de estudio Cuenca, Azuay, Ecuador
                         </td>
-                        <td className="px-6 py-4">
-                          <th target="_blank" rel="noopener noreferrer">
-                            http://192.168.10.4:8085/geoserver/jose/ows?service=WMS&request=GetCapabilities
-                          </th>
-                        </td>
+                        <th>
+                          http://192.168.10.4:8085/geoserver/jose/ows?service=WMS&request=GetCapabilities
+                        </th>
                       </tr>
                     </tbody>
                   </table>
@@ -144,7 +144,7 @@ const GeoservicesPage = () => {
                           AUTOR
                         </th>
                         <th scope="col" className="px-6 py-3">
-                          CAPAS
+                          PROYECTO
                         </th>
                         <th scope="col" className="px-6 py-3">
                           URL
@@ -160,13 +160,14 @@ const GeoservicesPage = () => {
                           Jose Guaman
                         </th>
                         <td className="px-6 py-4">
-                          Propiedades geodinámicas de suelos
+                          {" "}
+                          Implementación de un geovisor para la visualización de
+                          las propiedades geodinámicas y geomorfológicas del
+                          subsuelo: caso de estudio Cuenca, Azuay, Ecuador
                         </td>
-                        <td className="px-6 py-4">
-                          <th target="_blank" rel="noopener noreferrer">
-                            http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&request=GetCapabilities
-                          </th>
-                        </td>
+                        <th>
+                          http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&request=GetCapabilities
+                        </th>
                       </tr>
                     </tbody>
                   </table>
