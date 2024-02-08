@@ -1,7 +1,7 @@
 import imgmap from "../assets/images/mapa_128.png";
-import imgdw from "../assets/images/download_128.png";
+//import imgdw from "../assets/images/download_128.png";
 import imggeoserv from "../assets/images/geoweb_128.png";
-import imgnorm from "../assets/images/normativa_128.png";
+//import imgnorm from "../assets/images/normativa_128.png";
 //import imgmetadatos from "../assets/images/metadatos_128.png";
 import imgmanual from "../assets/images/manual.png";
 

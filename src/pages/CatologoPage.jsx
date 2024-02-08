@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "../assets/css/home.css";
 import categorias from "../utils/categories";
 import proyectos from "../utils/proyects";
@@ -9,7 +8,7 @@ import Search from "components/ui/Search";
 export const CatologoPage = () => {
   const [proyects] = useState(proyectos);
   const [categories] = useState(categorias);
-  const [items, setItems] = useState(proyects);
+  const [setItems] = useState(proyects);
 
   //Busqueda de proyectos
   const search2 = (searchQuery) => {

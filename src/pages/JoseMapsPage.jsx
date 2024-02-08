@@ -13,21 +13,9 @@ import {
 } from "hooks/useMap";
 import { useState } from "react";
 import proyects from "utils/proyects";
-import { MoreInfoPage } from "./MoreInfoPage";
 import { Modalformulario } from "components/ui/Modalformulario";
 
 export const JoseMapsPage = () => {
-  const [showModal, setShowModal] = useState(false);
-
-  const handleDownloadClick = () => {
-    // Abre el modal cuando se hace clic en el botón de descargar
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    // Cierra el modal
-    setShowModal(false);
-  };
   const [key0, setKey0] = useState(false);
   const [key1, setKey1] = useState(false);
   const [key2, setKey2] = useState(false);

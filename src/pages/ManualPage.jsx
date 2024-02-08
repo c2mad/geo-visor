@@ -22,6 +22,7 @@ export const ManualPage = () => {
             className="dark:hover:text-dark z-10 my-3 flex flex-shrink-0 items-center justify-center rounded-lg border border-gray-300 bg-red p-5 text-center text-lg font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-red dark:hover:bg-gray-100 dark:focus:ring-gray-700"
             type="button"
             target="_blank"
+            rel="noreferrer"
           >
             Manual de usuario Geovisor{" "}
             <svg
@@ -39,6 +40,7 @@ export const ManualPage = () => {
             className="dark:hover:text-dark z-10 my-3 flex flex-shrink-0 items-center justify-center rounded-lg border border-gray-300 bg-lime-400 p-4 text-center text-lg font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-red dark:hover:bg-gray-100 dark:focus:ring-gray-700"
             type="button"
             target="_blank"
+            rel="noreferrer"
           >
             Manual de usuario Geoservicios{" "}
             <svg
