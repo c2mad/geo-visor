@@ -7,6 +7,7 @@ const AutocompleteItem = ({ id, name, onClick, onSelected }) => {
     onClick(valor);
     onSelected(valor);
   };
+
   return (
     <li key={id}>
       <button className="w-full p-4 hover:bg-gray-50" onClick={handleClick}>

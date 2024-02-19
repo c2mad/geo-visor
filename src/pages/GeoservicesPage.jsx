@@ -176,6 +176,13 @@ const GeoservicesPage = () => {
             </div>
           )}
         </div>
+        <span className="text-xxl items-center   text-center">
+          <strong>
+            Nota: Este link no es una página web. Sirve únicamente para que se
+            puedan consumir los diferentes geoservicios: WMS, WFS. Colocarlo en
+            un software de presefencia para consumir los geoservicios
+          </strong>
+        </span>
       </div>
     </>
   );

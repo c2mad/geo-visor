@@ -6,67 +6,73 @@ const ProjectDetails = () => {
 
   if (!firstProject) {
     return (
-      <p className="text-red-500 text-center text-lg font-semibold dark:text-white">
-        Proyecto no encontrado
-      </p>
+      <div className="text-center">
+        <p className="text-red-500 dark:text-red-400 text-lg font-semibold">
+          Proyecto no encontrado
+        </p>
+      </div>
     );
   }
 
   return (
-    <div className="mx-auto w-full max-w-4xl p-5">
-      <h2 className="mb-5 text-center text-4xl font-bold text-gray-800 dark:text-white">
-        {firstProject.title}
-      </h2>
+    <div className="mx-auto w-full max-w-5xl p-6">
+      <div className="rounded-lg bg-gradient-to-r from-black to-red p-1">
+        <div className="rounded-lg bg-white p-5 shadow-lg dark:bg-gray-800">
+          <h2 className="mb-4 text-center text-3xl font-bold text-gray-800 dark:text-white">
+            {firstProject.title}
+          </h2>
 
-      <div className="flex flex-col gap-6 md:flex-row md:items-start">
-        <div className="w-full flex-shrink-0 md:w-1/2">
-          <img
-            src={firstProject.imageUrl}
-            alt={firstProject.title}
-            className="mx-auto h-auto w-full rounded-lg shadow-lg"
-          />
+          <div className="flex flex-col gap-6 md:flex-row">
+            <div className="flex-1">
+              <img
+                src={firstProject.imageUrl}
+                alt={firstProject.title}
+                className="transform rounded-lg shadow-lg transition duration-500 hover:scale-105"
+              />
+            </div>
+
+            <div className="flex-1 space-y-4">
+              <div className="rounded-lg border border-gray-300 p-4 shadow-md dark:border-gray-700">
+                <p className="text-gray-700 dark:text-gray-300">
+                  {firstProject.description}
+                </p>
+              </div>
+
+              <div className="rounded-lg border border-gray-300 p-4 shadow-md dark:border-gray-700">
+                <dl>
+                  <div className="pb-2">
+                    <dt className="font-semibold">Publicado:</dt>
+                    <dd>{firstProject.publication}</dd>
+                  </div>
+                  <div className="pb-2">
+                    <dt className="font-semibold">Fuente:</dt>
+                    <dd>
+                      {firstProject.fuente.map((f, index) => (
+                        <span key={f.id}>
+                          {f.name}
+                          {index < firstProject.fuente.length - 1 ? ", " : ""}
+                        </span>
+                      ))}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold">
+                      {firstProject.autores.length > 1 ? "Autores:" : "Autor:"}
+                    </dt>
+                    <dd>
+                      {firstProject.autores.map((autor, index) => (
+                        <span key={autor.id}>
+                          {autor.name}
+                          {index < firstProject.autores.length - 1 ? ", " : ""}
+                        </span>
+                      ))}
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div className="w-full rounded-lg border border-gray-300 p-4 shadow-md md:w-1/2 dark:border-gray-700 dark:text-white">
-          <p className="text-lg text-gray-700 dark:text-gray-300">
-            {firstProject.description}
-          </p>
-        </div>
-      </div>
-
-      <div className="mt-8 text-center">
-        <table className="w-full text-xl text-gray-700 dark:text-gray-300">
-          <tbody>
-            <tr className="border-b">
-              <td className="py-2 font-semibold">Publicado:</td>
-              <td>{firstProject.publication}</td>
-            </tr>
-            <tr className="border-b">
-              <td className="py-2 font-semibold">Fuente:</td>
-              <td>
-                {firstProject.fuente.map((f, index) => (
-                  <span key={f.id}>
-                    {f.name}
-                    {index < firstProject.fuente.length - 1 ? ", " : ""}
-                  </span>
-                ))}
-              </td>
-            </tr>
-            <tr>
-              <td className="py-2 font-semibold">
-                {firstProject.autores.length > 1 ? "Autores:" : "Autor:"}
-              </td>
-              <td>
-                {firstProject.autores.map((autor, index) => (
-                  <span key={autor.id}>
-                    {autor.name}
-                    {index < firstProject.autores.length - 1 ? ", " : ""}
-                  </span>
-                ))}
-              </td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
   );

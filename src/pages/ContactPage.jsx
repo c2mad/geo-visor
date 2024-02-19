@@ -7,10 +7,8 @@ export const ContactPage = () => {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [institucion, setInstitucion] = useState("");
-  const [asunto, setAsunto] = useState("");
-  const [mensaje, setMensaje] = useState("");
-
-  // Manejar el envío del formulario
+  const [motivodescarga, setMotivo] = useState("");
+  const [sectorpertenece, setSector] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -19,8 +17,8 @@ export const ContactPage = () => {
       nombre,
       email,
       institucion,
-      asunto,
-      mensaje,
+      motivodescarga,
+      sectorpertenece,
     };
 
     try {
@@ -41,8 +39,8 @@ export const ContactPage = () => {
         setNombre("");
         setEmail("");
         setInstitucion("");
-        setAsunto("");
-        setMensaje("");
+        setMotivo("");
+        setSector("");
       } else {
         // Hubo un error al enviar el correo
         alert(
@@ -65,82 +63,107 @@ export const ContactPage = () => {
               Contáctanos
             </h2>
             {/* Campos de formulario */}
-            <div className="mb-4">
-              <label className="block font-medium text-white ">Nombre</label>
+            <div>
+              <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                Nombre
+              </label>
               <input
                 type="text"
-                id="nombre"
                 name="nombre"
+                id="nombre"
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
-                placeholder="Tu nombre"
-                aria-required
+                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                placeholder="Escribe tu nombre"
+                required=""
               />
             </div>
-            <div className="mb-4">
-              <label className="block font-medium text-white">
-                Correo Electrónico
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
-                placeholder="Tu correo electrónico"
-                aria-required
-              />
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  Correo
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  placeholder="Escribe tu correo"
+                  required=""
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  Institución a la que pertenece
+                </label>
+                <input
+                  type="text"
+                  name="institucion"
+                  id="institucion"
+                  value={institucion}
+                  onChange={(e) => setInstitucion(e.target.value)}
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  placeholder="Institución a la que pertenece"
+                  required=""
+                />
+              </div>
             </div>
-            <div className="mb-4">
-              <label className="block font-medium text-white">
-                Institución
+            <div>
+              <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                Motivo de la descarga
               </label>
               <input
                 type="text"
-                id="institucion"
-                name="institucion"
-                value={institucion}
-                onChange={(e) => setInstitucion(e.target.value)}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
-                placeholder="Institución a la que pertenece"
-                aria-required
+                name="motivo"
+                id="motivo"
+                value={motivodescarga}
+                onChange={(e) => setMotivo(e.target.value)}
+                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                placeholder="Motivo de la descarga"
+                required=""
               />
             </div>
-            <div className="mb-4">
-              <label className="block font-medium text-white">Asunto</label>
+            <div>
+              <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                Sector al que pertenece
+              </label>
               <input
                 type="text"
-                id="asunto"
-                name="asunto"
-                value={asunto}
-                onChange={(e) => setAsunto(e.target.value)}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
-                placeholder="Asunto"
-                aria-required
+                name="sector"
+                id="sector"
+                value={sectorpertenece}
+                onChange={(e) => setSector(e.target.value)}
+                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                placeholder="Público o Privado"
+                required=""
               />
             </div>
-            <div className="mb-4">
-              <label className="block font-medium text-white">Mensaje</label>
-              <textarea
-                id="mensaje"
-                name="mensaje"
-                rows="4"
-                value={mensaje}
-                onChange={(e) => setMensaje(e.target.value)}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-red focus:outline-none"
-                placeholder="Escribe tu mensaje aquí"
-                aria-required
-              ></textarea>
-            </div>
-
+            <br />
             {/* Botón de envío */}
             <button
+              id="multiLevelDropdownButton"
+              data-dropdown-toggle="multi-dropdown"
+              className={`inline-flex w-full items-center rounded-lg bg-red px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red focus:outline-none focus:ring-4 focus:ring-red dark:bg-red dark:hover:bg-red dark:focus:ring-red ${
+                !nombre ||
+                !email ||
+                !institucion ||
+                !motivodescarga ||
+                !sectorpertenece
+                  ? "cursor-not-allowed opacity-50"
+                  : ""
+              }`}
               type="submit"
-              className="w-full rounded-lg bg-red px-4 py-2 font-semibold text-white transition duration-300 hover:bg-gray-400"
+              disabled={
+                !nombre ||
+                !email ||
+                !institucion ||
+                !motivodescarga ||
+                !sectorpertenece
+              }
             >
-              Enviar Mensaje
+              Enviar correo
             </button>
           </form>
         </div>
