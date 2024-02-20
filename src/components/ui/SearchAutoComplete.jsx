@@ -58,16 +58,23 @@ export default function SearchAutoComplete(props) {
     setSelectedItem(item); // Almacenar el elemento seleccionado en el estado
   };
 
-  const listado_autores = proyects.reduce((accumulator, project) => {
-    project.autores.forEach((source) => {
-      // Comprobamos si la fuente ya existe en el acumulador
-      const existingSource = accumulator.find((item) => item.id === source.id);
-      if (!existingSource) {
-        accumulator.push(source);
-      }
-    });
-    return accumulator;
-  }, []);
+  const listado_autores = useMemo(
+    () =>
+      proyects.reduce((accumulator, project) => {
+        project.autores.forEach((source) => {
+          // Check if the source already exists in the accumulator
+          const existingSource = accumulator.find(
+            (item) => item.id === source.id
+          );
+          if (!existingSource) {
+            accumulator.push(source);
+          }
+        });
+        return accumulator;
+      }, []),
+    []
+  ); // Removed proyects from the dependency array
+
   const autocomplete = useMemo(
     () =>
       createAutocomplete({
@@ -87,18 +94,9 @@ export default function SearchAutoComplete(props) {
             },
           },
         ],
-        // getSources: () => [{
-        //   sourceId: 'offers-next-api',
-        //   getItems: ({ query }) => {
-        //     if (!!query) {
-        //       return fetch(`/api/search?q=${query}`)
-        //         .then(res => res.json())
-        //     }
-        //   }
-        // }],
         ...props,
       }),
-    [props]
+    [props, listado_autores] // Now including listado_autores in the dependency array
   );
 
   const formRef = useRef(null);

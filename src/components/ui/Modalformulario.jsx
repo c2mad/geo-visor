@@ -1,6 +1,5 @@
 import { useState } from "react";
 import React from "react";
-import MenuDescargas from "./MenuDescargas";
 import shgeotecnica from "../../utils/Shapefile/info_geotecnica.zip";
 import shgeoazuay from "../../utils/Shapefile/geo_azuay.zip";
 import shgeolocal from "../../utils/Shapefile/geo_local.zip";
@@ -266,6 +265,7 @@ export const Modalformulario = () => {
                               <a
                                 href="http://192.168.10.4:8085/geoserver/jose/wms?service=WMS&version=1.1.0&request=GetMap&layers=jose%3Ainfo_geotecnica&bbox=-79.08186507463374%2C-2.936608594157815%2C-78.56400620045021%2C-2.593689219220091&width=768&height=508&srs=EPSG%3A4326&styles=&format=image%2Fjpeg"
                                 target="_blank"
+                                rel="noreferrer"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 JPEG
@@ -275,6 +275,7 @@ export const Modalformulario = () => {
                               <a
                                 href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Ainfo_geotecnica&maxFeatures=50&outputFormat=application%2Fjson"
                                 target="_blank"
+                                rel="noreferrer"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 GeoJson
@@ -324,6 +325,7 @@ export const Modalformulario = () => {
                               <a
                                 href="http://192.168.10.4:8085/geoserver/jose/wms?service=WMS&version=1.1.0&request=GetMap&layers=jose%3Aexploracion_calicatas&bbox=-79.43316580591853%2C-2.9374101096155982%2C-78.88548486427072%2C-2.808654672390265&width=768&height=330&srs=EPSG%3A4326&styles=&format=image%2Fjpeg"
                                 target="_blank"
+                                rel="noreferrer"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 JPEG
@@ -334,6 +336,7 @@ export const Modalformulario = () => {
                                 href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Aexploracion_calicatas&maxFeatures=50&outputFormat=application%2Fjson
                         "
                                 target="_blank"
+                                rel="noreferrer"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 GeoJson
@@ -382,6 +385,7 @@ export const Modalformulario = () => {
                               <a
                                 href="http://192.168.10.4:8085/geoserver/jose/wms?service=WMS&version=1.1.0&request=GetMap&layers=jose%3Aperfil_estratigr%D0%B0fico&bbox=-79.43308576247448%2C-2.9379616623886466%2C-78.88366814357599%2C-2.807871298781192&width=768&height=330&srs=EPSG%3A4326&styles=&format=image%2Fjpeg"
                                 target="_blank"
+                                rel="noreferrer"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 JPEG
@@ -391,6 +395,7 @@ export const Modalformulario = () => {
                               <a
                                 href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Aperfil_estratigr%D0%B0fico&maxFeatures=50&outputFormat=application%2Fjson"
                                 target="_blank"
+                                rel="noreferrer"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 GeoJson
@@ -439,6 +444,7 @@ export const Modalformulario = () => {
                               <a
                                 href="http://192.168.10.4:8085/geoserver/jose/wms?service=WMS&version=1.1.0&request=GetMap&layers=jose%3Aiso_periodos&bbox=-79.07460816750624%2C-2.940493029405997%2C-78.89328271364667%2C-2.8212720558657822&width=768&height=504&srs=EPSG%3A4326&styles=&format=image%2Fjpeg"
                                 target="_blank"
+                                rel="noreferrer"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 JPEG
@@ -448,6 +454,7 @@ export const Modalformulario = () => {
                               <a
                                 href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Aiso_periodos&maxFeatures=50&outputFormat=application%2Fjson"
                                 target="_blank"
+                                rel="noreferrer"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 GeoJson
@@ -496,6 +503,7 @@ export const Modalformulario = () => {
                               <a
                                 href="http://192.168.10.4:8085/geoserver/jose/wms?service=WMS&version=1.1.0&request=GetMap&layers=jose%3Ageo_local&bbox=-79.12537433293012%2C-2.917443762773028%2C-78.74937282626924%2C-2.6726709114152247&width=768&height=499&srs=EPSG%3A4326&styles=&format=image%2Fjpeg"
                                 target="_blank"
+                                rel="noreferrer"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 JPEG
@@ -505,6 +513,7 @@ export const Modalformulario = () => {
                               <a
                                 href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Ageo_local&maxFeatures=50&outputFormat=application%2Fjson"
                                 target="_blank"
+                                rel="noreferrer"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 GeoJson
@@ -553,6 +562,7 @@ export const Modalformulario = () => {
                               <a
                                 href="http://192.168.10.4:8085/geoserver/jose/wms?service=WMS&version=1.1.0&request=GetMap&layers=jose%3Ageo_azuay&bbox=-79.7641371114835%2C-3.63131157466202%2C-78.41983190729567%2C-2.495085062454964&width=768&height=649&srs=EPSG%3A4326&styles=&format=image%2Fjpeg"
                                 target="_blank"
+                                rel="noreferrer"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 JPEG
@@ -562,6 +572,7 @@ export const Modalformulario = () => {
                               <a
                                 href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Ageo_azuay&maxFeatures=50&outputFormat=application%2Fjson"
                                 target="_blank"
+                                rel="noreferrer"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 GeoJson
@@ -610,6 +621,7 @@ export const Modalformulario = () => {
                               <a
                                 href="http://192.168.10.4:8085/geoserver/jose/wms?service=WMS&version=1.1.0&request=GetMap&layers=jose%3Aparroquias_azuay&bbox=-79.7641372084136%2C-3.6313115746855256%2C-78.41983190729566%2C-2.494999689288688&width=768&height=649&srs=EPSG%3A4326&styles=&format=image%2Fjpeg"
                                 target="_blank"
+                                rel="noreferrer"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 JPEG
@@ -619,6 +631,7 @@ export const Modalformulario = () => {
                               <a
                                 href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Aparroquias_azuay&maxFeatures=50&outputFormat=application%2Fjsonn"
                                 target="_blank"
+                                rel="noreferrer"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 GeoJson

@@ -1,11 +1,11 @@
 import Download from "pages/Download";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import categories from "utils/categories";
 import proyects from "../../utils/proyects";
 import ReactPaginate from "react-paginate";
 
 export default function Descargas() {
-  const [items, setItems] = useState(proyects); // Lista original de proyectos
+  const [items] = useState(proyects); // Lista original de proyectos
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 9; // item por página
   const pageCount = Math.ceil(items.length / itemsPerPage);
