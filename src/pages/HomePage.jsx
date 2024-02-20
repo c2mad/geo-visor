@@ -5,9 +5,9 @@ export const HomePage = () => {
     <>
       <div className=" bg-inherit">
         <div id="tittle and description" className="w-full">
-          <section className="background-ide py-20">
-            <div className="grid content-center items-stretch gap-4 py-20  pt-10 text-white sm:grid-cols-1 md:grid-cols-1  lg:grid-cols-2">
-              <div className="px-10 sm:px-10 md:px-20 lg:px-40">
+          <section className="background-ide py-10 ">
+            <div className="grid content-center items-stretch gap-4 py-5  pt-1 text-white sm:grid-cols-1 md:grid-cols-1  lg:grid-cols-2">
+              <div className="lg:px-15 px-5 sm:px-10 md:px-10">
                 <div className="bt-6 pb-6  text-white">
                   <h3 className="display-5 text-[38px]">
                     <span className="font-bold"> IDE</span>{" "}

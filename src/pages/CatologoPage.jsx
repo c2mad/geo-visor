@@ -25,9 +25,9 @@ export const CatologoPage = () => {
   return (
     <div className="bg-inherit">
       <div id="tittle and description" className="w-full">
-        <section className="background-home py-20">
+        <section className="background-home py-10">
           <div className="grid content-center items-stretch gap-4 py-20  pt-10 text-white sm:grid-cols-1 md:grid-cols-1  lg:grid-cols-2">
-            <div className="px-10 sm:px-10 md:px-20 lg:px-40">
+            <div className="lg:px-15 px-10 sm:px-10 md:px-20">
               <div className="bt-6 pb-6  text-white">
                 <h3 className="display-5 text-[38px]">
                   <span className="font-bold"> Catálogo de proyectos</span>{" "}
@@ -45,13 +45,6 @@ export const CatologoPage = () => {
                     descargar una variedad de datos que son de utilidad para un
                     mayor conocimiento del territorio.
                   </p>
-                </div>
-              </div>
-            </div>
-            <div className="flex h-full items-center justify-center ">
-              <div className="flex sm:px-0 md:px-10">
-                <div className="flex">
-                  <Search onSearch={search2} />
                 </div>
               </div>
             </div>
