@@ -18,41 +18,41 @@ const proyects = [
     to: "/mapas/jose",
     visitas: 0,
   },
-  {
-    id: 2,
-    title:
-      "Deslizamientos: carcterización de sus factores morfologicos y ambientales",
-    imageUrl: imgjoseproject,
-    publication: "2023-07-10",
-    description:
-      "It is difficult to believe that we have become so used to having instant access to information at.",
-    fuente: [{ id: 1, name: "SIGDATA" }],
-    layeritem: "Leer más",
-    category: 2,
-    autores: [
-      { id: 1, name: "Dra. Sandra Cobos" },
-      { id: 2, name: "Dr. Setefano Torrachi" },
-    ],
-    to: "/mapas/jose",
-    visitas: 0,
-  },
-  {
-    id: 3,
-    title: "Turístico",
-    imageUrl: imgjoseproject,
-    publication: "2023-01-01",
-    description:
-      "It is difficult to believe that we have become so used to having instant access to information at.",
-    fuente: [{ id: 1, name: "SIGDATA" }],
-    layeritem: "Leer más",
-    category: 3,
-    autores: [
-      { id: 1, name: "Erika Trujillo" },
-      { id: 2, name: "Bryam Sebastian Carmona" },
-    ],
-    to: "/mapas/jose",
-    visitas: 0,
-  },
+  // {
+  //   id: 2,
+  //   title:
+  //     "Deslizamientos: carcterización de sus factores morfologicos y ambientales",
+  //   imageUrl: imgjoseproject,
+  //   publication: "2023-07-10",
+  //   description:
+  //     "It is difficult to believe that we have become so used to having instant access to information at.",
+  //   fuente: [{ id: 1, name: "SIGDATA" }],
+  //   layeritem: "Leer más",
+  //   category: 2,
+  //   autores: [
+  //     { id: 1, name: "Dra. Sandra Cobos" },
+  //     { id: 2, name: "Dr. Setefano Torrachi" },
+  //   ],
+  //   to: "/mapas/jose",
+  //   visitas: 0,
+  // },
+  // {
+  //   id: 3,
+  //   title: "Turístico",
+  //   imageUrl: imgjoseproject,
+  //   publication: "2023-01-01",
+  //   description:
+  //     "It is difficult to believe that we have become so used to having instant access to information at.",
+  //   fuente: [{ id: 1, name: "SIGDATA" }],
+  //   layeritem: "Leer más",
+  //   category: 3,
+  //   autores: [
+  //     { id: 1, name: "Erika Trujillo" },
+  //     { id: 2, name: "Bryam Sebastian Carmona" },
+  //   ],
+  //   to: "/mapas/jose",
+  //   visitas: 0,
+  // },
   // {
   //   id: 4,
   //   title: "Infraestructura",

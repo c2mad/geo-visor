@@ -239,7 +239,7 @@ export default function ProyectPage() {
                   </select>
                 </div>
               </div>
-              <div
+              {/* <div
                 id="filter"
                 className="mb-5 rounded-lg border border-solid p-5"
               >
@@ -249,22 +249,19 @@ export default function ProyectPage() {
                   </label>
                   <SearchAutoComplete onClick={filtrarPorAutor} />
                 </div>
-              </div>
-              <div
-                id="filter"
-                className="mb-5 rounded-lg border border-solid p-5"
-              >
+              </div> */}
+              <div id="filter" className="mb-5 rounded-lg ">
                 <div className="container mx-auto p-2">
-                  <label className="mb-5 block text-sm font-semibold text-gray-600 dark:text-white">
+                  {/* <label className="mb-5 block text-sm font-semibold text-gray-600 dark:text-white">
                     Fecha de publicación:
-                  </label>
+                  </label> */}
 
                   <div
                     date-rangepicker="true"
                     className="flex items-center"
                     id="dateRangePickerId"
                   >
-                    <div className="relative">
+                    {/* <div className="relative">
                       <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                         <svg
                           className="h-4 w-4 text-gray-500 dark:text-gray-400"
@@ -286,8 +283,8 @@ export default function ProyectPage() {
                         onSelect={(e) => handleDateChange(true, e.target.value)}
                         // onChange={(e) => handleDateChange(true, e.target.value)}
                       />
-                    </div>
-                    <span className="mx-4 text-gray-500">to</span>
+                    </div> */}
+                    {/* <span className="mx-4 text-gray-500">to</span>
                     <div className="relative">
                       <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                         <svg
@@ -314,7 +311,7 @@ export default function ProyectPage() {
                         //   handleDateChange(false, e.target.value)
                         // }
                       />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="bg-black p-6 text-white">
-      <div className="mx-auto grid max-w-screen-xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid max-w-screen-xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2">
         {/* Laboratorios */}
         <div className="text-center">
           <strong className="text-xl">Laboratorios</strong>
@@ -30,25 +30,9 @@ const Footer = () => {
               Ecuador"
             </li>
             <li>
-              <strong>Teléfono:</strong> 593 (07) 2-834-037 Ext 155, 156
-            </li>
-            <li>
-              <strong>Email:</strong> ciitt@ucacue.edu.ec
+              <strong>Email:</strong> sigdata@ucacue.edu.ec
             </li>
           </ul>
-        </div>
-
-        {/* Ubicación */}
-        <div className="text-center">
-          <strong className="text-xl">Ubicación</strong>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7969.724696605074!2d-78.9656163!3d-2.8560806!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd1733f70eca17%3A0xbe544f95d8070fc6!2sCIITT%20-%20Universidad%20Cat%C3%B3lica%20de%20Cuenca!5e0!3m2!1ses!2sec!4v1693337053326!5m2!1ses!2sec"
-            width="100%"
-            height="230"
-            loading="lazy"
-            className="mt-4"
-            title="maps"
-          ></iframe>
         </div>
       </div>
 

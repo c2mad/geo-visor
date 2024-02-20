@@ -16,7 +16,7 @@ export const HomePage = () => {
                 </div>
                 <div className="mx-auto">
                   <div className="text-white">
-                    <p className="lead font-sans ">
+                    <p className="lead font-sans text-xl ">
                       Una Infraestructura de Datos Espaciales (IDE) es el
                       conjunto de políticas, leyes, normas, estándares,
                       organizaciones, planes, programas, proyectos, recursos
@@ -39,7 +39,7 @@ export const HomePage = () => {
           >
             <section>
               <h3 className="mb-6 mt-10 text-center text-4xl font-semibold text-black dark:text-white">
-                Accesos de la IDE
+                Servicios
               </h3>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-3">
                 {id_elements.map((item) => (

@@ -1,23 +1,39 @@
 import "../assets/css/home.css";
-// Importa las dependencias necesarias
 import React, { useState } from "react";
 
 export const ContactPage = () => {
-  // Define estados para los campos del formulario
   const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [consultadescarga, setConsultadescarga] = useState("");
   const [email, setEmail] = useState("");
+  const [telefono, setTelefono] = useState("");
   const [institucion, setInstitucion] = useState("");
-  const [motivodescarga, setMotivo] = useState("");
-  const [sectorpertenece, setSector] = useState("");
+  const [sectorpertenece, setSectorpertenece] = useState("");
+  const [nuevaInstitucion, setNuevaInstitucion] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (
+      !nombre.trim() ||
+      !apellido.trim() ||
+      !consultadescarga.trim() ||
+      !email.trim() ||
+      !telefono.trim() ||
+      !institucion.trim() ||
+      !sectorpertenece.trim()
+    ) {
+      alert("Todos los campos son obligatorios.");
+      return; // Detener la ejecución si algún campo está vacío
+    }
 
     // Construir el objeto con los datos del formulario
     const formData = {
       nombre,
+      apellido,
+      consultadescarga,
       email,
+      telefono,
       institucion,
-      motivodescarga,
       sectorpertenece,
     };
 
@@ -37,10 +53,12 @@ export const ContactPage = () => {
 
         // Limpiar el formulario restableciendo los estados a una cadena vacía
         setNombre("");
+        setApellido("");
+        setConsultadescarga("");
         setEmail("");
+        setTelefono("");
         setInstitucion("");
-        setMotivo("");
-        setSector("");
+        setSectorpertenece("");
       } else {
         // Hubo un error al enviar el correo
         alert(
@@ -55,32 +73,71 @@ export const ContactPage = () => {
 
   return (
     <div className="background-contact justify-center p-4">
-      <div className="w-full md:w-auto">
-        <div className="rounded-lg bg-inherit shadow-lg sm:max-w-lg sm:pl-4 md:w-[700px] md:pl-20">
-          <form method="POST" className="p-4" onSubmit={handleSubmit}>
-            {/* Título */}
-            <h2 className="mb-4 text-4xl font-semibold text-white">
-              Contáctanos
-            </h2>
-            {/* Campos de formulario */}
-            <div>
-              <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                Nombre
-              </label>
-              <input
-                type="text"
-                name="nombre"
-                id="nombre"
-                value={nombre}
-                onChange={(e) => setNombre(e.target.value)}
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                placeholder="Escribe tu nombre"
-                required=""
-              />
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+      <div className="container mx-auto flex flex-wrap items-center justify-between">
+        <div className="mb-4 w-full px-4 lg:w-1/2">
+          <div className="rounded-lg bg-inherit p-6 shadow-lg">
+            <form method="POST" className="space-y-6" onSubmit={handleSubmit}>
+              <h2 className="text-2xl font-semibold text-white">Contáctanos</h2>
+              {/* Campos del formulario */}
+              <div className="-mx-3 mb-6 flex flex-wrap">
+                <div className="w-full px-3 md:w-1/2">
+                  <label
+                    htmlFor="nombre"
+                    className="block text-sm font-medium text-white"
+                  >
+                    Nombre
+                  </label>
+                  <input
+                    type="text"
+                    name="nombre"
+                    id="nombre"
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+                    required
+                  />
+                </div>
+                <div className="w-full px-3 md:w-1/2">
+                  <label
+                    htmlFor="apellido"
+                    className="block text-sm font-medium text-white"
+                  >
+                    Apellido
+                  </label>
+                  <input
+                    type="text"
+                    name="apellido"
+                    id="apellido"
+                    value={apellido}
+                    onChange={(e) => setApellido(e.target.value)}
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <label
+                  htmlFor="Consultadescarga"
+                  className="block text-sm font-medium text-white"
+                >
+                  Consulta
+                </label>
+                <textarea
+                  type="textarea"
+                  name="consulta"
+                  id="consulta"
+                  value={consultadescarga}
+                  onChange={(e) => setConsultadescarga(e.target.value)}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+                  required
+                />
+              </div>
+              <div className="mb-6">
+                <label
+                  htmlFor="Email"
+                  className="block text-sm font-medium text-white"
+                >
                   Correo
                 </label>
                 <input
@@ -89,83 +146,88 @@ export const ContactPage = () => {
                   id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                  placeholder="Escribe tu correo"
-                  required=""
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+                  required
                 />
               </div>
-              <div>
-                <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                  Institución a la que pertenece
+              <div className="mb-6">
+                <label
+                  htmlFor="Telefono"
+                  className="block text-sm font-medium text-white"
+                >
+                  Teléfono
                 </label>
                 <input
-                  type="text"
+                  type="number"
+                  name="telefono"
+                  id="telefono"
+                  value={telefono}
+                  onChange={(e) => setTelefono(e.target.value)}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+                  required
+                />
+              </div>
+              <div className="mb-6">
+                <label
+                  htmlFor="institucion"
+                  className="block text-sm font-medium text-white"
+                >
+                  Institución a la que pertenece
+                </label>
+                <select
                   name="institucion"
                   id="institucion"
                   value={institucion}
                   onChange={(e) => setInstitucion(e.target.value)}
-                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                  placeholder="Institución a la que pertenece"
-                  required=""
-                />
+                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 shadow-sm transition duration-150 ease-in-out focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+                  required
+                >
+                  <option value="">Seleccione una opción</option>
+                  <option value="institucion1">Universidad de Cuenca</option>
+                  <option value="institucion2">
+                    Universidad Politecnica Salesiana
+                  </option>
+                  <option value="institucion3">Universidad del Azuay</option>
+                  <option value="institucion4">Gad Municipal de Cuenca</option>
+                  <option value="otra">Otra...</option>
+                </select>
+                {institucion === "otra" && (
+                  <input
+                    type="text"
+                    name="nuevaInstitucion"
+                    id="nuevaInstitucion"
+                    value={nuevaInstitucion}
+                    onChange={(e) => setNuevaInstitucion(e.target.value)}
+                    className="mt-3 w-full rounded-lg border border-gray-300 bg-white px-4 py-2 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+                    placeholder="Escriba el nombre de la institución"
+                  />
+                )}
               </div>
+
+              <button
+                type="submit"
+                className="hover:bg-red-700 focus:ring-red-500 inline-flex w-full items-center justify-center rounded-lg bg-red px-5 py-3 text-sm font-medium text-white transition focus:outline-none focus:ring-4 focus:ring-opacity-50"
+              >
+                Enviar correo
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div className="w-full px-4 lg:w-1/2">
+          <div className="rounded-lg bg-inherit p-6 shadow-lg">
+            <h2 className="mb-6 text-2xl font-semibold text-white">Ubícanos</h2>
+            <div className="overflow-hidden rounded-lg shadow-lg">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7969.724696605074!2d-78.9656163!3d-2.8560806!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd1733f70eca17%3A0xbe544f95d8070fc6!2sCIITT%20-%20Universidad%20Cat%C3%B3lica%20de%20Cuenca!5e0!3m2!1ses!2sec!4v1693337053326!5m2!1ses!2sec"
+                width="100%"
+                height="400"
+                loading="lazy"
+                title="maps"
+                className="shadow-sm" // Puedes aplicar sombras directamente al iframe si lo deseas
+              ></iframe>
             </div>
-            <div>
-              <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                Motivo de la descarga
-              </label>
-              <input
-                type="text"
-                name="motivo"
-                id="motivo"
-                value={motivodescarga}
-                onChange={(e) => setMotivo(e.target.value)}
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                placeholder="Motivo de la descarga"
-                required=""
-              />
-            </div>
-            <div>
-              <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                Sector al que pertenece
-              </label>
-              <input
-                type="text"
-                name="sector"
-                id="sector"
-                value={sectorpertenece}
-                onChange={(e) => setSector(e.target.value)}
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
-                placeholder="Público o Privado"
-                required=""
-              />
-            </div>
-            <br />
-            {/* Botón de envío */}
-            <button
-              id="multiLevelDropdownButton"
-              data-dropdown-toggle="multi-dropdown"
-              className={`inline-flex w-full items-center rounded-lg bg-red px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red focus:outline-none focus:ring-4 focus:ring-red dark:bg-red dark:hover:bg-red dark:focus:ring-red ${
-                !nombre ||
-                !email ||
-                !institucion ||
-                !motivodescarga ||
-                !sectorpertenece
-                  ? "cursor-not-allowed opacity-50"
-                  : ""
-              }`}
-              type="submit"
-              disabled={
-                !nombre ||
-                !email ||
-                !institucion ||
-                !motivodescarga ||
-                !sectorpertenece
-              }
-            >
-              Enviar correo
-            </button>
-          </form>
+          </div>
         </div>
       </div>
     </div>

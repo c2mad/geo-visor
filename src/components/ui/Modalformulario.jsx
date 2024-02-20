@@ -18,9 +18,10 @@ import tiffperfil from "../../utils/Shapefile/perfil_estratigrаfico.zip";
 
 export const Modalformulario = () => {
   const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
   const [institucion, setInstitucion] = useState("");
-  const [motivodescarga, setMotivo] = useState("");
+  //const [motivodescarga, setMotivo] = useState("");
   const [sectorpertenece, setSector] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,9 +29,10 @@ export const Modalformulario = () => {
     // Construir el objeto con los datos del formulario
     const formData = {
       nombre,
+      apellido,
       email,
       institucion,
-      motivodescarga,
+      //motivodescarga,
       sectorpertenece,
     };
 
@@ -120,6 +122,21 @@ export const Modalformulario = () => {
                   required=""
                 />
               </div>
+              <div>
+                <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  Apellido
+                </label>
+                <input
+                  type="text"
+                  name="apellido"
+                  id="apellido"
+                  value={apellido}
+                  onChange={(e) => setApellido(e.target.value)}
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  placeholder="Escribe tu apellido"
+                  required=""
+                />
+              </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
@@ -152,7 +169,7 @@ export const Modalformulario = () => {
                   />
                 </div>
               </div>
-              <div>
+              {/* <div>
                 <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
                   Motivo de la descarga
                 </label>
@@ -166,7 +183,7 @@ export const Modalformulario = () => {
                   placeholder="Motivo de la descarga"
                   required=""
                 />
-              </div>
+              </div> */}
               <div>
                 <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
                   Sector al que pertenece
@@ -189,9 +206,10 @@ export const Modalformulario = () => {
                     data-dropdown-toggle="multi-dropdown"
                     className={`inline-flex items-center rounded-lg bg-red px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red focus:outline-none focus:ring-4 focus:ring-red dark:bg-red dark:hover:bg-red dark:focus:ring-red ${
                       !nombre ||
+                      !apellido ||
                       !email ||
                       !institucion ||
-                      !motivodescarga ||
+                      //!motivodescarga ||
                       !sectorpertenece
                         ? "cursor-not-allowed opacity-50"
                         : ""
@@ -199,9 +217,10 @@ export const Modalformulario = () => {
                     type="submit"
                     disabled={
                       !nombre ||
+                      !apellido ||
                       !email ||
                       !institucion ||
-                      !motivodescarga ||
+                      //!motivodescarga ||
                       !sectorpertenece
                     }
                   >

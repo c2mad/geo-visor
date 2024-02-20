@@ -18,14 +18,15 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post("/send-email", async (req, res) => {
-  const { nombre, email, institucion, motivodescarga, sectorpertenece } =
+  const { nombre, apellido, email, institucion, sectorpertenece } =
     req.body;
 
   if (
     !nombre ||
+    !apellido ||
     !email ||
     !institucion ||
-    !motivodescarga ||
+    //!motivodescarga ||
     !sectorpertenece
   ) {
     return res
@@ -40,9 +41,9 @@ app.post("/send-email", async (req, res) => {
     html: `
       <div>
         <p>Nombre: ${nombre}</p>
+        <p>Apellido: ${apellido}</p>
         <p>Correo electrónico: ${email}</p>
         <p>Institución: ${institucion}</p>
-        <p>Motivo de descarga: ${motivodescarga}</p>
         <p>Sector que pertenece: ${sectorpertenece}</p>
       </div>
     `,
