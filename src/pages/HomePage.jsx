@@ -8,7 +8,7 @@ export const HomePage = () => {
           <section className="background-ide py-10 ">
             <div className="grid content-center items-stretch gap-4 py-5  pt-1 text-white sm:grid-cols-1 md:grid-cols-1  lg:grid-cols-2">
               <div className="lg:px-15 px-5 sm:px-10 md:px-10">
-                <div className="bt-6 pb-6  text-white">
+                <div className="bt-6 pb-3 text-white">
                   <h3 className="display-5 text-[38px]">
                     <span className="font-bold"> IDE</span>{" "}
                     <span className="font-semibold text-rose-600"> UCACUE</span>
