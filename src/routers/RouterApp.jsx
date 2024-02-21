@@ -6,15 +6,15 @@ import ProyectPage from "pages/ProyectPage";
 import { ThemeProvider } from "@material-tailwind/react";
 import { JoseMapsPage } from "pages/JoseMapsPage";
 import { ServicesPage } from "pages/ServicesPage";
-import Normativa from "pages/NormativaPage";
+// import Normativa from "pages/NormativaPage";
 import GeoservicesPage from "pages/GeoservicesPage";
 import { ManualPage } from "pages/ManualPage";
-import MetadatosPage from "pages/MetadatosPage";
+//import MetadatosPage from "pages/MetadatosPage";
 import { MoreInfoPage } from "pages/MoreInfoPage";
-import Dproyectos from "pages/Dproyectos";
+//import Dproyectos from "pages/Dproyectos";
 import { CatologoPage } from "pages/CatologoPage";
 import { ContactPage } from "pages/ContactPage";
-import { Modalformulario } from "components/ui/Modalformulario";
+//import { Modalformulario } from "components/ui/Modalformulario";
 
 export const RouterApp = () => {
   return (
@@ -40,30 +40,27 @@ export const RouterApp = () => {
           <Route path="/catalogodatos" element={<GeoportalLayaut />}>
             <Route index element={<CatologoPage />}></Route>
           </Route>
-          <Route path="/normativa" element={<DefaultLayout />}>
+          {/* <Route path="/normativa" element={<DefaultLayout />}>
             <Route index element={<Normativa />}></Route>
-          </Route>
+          </Route> */}
           <Route path="/geoservicios" element={<DefaultLayout />}>
             <Route index element={<GeoservicesPage />}></Route>
           </Route>
           <Route path="/manual" element={<DefaultLayout />}>
             <Route index element={<ManualPage />}></Route>
           </Route>
-          <Route path="/metadatos" element={<DefaultLayout />}>
+          {/* <Route path="/metadatos" element={<DefaultLayout />}>
             <Route index element={<MetadatosPage />}></Route>
-          </Route>
+          </Route> */}
           <Route path="/moreinfo" element={<DefaultLayout />}>
             <Route index element={<MoreInfoPage />}></Route>
           </Route>
           <Route path="/moreinfo/:projectId">
             <Route index element={<MoreInfoPage />}></Route>
           </Route>
-          <Route path="/descargas" element={<DefaultLayout />}>
+          {/* <Route path="/descargas" element={<DefaultLayout />}>
             <Route index el ement={<Dproyectos />}></Route>
-          </Route>
-          <Route path="/modal" element={<DefaultLayout />}>
-            <Route index element={<Modalformulario />}></Route>
-          </Route>
+          </Route> */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </ThemeProvider>

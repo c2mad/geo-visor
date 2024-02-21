@@ -18,7 +18,6 @@ export default function ProyectPage() {
   const itemsPerPage = 9; // item por página
   const pageCount = Math.ceil(items.length / itemsPerPage);
   const [selectedOption, setSelectedOption] = useState(""); // Filtro de fuente
-  const [selectedAutor, setAutor] = useState(""); // Filtro de autor
   const [filtros, setFiltros] = useState([]); // Lista de filtros seleccionados
 
   const handlePageClick = ({ selected }) => {
@@ -85,21 +84,19 @@ export default function ProyectPage() {
     </span>;
   };
 
-  const obtenerValorAutor = (autorSeleccionado) => {
-    // Verifica si autorSeleccionado es una cadena
-    if (typeof autorSeleccionado !== "string") {
-      console.error("autorSeleccionado debe ser una cadena");
-      return;
+  const filtrarPorAutor = (autorSeleccionado) => {
+    if (autorSeleccionado) {
+      const proyectosFiltrados = projects.filter((project) =>
+        project.autores.some(
+          (autor) =>
+            autor.name.toLowerCase() === autorSeleccionado.name.toLowerCase()
+        )
+      );
+      setItems(proyectosFiltrados);
+    } else {
+      setItems(projects);
     }
-
-    // Continúa con la lógica previa, ahora sabiendo que autorSeleccionado es una cadena
-    const filteredProjects = projects.filter((project) =>
-      project.autores.some(
-        (autor) => autor.name.toLowerCase() === autorSeleccionado.toLowerCase()
-      )
-    );
-    setItems(filteredProjects);
-    setCurrentPage(0); // Restablece a la primera página
+    setCurrentPage(0);
   };
 
   const handleDeleteFiltro = (id) => {
@@ -116,7 +113,7 @@ export default function ProyectPage() {
         setEndDate("");
         break;
       case 3:
-        setAutor("");
+        //setAutor("");
         break;
       default:
         break;
@@ -176,23 +173,17 @@ export default function ProyectPage() {
   return (
     <>
       <div className="mx-auto w-full max-w-[1500px] px-3">
-        <div
-          id="tittle"
-          className="text-center font-sans text-2xl dark:text-white"
-        >
-          <br />
-        </div>
         <div className="py-10">
           <Search onSearch={search2} />
           {""}
         </div>
 
-        <div className="w-full px-3">
+        <div className="-mx-4 flex flex-wrap">
           <div className="grid-cols-1 gap-4 sm:grid sm:px-0 md:grid-cols-3 md:px-3">
             <div className="row-span-3 mb-5">
               <div
                 id="filter"
-                className="mb-5 rounded-lg border border-solid p-5"
+                className="mb-5 rounded-lg bg-white p-4 shadow dark:bg-gray-800"
               >
                 <p className="font-semibold dark:text-white">
                   Filtros de busqueda
@@ -248,7 +239,7 @@ export default function ProyectPage() {
                   </select>
                 </div>
               </div>
-              <div
+              {/* <div
                 id="filter"
                 className="mb-5 rounded-lg border border-solid p-5"
               >
@@ -256,27 +247,21 @@ export default function ProyectPage() {
                   <label className="mb-5 block text-sm font-medium text-gray-900 dark:text-white">
                     Autor
                   </label>
-                  <SearchAutoComplete
-                    onClick={obtenerValorAutor}
-                    value={selectedAutor}
-                  />
+                  <SearchAutoComplete onClick={filtrarPorAutor} />
                 </div>
-              </div>
-              <div
-                id="filter"
-                className="mb-5 rounded-lg border border-solid p-5"
-              >
+              </div> */}
+              <div id="filter" className="mb-5 rounded-lg ">
                 <div className="container mx-auto p-2">
-                  <label className="mb-5 block text-sm font-semibold text-gray-600 dark:text-white">
+                  {/* <label className="mb-5 block text-sm font-semibold text-gray-600 dark:text-white">
                     Fecha de publicación:
-                  </label>
+                  </label> */}
 
                   <div
                     date-rangepicker="true"
                     className="flex items-center"
                     id="dateRangePickerId"
                   >
-                    <div className="relative">
+                    {/* <div className="relative">
                       <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                         <svg
                           className="h-4 w-4 text-gray-500 dark:text-gray-400"
@@ -298,8 +283,8 @@ export default function ProyectPage() {
                         onSelect={(e) => handleDateChange(true, e.target.value)}
                         // onChange={(e) => handleDateChange(true, e.target.value)}
                       />
-                    </div>
-                    <span className="mx-4 text-gray-500">to</span>
+                    </div> */}
+                    {/* <span className="mx-4 text-gray-500">to</span>
                     <div className="relative">
                       <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                         <svg
@@ -326,7 +311,7 @@ export default function ProyectPage() {
                         //   handleDateChange(false, e.target.value)
                         // }
                       />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

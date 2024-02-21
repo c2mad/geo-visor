@@ -7,7 +7,6 @@ import React, { useState } from "react";
 
 export const Navbar = ({ isGeoportal = false }) => {
   const [open, setOpen] = useState(false);
-  const [serviciosMenuOpen, setServiciosMenuOpen] = useState(false);
 
   return (
     <>
@@ -117,7 +116,6 @@ export const Navbar = ({ isGeoportal = false }) => {
                     subLinks={[
                       { to: "/geoservicios", title: "Geoservicios" },
                       { to: "/manual", title: "Manual" },
-                      { to: "/modal", title: "Modal" },
                     ]}
                   ></NavbarLink>
                 </div>
