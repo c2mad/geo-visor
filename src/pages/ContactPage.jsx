@@ -13,18 +13,19 @@ export const ContactPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (
-      !nombre.trim() ||
-      !apellido.trim() ||
-      !consultadescarga.trim() ||
-      !email.trim() ||
-      !telefono.trim() ||
-      !institucion.trim() ||
-      !sectorpertenece.trim()
-    ) {
-      alert("Todos los campos son obligatorios.");
-      return; // Detener la ejecución si algún campo está vacío
-    }
+    //   if (
+    //     !nombre ||
+    //     !apellido ||
+    //     !consultadescarga ||
+    //     !email ||
+    //     !telefono ||
+    //     !institucion ||
+    //     !sectorpertenece ||
+    //     (institucion === "otra" && !nuevaInstitucion)
+    //   ) {
+    //     alert("Todos los campos son obligatorios.");
+    //     return; // Detener la ejecución si algún campo está vacío
+    //   }
 
     // Construir el objeto con los datos del formulario
     const formData = {
@@ -35,6 +36,7 @@ export const ContactPage = () => {
       telefono,
       institucion,
       sectorpertenece,
+      nuevaInstitucion,
     };
 
     try {

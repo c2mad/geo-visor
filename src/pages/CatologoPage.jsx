@@ -26,7 +26,7 @@ export const CatologoPage = () => {
     <div className="bg-inherit">
       <div id="tittle and description" className="w-full">
         <section className="background-home py-10">
-          <div className="grid content-center items-stretch gap-4 py-20  pt-10 text-white sm:grid-cols-1 md:grid-cols-1  lg:grid-cols-2">
+          <div className="grid content-center items-stretch gap-4 py-5  pt-10 text-white sm:grid-cols-1 md:grid-cols-1  lg:grid-cols-2">
             <div className="lg:px-15 px-10 sm:px-10 md:px-20">
               <div className="bt-6 pb-6  text-white">
                 <h3 className="display-5 text-[38px]">
@@ -34,9 +34,9 @@ export const CatologoPage = () => {
                   <span className="font-semibold text-rose-600"> UCACUE</span>
                 </h3>
               </div>
-              <div className="mx-auto">
-                <div className="text-white">
-                  <p className="lead font-sans ">
+              <div className="mx-auto text-justify">
+                <div className="justify-center text-white">
+                  <p className="lead justify-center font-sans text-xl">
                     La Universidad Cátolica de Cuenca, pone a disposición de la
                     ciudadanía en general, una herramienta que permite a los
                     usuarios el acceso a una serie de recursos y servicios
@@ -90,7 +90,7 @@ export const CatologoPage = () => {
         <h3 className="mb-6 text-center text-4xl font-semibold text-black dark:text-white">
           Publicaciones destacadas
         </h3>
-        <p className="lead pb-10 pt-5 font-sans dark:text-white">
+        <p className="lead pb-10 pt-5  text-justify font-sans dark:text-white">
           En esta sección, le ofrecemos un vistazo a las publicaciones
           destacadas de datos geoespaciales derivados de investigaciones
           recientes que están transformando nuestra comprensión del mundo que
