@@ -14,8 +14,8 @@ export const HomePage = () => {
                     <span className="font-semibold text-rose-600"> UCACUE</span>
                   </h3>
                 </div>
-                <div className="mx-auto">
-                  <div className="text-white">
+                <div className="mx-auto text-justify">
+                  <div className="justify-center text-white">
                     <p className="lead font-sans text-xl ">
                       Una Infraestructura de Datos Espaciales (IDE) es el
                       conjunto de políticas, leyes, normas, estándares,

@@ -1,71 +1,74 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+const bodyParser = require("body-parser"); // Solo necesario para versiones de Express < 4.16
 
 const app = express();
-const port = 3001;
+const port = 3000;
 
-app.use(cors());
-app.use(bodyParser.json());
+// Configuración para Express >= 4.16
+app.use(express.json()); // Para parsing de application/json
+app.use(express.urlencoded({ extended: true })); // Para parsing de application/x-www-form-urlencoded
 
+// Configuración de Nodemailer
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  service: "outlook",
   auth: {
-    user: "pruebaside23@gmail.com",
-    pass: "ccsjqdkrfotonwye",
+    user: "sigdata@ucacue.edu.ec",
+    pass: "Cac16196",
   },
 });
 
-app.post("/send-email", async (req, res) => {
-  const { nombre, apellido, email, institucion, sectorpertenece } =
-    req.body;
+// Ruta para manejar POST request
+app.post("/send-email", (req, res) => {
+  const {
+    nombre,
+    apellido,
+    email,
+    telefono,
+    consulta,
+    institucion,
+    nuevaInstitucion,
+  } = req.body;
 
+  // Verificar que todos los campos están llenos y que se ha seleccionado una institución
   if (
     !nombre ||
     !apellido ||
     !email ||
+    !telefono ||
+    !consulta ||
     !institucion ||
-    //!motivodescarga ||
-    !sectorpertenece
+    (institucion === "otra" && !nuevaInstitucion)
   ) {
     return res
       .status(400)
-      .send({ message: "Todos los campos son obligatorios.", success: false });
+      .send(
+        "Todos los campos son obligatorios y se debe seleccionar una institución."
+      );
   }
+
+  let institucionNombre =
+    institucion === "otra" ? nuevaInstitucion : institucion;
 
   const mailOptions = {
-    from: "pruebaside23@gmail.com",
-    to: "pruebaside23@gmail.com",
-    subject: "Asunto del correo", // Define un asunto para el correo
-    html: `
-      <div>
-        <p>Nombre: ${nombre}</p>
-        <p>Apellido: ${apellido}</p>
-        <p>Correo electrónico: ${email}</p>
-        <p>Institución: ${institucion}</p>
-        <p>Sector que pertenece: ${sectorpertenece}</p>
-      </div>
-    `,
+    from: "sigdata@ucacue.edu.ec",
+    to: email, // O cualquier otro destinatario
+    subject: "Confirmación de consulta",
+    text: `Hola ${nombre} ${apellido}, hemos recibido tu consulta sobre "${consulta}". Te contactaremos en breve al número ${telefono}. Institución: ${institucionNombre}.`,
+    // Aquí puedes usar también HTML para estructurar mejor el mensaje
   };
 
-  try {
-    await transporter.sendMail(mailOptions);
-    res
-      .status(200)
-      .send({ message: "Correo electrónico enviado con éxito", success: true });
-  } catch (error) {
-    console.error("Error al enviar el correo", error);
-    res
-      .status(500)
-      .send({
-        message: "Error al enviar el correo electrónico",
-        success: false,
-        error: error.message,
-      });
-  }
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+      res.status(500).send("Error al enviar el email");
+    } else {
+      console.log("Email enviado: " + info.response);
+      res.status(200).send("Email enviado correctamente");
+    }
+  });
 });
 
 app.listen(port, () => {
-  console.log(`Servidor de correo escuchando en http://localhost:${port}`);
+  console.log(`Servidor escuchando en http://localhost:${port}`);
 });

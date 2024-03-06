@@ -1,6 +1,22 @@
 import { ChoseLayerItem } from "components/maps/ChoseLayerItem";
 import { GeoViewerJose } from "components/maps/GeoViewerJose";
 import { Link } from "react-router-dom";
+//Shapefiles
+import shgeotecnica from "../utils/Shapefile/info_geotecnica.zip";
+import shgeoazuay from "../utils/Shapefile/geo_azuay.zip";
+import shgeolocal from "../utils/Shapefile/geo_local.zip";
+import shcalicatas from "../utils/Shapefile/exploracion_calicatas.zip";
+import shiso from "../utils/Shapefile/iso_periodos.zip";
+import shazuay from "../utils/Shapefile/parroquias_azuay.zip";
+import shperfil from "../utils/Shapefile/perfil_estratigrаfico.zip";
+//Tifs
+import tiffpgs from "../utils/jose-info_geotecnica.tif";
+import tiffgeoazuay from "../utils/jose-geo_azuay.tif";
+import tiffgeolocal from "../utils/jose-geo_local.tif";
+import tiffcalicatas from "../utils/jose-exploracion_calicatas.tif";
+import tiffiso from "../utils/jose-iso_periodos.tif";
+import tiffazuay from "../utils/jose-parroquias_azuay.tif";
+import tiffperfil from "../utils/jose-perfil_estratigrafico.tif";
 
 import {
   useExpCalicatas,
@@ -23,6 +39,14 @@ export const JoseMapsPage = () => {
   const [key4, setKey4] = useState(false);
   const [key5, setKey5] = useState(false);
   const [key6, setKey6] = useState(false);
+
+  // Estado para controlar la visibilidad del submenú
+  const [isSubmenuVisible, setIsSubmenuVisible] = useState(false);
+
+  // Función para alternar la visibilidad del submenú
+  const toggleSubmenu = () => {
+    setIsSubmenuVisible(!isSubmenuVisible);
+  };
 
   const { data: infoGeotecnica, isLoading: isLoadingKey0 } = useInfoGeotecnica({
     enabled: key0,
@@ -101,10 +125,6 @@ export const JoseMapsPage = () => {
                   {proyect.publication}
                 </p>
                 <div className="mt-5 inline-flex items-center">
-                  <div>
-                    <Modalformulario />
-                  </div>
-
                   <Link to="/moreinfo">
                     <button
                       type="button"
@@ -160,53 +180,531 @@ export const JoseMapsPage = () => {
               <div className="mt-2">
                 <ul className="space-y-3">
                   <ChoseLayerItem
-                    title="Capa 1 - Propiedades geodinámicas de suelos"
+                    title="Propiedades geodinámicas de suelos"
                     enabled={key0}
                     setEnabled={setKey0}
                     isLoading={isLoadingKey0}
                   />
+                  {key0 && ( // Aquí se hace la comprobación: Si key0 es true, muestra el siguiente elemento
+                    <ul
+                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                      aria-labelledby="multiLevelDropdownButton"
+                    >
+                      <li>
+                        <button
+                          id="doubleDropdownButton"
+                          type="button"
+                          className="w-68 flex items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          onClick={toggleSubmenu} // Llamada a la función para cambiar la visibilidad del submenú
+                        >
+                          Propiedades geodinámicas de suelos
+                        </button>
+                        <div
+                          id="doubleDropdown"
+                          className={`relative top-2 z-0 ${
+                            isSubmenuVisible ? "" : "hidden"
+                          } w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
+                          style={{ left: 0 }} // Asegura que el submenú se alinee a la izquierda del botón
+                        >
+                          <ul
+                            className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="doubleDropdownButton"
+                          >
+                            <li>
+                              <a
+                                href={tiffpgs}
+                                download="jose-info_geotecnica.tif"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                GeoTTIFF
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="http://192.168.10.4:8085/geoserver/jose/wms?service=WMS&version=1.1.0&request=GetMap&layers=jose%3Ainfo_geotecnica&bbox=-79.08186507463374%2C-2.936608594157815%2C-78.56400620045021%2C-2.593689219220091&width=768&height=508&srs=EPSG%3A4326&styles=&format=image%2Fjpeg"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                JPEG
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Ainfo_geotecnica&maxFeatures=50&outputFormat=application%2Fjson"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                GeoJson
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href={shgeotecnica}
+                                download="info_geotecnica.zip"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                Shapefile
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  )}
 
                   <ChoseLayerItem
-                    title=" Capa 2 - Perfiles de suelo profundidad < 5m (calicatas), SPT's y perforaciones"
+                    title="Perfiles de suelo profundidad < 5m (calicatas), SPT's y perforaciones"
                     enabled={key1}
                     setEnabled={setKey1}
                     isLoading={isLoadingKey1}
                   />
+                  {key1 && ( // Aquí se hace la comprobación: Si key0 es true, muestra el siguiente elemento
+                    <ul
+                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                      aria-labelledby="multiLevelDropdownButton"
+                    >
+                      <li>
+                        <button
+                          id="doubleDropdownButton"
+                          type="button"
+                          className="w-68 flex items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          onClick={toggleSubmenu} // Llamada a la función para cambiar la visibilidad del submenú
+                        >
+                          Perfiles de suelo profundidad {"<"} 5m (calicatas),
+                          SPT's y perforaciones
+                        </button>
+                        <div
+                          id="doubleDropdown"
+                          className={`relative top-2 z-0 ${
+                            isSubmenuVisible ? "" : "hidden"
+                          } w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
+                          style={{ left: 0 }} // Asegura que el submenú se alinee a la izquierda del botón
+                        >
+                          <ul
+                            className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="secondDropdownButton"
+                          >
+                            <li>
+                              <a
+                                href={tiffcalicatas}
+                                download="jose-exploracion_calicatas.tif"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                GeoTTIFF
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="http://192.168.10.4:8085/geoserver/jose/wms?service=WMS&version=1.1.0&request=GetMap&layers=jose%3Aexploracion_calicatas&bbox=-79.43316580591853%2C-2.9374101096155982%2C-78.88548486427072%2C-2.808654672390265&width=768&height=330&srs=EPSG%3A4326&styles=&format=image%2Fjpeg"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                JPEG
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Aexploracion_calicatas&maxFeatures=50&outputFormat=application%2Fjson
+                        "
+                                target="_blank"
+                                rel="noreferrer"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                GeoJson
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href={shcalicatas}
+                                download="exploracion_calicatas.zip"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                Shapefile
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  )}
 
                   <ChoseLayerItem
-                    title="Capa 3 - Perfiles estratigráficos profundidad > 30m"
+                    title="Perfiles estratigráficos profundidad > 30m"
                     enabled={key2}
                     setEnabled={setKey2}
                     isLoading={isLoadingKey2}
                   />
+                  {key2 && ( // Aquí se hace la comprobación: Si key0 es true, muestra el siguiente elemento
+                    <ul
+                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                      aria-labelledby="multiLevelDropdownButton"
+                    >
+                      <li>
+                        <button
+                          id="doubleDropdownButton"
+                          type="button"
+                          className="w-68 flex items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          onClick={toggleSubmenu} // Llamada a la función para cambiar la visibilidad del submenú
+                        >
+                          Perfiles estratigráficos profundidad {">"} 30m
+                        </button>
+                        <div
+                          id="doubleDropdown"
+                          className={`relative top-2 z-0 ${
+                            isSubmenuVisible ? "" : "hidden"
+                          } w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
+                          style={{ left: 0 }} // Asegura que el submenú se alinee a la izquierda del botón
+                        >
+                          <ul
+                            className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="secondDropdownButton"
+                          >
+                            <li>
+                              <a
+                                href={tiffperfil}
+                                download="jose-perfil_estratigrafico.tif"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                GeoTTIFF
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="http://192.168.10.4:8085/geoserver/jose/wms?service=WMS&version=1.1.0&request=GetMap&layers=jose%3Aperfil_estratigr%D0%B0fico&bbox=-79.43308576247448%2C-2.9379616623886466%2C-78.88366814357599%2C-2.807871298781192&width=768&height=330&srs=EPSG%3A4326&styles=&format=image%2Fjpeg"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                JPEG
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Aperfil_estratigr%D0%B0fico&maxFeatures=50&outputFormat=application%2Fjson"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                GeoJson
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href={shperfil}
+                                download="perfil_estratigrаfico.zip"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                Shapefile
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  )}
 
                   <ChoseLayerItem
-                    title="Capa 4 - Isoperiodos parroquia urbana Cuenca"
+                    title="Isoperiodos parroquia urbana Cuenca"
                     enabled={key3}
                     setEnabled={setKey3}
                     isLoading={isLoadingKey3}
                   />
+                  {key3 && ( // Aquí se hace la comprobación: Si key0 es true, muestra el siguiente elemento
+                    <ul
+                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                      aria-labelledby="multiLevelDropdownButton"
+                    >
+                      <li>
+                        <button
+                          id="doubleDropdownButton"
+                          type="button"
+                          className="w-68 flex items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          onClick={toggleSubmenu} // Llamada a la función para cambiar la visibilidad del submenú
+                        >
+                          Isoperiodos parroquia urbana Cuenca
+                        </button>
+                        <div
+                          id="doubleDropdown"
+                          className={`relative top-2 z-0 ${
+                            isSubmenuVisible ? "" : "hidden"
+                          } w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
+                          style={{ left: 0 }} // Asegura que el submenú se alinee a la izquierda del botón
+                        >
+                          <ul
+                            className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="secondDropdownButton"
+                          >
+                            <li>
+                              <a
+                                href={tiffiso}
+                                download="jose-iso_periodos.tif"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                GeoTTIFF
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="http://192.168.10.4:8085/geoserver/jose/wms?service=WMS&version=1.1.0&request=GetMap&layers=jose%3Aiso_periodos&bbox=-79.07460816750624%2C-2.940493029405997%2C-78.89328271364667%2C-2.8212720558657822&width=768&height=504&srs=EPSG%3A4326&styles=&format=image%2Fjpeg"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                JPEG
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Aiso_periodos&maxFeatures=50&outputFormat=application%2Fjson"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                GeoJson
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href={shiso}
+                                download="iso_periodos.zip"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                Shapefile
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  )}
 
                   <ChoseLayerItem
-                    title="Capa 5 - Geología proyecto PRECUPA escala 1:25000"
+                    title="Geología proyecto PRECUPA escala 1:25000"
                     enabled={key4}
                     setEnabled={setKey4}
                     isLoading={isLoadingKey4}
                   />
+                  {key4 && ( // Aquí se hace la comprobación: Si key0 es true, muestra el siguiente elemento
+                    <ul
+                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                      aria-labelledby="multiLevelDropdownButton"
+                    >
+                      <li>
+                        <button
+                          id="doubleDropdownButton"
+                          type="button"
+                          className="w-68 flex items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          onClick={toggleSubmenu} // Llamada a la función para cambiar la visibilidad del submenú
+                        >
+                          Geología proyecto PRECUPA escala 1:25000
+                        </button>
+                        <div
+                          id="doubleDropdown"
+                          className={`relative top-2 z-0 ${
+                            isSubmenuVisible ? "" : "hidden"
+                          } w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
+                          style={{ left: 0 }} // Asegura que el submenú se alinee a la izquierda del botón
+                        >
+                          <ul
+                            className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="secondDropdownButton"
+                          >
+                            <li>
+                              <a
+                                href={tiffgeolocal}
+                                download="jose-geo_local.tif"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                GeoTTIFF
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="http://192.168.10.4:8085/geoserver/jose/wms?service=WMS&version=1.1.0&request=GetMap&layers=jose%3Ageo_local&bbox=-79.12537433293012%2C-2.917443762773028%2C-78.74937282626924%2C-2.6726709114152247&width=768&height=499&srs=EPSG%3A4326&styles=&format=image%2Fjpeg"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                JPEG
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Ageo_local&maxFeatures=50&outputFormat=application%2Fjson"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                GeoJson
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href={shgeolocal}
+                                download="geo_local.zip"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                Shapefile
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  )}
 
                   <ChoseLayerItem
-                    title="Capa 6 - Geología del Azuay escala 1:200000"
+                    title="Geología del Azuay escala 1:200000"
                     enabled={key5}
                     setEnabled={setKey5}
                     isLoading={isLoadingKey5}
                   />
+                  {key5 && ( // Aquí se hace la comprobación: Si key0 es true, muestra el siguiente elemento
+                    <ul
+                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                      aria-labelledby="multiLevelDropdownButton"
+                    >
+                      <li>
+                        <button
+                          id="doubleDropdownButton"
+                          type="button"
+                          className="w-68 flex items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          onClick={toggleSubmenu} // Llamada a la función para cambiar la visibilidad del submenú
+                        >
+                          Geología del Azuay escala 1:200000
+                        </button>
+                        <div
+                          id="doubleDropdown"
+                          className={`relative top-2 z-0 ${
+                            isSubmenuVisible ? "" : "hidden"
+                          } w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
+                          style={{ left: 0 }} // Asegura que el submenú se alinee a la izquierda del botón
+                        >
+                          <ul
+                            className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="secondDropdownButton"
+                          >
+                            <li>
+                              <a
+                                href={tiffgeoazuay}
+                                download="jose-geo_azuay.tif"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                GeoTTIFF
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="http://192.168.10.4:8085/geoserver/jose/wms?service=WMS&version=1.1.0&request=GetMap&layers=jose%3Ageo_azuay&bbox=-79.7641371114835%2C-3.63131157466202%2C-78.41983190729567%2C-2.495085062454964&width=768&height=649&srs=EPSG%3A4326&styles=&format=image%2Fjpeg"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                JPEG
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Ageo_azuay&maxFeatures=50&outputFormat=application%2Fjson"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                GeoJson
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href={shgeoazuay}
+                                download="geo_azuay.zip"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                Shapefile
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  )}
 
                   <ChoseLayerItem
-                    title="Capa 7 - Parroquias del Azuay"
+                    title="Parroquias del Azuay"
                     enabled={key6}
                     setEnabled={setKey6}
                     isLoading={isLoadingKey6}
                   />
+                  {key6 && ( // Aquí se hace la comprobación: Si key0 es true, muestra el siguiente elemento
+                    <ul
+                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                      aria-labelledby="multiLevelDropdownButton"
+                    >
+                      <li>
+                        <button
+                          id="doubleDropdownButton"
+                          type="button"
+                          className="w-68 flex items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                          onClick={toggleSubmenu} // Llamada a la función para cambiar la visibilidad del submenú
+                        >
+                          Parroquias del Azuay
+                        </button>
+                        <div
+                          id="doubleDropdown"
+                          className={`relative top-2 z-0 ${
+                            isSubmenuVisible ? "" : "hidden"
+                          } w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
+                          style={{ left: 0 }} // Asegura que el submenú se alinee a la izquierda del botón
+                        >
+                          <ul
+                            className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="secondDropdownButton"
+                          >
+                            <li>
+                              <a
+                                href={tiffazuay}
+                                download="jose-parroquias_azuay.tif"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                GeoTTIFF
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="http://192.168.10.4:8085/geoserver/jose/wms?service=WMS&version=1.1.0&request=GetMap&layers=jose%3Aparroquias_azuay&bbox=-79.7641372084136%2C-3.6313115746855256%2C-78.41983190729566%2C-2.494999689288688&width=768&height=649&srs=EPSG%3A4326&styles=&format=image%2Fjpeg"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                JPEG
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="http://192.168.10.4:8085/geoserver/jose/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=jose%3Aparroquias_azuay&maxFeatures=50&outputFormat=application%2Fjsonn"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                GeoJson
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href={shazuay}
+                                download="parroquias_azuay.zip"
+                                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                              >
+                                Shapefile
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  )}
                 </ul>
               </div>
             </div>
