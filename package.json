@@ -23,7 +23,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "emailjs-com": "^3.2.0",
-    "express": "^4.18.2",
+    "express": "^4.18.3",
     "flowbite-datepicker": "^1.2.2",
     "http-proxy-middleware": "^2.0.6",
     "leaflet": "^1.9.2",
@@ -34,7 +34,7 @@
     "leaflet-switch-basemap": "^1.0.4",
     "leaflet.fullscreen": "^2.4.0",
     "leaflet.locatecontrol": "^0.78.0",
-    "nodemailer": "^6.9.7",
+    "nodemailer": "^6.9.12",
     "react": "^18.2.0",
     "react-datepicker": "^4.18.0",
     "react-dom": "^18.2.0",
@@ -56,7 +56,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=3010 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

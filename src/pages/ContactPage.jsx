@@ -13,21 +13,6 @@ export const ContactPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //   if (
-    //     !nombre ||
-    //     !apellido ||
-    //     !consultadescarga ||
-    //     !email ||
-    //     !telefono ||
-    //     !institucion ||
-    //     !sectorpertenece ||
-    //     (institucion === "otra" && !nuevaInstitucion)
-    //   ) {
-    //     alert("Todos los campos son obligatorios.");
-    //     return; // Detener la ejecución si algún campo está vacío
-    //   }
-
-    // Construir el objeto con los datos del formulario
     const formData = {
       nombre,
       apellido,
@@ -35,13 +20,12 @@ export const ContactPage = () => {
       email,
       telefono,
       institucion,
-      sectorpertenece,
       nuevaInstitucion,
     };
 
     try {
       // Enviar los datos al servidor
-      const response = await fetch("http://localhost:3001/send-email", {
+      const response = await fetch("http://localhost:3005/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -117,7 +101,6 @@ export const ContactPage = () => {
                   />
                 </div>
               </div>
-
               <div className="mb-6">
                 <label
                   htmlFor="Consultadescarga"
@@ -127,8 +110,8 @@ export const ContactPage = () => {
                 </label>
                 <textarea
                   type="textarea"
-                  name="consulta"
-                  id="consulta"
+                  name="consultadescarga"
+                  id="consultadescarga"
                   value={consultadescarga}
                   onChange={(e) => setConsultadescarga(e.target.value)}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
@@ -185,12 +168,18 @@ export const ContactPage = () => {
                   required
                 >
                   <option value="">Seleccione una opción</option>
-                  <option value="institucion1">Universidad de Cuenca</option>
-                  <option value="institucion2">
+                  <option value="Universidad de Cuenca">
+                    Universidad de Cuenca
+                  </option>
+                  <option value="Universidad Politecnica Salesiana">
                     Universidad Politecnica Salesiana
                   </option>
-                  <option value="institucion3">Universidad del Azuay</option>
-                  <option value="institucion4">Gad Municipal de Cuenca</option>
+                  <option value="Universidad del Azuay">
+                    Universidad del Azuay
+                  </option>
+                  <option value="Gad Municipal de Cuenca">
+                    Gad Municipal de Cuenca
+                  </option>
                   <option value="otra">Otra...</option>
                 </select>
                 {institucion === "otra" && (

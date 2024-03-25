@@ -1,20 +1,19 @@
 const express = require("express");
+const cors = require("cors");
 const nodemailer = require("nodemailer");
-const bodyParser = require("body-parser"); // Solo necesario para versiones de Express < 4.16
-
 const app = express();
-const port = 3000;
+const port = 3005;
 
 // Configuración para Express >= 4.16
 app.use(express.json()); // Para parsing de application/json
 app.use(express.urlencoded({ extended: true })); // Para parsing de application/x-www-form-urlencoded
-
+app.use(cors()); // Habilita CORS en todas las peticiones a la API
 // Configuración de Nodemailer
 const transporter = nodemailer.createTransport({
-  service: "outlook",
+  service: "gmail",
   auth: {
-    user: "sigdata@ucacue.edu.ec",
-    pass: "Cac16196",
+    user: "pruebaside23@gmail.com",
+    pass: "ccsjqdkrfotonwye",
   },
 });
 
@@ -23,10 +22,11 @@ app.post("/send-email", (req, res) => {
   const {
     nombre,
     apellido,
+    consultadescarga,
     email,
     telefono,
-    consulta,
     institucion,
+
     nuevaInstitucion,
   } = req.body;
 
@@ -36,7 +36,7 @@ app.post("/send-email", (req, res) => {
     !apellido ||
     !email ||
     !telefono ||
-    !consulta ||
+    !consultadescarga ||
     !institucion ||
     (institucion === "otra" && !nuevaInstitucion)
   ) {
@@ -51,10 +51,20 @@ app.post("/send-email", (req, res) => {
     institucion === "otra" ? nuevaInstitucion : institucion;
 
   const mailOptions = {
-    from: "sigdata@ucacue.edu.ec",
-    to: email, // O cualquier otro destinatario
+    from: "pruebaside23@gmail.com",
+    to: "pruebaside23@gmail.com", // O cualquier otro destinatario
     subject: "Confirmación de consulta",
-    text: `Hola ${nombre} ${apellido}, hemos recibido tu consulta sobre "${consulta}". Te contactaremos en breve al número ${telefono}. Institución: ${institucionNombre}.`,
+    html: `
+    <div style="background-color: #f0f0f0; padding: 20px;">
+        <div style="max-width: 600px; margin: auto; background: white; padding: 20px; font-family: Arial, sans-serif; color: #333; border-radius: 8px;">
+            <h2 style="color: #4F8A10;">Hola ${nombre} ${apellido},</h2>
+            <p>Hemos recibido tu consulta sobre "<strong>${consultadescarga}</strong>". Te contactaremos en breve al número <strong>${telefono}</strong> o al correo <strong>${email}</strong>.</p>
+            <p><strong>Institución:</strong> ${institucionNombre}</p>
+            <hr>
+            <p>Gracias por contactarnos.</p>
+        </div>
+    </div>
+    `,
     // Aquí puedes usar también HTML para estructurar mejor el mensaje
   };
 

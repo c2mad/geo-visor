@@ -29,7 +29,6 @@ import {
 } from "hooks/useMap";
 import { useState } from "react";
 import proyects from "utils/proyects";
-import { Modalformulario } from "components/ui/Modalformulario";
 
 export const JoseMapsPage = () => {
   const [key0, setKey0] = useState(false);
