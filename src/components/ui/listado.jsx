@@ -3,20 +3,69 @@ import ReactPaginate from "react-paginate";
 import "tailwindcss/tailwind.css";
 import Search from "./Search";
 import categories from "../../utils/categories";
-import proyects from "../../utils/proyects";
+import projects from "../../utils/proyects";
 import DateRangePicker from "flowbite-datepicker/DateRangePicker";
 import Post from "../../components/ui/post";
 import SearchAutoComplete from "../../components/ui/SearchAutoComplete";
+
 export default function Listado() {
+  // Función para aplicar los filtros
+
+  const applyFilters = () => {
+    console.log("Antes de aplicar filtros:", projects);
+
+    let filteredItems = projects; // Inicialmente, los proyectos sin filtrar
+
+    // Filtra por fuente
+    console.log("selectedOption:", selectedOption);
+
+    if (selectedOption !== "Seleccione la fuente") {
+      filteredItems = filteredItems.filter((item) =>
+        item.fuente.some((fuente) => {
+          console.log("fuente.name:", fuente.name);
+          console.log("selectedOption:", selectedOption);
+          return fuente.name.toLowerCase() === selectedOption.toLowerCase();
+        })
+      );
+    }
+
+    // Continúa con el resto de tu lógica y uso de filteredItems
+
+    // Filtra por autor
+    // if (selectedAutor) {
+    //   filteredItems = filteredItems.filter((item) =>
+    //     item.autor.toLowerCase().includes(selectedAutor.toLowerCase())
+    //   );
+    // }
+
+    // Filtra por fecha
+    // if (startDate && endDate) {
+    //   filteredItems = filteredItems.filter((item) => {
+    //     const projectDate = new Date(item.fechaPublicacion);
+    //     const start = new Date(startDate);
+    //     const end = new Date(endDate);
+
+    //     return projectDate >= start && projectDate <= end;
+    //   });
+    // }
+
+    // Actualiza la lista de proyectos con los filtros aplicados
+    setItems(filteredItems);
+  };
+
   // Define tu lista de elementos
 
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const [startDate, setStartDate] = useState(null); // Filtro de fecha de inicio
+  const [endDate, setEndDate] = useState(null); // Filtro de fecha de fin
+  //const [filteredItems, setFilteredItems] = useState(projects);
 
-  const [items, setItems] = useState(proyects);
+  const [items, setItems] = useState(projects); // Lista original de proyectos
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 9; // item por página
   const pageCount = Math.ceil(items.length / itemsPerPage);
+  const [selectedOption, setSelectedOption] = useState(""); // Filtro de fuente
+  const [selectedAutor, setAutor] = useState(""); // Filtro de autor
+  const [filtros, setFiltros] = useState([]); // Lista de filtros seleccionados
 
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
@@ -26,20 +75,18 @@ export default function Listado() {
   const endIndex = startIndex + itemsPerPage;
   const itemsToDisplay = items.slice(startIndex, endIndex);
 
+  //Busqueda de proyectos
   const search2 = (searchQuery) => {
     // Filtra los elementos que coinciden con la consulta de búsqueda en el título
-    const filteredItems = proyects.filter((item) =>
-      item.title.toLowerCase().includes(searchQuery.toLowerCase())
+    const filteredItems = projects.filter(
+      (item) =>
+        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.description.toLowerCase().includes(searchQuery.toLowerCase())
     );
-
     // Actualiza la lista de elementos y restablece la página actual
     setItems(filteredItems);
     setCurrentPage(0);
   };
-  // const dateRangePickerEl = document.getElementById("dateRangePickerId");
-  // new DateRangePicker(dateRangePickerEl, {
-  //   // options
-  // });
 
   useEffect(() => {
     const options = {
@@ -63,17 +110,12 @@ export default function Listado() {
     const dateRangePickerEl = document.getElementById("dateRangePickerId");
     new DateRangePicker(dateRangePickerEl, onchange, options);
   }, []);
-  // useEffect(() => {
-  //   const datepickerEl = document?.getElementById("datepickerId");
-  //   // console.log(datepickerEl);
-  //   new Datepicker(datepickerEl, {});
-  // }, []);
-  const [selectedOption, setSelectedOption] = useState("");
-  const [selectedAutor, setAutor] = useState("");
-  const [filtros, setFiltros] = useState([]);
+
   const handleOptionChange = (selectedValue) => {
     setSelectedOption(selectedValue);
-    // Aquí puedes ejecutar diferentes funciones según la opción seleccionada
+    console.log("selectedOption:", selectedValue);
+    applyFilters();
+    //Aquí puedes ejecutar diferentes funciones según la opción seleccionada
     if (selectedValue !== "Seleccione la fuente") {
       filtros.push({
         id: 1,
@@ -87,19 +129,21 @@ export default function Listado() {
         description: selectedValue,
       });
     } else {
-      // Busca el índice del elemento a eliminar por su id
+      //Busca el índice del elemento a eliminar por su id
       const indexToDelete = filtros.findIndex((item) => item.id === 1);
 
-      // Si el índice es encontrado, elimina el elemento con splice
+      //Si el índice es encontrado, elimina el elemento con splice
       if (indexToDelete !== -1) {
         filtros.splice(indexToDelete, 1);
       }
     }
     setFiltros(filtros);
   };
+
   const obtenerValorAutor = (valor) => {
     console.log("Valor obtenido:", valor);
     setAutor(valor.name);
+    //applyFilters();
     const existe = filtros.find((item) => item.id === 3);
     console.log(existe);
     if (existe === null || existe === undefined) {
@@ -188,9 +232,10 @@ export default function Listado() {
         : endDate;
     }
     setFiltros(filtros);
+    applyFilters();
   };
 
-  const listado_fuente = proyects.reduce((accumulator, project) => {
+  const listado_fuente = projects.reduce((accumulator, project) => {
     project.fuente.forEach((source) => {
       // Comprobamos si la fuente ya existe en el acumulador
       const existingSource = accumulator.find((item) => item.id === source.id);
@@ -208,13 +253,12 @@ export default function Listado() {
           className="text-center font-sans text-2xl dark:text-white"
         >
           <br />
-          {/*<h1>Listado de proyectos en Mapas de riesgos</h1>*/}
         </div>
         <div className="py-10">
           <Search onSearch={search2} />
           {""}
         </div>
-        {/* grid-cols-1 sm:grid md:grid-cols-3  */}
+
         <div className="w-full px-3">
           <div className="grid-cols-1 gap-4 sm:grid sm:px-0 md:grid-cols-3 md:px-3">
             <div className="row-span-3 mb-5">
@@ -248,47 +292,6 @@ export default function Listado() {
                       </button>
                     </div>
                   ))}
-                  {/* <button
-                    type="button"
-                    className="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
-                  >
-                    <span className="mr-2 text-[12px]">
-                      <strong>Publicados:</strong> {datestart}{" "}
-                      <strong>to</strong> 01/09/2023
-                    </span>
-                    <svg
-                      className="h-2 w-2"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 14 14"
-                    >
-                      <path
-                        stroke="currentColor"
-                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                      />
-                    </svg>
-                  </button> */}
-                  {/* <button
-                    type="button"
-                    className="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
-                  >
-                    <span className="mr-2 text-[12px]">
-                      <strong>Fuente:</strong> {selectedOption}
-                    </span>
-                    <svg
-                      className="h-2 w-2"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 14 14"
-                    >
-                      <path
-                        stroke="currentColor"
-                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                      />
-                    </svg>
-                  </button> */}
                 </div>
               </div>
 

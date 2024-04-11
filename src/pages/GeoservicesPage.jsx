@@ -3,10 +3,7 @@ import React from "react";
 const GeoservicesPage = () => {
   return (
     <>
-      <h1 className="bg-gray-200 p-4 text-center text-xl font-semibold dark:bg-gray-300">
-        Geoservicios Web
-      </h1>
-      <div className="mx-auto w-full max-w-[1400px] bg-slate-50 px-3">
+      <div className="mx-auto w-full max-w-[1400px]  px-3">
         <h3 className="p-4 text-base font-semibold dark:text-white">
           ¿Qué son los servicios web?
         </h3>

@@ -7,6 +7,7 @@ import axios from "axios";
 import L from "leaflet";
 import markerShadow from "../../images/marker-shadow.png";
 import treeMarker from "../../images/tree-marker.png";
+import host_api from "utils/host_api";
 
 export const GeoViewerWithReact = () => {
   const [data, setData] = useState(null);
@@ -18,12 +19,11 @@ export const GeoViewerWithReact = () => {
   useEffect(() => {
     const ows = async () => {
       const resp = await axios.get(
-        "http://192.168.10.4:8085/geoserver/cate/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=cate%3AExport_Output&maxFeatures=50&outputFormat=application%2Fjson"
+        `${host_api}/geoserver/cate/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=cate%3AExport_Output&maxFeatures=50&outputFormat=application%2Fjson`
       );
-
       console.log(resp);
 
-      const GEOSERVER = "http://192.168.10.4:8085/geoserver/wfs";
+      const GEOSERVER = `${host_api}/geoserver/wfs`;
 
       const REQUEST_PARAMS = {
         outputFormat: "application/json",

@@ -56,7 +56,7 @@ const Search = ({ onSearch }) => {
             id="search-dropdown"
             className="z-20 block w-full rounded-r-lg border border-l-2 border-gray-300 border-l-gray-50 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-rose-500 focus:ring-rose-500 dark:border-gray-600 dark:border-l-gray-700  dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-rose-500"
             placeholder="Buscar..."
-            required
+            // required
           />
           <button
             type="submit"
@@ -79,39 +79,6 @@ const Search = ({ onSearch }) => {
         </div>
       </div>
     </form>
-    // <form
-    //   onSubmit={handleSearch}
-    //   className="mx-auto w-full max-w-[1100px] px-3"
-    // >
-    //   <div className="flex rounded-md shadow-lg">
-    //     <div className="item-center block justify-center rounded-l-md border-gray-200 px-4 py-3 text-sm shadow-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-700 dark:bg-slate-200 dark:text-black">
-    //       <svg
-    //         className="h-4 w-4 text-black"
-    //         xmlns="http://www.w3.org/2000/svg"
-    //         width="16"
-    //         height="16"
-    //         fill="currentColor"
-    //         viewBox="0 0 16 16"
-    //       >
-    //         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-    //       </svg>
-    //     </div>
-    //     <input
-    //       type="text"
-    //       placeholder="Buscar MAPA"
-    //       value={searchQuery}
-    //       onChange={(e) => setSearchQuery(e.target.value)}
-    //       className="block w-full rounded-l-md border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-700 dark:bg-slate-200 dark:text-black"
-    //     />
-
-    //     <button
-    //       type="submit"
-    //       className="inline-flex flex-shrink-0 items-center justify-center rounded-r-md border border-transparent bg-red px-4 py-3 text-sm font-semibold text-white transition-all hover:bg-red focus:z-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
-    //     >
-    //       Buscar
-    //     </button>
-    //   </div>
-    // </form>
   );
 };
 

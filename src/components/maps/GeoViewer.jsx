@@ -114,7 +114,7 @@ export const GeoViewer = () => {
     ).addTo(map);
 
     L.tileLayer
-      .wms("http://192.168.10.4:8085/geoserver/wms", {
+      .wms(`${host_api}/geoserver/wms`, {
         layers: "cate:EXPORT-PERFIL,topp:states",
         format: "image/png",
         transparent: true,

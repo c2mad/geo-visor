@@ -10,6 +10,8 @@ import { ServicesPage } from "pages/ServicesPage";
 import { GeoportalPage } from "pages/GeoportalPage";
 import Normativa from "pages/NormativaPage";
 import GeoservicesPage from "pages/GeoservicesPage";
+import { ManualPage } from "pages/ManualPage";
+import MetadatosPage from "pages/MetadatosPage";
 
 export const RouterApp = () => {
   return (
@@ -38,11 +40,17 @@ export const RouterApp = () => {
           <Route path="/Geoportal" element={<GeoportalLayaut />}>
             <Route index element={<GeoportalPage />}></Route>
           </Route>
-          <Route path="/normativa" element={<GeoportalLayaut />}>
+          <Route path="/normativa" element={<DefaultLayout />}>
             <Route index element={<Normativa />}></Route>
           </Route>
-          <Route path="/geoservicios" element={<GeoportalLayaut />}>
+          <Route path="/geoservicios" element={<DefaultLayout />}>
             <Route index element={<GeoservicesPage />}></Route>
+          </Route>
+          <Route path="/manual" element={<DefaultLayout />}>
+            <Route index element={<ManualPage />}></Route>
+          </Route>
+          <Route path="/metadatos" element={<DefaultLayout />}>
+            <Route index element={<MetadatosPage />}></Route>
           </Route>
 
           <Route path="*" element={<Navigate to="/" />} />
