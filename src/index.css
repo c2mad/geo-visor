@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-zinc-200;
-}
-
 .info-geotecnica .leaflet-popup-content {
   width: 600px !important;
 }
@@ -15,3 +11,23 @@ body {
 
   shadow: none;
 }
+
+body {
+  @apply bg-white;
+  color: #000 !important;
+  /* background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80') no-repeat center center fixed; */
+  /* background-size: cover; */
+}
+
+.grid-item{
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+}
+
+.item1{
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+

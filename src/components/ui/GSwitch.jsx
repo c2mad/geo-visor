@@ -6,7 +6,7 @@ export const GSwitch = ({ enabled, setEnabled }) => {
       checked={enabled}
       onChange={setEnabled}
       className={`${
-        enabled ? "bg-emerald-500" : "bg-gray-300"
+        enabled ? "bg-rose-600" : "bg-gray-300"
       } relative inline-flex h-5 w-10 items-center rounded-full`}
     >
       {/* <span className="sr-only">Enable notifications</span> */}

@@ -7,23 +7,23 @@ import axios from "axios";
 import L from "leaflet";
 import markerShadow from "../../images/marker-shadow.png";
 import treeMarker from "../../images/tree-marker.png";
+import host_api from "utils/host_api";
 
 export const GeoViewerWithReact = () => {
   const [data, setData] = useState(null);
   const [dataJose, setDataJose] = useState(null);
   const [dataCate, setDataCate] = useState(null);
 
-  const [point, setPoint] = useState([-2.8573835, -78.9633863]);
+  const [point] = useState([-2.8573835, -78.9633863]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     const ows = async () => {
-      // const resp = await axios.get(
-      //   "http://192.168.10.4:8085/geoserver/cate/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=cate%3AExport_Output&maxFeatures=50&outputFormat=application%2Fjson"
-      // );
+      const resp = await axios.get(
+        `${host_api}/geoserver/cate/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=cate%3AExport_Output&maxFeatures=50&outputFormat=application%2Fjson`
+      );
+      console.log(resp);
 
-      // console.log(resp);
-
-      const GEOSERVER = "http://192.168.10.4:8085/geoserver/wfs";
+      const GEOSERVER = `${host_api}/geoserver/wfs`;
 
       const REQUEST_PARAMS = {
         outputFormat: "application/json",
@@ -41,8 +41,8 @@ export const GeoViewerWithReact = () => {
         outputFormat: "application/json",
         request: "GetFeature",
         service: "WFS",
-        // typeName: "jose:parroquias_azuay",
-        typeName: "jose:geo_azuay",
+        typeName: "jose:parroquias_azuay",
+        //typeName: "jose:geo_azuay",
         version: "1.0.0",
       };
 
@@ -53,7 +53,7 @@ export const GeoViewerWithReact = () => {
         outputFormat: "application/json",
         request: "GetFeature",
         service: "WFS",
-        typeName: "cate:PERFIL-FINAL",
+        typeName: "jose:exploracion_calicatas",
         version: "1.0.0",
       };
 
@@ -121,36 +121,36 @@ export const GeoViewerWithReact = () => {
           fillOpacity: 0,
         })}
         onEachFeature={({ properties }, layer) => {
-          // const { OBJECTID = 0, DPA_DESPAR } = properties;
-          // if (OBJECTID === 1) {
-          //   layer.setStyle({
-          //     fillColor: "#84cc16",
-          //   });
-          // }
-          // if (OBJECTID === 3) {
-          //   layer.setStyle({
-          //     fillColor: "#8b5cf6",
-          //   });
-          // }
-          // if (OBJECTID === 4) {
-          //   layer.setStyle({
-          //     fillColor: "#f43f5e",
-          //   });
-          // }
-          // if (OBJECTID === 72) {
-          //   layer.setStyle({
-          //     fillColor: "#10b981",
-          //   });
-          // }
-          // console.log(DPA_DESPAR);
-          // layer.bindPopup(
-          //   `<h1 className="text-lg text-slate-700">${DPA_DESPAR}</h1> `
-          // );
-          // Add text html in layer
-          // console.log(layer);
+          const { OBJECTID = 0, DPA_DESPAR } = properties;
+          if (OBJECTID === 1) {
+            layer.setStyle({
+              fillColor: "#84cc16",
+            });
+          }
+          if (OBJECTID === 3) {
+            layer.setStyle({
+              fillColor: "#8b5cf6",
+            });
+          }
+          if (OBJECTID === 4) {
+            layer.setStyle({
+              fillColor: "#f43f5e",
+            });
+          }
+          if (OBJECTID === 72) {
+            layer.setStyle({
+              fillColor: "#10b981",
+            });
+          }
+          console.log(DPA_DESPAR);
+          layer.bindPopup(
+            `<h1 className="text-lg text-slate-700">${DPA_DESPAR}</h1> `
+          );
+          //Add text html in layer
+          console.log(layer);
         }}
       />
-      {/* <GeoJSON
+      <GeoJSON
         data={dataJose}
         style={() => ({
           color: "#4a83ec",
@@ -158,7 +158,7 @@ export const GeoViewerWithReact = () => {
           fillColor: "#1a1d62",
           fillOpacity: 1,
         })}
-      /> */}
+      />
 
       <GeoJSON
         data={dataCate}
@@ -170,9 +170,9 @@ export const GeoViewerWithReact = () => {
         })}
       />
 
-      {/* <Marker position={[-2.8573835, -78.9633863]}></Marker> */}
+      <Marker position={[-2.8573835, -78.9633863]}></Marker>
 
-      {/* <WMSTileLayer
+      <WMSTileLayer
         zIndex={100}
         url="http://localhost:8080/geoserver/ciitt/wms"
         layers="ciitt:geologia_lit,ciitt:poblados"
@@ -180,7 +180,7 @@ export const GeoViewerWithReact = () => {
         transparent
         version="1.1.0"
         attribution="myattribution"
-      /> */}
+      />
     </MapContainer>
   );
 };
