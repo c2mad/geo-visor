@@ -1,4 +1,3 @@
-import imgjoseproject from "assets/images/imgjoseproject.png";
 import img_jose from "assets/images/jose/banner.png";
 const proyects = [
   {
