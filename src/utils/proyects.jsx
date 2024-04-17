@@ -22,7 +22,7 @@ const proyects = [
     id: 2,
     title:
       "Deslizamientos: carcterización de sus factores morfologicos y ambientales",
-    imageUrl: imgcat,
+    imageUrl: imgjoseproject,
     publication: "12 de Agosto 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
@@ -38,7 +38,7 @@ const proyects = [
   {
     id: 3,
     title: "Turístico",
-    imageUrl: imgcat,
+    imageUrl: imgjoseproject,
     publication: "12 de Agosto 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
@@ -54,7 +54,7 @@ const proyects = [
   {
     id: 4,
     title: "Infraestructura",
-    imageUrl: imgcat,
+    imageUrl: imgjoseproject,
     publication: "12 de Agosto 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
@@ -67,7 +67,7 @@ const proyects = [
   {
     id: 5,
     title: "Infraestructura",
-    imageUrl: imgcat,
+    imageUrl: imgjoseproject,
     publication: "12 de Agosto 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
@@ -85,7 +85,7 @@ const proyects = [
   {
     id: 6,
     title: "Turístico",
-    imageUrl: imgcat,
+    imageUrl: imgjoseproject,
     publication: "12 de Agosto 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
@@ -103,7 +103,7 @@ const proyects = [
   {
     id: 7,
     title: "Suelo",
-    imageUrl: imgcat,
+    imageUrl: imgjoseproject,
     publication: "12 de Agosto 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
@@ -121,7 +121,7 @@ const proyects = [
   {
     id: 8,
     title: "Vial",
-    imageUrl: imgcat,
+    imageUrl: imgjoseproject,
     publication: "12 de Agosto 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
@@ -139,7 +139,7 @@ const proyects = [
   {
     id: 9,
     title: "Vial",
-    imageUrl: imgcat,
+    imageUrl: imgjoseproject,
     publication: "12 de Agosto 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at.",
@@ -157,7 +157,7 @@ const proyects = [
   {
     id: 10,
     title: "Suelo",
-    imageUrl: imgcat,
+    imageUrl: imgjoseproject,
     publication: "12 de Agosto de 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at",
@@ -175,7 +175,7 @@ const proyects = [
   {
     id: 11,
     title: "Turístico",
-    imageUrl: imgcat,
+    imageUrl: imgjoseproject,
     publication: "12 de Agosto de 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at",
@@ -188,7 +188,7 @@ const proyects = [
   {
     id: 12,
     title: "Infraestructura",
-    imageUrl: imgcat,
+    imageUrl: imgjoseproject,
     publication: "12 de Agosto de 2023",
     description:
       "It is difficult to believe that we have become so used to having instant access to information at",
