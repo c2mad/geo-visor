@@ -12,7 +12,6 @@ const GeoservicesPage = () => {
           Es un sistema compuesto por hardware, software y procedimientos
           diseñados para facilitar la captura, gestión, análisis y visualización
           de IG para resolver problemas de la planificación y gestión.
-
         </span>
         <div className="rounded-lg border-solid p-4">
           <div className="overflow-x-auto">
