@@ -14,6 +14,7 @@ import "leaflet.fullscreen/Control.FullScreen.css";
 import "leaflet.locatecontrol";
 import "leaflet.locatecontrol/dist/L.Control.Locate.min.css";
 import { useEffect } from "react";
+import host_api from "utils/host_api";
 
 const position = [-2.855964, -78.965879];
 
