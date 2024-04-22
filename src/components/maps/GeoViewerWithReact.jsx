@@ -174,7 +174,7 @@ export const GeoViewerWithReact = () => {
 
       <WMSTileLayer
         zIndex={100}
-        url="http://localhost:8080/geoserver/ciitt/wms"
+        url={`${host_api}/geoserver/wms`}
         layers="ciitt:geologia_lit,ciitt:poblados"
         format="image/png"
         transparent
