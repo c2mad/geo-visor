@@ -25,8 +25,6 @@ export const JoseMapsPage = () => {
   const { data: infoGeotecnica, isLoading: isLoadingKey0 } = useInfoGeotecnica({
     enabled: key0,
   });
-  console.log(infoGeotecnica);
-
   const { data: expCalicatas, isLoading: isLoadingKey1 } = useExpCalicatas({
     enabled: key1,
   });
