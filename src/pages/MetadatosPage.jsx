@@ -4,8 +4,8 @@ import categorias from "../utils/categories";
 import proyectos from "../utils/proyects";
 
 const MetadatosPage = () => {
-  const [proyects, setProyects] = useState(proyectos);
-  const [categories, setCategories] = useState(categorias);
+  const [proyects] = useState(proyectos);
+  const [categories] = useState(categorias);
   return (
     <>
       <div className="mx-auto w-full max-w-[1100px] items-center bg-slate-400 px-3 dark:text-white">

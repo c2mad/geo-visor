@@ -10,8 +10,8 @@ import Search from "components/ui/Search";
 export const GeoportalPage = () => {
   const [proyects] = useState(proyectos);
   const [categories] = useState(categorias);
-  const [items, setItems] = useState(proyectos);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [, setItems] = useState(proyectos);
+  const [, setCurrentPage] = useState(0);
 
   //Busqueda de proyectos
   const search2 = (searchQuery) => {

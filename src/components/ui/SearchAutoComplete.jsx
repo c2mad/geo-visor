@@ -97,7 +97,7 @@ export default function SearchAutoComplete(props) {
         // }],
         ...props,
       }),
-    [props]
+    [listado_autores, props]
   );
 
   const formRef = useRef(null);

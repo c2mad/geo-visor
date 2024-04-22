@@ -7,8 +7,6 @@ import React, { useState } from "react";
 
 export const Navbar = ({ isGeoportal = false }) => {
   const [open, setOpen] = useState(false);
-  const [serviciosMenuOpen, setServiciosMenuOpen] = useState(false);
-
   return (
     <>
       <nav className="relative z-40 h-14 w-full bg-black">
