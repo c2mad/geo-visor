@@ -116,7 +116,7 @@ export const GeoViewer = () => {
 
     L.tileLayer
       .wms(`${host_api}/geoserver/wms`, {
-        layers: "cate:EXPORT-PERFIL,topp:states",
+        layers: "cate:EXPORT-PERFIL,top:states",
         format: "image/png",
         transparent: true,
         version: "1.1.0",
