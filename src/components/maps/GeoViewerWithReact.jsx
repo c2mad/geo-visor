@@ -34,7 +34,7 @@ export const GeoViewerWithReact = () => {
 
       setLoading(true);
       const respCate = await axios.get(GEOSERVER, { params: REQUEST_PARAMS });
-      console.log(respCate.data);
+      console.log(respCate);
       setData(respCate.data);
 
       const REQUEST_PARAMS_1 = {
