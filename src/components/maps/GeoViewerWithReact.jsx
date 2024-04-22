@@ -16,15 +16,13 @@ export const GeoViewerWithReact = () => {
 
   const [point] = useState([-2.8573835, -78.9633863]);
   const [loading, setLoading] = useState(false);
-  const server = "https://f7ed-190-15-134-178.ngrok-free.app";
   useEffect(() => {
     const ows = async () => {
-      const resp = await axios.get(
-        `${server}/geoserver/cate/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=cate%3AExport_Output&maxFeatures=50&outputFormat=application%2Fjson`
-      );
-      console.log(resp);
+      // const resp = await axios.get(
+      //   `${host_api}/geoserver/cate/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=cate%3AExport_Output&maxFeatures=50&outputFormat=application%2Fjson`
+      // );
 
-      const GEOSERVER = `${server}/geoserver/wfs`;
+      const GEOSERVER = `${host_api}/geoserver/wfs`;
 
       const REQUEST_PARAMS = {
         outputFormat: "application/json",
@@ -36,6 +34,7 @@ export const GeoViewerWithReact = () => {
 
       setLoading(true);
       const respCate = await axios.get(GEOSERVER, { params: REQUEST_PARAMS });
+      console.log(respCate.data);
       setData(respCate.data);
 
       const REQUEST_PARAMS_1 = {
