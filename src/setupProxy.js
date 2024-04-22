@@ -4,8 +4,8 @@ module.exports = function(app) {
       '/geoserver/wfs',
       createProxyMiddleware({
         target: host_api, // Reemplaza con tu URL de API
-        changeOrigin: true,
-        secure: false,
+        changeOrigin: false,
+        secure: true,
       })
     );
   }
