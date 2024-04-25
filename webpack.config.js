@@ -1,5 +1,5 @@
 resolve: {
-    fallback: {
-      util: require.resolve('util/')
-    }
+  fallback: {
+    util: require.resolve('util/')
   }
+}
