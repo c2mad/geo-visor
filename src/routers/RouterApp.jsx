@@ -12,6 +12,7 @@ import Normativa from "pages/NormativaPage";
 import GeoservicesPage from "pages/GeoservicesPage";
 import { ManualPage } from "pages/ManualPage";
 import MetadatosPage from "pages/MetadatosPage";
+import Cedia from "pages/cedia";
 
 export const RouterApp = () => {
   return (
@@ -24,6 +25,10 @@ export const RouterApp = () => {
           <Route path="/mapas/jose" element={<GeoportalLayaut />}>
             {/* <Route index element={<MapsPage />} /> */}
             <Route index element={<JoseMapsPage />} />
+          </Route>
+          <Route path="/mapas/cedia" element={<GeoportalLayaut />}>
+            {/* <Route index element={<MapsPage />} /> */}
+            <Route index element={<Cedia />} />
           </Route>
           <Route path="/servicios" element={<DefaultLayout />}>
             <Route index element={<ServicesPage />} />

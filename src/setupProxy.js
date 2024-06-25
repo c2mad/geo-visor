@@ -1,21 +1,13 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
-module.exports = function(app) {
-    app.use(
-      '/geoserver/wfs',
-      createProxyMiddleware({
-        target: host_api, // Reemplaza con tu URL de API
-        changeOrigin: true,
-        secure: false,
-      })
-    );
-  }
-  // Otras importaciones...
-const apiProxy = require('./setupProxy');
-const { default: host_api } = require('utils/host_api');
+const host_api = require('./utils/host_api');
 
-module.exports = function(app) {
-  // Configuración del proxy inverso para la API
-  apiProxy(app);
-
-  // Otras configuraciones o middleware adicionales...
+module.exports = function (app) {
+  app.use(
+    "/geoserver/wfs",
+    createProxyMiddleware({
+      target: host_api,
+      changeOrigin: true,
+      secure: false,
+    })
+  );
 };

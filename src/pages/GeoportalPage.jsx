@@ -19,7 +19,7 @@ export const GeoportalPage = () => {
     const filteredItems = proyectos.filter(
       (item) =>
         item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase())
+        item.description.toLowerCase().includes(searchQuery.toLowerCase()),
     );
     // Actualiza la lista de elementos y restablece la página actual
     setItems(filteredItems);

@@ -25,7 +25,7 @@ export default function Listado() {
           console.log("fuente.name:", fuente.name);
           console.log("selectedOption:", selectedOption);
           return fuente.name.toLowerCase() === selectedOption.toLowerCase();
-        })
+        }),
       );
     }
 
@@ -81,7 +81,7 @@ export default function Listado() {
     const filteredItems = projects.filter(
       (item) =>
         item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase())
+        item.description.toLowerCase().includes(searchQuery.toLowerCase()),
     );
     // Actualiza la lista de elementos y restablece la página actual
     setItems(filteredItems);
@@ -213,8 +213,8 @@ export default function Listado() {
         description: start
           ? date
           : startDate + " to " + !start
-          ? date
-          : endDate,
+            ? date
+            : endDate,
       });
     } else {
       existe.content = (
@@ -228,8 +228,8 @@ export default function Listado() {
       existe.description = start
         ? date
         : startDate + " to " + !start
-        ? date
-        : endDate;
+          ? date
+          : endDate;
     }
     setFiltros(filtros);
     applyFilters();

@@ -144,7 +144,7 @@ export const GeoViewerWithReact = () => {
           }
           console.log(DPA_DESPAR);
           layer.bindPopup(
-            `<h1 className="text-lg text-slate-700">${DPA_DESPAR}</h1> `
+            `<h1 className="text-lg text-slate-700">${DPA_DESPAR}</h1> `,
           );
           //Add text html in layer
           console.log(layer);
@@ -174,7 +174,7 @@ export const GeoViewerWithReact = () => {
 
       <WMSTileLayer
         zIndex={100}
-        url={`${host_api}/geoserver/wms`}
+        url="http://localhost:8080/geoserver/ciitt/wms"
         layers="ciitt:geologia_lit,ciitt:poblados"
         format="image/png"
         transparent

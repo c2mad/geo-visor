@@ -75,7 +75,7 @@ export const GeoViewer = () => {
             {
               attribution:
                 '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            }
+            },
           ).addTo(map), //DEFAULT MAP
           icon: "./images/map.webp",
           name: "Base",
@@ -85,7 +85,7 @@ export const GeoViewer = () => {
             "https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=E0FAfE58p65fqwIEHhfd",
             {
               attribution: "Maptiler - OpenStreetMap, Open Database",
-            }
+            },
           ),
           icon: "./images/map.webp",
           name: "Satelital",
@@ -95,7 +95,7 @@ export const GeoViewer = () => {
             "https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=E0FAfE58p65fqwIEHhfd",
             {
               attribution: "Maptiler - OpenStreetMap, Open Database",
-            }
+            },
           ),
           icon: "./images/map.webp",
           name: "Vias",
@@ -105,13 +105,13 @@ export const GeoViewer = () => {
             "https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=E0FAfE58p65fqwIEHhfd",
             {
               attribution: "Maptiler - OpenStreetMap, Open Database",
-            }
+            },
           ),
           icon: "./images/map.webp",
           name: "Topográfico",
         },
       ],
-      { position: "bottomleft" }
+      { position: "bottomleft" },
     ).addTo(map);
 
     L.tileLayer

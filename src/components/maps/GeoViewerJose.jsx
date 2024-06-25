@@ -65,11 +65,11 @@ export const GeoViewerJose = ({
           onEachFeature={({ properties }, layer) => {
             layer.bindPopup(
               ReactDOMServer.renderToString(
-                <PopupKey0 properties={properties} />
+                <PopupKey0 properties={properties} />,
               ),
               {
                 className: "info-geotecnica",
-              }
+              },
             );
           }}
         />
@@ -93,8 +93,8 @@ export const GeoViewerJose = ({
           onEachFeature={({ properties }, layer) => {
             layer.bindPopup(
               ReactDOMServer.renderToString(
-                <PopupKey1 properties={properties} />
-              )
+                <PopupKey1 properties={properties} />,
+              ),
             );
           }}
         />
@@ -113,8 +113,8 @@ export const GeoViewerJose = ({
           onEachFeature={({ properties }, layer) => {
             layer.bindPopup(
               ReactDOMServer.renderToString(
-                <PopupKey2 properties={properties} />
-              )
+                <PopupKey2 properties={properties} />,
+              ),
             );
           }}
         />
@@ -137,8 +137,8 @@ export const GeoViewerJose = ({
 
             layer.bindPopup(
               ReactDOMServer.renderToString(
-                <PopupKey3 properties={properties} />
-              )
+                <PopupKey3 properties={properties} />,
+              ),
             );
           }}
         />
@@ -158,8 +158,8 @@ export const GeoViewerJose = ({
 
             layer.bindPopup(
               ReactDOMServer.renderToString(
-                <PopupKey4 properties={properties} />
-              )
+                <PopupKey4 properties={properties} />,
+              ),
             );
 
             layer.setStyle({
@@ -183,8 +183,8 @@ export const GeoViewerJose = ({
 
             layer.bindPopup(
               ReactDOMServer.renderToString(
-                <PopupKey5 properties={properties} />
-              )
+                <PopupKey5 properties={properties} />,
+              ),
             );
 
             layer.setStyle({
