@@ -86,19 +86,20 @@ export const Navbar = ({ isGeoportal = false }) => {
                   ></NavbarLink>
                 </div>
                 {!isGeoportal ? (
-                  <div onClick={() => setOpen(false)}>
-                    <NavbarLink
-                      to="/geoportal"
-                      linkTitle="Geoportal"
-                    ></NavbarLink>
-                  </div>
+                  <>
+                    <div onClick={() => setOpen(false)}>
+                      <NavbarLink
+                        to="/geoportal"
+                        linkTitle="Geoportal"
+                      ></NavbarLink>
+                    </div>
+                    <div onClick={() => setOpen(false)}>
+                      <NavbarLink to="/proyects" linkTitle="Geovisores" />
+                    </div>
+                  </>
                 ) : (
                   <></>
                 )}
-
-                <div onClick={() => setOpen(false)}>
-                  <NavbarLink to="/proyects" linkTitle="Geovisores" />
-                </div>
 
                 <div onClick={() => setOpen(false)}>
                   <NavbarLink to="/contacto" linkTitle="Contacto"></NavbarLink>
