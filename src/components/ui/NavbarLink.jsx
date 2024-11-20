@@ -7,8 +7,8 @@ export const NavbarLink = ({ linkTitle, to }) => {
         to={to}
         title={linkTitle}
         className={({ isActive }) =>
-          " w-full rounded-md px-4 py-2 font-semibold text-white hover:bg-red" +
-          (isActive ? " bg-red !text-white hover:bg-red" : "")
+          "flex w-full px-4 py-3 font-semibold text-white hover:bg-rose-700" +
+          (isActive ? " bg-rose-600 !text-white hover:bg-rose-700" : "")
         }
       >
         {linkTitle}

@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState } from "react";
 import { createAutocomplete } from "@algolia/autocomplete-core";
 import proyects from "../../utils/proyects";
+
 const AutocompleteItem = ({ id, name, onClick, onSelected }) => {
   const handleClick = () => {
     const valor = { id: id, name: name };
@@ -31,21 +32,6 @@ const AutocompleteItem = ({ id, name, onClick, onSelected }) => {
     </li>
   );
 };
-// const AutocompleteItem = ({ id, title, img, price }) => {
-//   return (
-//     <li>
-//       <Link href={`/detail/${id}`}>
-//         <a className='hover:bg-blue-300 flex gap-4 p-4'>
-//           <img src={img} alt={title} className='w-12 h-12 object-contain' />
-//           <div>
-//             <h3 className='text-sm font-semibold'>{title}</h3>
-//             <p className='text-xs text-gray-600'>{price}</p>
-//           </div>
-//         </a>
-//       </Link>
-//     </li>
-//   )
-// }
 
 export default function SearchAutoComplete(props) {
   const [autocompleteState, setAutocompleteState] = useState({
@@ -76,28 +62,19 @@ export default function SearchAutoComplete(props) {
           {
             sourceId: "autores",
             getItems: ({ query }) => {
-              console.log(query);
               if (!!query) {
                 const resultados = listado_autores.filter((item) =>
-                  item.name.toLowerCase().includes(query.toLowerCase())
+                  item.name.toLowerCase().includes(query.toLowerCase()),
                 );
                 return resultados;
               }
+              return [];
             },
           },
         ],
-        // getSources: () => [{
-        //   sourceId: 'offers-next-api',
-        //   getItems: ({ query }) => {
-        //     if (!!query) {
-        //       return fetch(`/api/search?q=${query}`)
-        //         .then(res => res.json())
-        //     }
-        //   }
-        // }],
         ...props,
       }),
-    [listado_autores, props]
+    [listado_autores, props],
   );
 
   const formRef = useRef(null);
@@ -116,9 +93,9 @@ export default function SearchAutoComplete(props) {
       <div className="relative flex w-full rounded-lg border-none bg-gradient-to-tr from-rose-600 to-rose-300">
         <input
           ref={inputRef}
-          className="w-full flex-1 rounded-lg p-2 pl-4 focus:border-rose-500 focus:ring-rose-500"
+          className="w-full flex-1 rounded-lg p-2 pl-4 text-gray-900 focus:border-rose-500 focus:ring-rose-500 dark:bg-gray-700 dark:text-white"
           {...inputProps}
-          value={selectedItem ? selectedItem.name : inputProps.value} // Usar el valor seleccionado si existe
+          value={selectedItem ? selectedItem.name : autocompleteState.query} // Usar el valor seleccionado si existe
           onChange={(e) => {
             if (selectedItem) {
               setSelectedItem(null); // Limpiar el estado de selectedItem si se modifica el input
@@ -128,13 +105,12 @@ export default function SearchAutoComplete(props) {
         />
         {autocompleteState.isOpen && (
           <div
-            className="absolute left-0 top-0 z-10 mt-16 w-full overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg focus:border-rose-500"
+            className="absolute left-0 top-full z-10 mt-2 w-full overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg focus:border-rose-500"
             ref={panelRef}
             {...autocomplete.getPanelProps()}
           >
             {autocompleteState.collections.map((collection, index) => {
               const { items } = collection;
-              console.log({ items });
               return (
                 <section key={`section-${index}`}>
                   {items.length > 0 && (

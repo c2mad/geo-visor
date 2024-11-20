@@ -79,20 +79,14 @@ export const Navbar = ({ isGeoportal = false }) => {
                 </svg>
               </button>
               <ul title="Menú" className="w-60">
-                <div
-                  className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
-                  onClick={() => setOpen(false)}
-                >
+                <div onClick={() => setOpen(false)}>
                   <NavbarLink
                     to="/"
                     linkTitle={isGeoportal ? "IDE" : "Inicio"}
                   ></NavbarLink>
                 </div>
                 {!isGeoportal ? (
-                  <div
-                    className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
-                    onClick={() => setOpen(false)}
-                  >
+                  <div onClick={() => setOpen(false)}>
                     <NavbarLink
                       to="/geoportal"
                       linkTitle="Geoportal"
@@ -102,20 +96,11 @@ export const Navbar = ({ isGeoportal = false }) => {
                   <></>
                 )}
 
-                <div
-                  className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
-                  onClick={() => setOpen(false)}
-                >
-                  <NavbarLink
-                    to="/servicios"
-                    linkTitle="Servicios"
-                  ></NavbarLink>
+                <div onClick={() => setOpen(false)}>
+                  <NavbarLink to="/proyects" linkTitle="Geovisores" />
                 </div>
 
-                <div
-                  className="mb-2 cursor-pointer py-3 text-center text-xl text-white hover:bg-red"
-                  onClick={() => setOpen(false)}
-                >
+                <div onClick={() => setOpen(false)}>
                   <NavbarLink to="/contacto" linkTitle="Contacto"></NavbarLink>
                 </div>
               </ul>

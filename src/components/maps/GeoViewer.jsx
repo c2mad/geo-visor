@@ -130,6 +130,7 @@ export const GeoViewer = () => {
   }, []);
   return <div id="map" className="h-full w-full"></div>;
 };
+
 {
   /* <GeoJSON
         data={data}

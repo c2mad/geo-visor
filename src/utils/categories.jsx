@@ -35,8 +35,8 @@ const categories = [
   },
   {
     id: 5,
-    name: "Sueldo",
-    description: "Sueldo",
+    name: "Suelo",
+    description: "Suelo",
     image: img_suelo,
     to: "/proyects",
   },

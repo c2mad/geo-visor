@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import L from "leaflet";
+import "leaflet-kml"; // Importar el plugin de leaflet-kml
 import redMarker from "../../images/red-marker.png";
 import * as ReactDOMServer from "react-dom/server";
-import host_api from "utils/host_api";
 import { PluginWrapper } from "./plugins/PluginWrapper";
+import GeoTiffLayer from "./GeoTiffLayer";
 const centerPoint = [-2.8573835, -78.9633863];
 const parkIcon = new L.Icon({
   iconUrl: redMarker,
@@ -14,48 +13,60 @@ const parkIcon = new L.Icon({
   shadowAnchor: [13, 28],
 });
 
-export const GeoViewerCedia = () => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const REQUEST_PARAMS = {
-    outputFormat: "application/json",
-    request: "GetFeature",
-    service: "WFS",
-    typeName: "cedia:Puntos",
-    //typeName: "jose:geo_azuay",
-    version: "1.0.0",
-  };
-  const GEOSERVER = `${host_api}/geoserver/wfs`;
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      const result = await axios(GEOSERVER, { params: REQUEST_PARAMS });
-      setData(result.data);
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
-  return loading ? (
-    <div>Cargando el mapa.</div>
-  ) : (
-    <>
-      <MapContainer
-        style={{
-          height: "100%",
-          width: "100%",
-        }}
-        center={centerPoint}
-        zoom={13}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {/* <SetViewOnClick animateRef={animateRef} /> */}
-        <PluginWrapper key3={false} key4={false} key5={false} />
+export const GeoViewerCedia = ({
+  key1,
+  key2,
+  key3,
+  key4,
+  key5,
+  key6,
+  key7,
+  key8,
+  key9,
+  key10,
+  key11,
+  key12,
+  key13,
+  key14,
+  key15,
+  key16,
+  key17,
+  cedia,
+  amdt,
+  bpen,
+  cperfil,
+  dplano,
+  sfallas,
+  dfallas,
+  spi,
+  infoTwi,
+  infoIDvias,
+  infoJSvias,
+  infoNDvi,
+  infoNDwi,
+  infoPC1,
+  infoPC2,
+  infoPGEO,
+  infoQCover,
+}) => {
+  return (
+    <MapContainer
+      style={{
+        height: "100%",
+        width: "100%",
+      }}
+      center={centerPoint}
+      zoom={13}
+    >
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      <PluginWrapper key3={false} key4={false} key5={false} />
+      {key1 && cedia && (
         <GeoJSON
           key={0}
-          data={data}
+          data={cedia}
           pointToLayer={(feature, latlng) => {
             return L.marker(latlng, {
               icon: parkIcon,
@@ -68,7 +79,6 @@ export const GeoViewerCedia = () => {
             fillOpacity: 1,
           })}
           onEachFeature={({ properties }, layer) => {
-            console.log(properties);
             const {
               CASO,
               CÓDIGO_MU,
@@ -87,9 +97,6 @@ export const GeoViewerCedia = () => {
               FECHA_DE_O,
               ALTURA__ms,
             } = properties;
-            // const propertiesArray = Object.entries(properties).map(
-            //   ([key, value]) => `${key}: ${value}`,
-            // );
             layer.bindPopup(
               ReactDOMServer.renderToString(
                 <div>
@@ -144,16 +151,28 @@ export const GeoViewerCedia = () => {
                     <PopupItemTable label="ALTURA (msnm)" value={ALTURA__ms} />
                   </div>
                 </div>,
-                // <h1 className="text-lg text-slate-700">{CASO}</h1>,
               ),
             );
-            //Add text html in layer
-            //console.log(layer);
           }}
         />
-        {/* <Marker position={[-2.8573835, -78.9633863]}></Marker> */}
-      </MapContainer>
-    </>
+      )}
+      {amdt && <GeoTiffLayer data={amdt} active={key2} />}
+      {bpen && <GeoTiffLayer data={bpen} active={key3} />}
+      {cperfil && <GeoTiffLayer data={cperfil} active={key4} />}
+      {dplano && <GeoTiffLayer data={dplano} active={key5} />}
+      {sfallas && <GeoTiffLayer data={sfallas} active={key6} />}
+      {dfallas && <GeoTiffLayer data={dfallas} active={key7} />}
+      {spi && <GeoTiffLayer data={spi} active={key8} />}
+      {infoTwi && <GeoTiffLayer data={infoTwi} active={key9} />}
+      {infoIDvias && <GeoTiffLayer data={infoIDvias} active={key10} />}
+      {infoJSvias && <GeoTiffLayer data={infoJSvias} active={key11} />}
+      {infoNDvi && <GeoTiffLayer data={infoNDvi} active={key12} />}
+      {infoNDwi && <GeoTiffLayer data={infoNDwi} active={key13} />}
+      {infoPC1 && <GeoTiffLayer data={infoPC1} active={key14} />}
+      {infoPC2 && <GeoTiffLayer data={infoPC2} active={key15} />}
+      {infoPGEO && <GeoTiffLayer data={infoPGEO} active={key16} />}
+      {infoQCover && <GeoTiffLayer data={infoQCover} active={key17} />}
+    </MapContainer>
   );
 };
 

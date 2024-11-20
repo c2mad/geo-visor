@@ -39,7 +39,7 @@ export const RouterApp = () => {
           <Route path="/proyects" element={<GeoportalLayaut />}>
             <Route index element={<ProyectPage />}></Route>
           </Route>
-          <Route path="/proyects/category/:id">
+          <Route path="/proyects/category/:id" element={<GeoportalLayaut />}>
             <Route index element={<ProyectPage />}></Route>
           </Route>
           <Route path="/Geoportal" element={<GeoportalLayaut />}>
@@ -54,9 +54,9 @@ export const RouterApp = () => {
           <Route path="/manual" element={<DefaultLayout />}>
             <Route index element={<ManualPage />}></Route>
           </Route>
-          <Route path="/metadatos" element={<DefaultLayout />}>
+          {/* <Route path="/metadatos" element={<DefaultLayout />}>
             <Route index element={<MetadatosPage />}></Route>
-          </Route>
+          </Route> */}
 
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

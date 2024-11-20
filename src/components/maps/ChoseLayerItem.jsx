@@ -1,7 +1,14 @@
+import { GDowloand } from "components/ui/GDowloand";
 import { GSpinner } from "components/ui/GSpinner";
 import { GSwitch } from "components/ui/GSwitch";
 
-export const ChoseLayerItem = ({ title, enabled, setEnabled, isLoading }) => {
+export const ChoseLayerItem = ({
+  title,
+  enabled,
+  setEnabled,
+  isLoading,
+  to,
+}) => {
   return (
     <li className="rounded-lg bg-gray-50  px-3 py-2 shadow-sm transition-all hover:bg-gray-100 hover:shadow-md">
       <div className="flex items-center justify-between space-x-2">
@@ -12,7 +19,12 @@ export const ChoseLayerItem = ({ title, enabled, setEnabled, isLoading }) => {
           {isLoading ? (
             <GSpinner />
           ) : (
-            <GSwitch enabled={enabled} setEnabled={setEnabled} />
+            <div className="inline-flex items-center space-x-2">
+              {" "}
+              {/* Add space-x-2 class for margin */}
+              <GSwitch enabled={enabled} setEnabled={setEnabled} />
+              <GDowloand to={to}></GDowloand>
+            </div>
           )}
         </div>
       </div>

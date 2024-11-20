@@ -1,0 +1,943 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "Puntos.1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.47637224, -2.69766264]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 1,
+        "CASO": "Movimientos en masa en vías sin presencia de viviendas",
+        "ZONA_CRÍT": "Vía a MOLLETURO",
+        "FECHA_DE_L": "15/3/2024",
+        "UTM_X": -79.476372245,
+        "UTM_Y": -2.697662638,
+        "ALTURA__ms": 1680,
+        "MOVIMIENTO": "Caída de Rocas",
+        "MOVIMIEN_1": "Derrumbe de escombros",
+        "NIVEL_DE_H": "Muy húmedo",
+        "FACTOR_CON": "Material rocoso meteorizado y fisurado",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea, matorrales y cuerpos de agua",
+        "DAÑOS": "Moderado en vía Molleturo km 90",
+        "DESCRIPCI": "Meteorización in situ de rocas metamorficas  (Esquistos Verdes).  Producida por aguas superficial y diaclasamiento",
+        "CÓDIGO_MU": "AZ-001",
+        "FECHA_DE_O": "13/2/2024",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.46435773, -2.67549905]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 2,
+        "CASO": "Movimientos en masa en vías sin presencia de viviendas",
+        "ZONA_CRÍT": "Vía a MOLLETURO",
+        "FECHA_DE_L": "15/3/2024",
+        "UTM_X": -79.464357727,
+        "UTM_Y": -2.675499047,
+        "ALTURA__ms": 1438,
+        "MOVIMIENTO": "Caída de Rocas",
+        "MOVIMIEN_1": "Derrumbe de escombros",
+        "NIVEL_DE_H": "Muy húmedo",
+        "FACTOR_CON": "Material rocoso meteorizado y fisurado",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea y matorrales",
+        "DAÑOS": "Severo en vía Molleturo km 80",
+        "DESCRIPCI": "Meteorización in situ de rocas metamorficas  (Esquistos Verdes y Meta areniscas).  Producida por aguas superficial y diaclasamiento. Se observan espesor considerable de suelo regolito arcilloso.",
+        "CÓDIGO_MU": "AZ-002",
+        "FECHA_DE_O": "13/2/2024",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.34728762, -3.30579053]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 3,
+        "CASO": "Movimientos en masa en vías sin presencia de viviendas",
+        "ZONA_CRÍT": "Vía a SANTA ISABEL",
+        "FECHA_DE_L": "16/3/2024",
+        "UTM_X": -79.347287619,
+        "UTM_Y": -3.305790534,
+        "ALTURA__ms": 1456,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Flujo de escombros",
+        "NIVEL_DE_H": "Seco",
+        "FACTOR_CON": "Material deleznable y Material Meteorizado",
+        "FACTOR_DES": "Lluvias, Sismo (junio 2023)",
+        "COBERTURA_": "Vegetación herbácea, árboles y matorrales",
+        "DAÑOS": "Vías",
+        "DESCRIPCI": "Meteorización in situ de rocas sedimentarias con orientación desfavorable a la ladera. Presenta lutitas, arenas con precipitaciones de yeso.",
+        "CÓDIGO_MU": "Sin muestra",
+        "FECHA_DE_O": "8/3/2023",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.1434095, -3.14550691]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 4,
+        "CASO": "Movimientos en masa en vías sin presencia de viviendas",
+        "ZONA_CRÍT": "Vía CUENCA-GIRÓN-PASAJE",
+        "FECHA_DE_L": "17/3/2024",
+        "UTM_X": -79.143409505,
+        "UTM_Y": -3.145506906,
+        "ALTURA__ms": 2217,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Derrumbe de escombros",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material deleznable y Material Meteorizado",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación Herbácea y Arboles",
+        "DAÑOS": "Varios deslizamientos en la vía Cuenca-Girón-Pasaje",
+        "DESCRIPCI": "Depósito coluvial con clastos sedimentarios (lutitas, limolilita areniscas), tobas volcanicas y andesitas en menor cantidad.",
+        "CÓDIGO_MU": "Sin muestra",
+        "FECHA_DE_O": "23/3/2023",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.12049028, -3.134814]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 4,
+        "CASO": "Movimientos en masa en vías sin presencia de viviendas",
+        "ZONA_CRÍT": "Vía CUENCA-GIRÓN-PASAJE",
+        "FECHA_DE_L": "17/3/2024",
+        "UTM_X": -79.12049028,
+        "UTM_Y": -3.134813998,
+        "ALTURA__ms": 2354,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Derrumbe de escombros",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material deleznable y Material Meteorizado",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación Herbácea y Arboles",
+        "DAÑOS": "Varios deslizamientos en la vía Cuenca-Girón-Pasaje",
+        "DESCRIPCI": "Depósito coluvial con clastos sedimentarios (lutitas, limolilita areniscas), tobas volcanicas y andesitas en menor cantidad.",
+        "CÓDIGO_MU": "Sin muestra",
+        "FECHA_DE_O": "23/3/2023",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.10850942, -3.11930318]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 4,
+        "CASO": "Movimientos en masa en vías sin presencia de viviendas",
+        "ZONA_CRÍT": "Vía CUENCA-GIRÓN-PASAJE",
+        "FECHA_DE_L": "17/3/2024",
+        "UTM_X": -79.108509421,
+        "UTM_Y": -3.119303182,
+        "ALTURA__ms": 2694,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Derrumbe de escombros",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material deleznable y Material Meteorizado",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación Herbácea y Arboles",
+        "DAÑOS": "Varios deslizamientos en la vía Cuenca-Girón-Pasaje",
+        "DESCRIPCI": "Depósito coluvial con clastos sedimentarios (lutitas, limolilita areniscas), tobas volcanicas y andesitas en menor cantidad.",
+        "CÓDIGO_MU": "Sin muestra",
+        "FECHA_DE_O": "23/3/2023",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.59850085, -2.58989356]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 5,
+        "CASO": "Movimientos en masa en vías sin presencia de viviendas",
+        "ZONA_CRÍT": "Vía GUARUMALES MÉNDEZ",
+        "FECHA_DE_L": "18/3/2024",
+        "UTM_X": -78.598500855,
+        "UTM_Y": -2.589893556,
+        "ALTURA__ms": 2436,
+        "MOVIMIENTO": "Caída de Rocas",
+        "MOVIMIEN_1": "Derrumbe de escombros",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material deleznable, meteorizado y mal manejo del sistema del drenaje",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea, árboles y matorrales",
+        "DAÑOS": "Vías",
+        "DESCRIPCI": "Contacto entre rocas metamórficas (Esquistos grafitosos), rocas volcanoclasticas (tobas) y rocas igneas (andesitas). Estas rocas se encuentran con un alto grado de metamorfismo y fracturamiento donde gran parte de las rocas se estan transformando en arc",
+        "CÓDIGO_MU": "AZ-007",
+        "FECHA_DE_O": "Mes de enero del 2024",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.8",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.87095611, -2.83911527]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 6,
+        "CASO": "Movimientos en masa en vías sin presencia de viviendas",
+        "ZONA_CRÍT": "Vía a GUALACEO",
+        "FECHA_DE_L": "19/3/2024",
+        "UTM_X": -78.870956114,
+        "UTM_Y": -2.839115266,
+        "ALTURA__ms": 2327,
+        "MOVIMIENTO": "Caída de Rocas",
+        "MOVIMIEN_1": "ninguno",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material meteorizado y fisurado",
+        "FACTOR_DES": "Lluvias, corte del pie del talud (Vías)",
+        "COBERTURA_": "Vegetación herbácea",
+        "DAÑOS": "Vías",
+        "DESCRIPCI": "Intrusivo de composición intermedia (Andesita) con 3 familias de clivaje y fracturas. Pendiente aproximadamente de 90 grados",
+        "CÓDIGO_MU": "AZ-011; AZ-012",
+        "FECHA_DE_O": "Movimiento en masa activo",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.9",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.32230866, -2.80856386]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 7,
+        "CASO": "Movimientos en masa en vías sin presencia de viviendas",
+        "ZONA_CRÍT": "Vía a MOLLETURO",
+        "FECHA_DE_L": "21/3/2024",
+        "UTM_X": -79.322308664,
+        "UTM_Y": -2.808563856,
+        "ALTURA__ms": 3333,
+        "MOVIMIENTO": "Caída de Rocas",
+        "MOVIMIEN_1": "ninguno",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material rocoso meteorizado y fisurado",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea",
+        "DAÑOS": "Vía a Molleturo km 48",
+        "DESCRIPCI": "Intrusivo igneo de composición andesítica. Presenta 2 familias de clivaje y altamente fracturado.",
+        "CÓDIGO_MU": "Verificar: AZ-017",
+        "FECHA_DE_O": "Movimiento en masa activo",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.10",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.1161347, -2.84608963]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 1,
+        "CASO": "Movimientos en masa en vías que pueden iniciar en cabecera de quebradas con presencia de zonas pobladas",
+        "ZONA_CRÍT": "MARIANZA Vía Molleturo",
+        "FECHA_DE_L": "15/3/2024",
+        "UTM_X": -79.116134696,
+        "UTM_Y": -2.846089635,
+        "ALTURA__ms": 3022,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Reptación",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material Meteorización",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea, zona de riego por agricultura",
+        "DAÑOS": "Viviendas y vías",
+        "DESCRIPCI": "Coluvial con presencia de andesitas con alteración hidrotermal y arcillas blancas.",
+        "CÓDIGO_MU": "Sin muestra",
+        "FECHA_DE_O": "Es un deslizamiento antiguo con depósito coluvial",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.11",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.09942807, -2.85576425]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 2,
+        "CASO": "Movimientos en masa en vías que pueden iniciar en cabecera de quebradas con presencia de zonas pobladas",
+        "ZONA_CRÍT": "MARIANZA",
+        "FECHA_DE_L": "15/3/2024",
+        "UTM_X": -79.099428073,
+        "UTM_Y": -2.855764255,
+        "ALTURA__ms": 2868,
+        "MOVIMIENTO": "Deslizamientos cabecera quebrada",
+        "MOVIMIEN_1": "Flujo de escombros",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material deleznable, coluvial antiguo",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea, árboles y matorrales",
+        "DAÑOS": "Viviendas y vías",
+        "DESCRIPCI": "Coluvial con presencia de andesitas con alteración hidrotermal con tonalidades verdes. El depósito se reactivó por las lluvias.",
+        "CÓDIGO_MU": "Muestra AZ-003 en ladera aledaña",
+        "FECHA_DE_O": "27/3/2022",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.12",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.31029447, -3.28101324]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 3,
+        "CASO": "Movimientos en masa en vías que pueden iniciar en cabecera de quebradas con presencia de zonas pobladas",
+        "ZONA_CRÍT": "Vía a SANTA ISABEL",
+        "FECHA_DE_L": "16/3/2024",
+        "UTM_X": -79.310294467,
+        "UTM_Y": -3.281013244,
+        "ALTURA__ms": 1466,
+        "MOVIMIENTO": "Deslizamiento traslacional",
+        "MOVIMIEN_1": "ninguno",
+        "NIVEL_DE_H": "Seco",
+        "FACTOR_CON": "Material plástico débil, deleznable y meteorizado",
+        "FACTOR_DES": "Lluvias, Sismo (junio 2023)",
+        "COBERTURA_": "Arboles y matorrales",
+        "DAÑOS": "Vía a Santa Isabel,     km 66",
+        "DESCRIPCI": "Meteorización in situ de rocas sedimentarias con estratos que buzan en el mismo sentido que la ladera. Intercalaciones de areniscas, lutitas y conglomerados.",
+        "CÓDIGO_MU": "AZ - 004",
+        "FECHA_DE_O": "1/6/2023",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.13",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.56023499, -2.61568939]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 5,
+        "CASO": "Movimientos en masa en vías que pueden iniciar en cabecera de quebradas con presencia de zonas pobladas",
+        "ZONA_CRÍT": "Vía GUARUMALES MÉNDEZ",
+        "FECHA_DE_L": "18/3/2024",
+        "UTM_X": -78.560234986,
+        "UTM_Y": -2.615689389,
+        "ALTURA__ms": 1886,
+        "MOVIMIENTO": "Caída de Rocas",
+        "MOVIMIEN_1": "ninguno",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material meteorizado y fisurado (macizo rocoso)",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea",
+        "DAÑOS": "Daño del puente y viviendas hace 2 años",
+        "DESCRIPCI": "Intrusivo de composición felsica (Granodiorita) poco alterado, presenta dos familias de clivaje, pendiente de aproximadamente 90 grados",
+        "CÓDIGO_MU": "AZ-008; AZ-009",
+        "FECHA_DE_O": "Evento hace 2 años (2022)",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.14",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.77902408, -2.91179698]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 6,
+        "CASO": "Movimientos en masa en vías que pueden iniciar en cabecera de quebradas con presencia de zonas pobladas",
+        "ZONA_CRÍT": "Planta de trataminento CHORDELEG",
+        "FECHA_DE_L": "19/3/2024",
+        "UTM_X": -78.779024079,
+        "UTM_Y": -2.911796977,
+        "ALTURA__ms": 2255,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Reptación",
+        "NIVEL_DE_H": "Muy húmedo",
+        "FACTOR_CON": "Material plástico débil, deleznable y meteorizado",
+        "FACTOR_DES": "Lluvias y corte al pie del talud",
+        "COBERTURA_": "Vegetación herbácea",
+        "DAÑOS": "Esta cerca de la planta de tratamiento",
+        "DESCRIPCI": "Depósito coluvial con fragmentos de rocas volcánicas de composición andesitica y cantos rodados de origen fluvial.",
+        "CÓDIGO_MU": "AZ-013",
+        "FECHA_DE_O": "24/1/2024",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.15",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.23044254, -3.2091297]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 7,
+        "CASO": "Movimientos en masa en vías que pueden iniciar en cabecera de quebradas con presencia de zonas pobladas",
+        "ZONA_CRÍT": "Deslizamiento de SAN FERNANDO BALZAPAMBA",
+        "FECHA_DE_L": "20/3/2024",
+        "UTM_X": -79.230442539,
+        "UTM_Y": -3.209129705,
+        "ALTURA__ms": 2130,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Reptación",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material deleznable y Material Meteorizado",
+        "FACTOR_DES": "Lluvias, socavación al pie del talud (río Rircay)",
+        "COBERTURA_": "Vegetación herbácea y árboles",
+        "DAÑOS": "Viviendas, iglesia del poblado y las afectación de vías",
+        "DESCRIPCI": "Suelo compuesto de arcillas rojas altamente meteorizado (oxisol) con bombas de origen ígneo, debajo se encuentra un basamento igneo poco alterado.",
+        "CÓDIGO_MU": "Sin muestra",
+        "FECHA_DE_O": "2018",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.16",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.26640646, -3.1579184]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 8,
+        "CASO": "Movimientos en masa en vías que pueden iniciar en cabecera de quebradas con presencia de zonas pobladas",
+        "ZONA_CRÍT": "BUSA-SAN FERNANDO",
+        "FECHA_DE_L": "20/3/2024",
+        "UTM_X": -79.266406457,
+        "UTM_Y": -3.1579184,
+        "ALTURA__ms": 2864,
+        "MOVIMIENTO": "Caída de Rocas",
+        "MOVIMIEN_1": "ninguno",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material rocoso meteorizado y fisurado",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea y pocos árboles",
+        "DAÑOS": "Complejo turístico",
+        "DESCRIPCI": "Intrusivo ígneo de composición dacítica con biotitas y hornblendas de gran tamaño. Presenta 2 familias de clivaje.",
+        "CÓDIGO_MU": "AZ-014",
+        "FECHA_DE_O": "2018",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.17",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.78028083, -2.83375468]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 9,
+        "CASO": "Movimientos en masa en vías que pueden iniciar en cabecera de quebradas con presencia de zonas pobladas",
+        "ZONA_CRÍT": "Llapzhun PAUTE",
+        "FECHA_DE_L": "9/4/2024",
+        "UTM_X": -78.780280827,
+        "UTM_Y": -2.83375468,
+        "ALTURA__ms": 2498,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Reptación",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material Plastico débil y posible filtración del reservorio de agua potable por mala impermeabilización.",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea, matorrales y árboles",
+        "DAÑOS": "Grietas en viviendas, parques y canchas.",
+        "DESCRIPCI": "Depósito coluvial con presencia de rocas metamorficas-esquistos (Posiblemente formación Alaó) y rocas volcanicas-andesitas (Posible formación Saraguro).",
+        "CÓDIGO_MU": "AZ-019 \n(746912-9684754)\nMuestra tomada en afloramiento a 5 min del punto referencial del deslizamiento",
+        "FECHA_DE_O": "jul-22",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.18",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.75708514, -2.78631224]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 10,
+        "CASO": "Movimientos en masa en vías que pueden iniciar en cabecera de quebradas con presencia de zonas pobladas",
+        "ZONA_CRÍT": "Chicti\nPAUTE",
+        "FECHA_DE_L": "11/4/2024",
+        "UTM_X": -78.757085145,
+        "UTM_Y": -2.786312241,
+        "ALTURA__ms": 2247,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Reptación",
+        "NIVEL_DE_H": "Seco",
+        "FACTOR_CON": "Material deleznable, Material Meteorizado y presencia de ojos de agua",
+        "FACTOR_DES": "Lluvias y socavación al pie del talud por vías",
+        "COBERTURA_": "Vegetación herbácea, matorrales y pocos árboles",
+        "DAÑOS": "Poco visibles en viviendas",
+        "DESCRIPCI": "Depósito coluvial con presencia de rocas volcanoclásticas-tobas soldadas (Posible formación Saraguro)",
+        "CÓDIGO_MU": "AZ-020 ; AZ-021",
+        "FECHA_DE_O": "Actividad histórica",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.19",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.695185, -2.7504127]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 11,
+        "CASO": "Movimientos en masa en vías que pueden iniciar en cabecera de quebradas con presencia de zonas pobladas",
+        "ZONA_CRÍT": "Uzhurloma\nPAUTE",
+        "FECHA_DE_L": "11/4/2024",
+        "UTM_X": -78.695185002,
+        "UTM_Y": -2.750412699,
+        "ALTURA__ms": 2542,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Reptación",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material plástico débil",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea y árboles",
+        "DAÑOS": "3 viviendas damnificadas, canal de riego con rupturas",
+        "DESCRIPCI": "Depósito coluvial con fragmentos de rocas metamórficas- esquistos grafitosos depositados debajo de un suelo rojizo (oxisol)",
+        "CÓDIGO_MU": "Sin muestra",
+        "FECHA_DE_O": "2019",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.20",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.28403531, -3.35671211]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 1,
+        "CASO": "Zonas pobladas asentadas sobre movimientos en masa antiguos cuyo coluvial se ha reactivado",
+        "ZONA_CRÍT": "Deslizamiento LA CRÍA",
+        "FECHA_DE_L": "16/3/2024",
+        "UTM_X": -79.284035307,
+        "UTM_Y": -3.356712106,
+        "ALTURA__ms": 1906,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Avalancha de escombros",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material deleznable, meteorizado e inadecuado manejo del drenaje.",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea y árboles",
+        "DAÑOS": "Viviendas, vías e hidroeléctrica",
+        "DESCRIPCI": "El pueblo esta asentado sobre un deposito coluvial poco consolidado, en el escarpe del paleodeslizamiento se encontraton andesitas con alteración hidrotermal (Alteración Propilítica)",
+        "CÓDIGO_MU": "AZ - 005",
+        "FECHA_DE_O": "Holoceno-paleodeslizamiento (reactivación 12/12/2022)",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.21",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.05195472, -3.333698]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 2,
+        "CASO": "Zonas pobladas asentadas sobre movimientos en masa antiguos cuyo coluvial se ha reactivado",
+        "ZONA_CRÍT": "Deslizamiento de NABÓN",
+        "FECHA_DE_L": "17/3/2024",
+        "UTM_X": -79.05195472,
+        "UTM_Y": -3.333698002,
+        "ALTURA__ms": 2958,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Avalancha de escombros",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material deleznable, meteorizado y mal manejo del sistema de riego.",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea, árboles, cultivos y suelo de construcción.",
+        "DAÑOS": "Viviendas, agricultura, ganaderia y vías",
+        "DESCRIPCI": "Depositos coluviales de un paleodeslizamiento, con clastos de tobas soldadas y ceniza. Material poco consolidado y altamente meteorizado.",
+        "CÓDIGO_MU": "AZ - 006, muestra de carbón en coluvial AZ-C, arcillas rojas muestra      AZ - 007",
+        "FECHA_DE_O": "Holoceno-Paleodeslizamiento (reactivado 14/03/2021)",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.22",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.11650333, -3.15100129]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 3,
+        "CASO": "Zonas pobladas asentadas sobre movimientos en masa antiguos cuyo coluvial se ha reactivado",
+        "ZONA_CRÍT": "Deslizameinto SAN JOSÉ DE ZAPATA",
+        "FECHA_DE_L": "17/3/2024",
+        "UTM_X": -79.116503328,
+        "UTM_Y": -3.151001288,
+        "ALTURA__ms": 2473,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Avalancha de escombros y laderas en reptación",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material deleznable, Material Meteorizado y Mal Manejo del Drenaje.",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea, árboles, matorrales y cuerpos de agua",
+        "DAÑOS": "No existe población asociada, solamente zonas de cultivos",
+        "DESCRIPCI": "Depositos coluviales de un paleodeslizamiento, con clastos de tobas soldadas, andesitas y ceniza. Material poco consolidado",
+        "CÓDIGO_MU": "AZ-024",
+        "FECHA_DE_O": "Holoceno-Paleodeslizamiento (reactivado 12/03/2023)",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.23",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.62204438, -2.69179316]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 4,
+        "CASO": "Zonas pobladas asentadas sobre movimientos en masa antiguos cuyo coluvial se ha reactivado",
+        "ZONA_CRÍT": "Deslizamiento de CHALACAY",
+        "FECHA_DE_L": "18/3/2024",
+        "UTM_X": -78.622044377,
+        "UTM_Y": -2.691793162,
+        "ALTURA__ms": 2273,
+        "MOVIMIENTO": "Caída de Rocas",
+        "MOVIMIEN_1": "Derrumbe de escombros",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material deleznable, fisurado o agrietado",
+        "FACTOR_DES": "Lluvias, socavación al pie del talud del río",
+        "COBERTURA_": "Vegetación Herbácea y árboles",
+        "DAÑOS": "Daños en la población y la represa de Mazar",
+        "DESCRIPCI": "Secuencias metamorficas de esquistos provenientes de la cordillera Real en contacto erosivo con un antiguo desposito coluvial con clastos piroclasticos (Tobas) y metamorficos (Esquistos).",
+        "CÓDIGO_MU": "AZ-010 (en el talud del río Paute)",
+        "FECHA_DE_O": "2010",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.24",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.75279056, -2.86890361]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 5,
+        "CASO": "Zonas pobladas asentadas sobre movimientos en masa antiguos cuyo coluvial se ha reactivado",
+        "ZONA_CRÍT": "Deslizamiento de SONDELEG",
+        "FECHA_DE_L": "19/3/2024",
+        "UTM_X": -78.752790561,
+        "UTM_Y": -2.868903607,
+        "ALTURA__ms": 2447,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Reptación",
+        "NIVEL_DE_H": "Muy húmedo",
+        "FACTOR_CON": "Material deleznable, meteorizado y mal manejo del drenaje",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea, árboles, matorrales y cuerpos de agua",
+        "DAÑOS": "Viviendas, vías y zona agrícola",
+        "DESCRIPCI": "Depósito coluvial con clastos metamorficos (Esquistos) y piroclasticos (tobas) poco consolidados",
+        "CÓDIGO_MU": "Sin muestra",
+        "FECHA_DE_O": "Holoceno-Paleodeslizamiento (reactivado año 2000)",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.25",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.95093467, -2.78408152]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 6,
+        "CASO": "Zonas pobladas asentadas sobre movimientos en masa antiguos cuyo coluvial se ha reactivado",
+        "ZONA_CRÍT": "Deslizamiento EL CALVARIO",
+        "FECHA_DE_L": "22/3/2024",
+        "UTM_X": -78.950934666,
+        "UTM_Y": -2.784081518,
+        "ALTURA__ms": 2816,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Reptación",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material deleznable, meteorizado y mal manejo del drenaje",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea y árboles",
+        "DAÑOS": "Ganadería, agricultura, viviendas y vías",
+        "DESCRIPCI": "Depositos aluviales con presencia de arenas, conglomerados y limos de composición andesítica.",
+        "CÓDIGO_MU": "Sin muestra",
+        "FECHA_DE_O": "2014",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.26",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.74395438, -2.89983025]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 7,
+        "CASO": "Zonas pobladas asentadas sobre movimientos en masa antiguos cuyo coluvial se ha reactivado",
+        "ZONA_CRÍT": "Deslizamiento de PISCARAY (Gualaceo)",
+        "FECHA_DE_L": "19-22/03/2024",
+        "UTM_X": -78.743954376,
+        "UTM_Y": -2.899830247,
+        "ALTURA__ms": 2447,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Reptación",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material deleznable, meteorizado y mal manejo del drenaje",
+        "FACTOR_DES": "Lluvias y rupturas en la conducción genera filtraciones",
+        "COBERTURA_": "Vegetación herbácea, matorrales, árbole y cuerpos de agua",
+        "DAÑOS": "Sistema de conducción de agua Gualaceo y viviendas",
+        "DESCRIPCI": "El sistema de captación y de conducción se ubican sobre antiguos depósito coluvial en el cual se observan fragmentos de rocas metamórficas",
+        "CÓDIGO_MU": "AZ-017",
+        "FECHA_DE_O": "2014",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.27",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.7380868, -2.90702337]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 7,
+        "CASO": "Zonas pobladas asentadas sobre movimientos en masa antiguos cuyo coluvial se ha reactivado",
+        "ZONA_CRÍT": "Deslizamiento de PISCARAY (Gualaceo)",
+        "FECHA_DE_L": "19-22/03/2024",
+        "UTM_X": -78.738086799,
+        "UTM_Y": -2.90702337,
+        "ALTURA__ms": 2447,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Reptación",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material deleznable, meteorizado y mal manejo del drenaje",
+        "FACTOR_DES": "Lluvias y rupturas en la conducción genera filtraciones",
+        "COBERTURA_": "Vegetación herbácea, matorrales, árbole y cuerpos de agua",
+        "DAÑOS": "Sistema de conducción de agua Gualaceo y viviendas",
+        "DESCRIPCI": "El sistema de captación y de conducción se ubican sobre antiguos depósito coluvial en el cual se observan fragmentos de rocas metamórficas",
+        "CÓDIGO_MU": "AZ-017",
+        "FECHA_DE_O": "2014",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.28",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.72771066, -2.85733689]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 8,
+        "CASO": "Zonas pobladas asentadas sobre movimientos en masa antiguos cuyo coluvial se ha reactivado",
+        "ZONA_CRÍT": "Mariano Moreno CALLASAY",
+        "FECHA_DE_L": "9/4/2024",
+        "UTM_X": -78.727710656,
+        "UTM_Y": -2.857336893,
+        "ALTURA__ms": 2769,
+        "MOVIMIENTO": "Reptación",
+        "MOVIMIEN_1": "ninguno",
+        "NIVEL_DE_H": "Muy húmedo",
+        "FACTOR_CON": "Material plástico débil y deficiente mantenimiento del sistema de drenaje (Presencia de ojos de agua)",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea, matorrales, árboles y cuerpos de agua",
+        "DAÑOS": "Grietas en escuela (Unidad Educativa Tomebamba) y viviendas",
+        "DESCRIPCI": "Suelo compuesto por arcillas rojas reflejando la alta meteorización de las rocas y el alto nivel de humedad, presencia de superficies aborregadas y reptación",
+        "CÓDIGO_MU": "AZ-018",
+        "FECHA_DE_O": "Evento hace aproximadamente 30 años (Según Jessica Bonilla parte del GAD)",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.29",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.68330792, -2.74195554]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 9,
+        "CASO": "Zonas pobladas asentadas sobre movimientos en masa antiguos cuyo coluvial se ha reactivado",
+        "ZONA_CRÍT": "Tomebamba PAUTE",
+        "FECHA_DE_L": "9/4/2024",
+        "UTM_X": -78.683307917,
+        "UTM_Y": -2.741955538,
+        "ALTURA__ms": 2384,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Reptación",
+        "NIVEL_DE_H": "Muy húmedo",
+        "FACTOR_CON": "Material plástico débil",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea y árboles",
+        "DAÑOS": "Grietas en viviendas y pequeños deslizamientos y flujos",
+        "DESCRIPCI": "Depósito coluvial reactivado, a la base posible formación rocosa más rígida (Posible formación Saraguro)",
+        "CÓDIGO_MU": "Sin muestra",
+        "FECHA_DE_O": "Julio 2022 (Falleció una persona)",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.30",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.64545181, -2.70565113]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 10,
+        "CASO": "Zonas pobladas asentadas sobre movimientos en masa antiguos cuyo coluvial se ha reactivado",
+        "ZONA_CRÍT": "Las Juntas PAUTE",
+        "FECHA_DE_L": "11/4/2024",
+        "UTM_X": -78.64545181,
+        "UTM_Y": -2.705651134,
+        "ALTURA__ms": 2434,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Reptación",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material plástico débil y mal sistema de riego (Riego por inundación, pozos sin impermeabilizar)",
+        "FACTOR_DES": "Lluvias y socavación al pie del talud por río",
+        "COBERTURA_": "Vegetación herbácea, matorrales y árboles",
+        "DAÑOS": "Grietas en viviendas, se extrae agua de pozos para potabilizar",
+        "DESCRIPCI": "Depósito coluvial con fragmentos de rocas metamórficas- esquistos grafitosos depositados debajo de un suelo rojizo (oxisol)",
+        "CÓDIGO_MU": "Sin muestra",
+        "FECHA_DE_O": "2022",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.31",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.83666981, -2.84025368]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 11,
+        "CASO": "Zonas pobladas asentadas sobre movimientos en masa antiguos cuyo coluvial se ha reactivado",
+        "ZONA_CRÍT": "Tushpu\nPAUTE-LA JOSEFINA",
+        "FECHA_DE_L": "11/4/2024",
+        "UTM_X": -78.836669807,
+        "UTM_Y": -2.840253678,
+        "ALTURA__ms": 2719,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Reptación",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material plástico débil",
+        "FACTOR_DES": "Lluvias",
+        "COBERTURA_": "Vegetación herbácea, matorrales y árboles",
+        "DAÑOS": "Viviendas y cultivos",
+        "DESCRIPCI": "Depósito coluvial con presencia de rocas volcanoclásticas-tobas soldadas (Posible formación Saraguro)",
+        "CÓDIGO_MU": "AZ-022 ; AZ-023",
+        "FECHA_DE_O": "1995",
+        "Field18": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Puntos.32",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-79.2455244, -3.1376002]
+      },
+      "geometry_name": "the_geom",
+      "properties": {
+        "No_": 4,
+        "CASO": "Movimientos en masa en vías que pueden iniciar en cabecera de quebradas con presencia de zonas pobladas",
+        "ZONA_CRÍT": "CHUMBLÍN BELLAVISTA",
+        "FECHA_DE_L": "16/3/2024",
+        "UTM_X": -79.245524404,
+        "UTM_Y": -3.137600201,
+        "ALTURA__ms": 2592,
+        "MOVIMIENTO": "Deslizamiento Rotacional",
+        "MOVIMIEN_1": "Flujo de escombros",
+        "NIVEL_DE_H": "Húmedo",
+        "FACTOR_CON": "Material deleznable y meteorizado, mantenimiento deficiente del sistema de drenaje",
+        "FACTOR_DES": "Lluvias, socavación al pie del talud (río Rircay)",
+        "COBERTURA_": "Vegetación herbácea y matorrales, suelo para ganadería",
+        "DAÑOS": "Puente, vía y casas aledañas a las quebradas",
+        "DESCRIPCI": "Reactivación de un depósito coluvial con clastos piroclasticos de la formación Santa Isabel y depósitos aluviales cuaternarios. Se obseravan huellas de reptación, ojos de agua y escarpes secundarios.",
+        "CÓDIGO_MU": "AZ - 015 y AZ - 016",
+        "FECHA_DE_O": "1/3/2024",
+        "Field18": ""
+      }
+    }
+  ],
+  "totalFeatures": 32,
+  "numberMatched": 32,
+  "numberReturned": 32,
+  "timeStamp": "2024-06-28T15:07:00.086Z",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::4326"
+    }
+  }
+}

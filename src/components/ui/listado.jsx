@@ -1,60 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 import "tailwindcss/tailwind.css";
 import Search from "./Search";
 import categories from "../../utils/categories";
 import projects from "../../utils/proyects";
-import DateRangePicker from "flowbite-datepicker/DateRangePicker";
+// import DateRangePicker from "flowbite-datepicker/DateRangePicker";
 import Post from "../../components/ui/post";
 import SearchAutoComplete from "../../components/ui/SearchAutoComplete";
 
 export default function Listado() {
-  // Función para aplicar los filtros
-
-  const applyFilters = () => {
-    console.log("Antes de aplicar filtros:", projects);
-
-    let filteredItems = projects; // Inicialmente, los proyectos sin filtrar
-
-    // Filtra por fuente
-    console.log("selectedOption:", selectedOption);
-
-    if (selectedOption !== "Seleccione la fuente") {
-      filteredItems = filteredItems.filter((item) =>
-        item.fuente.some((fuente) => {
-          console.log("fuente.name:", fuente.name);
-          console.log("selectedOption:", selectedOption);
-          return fuente.name.toLowerCase() === selectedOption.toLowerCase();
-        }),
-      );
-    }
-
-    // Continúa con el resto de tu lógica y uso de filteredItems
-
-    // Filtra por autor
-    // if (selectedAutor) {
-    //   filteredItems = filteredItems.filter((item) =>
-    //     item.autor.toLowerCase().includes(selectedAutor.toLowerCase())
-    //   );
-    // }
-
-    // Filtra por fecha
-    // if (startDate && endDate) {
-    //   filteredItems = filteredItems.filter((item) => {
-    //     const projectDate = new Date(item.fechaPublicacion);
-    //     const start = new Date(startDate);
-    //     const end = new Date(endDate);
-
-    //     return projectDate >= start && projectDate <= end;
-    //   });
-    // }
-
-    // Actualiza la lista de proyectos con los filtros aplicados
-    setItems(filteredItems);
-  };
-
-  // Define tu lista de elementos
-
   const [startDate, setStartDate] = useState(null); // Filtro de fecha de inicio
   const [endDate, setEndDate] = useState(null); // Filtro de fecha de fin
   //const [filteredItems, setFilteredItems] = useState(projects);
@@ -88,33 +42,84 @@ export default function Listado() {
     setCurrentPage(0);
   };
 
-  useEffect(() => {
-    const options = {
-      startDate: new Date(), // Fecha de inicio predeterminada
-      endDate: new Date(), // Fecha de fin predeterminada
-      format: "yyyy-mm-dd", // Formato de fecha
-      numberOfMonths: 2, // Número de meses visibles en el calendario
-      minDate: null, // Fecha mínima permitida
-      maxDate: null, // Fecha máxima permitida
-      allowSelectDates: true, // Permite la selección de fechas
-      onSelect: (date) => {
-        console.log("Fecha seleccionada:", date);
-      },
-      // Otras opciones específicas de la biblioteca
-    };
-    const onchange = (selectedDates, dateStr, instance) => {
-      // Aquí puedes controlar cuando la fecha cambia
-      console.log("Fechas seleccionadas:", selectedDates);
-      console.log("Fecha como cadena:", dateStr);
-    };
-    const dateRangePickerEl = document.getElementById("dateRangePickerId");
-    new DateRangePicker(dateRangePickerEl, onchange, options);
-  }, []);
+  // useEffect(() => {
+  //   const options = {
+  //     startDate: new Date(), // Fecha de inicio predeterminada
+  //     endDate: new Date(), // Fecha de fin predeterminada
+  //     format: "yyyy-mm-dd", // Formato de fecha
+  //     numberOfMonths: 2, // Número de meses visibles en el calendario
+  //     minDate: null, // Fecha mínima permitida
+  //     maxDate: null, // Fecha máxima permitida
+  //     allowSelectDates: true, // Permite la selección de fechas
+  //     onSelect: (date) => {
+  //       console.log("Fecha seleccionada:", date);
+  //     },
+  //     // Otras opciones específicas de la biblioteca
+  //   };
+  //   const onchange = (selectedDates, dateStr, instance) => {
+  //     // Aquí puedes controlar cuando la fecha cambia
+  //     console.log("Fechas seleccionadas:", selectedDates);
+  //     console.log("Fecha como cadena:", dateStr);
+  //   };
+  //   const dateRangePickerEl = document.getElementById("dateRangePickerId");
+  //   new DateRangePicker(dateRangePickerEl, onchange, options);
+  // }, []);
+  // Función para aplicar los filtros
 
+  const applyFilters = (value, type) => {
+    console.log("Antes de aplicar filtros:", projects);
+
+    let filteredItems = projects; // Inicialmente, los proyectos sin filtrar
+    if (type === "fuente") {
+      // Filtra por fuente
+      console.log("selectedOption:", value);
+
+      if (value !== "Seleccione la fuente") {
+        filteredItems = filteredItems.filter((item) =>
+          item.fuente.some((fuente) => {
+            console.log("fuente.name:", fuente.name);
+            console.log("selectedOption:", value);
+            return fuente.name.toLowerCase() === value.toLowerCase();
+          }),
+        );
+      }
+    }
+
+    if (type === "autor") {
+      // Continúa con el resto de tu lógica y uso de filteredItems
+
+      // Filtra por autor
+      if (value) {
+        filteredItems = filteredItems.filter((item) =>
+          item.autores.some((autor) => {
+            console.log("auttor.name:", autor.name);
+            console.log("selectedOption:", value);
+            return autor.name.toLowerCase() === value.toLowerCase();
+          }),
+        );
+      }
+    }
+
+    // Filtra por fecha
+    // if (startDate && endDate) {
+    //   filteredItems = filteredItems.filter((item) => {
+    //     const projectDate = new Date(item.fechaPublicacion);
+    //     const start = new Date(startDate);
+    //     const end = new Date(endDate);
+
+    //     return projectDate >= start && projectDate <= end;
+    //   });
+    // }
+
+    // Actualiza la lista de proyectos con los filtros aplicados
+    const uniqueItems = filteredItems.filter((item, index, self) => {
+      return index === self.findIndex((t) => t.id === item.id);
+    });
+    setItems(uniqueItems);
+  };
   const handleOptionChange = (selectedValue) => {
     setSelectedOption(selectedValue);
-    console.log("selectedOption:", selectedValue);
-    applyFilters();
+
     //Aquí puedes ejecutar diferentes funciones según la opción seleccionada
     if (selectedValue !== "Seleccione la fuente") {
       filtros.push({
@@ -138,12 +143,12 @@ export default function Listado() {
       }
     }
     setFiltros(filtros);
+    applyFilters(selectedValue, "fuente");
   };
 
   const obtenerValorAutor = (valor) => {
     console.log("Valor obtenido:", valor);
     setAutor(valor.name);
-    //applyFilters();
     const existe = filtros.find((item) => item.id === 3);
     console.log(existe);
     if (existe === null || existe === undefined) {
@@ -170,11 +175,12 @@ export default function Listado() {
       existe.description = valor.name;
     }
     setFiltros(filtros);
+    applyFilters(valor.name, "autor");
     //console.log("Valor obtenido:", valor);
     // Haz lo que quieras con el valor aquí
   };
   const handleDeleteFiltro = (id) => {
-    const updatedFiltros = filtros.filter((item) => item.id !== id);
+    const updatedFiltros = filtros.filter((item, index) => index !== id);
     // Actualiza el arreglo filtros con el nuevo arreglo sin el elemento eliminado
     setFiltros(updatedFiltros);
     //actualizamos el filtro a valores por defecto
@@ -191,6 +197,9 @@ export default function Listado() {
         break;
       default:
         break;
+    }
+    if (updatedFiltros.length === 0) {
+      setItems(projects);
     }
   };
 
@@ -270,13 +279,13 @@ export default function Listado() {
                   Filtros de busqueda
                 </p>
                 <div className="mt-5">
-                  {filtros.map((fil) => (
+                  {filtros.map((fil, index) => (
                     <div
-                      key={fil.id}
+                      key={index}
                       className="dark:rose:ring-rose-800 mr-2 mt-2 inline-flex items-center rounded border border-rose-700 p-1.5 text-center text-sm font-medium text-rose-700 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-rose-300 dark:border-rose-500 dark:text-rose-500 dark:hover:bg-rose-500 dark:hover:text-white"
                     >
                       {fil.content}
-                      <button onClick={() => handleDeleteFiltro(fil.id)}>
+                      <button onClick={() => handleDeleteFiltro(index)}>
                         <svg
                           className="h-2 w-2"
                           aria-hidden="true"
@@ -332,74 +341,6 @@ export default function Listado() {
                     onClick={obtenerValorAutor}
                     value={selectedAutor}
                   />
-                </div>
-              </div>
-              <div
-                id="filter"
-                className="mb-5 rounded-lg border border-solid p-5"
-              >
-                <div className="container mx-auto p-2">
-                  <label className="mb-5 block text-sm font-semibold text-gray-600 dark:text-white">
-                    Fecha de publicación:
-                  </label>
-
-                  <div
-                    date-rangepicker="true"
-                    className="flex items-center"
-                    id="dateRangePickerId"
-                  >
-                    <div className="relative">
-                      <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                        <svg
-                          className="h-4 w-4 text-gray-500 dark:text-gray-400"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                        </svg>
-                      </div>
-                      <input
-                        readOnly={true}
-                        name="start"
-                        type="text"
-                        // value={startDate}
-                        className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-rose-500 focus:ring-rose-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-rose-500 dark:focus:ring-rose-500"
-                        placeholder="Select date start"
-                        onSelect={(e) => handleDateChange(true, e.target.value)}
-                        // onChange={(e) => handleDateChange(true, e.target.value)}
-                      />
-                    </div>
-                    <span className="mx-4 text-gray-500">to</span>
-                    <div className="relative">
-                      <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                        <svg
-                          className="h-4 w-4 text-gray-500 dark:text-gray-400"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                        </svg>
-                      </div>
-                      <input
-                        readOnly={true}
-                        name="end"
-                        type="text"
-                        className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-rose-500 focus:ring-rose-500  dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-rose-500 dark:focus:ring-rose-500"
-                        placeholder="Select date end"
-                        onSelect={(e) =>
-                          handleDateChange(false, e.target.value)
-                        }
-                        // value={endDate}
-                        // onChange={(e) =>
-                        //   handleDateChange(false, e.target.value)
-                        // }
-                      />
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

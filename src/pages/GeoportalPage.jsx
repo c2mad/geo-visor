@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-// import imgriesgos from "assets/images/mapa-riesgos.jpg";
-// import imgturismo from "assets/images/mapas-turismo.jpg";
 import "../assets/css/home.css";
 import categorias from "../utils/categories";
 import proyectos from "../utils/proyects";
@@ -15,46 +13,43 @@ export const GeoportalPage = () => {
 
   //Busqueda de proyectos
   const search2 = (searchQuery) => {
-    // Filtra los elementos que coinciden con la consulta de búsqueda en el título
     const filteredItems = proyectos.filter(
       (item) =>
         item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.description.toLowerCase().includes(searchQuery.toLowerCase()),
     );
-    // Actualiza la lista de elementos y restablece la página actual
     setItems(filteredItems);
     setCurrentPage(0);
   };
+
   return (
     <>
       <div className="bg-inherit">
         <div id="tittle and description" className="w-full">
           <section className="background-home py-20">
-            <div className="grid content-center items-stretch gap-4 py-20  pt-10 text-white sm:grid-cols-1 md:grid-cols-1  lg:grid-cols-2">
-              <div className="px-10 sm:px-10 md:px-20 lg:px-40">
-                <div className="bt-6 pb-6  text-white">
-                  <h3 className="display-5 text-[38px]">
-                    <span className="font-bold"> GEOPORTAL</span>{" "}
-                    <span className="font-semibold text-rose-600"> UCACUE</span>
+            <div className="grid content-center items-stretch gap-4 py-20 pt-10 text-white sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
+              <div className="px-6 sm:px-8 md:px-12 lg:px-20">
+                <div className="bt-6 pb-6 text-white">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-bold">
+                    GEOPORTAL{" "}
+                    <span className="font-semibold text-rose-600">UCACUE</span>
                   </h3>
                 </div>
-                <div className="mx-auto">
-                  <div className="text-white">
-                    <p className="lead font-sans ">
-                      La Universidad Cátolica de Cuenca, pone a disposición de
-                      la ciudadanía en general, una herramienta que permite a
-                      los usuarios el acceso a una serie de recursos y servicios
-                      basados en información geográfica dentro del area de sus
-                      competencias. La misma está diseñada para explorar y
-                      descargar una variedad de datos que son de utilidad para
-                      un mayor conocimiento del territorio.
-                    </p>
-                  </div>
+                <div className="text-white">
+                  <p className="text-sm sm:text-base md:text-lg font-sans">
+                    La Universidad Cátolica de Cuenca, pone a disposición de la
+                    ciudadanía en general, una herramienta que permite a los
+                    usuarios el acceso a una serie de recursos y servicios
+                    basados en información geográfica dentro del area de sus
+                    competencias. La misma está diseñada para explorar y
+                    descargar una variedad de datos que son de utilidad para un
+                    mayor conocimiento del territorio.
+                  </p>
                 </div>
               </div>
-              <div className="flex h-full items-center justify-center ">
+              <div className="flex h-full items-center justify-center">
                 <form className="w-full px-10">
-                  <div className="flex sm:px-0 md:px-10">
+                  <div className="flex flex-col sm:flex-row sm:px-0 md:px-10">
                     <div
                       id="dropdown"
                       className="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700"
@@ -65,20 +60,20 @@ export const GeoportalPage = () => {
                       >
                         {categories.map((category) => (
                           <li key={category.id}>
-                            <button
+                            <a
+                              href={"/proyects/category/" + category.id}
                               type="button"
                               className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                             >
                               {category.name}
-                            </button>
+                            </a>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <div className="flex">
+                    <div className="flex w-full">
                       <Search onSearch={search2} />
-                      {""}
                     </div>
                   </div>
                 </form>
@@ -91,20 +86,12 @@ export const GeoportalPage = () => {
           id="categorias"
           className="mx-auto w-full max-w-[1100px] px-3 dark:text-white"
         >
-          <div className="mt-1  ">
+          <div className="mt-1">
             <section>
               <h3 className="mb-6 text-center text-4xl font-semibold text-black dark:text-white">
                 Categorias de Datos
               </h3>
-              {/* <p className="lead pb-5 pt-5 font-sans ">
-                Explore nuestro catálogo de datos geoespaciales para descubrir
-                una amplia gama de información relacionada con ubicaciones
-                geográficas. Desde mapas detallados hasta imágenes satelitales
-                de alta resolución, aquí encontrará recursos esenciales para la
-                navegación, planificación urbana, investigaciones científicas y
-                mucho más.
-              </p> */}
-              <div className="grid-cols-1 sm:grid md:grid-cols-3 ">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
                 {categories.map((item) => {
                   return (
                     <div
@@ -113,16 +100,15 @@ export const GeoportalPage = () => {
                     >
                       <a
                         href={item.to}
-                        className=" block overflow-hidden rounded-lg"
+                        className="block overflow-hidden rounded-lg"
                       >
                         <img
                           className="h-auto w-full rounded-lg"
                           src={item.image}
                           alt={item.name}
                         />
-                        <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-center  font-medium text-white">
+                        <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-center font-medium text-white">
                           <p>{item.name}</p>
-                          {/* <p className="text-[14px]">{item.description}</p> */}
                         </div>
                       </a>
                     </div>

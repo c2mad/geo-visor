@@ -20,11 +20,15 @@ export const Legend = ({ key3, key4, key5 }) => {
           onClick={handleClick}
         >
           {toggle ? (
-            <img
-              src={key3 ? isoPeriodo : key4 ? geoLocal : key5 ? geoGlobal : ""}
-              alt="geoglobal"
-              className="h-full w-full object-cover"
-            />
+            <>
+              {/* <img
+                src={
+                  key3 ? isoPeriodo : key4 ? geoLocal : key5 ? geoGlobal : ""
+                }
+                alt="geoglobal"
+                className="h-full w-full object-cover"
+              /> */}
+            </>
           ) : (
             <TableIcon />
           )}

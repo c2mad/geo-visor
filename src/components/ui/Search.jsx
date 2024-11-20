@@ -1,23 +1,40 @@
 import React, { useState } from "react";
 import categorias from "../../utils/categories";
+
 const Search = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [categories] = useState(categorias);
+  const [categories] = useState([
+    { id: 0, name: "All categories" },
+    ...categorias,
+  ]);
+  const [selectedCategory, setSelectedCategory] = useState("All categories");
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+
   const handleSearch = (e) => {
     e.preventDefault();
     onSearch(searchQuery);
   };
 
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category.name);
+    setDropdownVisible(false);
+  };
+
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible);
+  };
+
   return (
     <form className="w-full px-3" onSubmit={handleSearch}>
-      <div className="flex sm:px-0 md:px-3">
+      <div className="relative flex sm:px-0 md:px-3">
         <button
           id="dropdown-button"
           data-dropdown-toggle="dropdown"
           className="z-10 inline-flex flex-shrink-0 items-center rounded-l-lg border border-gray-300 bg-gray-100 px-4 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700"
           type="button"
+          onClick={toggleDropdown}
         >
-          All categories{" "}
+          {selectedCategory}{" "}
           <svg
             className="ml-2.5 h-2.5 w-2.5"
             aria-hidden="true"
@@ -28,35 +45,37 @@ const Search = ({ onSearch }) => {
             <path stroke="currentColor" d="m1 1 4 4 4-4" />
           </svg>
         </button>
-        <div
-          id="dropdown"
-          className="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700"
-        >
-          <ul
-            className="py-2 text-sm text-gray-700 dark:text-gray-200"
-            aria-labelledby="dropdown-button"
+        {dropdownVisible && (
+          <div
+            id="dropdown"
+            className="absolute left-0 z-10 mt-12 w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700"
           >
-            {categories.map((category) => (
-              <li key={category.id}>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  {category.name}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+            <ul
+              className="py-2 text-sm text-gray-700 dark:text-gray-200"
+              aria-labelledby="dropdown-button"
+            >
+              {categories.map((category) => (
+                <li key={category.id}>
+                  <button
+                    type="button"
+                    className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    onClick={() => handleCategorySelect(category)}
+                  >
+                    {category.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         <div className="relative w-full">
           <input
             onChange={(e) => setSearchQuery(e.target.value)}
             value={searchQuery}
             type="search"
             id="search-dropdown"
-            className="z-20 block w-full rounded-r-lg border border-l-2 border-gray-300 border-l-gray-50 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-rose-500 focus:ring-rose-500 dark:border-gray-600 dark:border-l-gray-700  dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-rose-500"
+            className="z-20 block w-full rounded-r-lg border border-l-2 border-gray-300 border-l-gray-50 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-rose-500 focus:ring-rose-500 dark:border-gray-600 dark:border-l-gray-700 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-rose-500"
             placeholder="Buscar..."
-            // required
           />
           <button
             type="submit"

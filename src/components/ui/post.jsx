@@ -43,7 +43,7 @@ const Post = ({ proyects, categories }) => {
                   {"Categoría: "}
                   {
                     categories.find(
-                      (category) => category.id === proyect.category
+                      (category) => category.id === proyect.category,
                     ).name
                   }
                 </p>

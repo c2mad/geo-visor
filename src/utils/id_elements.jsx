@@ -13,14 +13,14 @@ const ide_elements = [
     image: imgmap,
     to: "/geoportal",
   },
-  {
-    id: 2,
-    name: "Descargas",
-    description:
-      "Descarga en diferentes formatos de las información geoespacial",
-    image: imgdw,
-    to: "/proyects",
-  },
+  // {
+  //   id: 2,
+  //   name: "Descargas",
+  //   description:
+  //     "Descarga en diferentes formatos de las información geoespacial",
+  //   image: imgdw,
+  //   to: "/proyects",
+  // },
   {
     id: 3,
     name: "Geoservicios",
@@ -35,13 +35,13 @@ const ide_elements = [
     image: imgnorm,
     to: "/normativa",
   },
-  {
-    id: 5,
-    name: "Metadatos",
-    description: "Metadatos de cada proyecto",
-    image: imgmetadatos,
-    to: "/metadatos",
-  },
+  // {
+  //   id: 5,
+  //   name: "Metadatos",
+  //   description: "Metadatos de cada proyecto",
+  //   image: imgmetadatos,
+  //   to: "/metadatos",
+  // },
   {
     id: 6,
     name: "Manual",
