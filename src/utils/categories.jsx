@@ -1,9 +1,9 @@
 import imgriesgos from "../assets/images/riesgos.jpeg";
-import imgturismo from "../assets/images/turismo.jpeg";
-import imgviabilidad from "../assets/images/viabilidad.jpeg";
-import imgmedioambiente from "../assets/images/medioambiente.jpeg";
-import imgsuelos from "../assets/images/suelos.jpeg";
-import imgurbanismo from "../assets/images/urbanismo.jpeg";
+// import imgturismo from "../assets/images/turismo.jpeg";
+// import imgviabilidad from "../assets/images/viabilidad.jpeg";
+// import imgmedioambiente from "../assets/images/medioambiente.jpeg";
+// import imgsuelos from "../assets/images/suelos.jpeg";
+// import imgurbanismo from "../assets/images/urbanismo.jpeg";
 const categories = [
   {
     id: 1,
@@ -12,13 +12,13 @@ const categories = [
     image: imgriesgos,
     to: "/proyects/riesgos",
   },
-  {
-    id: 2,
-    name: "Turísticos",
-    description: "Turísticos",
-    image: imgturismo,
-    to: "/proyects",
-  },
+  // {
+  //   id: 2,
+  //   name: "Turísticos",
+  //   description: "Turísticos",
+  //   image: imgturismo,
+  //   to: "/proyects",
+  // },
   // {
   //   id: 3,
   //   name: "Vial",

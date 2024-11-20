@@ -1,5 +1,5 @@
 import ProjectDetails from "components/ui/ProjectDetails";
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 export const MoreInfoPage = () => {
   return (

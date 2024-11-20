@@ -2,71 +2,77 @@ import React from "react";
 import firstProjects from "utils/proyects";
 
 const ProjectDetails = () => {
-  // Obtén el primer proyecto de la matriz
   const firstProject = firstProjects[0];
 
   if (!firstProject) {
     return (
-      <p className="text-red-500 dark:text-white">Proyecto no encontrado</p>
+      <div className="text-center">
+        <p className="text-red-500 dark:text-red-400 text-lg font-semibold">
+          Proyecto no encontrado
+        </p>
+      </div>
     );
   }
 
-  // Muestra los detalles del primer proyecto
   return (
-    <div className="mx-auto w-full max-w-[1500px] px-4 py-8">
-      <h2 className="mb-6 text-center text-3xl font-bold">
-        {firstProject.title}
-      </h2>
+    <div className="mx-auto w-full max-w-5xl p-6">
+      <div className="rounded-lg bg-gradient-to-r from-black to-red p-1">
+        <div className="rounded-lg bg-white p-5 shadow-lg dark:bg-gray-800">
+          <h2 className="mb-4 text-center text-3xl font-bold text-gray-800 dark:text-white">
+            {firstProject.title}
+          </h2>
 
-      <div className="flex flex-col items-center md:flex-row">
-        {/* Imagen en la columna izquierda con borde */}
-        <div className="mb-4 md:mb-0 md:mr-6 md:w-1/2">
-          <img
-            src={firstProject.imageUrl}
-            alt={firstProject.title}
-            className="h-auto w-full rounded-lg border border-gray-300"
-          />
+          <div className="flex flex-col gap-6 md:flex-row">
+            <div className="flex-1">
+              <img
+                src={firstProject.imageUrl}
+                alt={firstProject.title}
+                className="transform rounded-lg shadow-lg transition duration-500 hover:scale-105"
+              />
+            </div>
+
+            <div className="flex-1 space-y-4">
+              <div className="rounded-lg border border-gray-300 p-4 shadow-md dark:border-gray-700">
+                <p className="text-gray-700 dark:text-gray-300">
+                  {firstProject.description}
+                </p>
+              </div>
+
+              <div className="rounded-lg border border-gray-300 p-4 shadow-md dark:border-gray-700">
+                <dl>
+                  <div className="pb-2">
+                    <dt className="font-semibold">Publicado:</dt>
+                    <dd>{firstProject.publication}</dd>
+                  </div>
+                  <div className="pb-2">
+                    <dt className="font-semibold">Fuente:</dt>
+                    <dd>
+                      {firstProject.fuente.map((f, index) => (
+                        <span key={f.id}>
+                          {f.name}
+                          {index < firstProject.fuente.length - 1 ? ", " : ""}
+                        </span>
+                      ))}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold">
+                      {firstProject.autores.length > 1 ? "Autores:" : "Autor:"}
+                    </dt>
+                    <dd>
+                      {firstProject.autores.map((autor, index) => (
+                        <span key={autor.id}>
+                          {autor.name}
+                          {index < firstProject.autores.length - 1 ? ", " : ""}
+                        </span>
+                      ))}
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
         </div>
-
-        {/* Descripción en la columna derecha con borde */}
-        <div className="rounded-lg border border-gray-300 p-4 md:w-1/2">
-          <p className="text-lg text-gray-700">{firstProject.description}</p>
-        </div>
-      </div>
-
-      <div className="mt-8 text-xl text-neutral-500 dark:text-neutral-300">
-        <table className="w-full">
-          <tbody>
-            <tr>
-              <td className="pr-2 font-semibold">Publicado:</td>
-              <td>{firstProject.publication}</td>
-            </tr>
-            <tr>
-              <td className="pr-2 font-semibold">Fuente:</td>
-              <td>
-                {firstProject.fuente.map((f, index) => (
-                  <span key={f.id}>
-                    {f.name}
-                    {index < firstProject.fuente.length - 1 && ", "}
-                  </span>
-                ))}
-              </td>
-            </tr>
-            <tr>
-              <td className="pr-2 font-semibold">
-                {firstProject.autores.length > 1 ? "Autores:" : "Autor:"}
-              </td>
-              <td>
-                {firstProject.autores.map((autor, index) => (
-                  <span key={autor.id}>
-                    {autor.name}
-                    {index < firstProject.autores.length - 1 && ", "}
-                  </span>
-                ))}
-              </td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
   );

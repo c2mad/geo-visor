@@ -5,7 +5,7 @@ const proyects = [
     title:
       "Implementación de un geovisor para la visualización de las propiedades geodinámicas y geomorfológicas del subsuelo: caso de estudio Cuenca, Azuay, Ecuador",
     imageUrl: imgjoseproject,
-    publication: "2023",
+    publication: "2023-08-03",
     description:
       "El crecimiento urbano y la falta de estudios de suelos adecuados antes de construir edificaciones generan vulnerabilidad estructural. Para abordar este problema, se propone la creación de una base de datos estandarizada que reúna información sísmica y geotécnica en un geovisor de fácil acceso. Esto mejorará la toma de decisiones en la construcción de infraestructuras en la región de Cuenca, Azuay, Ecuador, reduciendo riesgos y omisiones en proyectos civiles.",
     fuente: [
@@ -18,41 +18,41 @@ const proyects = [
     to: "/mapas/jose",
     visitas: 0,
   },
-  // {
-  //   id: 2,
-  //   title:
-  //     "Deslizamientos: carcterización de sus factores morfologicos y ambientales",
-  //   imageUrl: imgjoseproject,
-  //   publication: "12 de Agosto 2023",
-  //   description:
-  //     "It is difficult to believe that we have become so used to having instant access to information at.",
-  //   fuente: [{ id: 1, name: "SIGDATA" }],
-  //   layeritem: "Leer más",
-  //   category: 2,
-  //   autores: [
-  //     { id: 1, name: "Dra. Sandra Cobos" },
-  //     { id: 2, name: "Dr. Setefano Torrachi" },
-  //   ],
-  //   to: "/mapas/jose",
-  //   visitas: 0,
-  // },
-  // {
-  //   id: 3,
-  //   title: "Turístico",
-  //   imageUrl: imgjoseproject,
-  //   publication: "12 de Agosto 2023",
-  //   description:
-  //     "It is difficult to believe that we have become so used to having instant access to information at.",
-  //   fuente: [{ id: 1, name: "SIGDATA" }],
-  //   layeritem: "Leer más",
-  //   category: 3,
-  //   autores: [
-  //     { id: 1, name: "Erika Trujillo" },
-  //     { id: 2, name: "Bryam Sebastian Carmona" },
-  //   ],
-  //   to: "/mapas/jose",
-  //   visitas: 0,
-  // },
+  {
+    id: 2,
+    title:
+      "Deslizamientos: carcterización de sus factores morfologicos y ambientales",
+    imageUrl: imgjoseproject,
+    publication: "12 de Agosto 2023",
+    description:
+      "It is difficult to believe that we have become so used to having instant access to information at.",
+    fuente: [{ id: 1, name: "SIGDATA" }],
+    layeritem: "Leer más",
+    category: 2,
+    autores: [
+      { id: 1, name: "Dra. Sandra Cobos" },
+      { id: 2, name: "Dr. Setefano Torrachi" },
+    ],
+    to: "/mapas/jose",
+    visitas: 0,
+  },
+  {
+    id: 3,
+    title: "Turístico",
+    imageUrl: imgjoseproject,
+    publication: "12 de Agosto 2023",
+    description:
+      "It is difficult to believe that we have become so used to having instant access to information at.",
+    fuente: [{ id: 1, name: "SIGDATA" }],
+    layeritem: "Leer más",
+    category: 3,
+    autores: [
+      { id: 1, name: "Erika Trujillo" },
+      { id: 2, name: "Bryam Sebastian Carmona" },
+    ],
+    to: "/mapas/jose",
+    visitas: 0,
+  },
   // {
   //   id: 4,
   //   title: "Infraestructura",

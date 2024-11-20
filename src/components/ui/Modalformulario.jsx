@@ -1,209 +1,252 @@
-import { ChoseLayerItem } from "components/maps/ChoseLayerItem";
-import { GeoViewerJose } from "components/maps/GeoViewerJose";
-import { Link } from "react-router-dom";
-//Shapefiles
-import shgeotecnica from "../utils/Shapefile/info_geotecnica.zip";
-import shgeoazuay from "../utils/Shapefile/geo_azuay.zip";
-import shgeolocal from "../utils/Shapefile/geo_local.zip";
-import shcalicatas from "../utils/Shapefile/exploracion_calicatas.zip";
-import shiso from "../utils/Shapefile/iso_periodos.zip";
-import shazuay from "../utils/Shapefile/parroquias_azuay.zip";
-import shperfil from "../utils/Shapefile/perfil_estratigrаfico.zip";
-//Tifs
-import tiffpgs from "../utils/jose-info_geotecnica.tif";
-import tiffgeoazuay from "../utils/jose-geo_azuay.tif";
-import tiffgeolocal from "../utils/jose-geo_local.tif";
-import tiffcalicatas from "../utils/jose-exploracion_calicatas.tif";
-import tiffiso from "../utils/jose-iso_periodos.tif";
-import tiffazuay from "../utils/jose-parroquias_azuay.tif";
-import tiffperfil from "../utils/jose-perfil_estratigrafico.tif";
-
-import {
-  useExpCalicatas,
-  useGeoAzuay,
-  useGeoLocal,
-  useInfoGeotecnica,
-  useIsoPeriodos,
-  useParrAzuay,
-  usePerfilEstra,
-} from "hooks/useMap";
 import { useState } from "react";
-import proyects from "utils/proyects";
+import React from "react";
+import shgeotecnica from "../../utils/Shapefile/info_geotecnica.zip";
+import shgeoazuay from "../../utils/Shapefile/geo_azuay.zip";
+import shgeolocal from "../../utils/Shapefile/geo_local.zip";
+import shcalicatas from "../../utils/Shapefile/exploracion_calicatas.zip";
+import shiso from "../../utils/Shapefile/iso_periodos.zip";
+import shazuay from "../../utils/Shapefile/parroquias_azuay.zip";
+import shperfil from "../../utils/Shapefile/perfil_estratigrаfico.zip";
+import tiffpgs from "../../utils/jose-info_geotecnica.tif";
+import tiffgeoazuay from "../../utils/Shapefile/geo_azuay.zip";
+import tiffgeolocal from "../../utils/Shapefile/geo_local.zip";
+import tiffcalicatas from "../../utils/Shapefile/exploracion_calicatas.zip";
+import tiffiso from "../../utils/Shapefile/iso_periodos.zip";
+import tiffazuay from "../../utils/Shapefile/parroquias_azuay.zip";
+import tiffperfil from "../../utils/Shapefile/perfil_estratigrаfico.zip";
 
-export const JoseMapsPage = () => {
-  const [key0, setKey0] = useState(false);
-  const [key1, setKey1] = useState(false);
-  const [key2, setKey2] = useState(false);
-  const [key3, setKey3] = useState(false);
-  const [key4, setKey4] = useState(false);
-  const [key5, setKey5] = useState(false);
-  const [key6, setKey6] = useState(false);
+export const Modalformulario = () => {
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [email, setEmail] = useState("");
+  const [institucion, setInstitucion] = useState("");
+  //const [motivodescarga, setMotivo] = useState("");
+  const [sectorpertenece, setSector] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  // Estado para controlar la visibilidad del submenú
-  const [isSubmenuVisible, setIsSubmenuVisible] = useState(false);
+    // Construir el objeto con los datos del formulario
+    const formData = {
+      nombre,
+      apellido,
+      email,
+      institucion,
+      //motivodescarga,
+      sectorpertenece,
+    };
 
-  // Función para alternar la visibilidad del submenú
-  const toggleSubmenu = () => {
-    setIsSubmenuVisible(!isSubmenuVisible);
+    try {
+      const response = await fetch("http://localhost:3001/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Correo electrónico enviado con éxito");
+        // Limpiar el formulario aquí
+      } else {
+        const errorData = await response.json(); // Suponiendo que el servidor devuelve un JSON con detalles del error
+        alert(`Error al enviar: ${errorData.message}`);
+      }
+    } catch (error) {
+      console.error("Error de red:", error);
+      alert(
+        "Error de red al intentar enviar el correo electrónico. Verifica tu conexión."
+      );
+    }
   };
 
-  const { data: infoGeotecnica, isLoading: isLoadingKey0 } = useInfoGeotecnica({
-    enabled: key0,
-  });
-
-  const { data: expCalicatas, isLoading: isLoadingKey1 } = useExpCalicatas({
-    enabled: key1,
-  });
-
-  const { data: perfilEstra, isLoading: isLoadingKey2 } = usePerfilEstra({
-    enabled: key2,
-  });
-
-  const { data: isoPeriodos, isLoading: isLoadingKey3 } = useIsoPeriodos({
-    enabled: key3,
-  });
-
-  const { data: geoLocal, isLoading: isLoadingKey4 } = useGeoLocal({
-    enabled: key4,
-  });
-
-  const { data: geoAzuay, isLoading: isLoadingKey5 } = useGeoAzuay({
-    enabled: key5,
-  });
-
-  const { data: parrAzuay, isLoading: isLoadingKey6 } = useParrAzuay({
-    enabled: key6,
-  });
-
   return (
-    <div className="flex space-x-0 p-3 md:space-x-3 lg:space-x-3">
-      <div className="hidden h-[calc(100vh_-_80px)] w-[400px] overflow-hidden overflow-y-auto rounded-lg bg-inherit p-3 text-white shadow-md md:lg:block lg:block">
-        <div
-          id="accordion-flush"
-          data-accordion="collapse"
-          data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
-          data-inactive-classes="text-gray-500 dark:text-gray-400"
-        >
-          <h2 id="accordion-flush-heading-1">
-            <button
-              type="button"
-              className="flex w-full items-center justify-between border-b border-gray-200 py-5 text-left font-medium text-gray-500 dark:border-gray-700 dark:text-gray-400"
-              data-accordion-target="#accordion-flush-body-1"
-              aria-expanded="true"
-              aria-controls="accordion-flush-body-1"
-            >
-              <span>Información</span>
-              <svg
-                data-accordion-icon
-                className="h-3 w-3 shrink-0 rotate-180"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 10 6"
+    <>
+      <button
+        data-modal-target="form-modal"
+        data-modal-toggle="form-modal"
+        className="block rounded-lg bg-red px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red focus:bg-red focus:outline-none focus:ring-4 dark:bg-red dark:hover:bg-red dark:focus:bg-red"
+        type="button"
+      >
+        Descarga
+      </button>
+
+      <div
+        id="form-modal"
+        tabIndex="-1"
+        aria-hidden="true"
+        className="h-modal fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto overflow-x-hidden md:h-full"
+      >
+        <div className="relative h-full w-full max-w-lg p-4 md:h-auto">
+          <div className="relative rounded-lg bg-white shadow dark:bg-gray-700">
+            <div className="flex items-center justify-between rounded-t border-b p-5 dark:border-gray-600">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white">
+                Formulario de registro de información
+              </h3>
+              <button
+                type="button"
+                className="ml-auto inline-flex items-center rounded-lg bg-transparent p-2.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
+                data-modal-toggle="form-modal"
               >
-                <path stroke="currentColor" d="M9 5 5 1 1 5" />
-              </svg>
-            </button>
-          </h2>
-          {proyects.map((proyect, index) => (
-            <div
-              key={index}
-              id="accordion-flush-body-1"
-              className="hidden"
-              aria-labelledby="accordion-flush-heading-1"
+                <svg
+                  className="h-4 w-4"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM7.707 7.707a1 1 0 00-1.414 0L6 7.293 7.293 6l1 1 5-5 1 1-6 6z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <form
+              method="POST"
+              className="space-y-6 px-6 pb-4 sm:pb-6 lg:px-8 xl:pb-8"
+              onSubmit={handleSubmit}
             >
-              <div className="border-b border-gray-200 py-5 dark:border-gray-700">
-                <p className="text-lg font-semibold text-gray-500">Titulo</p>
-                <p className="text-base font-normal text-gray-500">
-                  {proyect.title}
-                </p>
-                <p className="text-lg font-semibold text-gray-500">
-                  Publicación
-                </p>
-                <p className="text-base font-normal text-gray-500">
-                  {proyect.publication}
-                </p>
-                <div className="mt-5 inline-flex items-center">
-                  <Link to="/moreinfo">
-                    <button
-                      type="button"
-                      className="inline-flex items-center rounded-lg bg-red px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red focus:outline-none focus:ring-4 focus:ring-red dark:bg-red dark:hover:bg-red dark:focus:ring-red"
-                    >
-                      Ver más
-                      <svg
-                        className="ml-2 h-3.5 w-3.5"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 14 10"
-                      >
-                        <path
-                          stroke="currentColor"
-                          d="M1 5h12m0 0L9 1m4 4L9 9"
-                        />
-                      </svg>
-                    </button>
-                  </Link>
+              <div>
+                <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  Nombre
+                </label>
+                <input
+                  type="text"
+                  name="nombre"
+                  id="nombre"
+                  value={nombre}
+                  onChange={(e) => setNombre(e.target.value)}
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  placeholder="Escribe tu nombre"
+                  required=""
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  Apellido
+                </label>
+                <input
+                  type="text"
+                  name="apellido"
+                  id="apellido"
+                  value={apellido}
+                  onChange={(e) => setApellido(e.target.value)}
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  placeholder="Escribe tu apellido"
+                  required=""
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                    Correo
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                    placeholder="Escribe tu correo"
+                    required=""
+                  />
+                </div>
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                    Institución a la que pertenece
+                  </label>
+                  <input
+                    type="text"
+                    name="institucion"
+                    id="institucion"
+                    value={institucion}
+                    onChange={(e) => setInstitucion(e.target.value)}
+                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                    placeholder="Institución a la que pertenece"
+                    required=""
+                  />
                 </div>
               </div>
-            </div>
-          ))}
+              {/* <div>
+                <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  Motivo de la descarga
+                </label>
+                <input
+                  type="text"
+                  name="motivo"
+                  id="motivo"
+                  value={motivodescarga}
+                  onChange={(e) => setMotivo(e.target.value)}
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  placeholder="Motivo de la descarga"
+                  required=""
+                />
+              </div> */}
+              <div>
+                <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  Sector al que pertenece
+                </label>
+                <input
+                  type="text"
+                  name="sector"
+                  id="sector"
+                  value={sectorpertenece}
+                  onChange={(e) => setSector(e.target.value)}
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                  placeholder="Público o Privado"
+                  required=""
+                />
+              </div>
+              <div id="descargasxcapas">
+                <div className="relative items-center text-center">
+                  <button
+                    id="multiLevelDropdownButton"
+                    data-dropdown-toggle="multi-dropdown"
+                    className={`inline-flex items-center rounded-lg bg-red px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red focus:outline-none focus:ring-4 focus:ring-red dark:bg-red dark:hover:bg-red dark:focus:ring-red ${
+                      !nombre ||
+                      !apellido ||
+                      !email ||
+                      !institucion ||
+                      //!motivodescarga ||
+                      !sectorpertenece
+                        ? "cursor-not-allowed opacity-50"
+                        : ""
+                    }`}
+                    type="submit"
+                    disabled={
+                      !nombre ||
+                      !apellido ||
+                      !email ||
+                      !institucion ||
+                      //!motivodescarga ||
+                      !sectorpertenece
+                    }
+                  >
+                    Enviar y descargar
+                  </button>
 
-          <h2 id="accordion-flush-heading-2">
-            <button
-              type="button"
-              className="flex w-full items-center justify-between border-b border-gray-200 py-5 text-left font-medium text-gray-500 dark:border-gray-700 dark:text-gray-400"
-              data-accordion-target="#accordion-flush-body-2"
-              aria-expanded="false"
-              aria-controls="accordion-flush-body-2"
-            >
-              <span>Capa de Datos</span>
-              <svg
-                data-accordion-icon
-                className="h-3 w-3 shrink-0 rotate-180"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 10 6"
-              >
-                <path stroke="currentColor" d="M9 5 5 1 1 5" />
-              </svg>
-            </button>
-          </h2>
-          <div
-            id="accordion-flush-body-2"
-            className="hidden"
-            aria-labelledby="accordion-flush-heading-2"
-          >
-            <div className="border-b border-gray-200 py-5 dark:border-gray-700">
-              <div className="mt-2">
-                <ul className="space-y-3">
-                  <ChoseLayerItem
-                    title="Propiedades geodinámicas de suelos"
-                    enabled={key0}
-                    setEnabled={setKey0}
-                    isLoading={isLoadingKey0}
-                  />
-                  {key0 && ( // Aquí se hace la comprobación: Si key0 es true, muestra el siguiente elemento
+                  <div
+                    id="multi-dropdown"
+                    className="z-10 hidden w-96 divide-y divide-gray-100 rounded-lg bg-slate-300 shadow dark:bg-gray-700"
+                  >
                     <ul
                       className="py-2 text-sm text-gray-700 dark:text-gray-200"
                       aria-labelledby="multiLevelDropdownButton"
                     >
+                      {/* Agregar primer submenú */}
                       <li>
                         <button
                           id="doubleDropdownButton"
+                          data-dropdown-toggle="doubleDropdown"
                           type="button"
-                          className="w-68 flex items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                          onClick={toggleSubmenu} // Llamada a la función para cambiar la visibilidad del submenú
+                          className="flex w-96 items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           Propiedades geodinámicas de suelos
                         </button>
                         <div
                           id="doubleDropdown"
-                          className={`relative top-2 z-0 ${
-                            isSubmenuVisible ? "" : "hidden"
-                          } w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
-                          style={{ left: 0 }} // Asegura que el submenú se alinee a la izquierda del botón
+                          className="absolute top-14 z-10 hidden w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700"
                         >
                           <ul
                             className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -250,36 +293,20 @@ export const JoseMapsPage = () => {
                           </ul>
                         </div>
                       </li>
-                    </ul>
-                  )}
-
-                  <ChoseLayerItem
-                    title="Perfiles de suelo profundidad < 5m (calicatas), SPT's y perforaciones"
-                    enabled={key1}
-                    setEnabled={setKey1}
-                    isLoading={isLoadingKey1}
-                  />
-                  {key1 && ( // Aquí se hace la comprobación: Si key0 es true, muestra el siguiente elemento
-                    <ul
-                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                      aria-labelledby="multiLevelDropdownButton"
-                    >
+                      {/* Agregar un segundo submenú */}
                       <li>
                         <button
-                          id="doubleDropdownButton"
+                          id="secondDropdownButton"
+                          data-dropdown-toggle="secondDropdown"
                           type="button"
-                          className="w-68 flex items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                          onClick={toggleSubmenu} // Llamada a la función para cambiar la visibilidad del submenú
+                          className="flex w-72 items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           Perfiles de suelo profundidad {"<"} 5m (calicatas),
                           SPT's y perforaciones
                         </button>
                         <div
-                          id="doubleDropdown"
-                          className={`relative top-2 z-0 ${
-                            isSubmenuVisible ? "" : "hidden"
-                          } w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
-                          style={{ left: 0 }} // Asegura que el submenú se alinee a la izquierda del botón
+                          id="secondDropdown"
+                          className="absolute top-14 z-10 hidden w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700"
                         >
                           <ul
                             className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -318,7 +345,7 @@ export const JoseMapsPage = () => {
                             <li>
                               <a
                                 href={shcalicatas}
-                                download="exploracion_calicatas.zip"
+                                download="perfil_estratigrаfico.zip"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 Shapefile
@@ -327,35 +354,19 @@ export const JoseMapsPage = () => {
                           </ul>
                         </div>
                       </li>
-                    </ul>
-                  )}
-
-                  <ChoseLayerItem
-                    title="Perfiles estratigráficos profundidad > 30m"
-                    enabled={key2}
-                    setEnabled={setKey2}
-                    isLoading={isLoadingKey2}
-                  />
-                  {key2 && ( // Aquí se hace la comprobación: Si key0 es true, muestra el siguiente elemento
-                    <ul
-                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                      aria-labelledby="multiLevelDropdownButton"
-                    >
+                      {/* Agregar un tercer submenú */}
                       <li>
                         <button
-                          id="doubleDropdownButton"
+                          id="secondDropdownButton"
+                          data-dropdown-toggle="secondDropdown"
                           type="button"
-                          className="w-68 flex items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                          onClick={toggleSubmenu} // Llamada a la función para cambiar la visibilidad del submenú
+                          className="flex w-96 items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           Perfiles estratigráficos profundidad {">"} 30m
                         </button>
                         <div
-                          id="doubleDropdown"
-                          className={`relative top-2 z-0 ${
-                            isSubmenuVisible ? "" : "hidden"
-                          } w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
-                          style={{ left: 0 }} // Asegura que el submenú se alinee a la izquierda del botón
+                          id="secondDropdown"
+                          className="absolute top-14 z-10 hidden w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700"
                         >
                           <ul
                             className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -364,7 +375,7 @@ export const JoseMapsPage = () => {
                             <li>
                               <a
                                 href={tiffperfil}
-                                download="jose-perfil_estratigrafico.tif"
+                                download="jose-perfil_estratigr fico.tif"
                                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 GeoTTIFF
@@ -402,35 +413,19 @@ export const JoseMapsPage = () => {
                           </ul>
                         </div>
                       </li>
-                    </ul>
-                  )}
-
-                  <ChoseLayerItem
-                    title="Isoperiodos parroquia urbana Cuenca"
-                    enabled={key3}
-                    setEnabled={setKey3}
-                    isLoading={isLoadingKey3}
-                  />
-                  {key3 && ( // Aquí se hace la comprobación: Si key0 es true, muestra el siguiente elemento
-                    <ul
-                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                      aria-labelledby="multiLevelDropdownButton"
-                    >
+                      {/* Agregar un cuarto submenú */}
                       <li>
                         <button
-                          id="doubleDropdownButton"
+                          id="secondDropdownButton"
+                          data-dropdown-toggle="secondDropdown"
                           type="button"
-                          className="w-68 flex items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                          onClick={toggleSubmenu} // Llamada a la función para cambiar la visibilidad del submenú
+                          className="flex w-96 items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           Isoperiodos parroquia urbana Cuenca
                         </button>
                         <div
-                          id="doubleDropdown"
-                          className={`relative top-2 z-0 ${
-                            isSubmenuVisible ? "" : "hidden"
-                          } w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
-                          style={{ left: 0 }} // Asegura que el submenú se alinee a la izquierda del botón
+                          id="secondDropdown"
+                          className="absolute top-14 z-10 hidden w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700"
                         >
                           <ul
                             className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -477,35 +472,19 @@ export const JoseMapsPage = () => {
                           </ul>
                         </div>
                       </li>
-                    </ul>
-                  )}
-
-                  <ChoseLayerItem
-                    title="Geología proyecto PRECUPA escala 1:25000"
-                    enabled={key4}
-                    setEnabled={setKey4}
-                    isLoading={isLoadingKey4}
-                  />
-                  {key4 && ( // Aquí se hace la comprobación: Si key0 es true, muestra el siguiente elemento
-                    <ul
-                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                      aria-labelledby="multiLevelDropdownButton"
-                    >
+                      {/* Agregar un quinto submenú */}
                       <li>
                         <button
-                          id="doubleDropdownButton"
+                          id="secondDropdownButton"
+                          data-dropdown-toggle="secondDropdown"
                           type="button"
-                          className="w-68 flex items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                          onClick={toggleSubmenu} // Llamada a la función para cambiar la visibilidad del submenú
+                          className="flex w-96 items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           Geología proyecto PRECUPA escala 1:25000
                         </button>
                         <div
-                          id="doubleDropdown"
-                          className={`relative top-2 z-0 ${
-                            isSubmenuVisible ? "" : "hidden"
-                          } w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
-                          style={{ left: 0 }} // Asegura que el submenú se alinee a la izquierda del botón
+                          id="secondDropdown"
+                          className="absolute top-14 z-10 hidden w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700"
                         >
                           <ul
                             className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -552,35 +531,19 @@ export const JoseMapsPage = () => {
                           </ul>
                         </div>
                       </li>
-                    </ul>
-                  )}
-
-                  <ChoseLayerItem
-                    title="Geología del Azuay escala 1:200000"
-                    enabled={key5}
-                    setEnabled={setKey5}
-                    isLoading={isLoadingKey5}
-                  />
-                  {key5 && ( // Aquí se hace la comprobación: Si key0 es true, muestra el siguiente elemento
-                    <ul
-                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                      aria-labelledby="multiLevelDropdownButton"
-                    >
+                      {/* Agregar un sexto submenú */}
                       <li>
                         <button
-                          id="doubleDropdownButton"
+                          id="secondDropdownButton"
+                          data-dropdown-toggle="secondDropdown"
                           type="button"
-                          className="w-68 flex items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                          onClick={toggleSubmenu} // Llamada a la función para cambiar la visibilidad del submenú
+                          className="flex w-96 items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           Geología del Azuay escala 1:200000
                         </button>
                         <div
-                          id="doubleDropdown"
-                          className={`relative top-2 z-0 ${
-                            isSubmenuVisible ? "" : "hidden"
-                          } w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
-                          style={{ left: 0 }} // Asegura que el submenú se alinee a la izquierda del botón
+                          id="secondDropdown"
+                          className="absolute top-14 z-10 hidden w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700"
                         >
                           <ul
                             className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -627,35 +590,19 @@ export const JoseMapsPage = () => {
                           </ul>
                         </div>
                       </li>
-                    </ul>
-                  )}
-
-                  <ChoseLayerItem
-                    title="Parroquias del Azuay"
-                    enabled={key6}
-                    setEnabled={setKey6}
-                    isLoading={isLoadingKey6}
-                  />
-                  {key6 && ( // Aquí se hace la comprobación: Si key0 es true, muestra el siguiente elemento
-                    <ul
-                      className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                      aria-labelledby="multiLevelDropdownButton"
-                    >
+                      {/* Agregar un septimo submenú */}
                       <li>
                         <button
-                          id="doubleDropdownButton"
+                          id="secondDropdownButton"
+                          data-dropdown-toggle="secondDropdown"
                           type="button"
-                          className="w-68 flex items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                          onClick={toggleSubmenu} // Llamada a la función para cambiar la visibilidad del submenú
+                          className="flex w-96 items-center justify-between px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                           Parroquias del Azuay
                         </button>
                         <div
-                          id="doubleDropdown"
-                          className={`relative top-2 z-0 ${
-                            isSubmenuVisible ? "" : "hidden"
-                          } w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700`}
-                          style={{ left: 0 }} // Asegura que el submenú se alinee a la izquierda del botón
+                          id="secondDropdown"
+                          className="absolute top-14 z-10 hidden w-96 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700"
                         >
                           <ul
                             className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -703,46 +650,13 @@ export const JoseMapsPage = () => {
                         </div>
                       </li>
                     </ul>
-                  )}
-                </ul>
+                  </div>
+                </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
-      <div className="h-[calc(100vh_-_80px)] w-full overflow-hidden rounded-lg bg-white shadow-md">
-        <div className="bottom-10 inline-flex items-center p-2 font-medium md:inline-flex lg:hidden">
-          <button className="mr-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor" // Cambia "currentColor" al color que desees, por ejemplo, "red"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="black"
-              className="h-8 w-6"
-            >
-              <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </button>
-          {"CAPA DE DATOS"}
-        </div>
-        <GeoViewerJose
-          key0={key0}
-          key1={key1}
-          key2={key2}
-          key3={key3}
-          key4={key4}
-          key5={key5}
-          key6={key6}
-          infoGeotecnica={infoGeotecnica}
-          expCalicatas={expCalicatas}
-          perfilEstra={perfilEstra}
-          isoPeriodos={isoPeriodos}
-          geoLocal={geoLocal}
-          geoAzuay={geoAzuay}
-          parrAzuay={parrAzuay}
-        />
-      </div>
-    </div>
+    </>
   );
 };

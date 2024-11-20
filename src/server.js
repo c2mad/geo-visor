@@ -1,23 +1,14 @@
-//import logo from "./assets/images/logo-ucacue-geoportal.png";
 const express = require("express");
+const cors = require("cors");
 const nodemailer = require("nodemailer");
-const bodyParser = require("body-parser");
-const cors = require("cors"); // Importa el módulo cors
-
 const app = express();
-const port = 3001;
+const port = 3005;
 
-app.use(cors());
-
-// Middleware para parsear el cuerpo de las solicitudes
-app.use(bodyParser.json());
-
-const corsOptions = {
-  origin: "*",
-  methods: "POST",
-};
-
-// Configura el transporte de nodemailer
+// Configuración para Express >= 4.16
+app.use(express.json()); // Para parsing de application/json
+app.use(express.urlencoded({ extended: true })); // Para parsing de application/x-www-form-urlencoded
+app.use(cors()); // Habilita CORS en todas las peticiones a la API
+// Configuración de Nodemailer
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -26,56 +17,68 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Ruta para enviar correos electrónicos
-app.post("/send-email", async (req, res) => {
-  const { nombre, email, institucion, asunto, mensaje } = req.body;
+// Ruta para manejar POST request
+app.post("/send-email", (req, res) => {
+  const {
+    nombre,
+    apellido,
+    consultadescarga,
+    email,
+    telefono,
+    institucion,
 
-  if (!nombre || !email || !asunto || !mensaje) {
-    return res.status(400).send("Todos los campos son obligatorios.");
+    nuevaInstitucion,
+  } = req.body;
+
+  // Verificar que todos los campos están llenos y que se ha seleccionado una institución
+  if (
+    !nombre ||
+    !apellido ||
+    !email ||
+    !telefono ||
+    !consultadescarga ||
+    !institucion ||
+    (institucion === "otra" && !nuevaInstitucion)
+  ) {
+    return res
+      .status(400)
+      .send(
+        "Todos los campos son obligatorios y se debe seleccionar una institución."
+      );
   }
 
+  let institucionNombre =
+    institucion === "otra" ? nuevaInstitucion : institucion;
 
-  // Configura el correo electrónico
   const mailOptions = {
     from: "pruebaside23@gmail.com",
-    to: "pruebaside23@gmail.com", // Coloca la dirección del destinatario
-    subject: asunto,
+    to: "pruebaside23@gmail.com", // O cualquier otro destinatario
+    subject: "Confirmación de consulta",
     html: `
-    <div className="p-4 bg-gray-100">
-      <img src={logo}/>
-      <p className="text-lg font-bold mb-2">Nombre: ${nombre}</p>
-      <p className="mb-2">Correo electrónico: ${email}</p>
-      <p className="mb-2">Institución: ${institucion}</p>
-      
-      <div className="mt-4">
-        <p className="font-semibold">Mensaje:</p>
-        <p>${mensaje}</p>
-      </div>
+    <div style="background-color: #f0f0f0; padding: 20px;">
+        <div style="max-width: 600px; margin: auto; background: white; padding: 20px; font-family: Arial, sans-serif; color: #333; border-radius: 8px;">
+            <h2 style="color: #4F8A10;">Hola ${nombre} ${apellido},</h2>
+            <p>Hemos recibido tu consulta sobre "<strong>${consultadescarga}</strong>". Te contactaremos en breve al número <strong>${telefono}</strong> o al correo <strong>${email}</strong>.</p>
+            <p><strong>Institución:</strong> ${institucionNombre}</p>
+            <hr>
+            <p>Gracias por contactarnos.</p>
+        </div>
     </div>
-  `,
+    `,
+    // Aquí puedes usar también HTML para estructurar mejor el mensaje
   };
 
-  try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log("Correo enviado:", info);
-
-    // Modifica la respuesta para incluir información sobre el éxito del envío
-    res.status(200).send({
-      message: "Correo electrónico enviado con éxito",
-      success: true,
-    });
-  } catch (error) {
-    console.error("Error al enviar el correo", error);
-
-    // Modifica la respuesta para incluir información sobre el error
-    res.status(500).send({
-      message: "Error al enviar el correo electrónico",
-      success: false,
-    });
-  }
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+      res.status(500).send("Error al enviar el email");
+    } else {
+      console.log("Email enviado: " + info.response);
+      res.status(200).send("Email enviado correctamente");
+    }
+  });
 });
 
-// Inicia el servidor
 app.listen(port, () => {
-  console.log(`Servidor de correo escuchando en http://localhost:${port}`);
+  console.log(`Servidor escuchando en http://localhost:${port}`);
 });
