@@ -1,0 +1,7 @@
+FROM kartoza/geoserver:latest
+
+# Copiar los datos directamente al contenedor durante la construcción de la imagen
+COPY ./respaldo_de_geovisor/data_dir /opt/geoserver/data_dir
+
+# Crear el marcador para indicar que los datos ya están inicializados
+RUN touch /opt/geoserver/data_dir/.initialized

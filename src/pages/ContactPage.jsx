@@ -1,17 +1,71 @@
 import "../assets/css/home.css";
+// Importa las dependencias necesarias
+import React, { useState } from "react";
 
 export const ContactPage = () => {
+  // Define estados para los campos del formulario
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [institucion, setInstitucion] = useState("");
+  const [asunto, setAsunto] = useState("");
+  const [mensaje, setMensaje] = useState("");
+
+  // Manejar el envío del formulario
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Construir el objeto con los datos del formulario
+    const formData = {
+      nombre,
+      email,
+      institucion,
+      asunto,
+      mensaje,
+    };
+
+    try {
+      // Enviar los datos al servidor
+      const response = await fetch("http://localhost:3001/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // El correo se envió con éxito
+        alert("Correo electrónico enviado con éxito");
+
+        // Limpiar el formulario restableciendo los estados a una cadena vacía
+        setNombre("");
+        setEmail("");
+        setInstitucion("");
+        setAsunto("");
+        setMensaje("");
+      } else {
+        // Hubo un error al enviar el correo
+        alert(
+          "Error al enviar el correo electrónico. Por favor, inténtalo de nuevo.",
+        );
+      }
+    } catch (error) {
+      console.error("Error al enviar el correo electrónico", error);
+      alert("Error de red al intentar enviar el correo electrónico.");
+    }
+  };
+
   return (
     <div className="background-contact flex justify-center p-4 pt-10 pb-10">
-      <div className="w-full md:w-auto">
-        <div className="rounded-lg bg-white shadow-lg sm:max-w-lg sm:pl-4 md:w-[700px] ">
-          <form className="p-6">
+      <div className="w-full max-w-2xl">
+        <div className="rounded-lg bg-white shadow-lg p-6">
+          <form method="POST" className="space-y-6" onSubmit={handleSubmit}>
             {/* Título */}
-            <h2 className="mb-6 text-4xl font-semibold text-gray-800">
+            <h2 className="text-4xl font-semibold text-gray-800 text-center">
               Contáctanos
             </h2>
             {/* Campos de formulario */}
-            <div className="mb-4">
+            <div>
               <label
                 htmlFor="nombre"
                 className="block font-medium text-gray-700"
@@ -22,12 +76,14 @@ export const ContactPage = () => {
                 type="text"
                 id="nombre"
                 name="nombre"
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-rose-500 focus:ring-rose-500 focus:outline-none"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
+                className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-rose-500 focus:ring-rose-500 focus:outline-none"
                 placeholder="Tu nombre"
                 required
               />
             </div>
-            <div className="mb-4">
+            <div>
               <label
                 htmlFor="email"
                 className="block font-medium text-gray-700"
@@ -38,12 +94,14 @@ export const ContactPage = () => {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-rose-500 focus:ring-rose-500 focus:outline-none"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-rose-500 focus:ring-rose-500 focus:outline-none"
                 placeholder="Tu correo electrónico"
                 required
               />
             </div>
-            <div className="mb-4">
+            <div>
               <label
                 htmlFor="institucion"
                 className="block font-medium text-gray-700"
@@ -54,12 +112,14 @@ export const ContactPage = () => {
                 type="text"
                 id="institucion"
                 name="institucion"
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-rose-500 focus:ring-rose-500 focus:outline-none"
+                value={institucion}
+                onChange={(e) => setInstitucion(e.target.value)}
+                className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-rose-500 focus:ring-rose-500 focus:outline-none"
                 placeholder="Institución a la que pertenece"
                 required
               />
             </div>
-            <div className="mb-4">
+            <div>
               <label
                 htmlFor="asunto"
                 className="block font-medium text-gray-700"
@@ -70,12 +130,14 @@ export const ContactPage = () => {
                 type="text"
                 id="asunto"
                 name="asunto"
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-rose-500 focus:ring-rose-500 focus:outline-none"
+                value={asunto}
+                onChange={(e) => setAsunto(e.target.value)}
+                className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-rose-500 focus:ring-rose-500 focus:outline-none"
                 placeholder="Asunto"
                 required
               />
             </div>
-            <div className="mb-4">
+            <div>
               <label
                 htmlFor="mensaje"
                 className="block font-medium text-gray-700"
@@ -86,7 +148,9 @@ export const ContactPage = () => {
                 id="mensaje"
                 name="mensaje"
                 rows="4"
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-rose-500 focus:ring-rose-500 focus:outline-none"
+                value={mensaje}
+                onChange={(e) => setMensaje(e.target.value)}
+                className="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-rose-500 focus:ring-rose-500 focus:outline-none"
                 placeholder="Escribe tu mensaje aquí"
                 required
               ></textarea>

@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  react-app:
+    build: .
+    container_name: react-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - geoserver
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_geovisor
+    ports:
+      - "80:80"
+    volumes:
+      - ./react-app/build:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - react-app
+
+  geoserver:
+    image: kartoza/geoserver:latest
+    container_name: geoserver
+    ports:
+      - "8085:8080"
+    volumes:
+      - ./respaldo_de_geovisor/data_dir:/tmp/data_dir  # Respaldo como solo lectura
+      - geoserver_data:/opt/geoserver/data_dir  # Volumen de datos persistentes
+    environment:
+      - GEOSERVER_ADMIN_USER=admin
+      - GEOSERVER_ADMIN_PASSWORD=geoserver
+    command: >
+      sh -c "
+      if [ ! -f /opt/geoserver/data_dir/.initialized ]; then
+        echo 'Copiando respaldo inicial...';
+        cp -r /tmp/data_dir/* /opt/geoserver/data_dir;
+        touch /opt/geoserver/data_dir/.initialized;
+      else
+        echo 'El respaldo ya fue copiado previamente.';
+      fi;
+      exec /start-geoserver.sh
+      "
+    depends_on:
+      - postgis
+
+  postgis:
+    image: postgis/postgis:15-3.4
+    container_name: postgis
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: geodb
+    volumes:
+      - postgis_data:/var/lib/postgresql/data
+
+volumes:
+  geoserver_data:
+    driver: local
+  postgis_data:
+    driver: local

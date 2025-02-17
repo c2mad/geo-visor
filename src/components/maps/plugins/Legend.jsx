@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Control from "react-leaflet-custom-control";
-import isoPeriodo from "../../../assets/images/isoperiodo.jpg";
-import geoLocal from "../../../assets/images/geolocal.jpg";
-import geoGlobal from "../../../assets/images/geoglobal.jpg";
+// import isoPeriodo from "../../../assets/images/isoperiodo.jpg";
+// import geoLocal from "../../../assets/images/geolocal.jpg";
+// import geoGlobal from "../../../assets/images/geoglobal.jpg";
 import { TableIcon } from "components/icons/TableIcon";
 export const Legend = ({ key3, key4, key5 }) => {
   const [toggle, setToggle] = useState(true);

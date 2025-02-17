@@ -11,7 +11,7 @@ import { GeoportalPage } from "pages/GeoportalPage";
 import Normativa from "pages/NormativaPage";
 import GeoservicesPage from "pages/GeoservicesPage";
 import { ManualPage } from "pages/ManualPage";
-import MetadatosPage from "pages/MetadatosPage";
+// import MetadatosPage from "pages/MetadatosPage";
 import Cedia from "pages/cedia";
 
 export const RouterApp = () => {
