@@ -9,6 +9,7 @@ import iconBrasil from "../assets/icons/brasil.png";
 import iconChile from "../assets/icons/chile.png";
 import iconColombia from "../assets/icons/colombia.png";
 import iconArgentina from "../assets/icons/argentina.png";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Normativa = () => {
   const normativasPorPais = [
@@ -114,10 +115,11 @@ const Normativa = () => {
             >
               <h2 className="mb-2 flex justify-between text-xl font-semibold">
                 {paisInfo.pais}{" "}
-                <img
+                <LazyLoadImage
                   className="h-[24px] w-[24px]"
                   src={paisInfo.image}
                   alt="Paises"
+                  loading="lazy"
                 />
               </h2>
 

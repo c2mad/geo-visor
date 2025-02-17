@@ -4,12 +4,11 @@ import { useCallback, useState } from "react";
 import { ChoseLayerItem } from "components/maps/ChoseLayerItem";
 import host_api from "utils/host_api";
 import GeoViewerCedia from "components/maps/GeoViewerCedia";
-//EXPLORACIONES GEOLOGICAS
-//
 
 export default function Cedia() {
   const [key1, setKey1] = useState(false);
   const [key2, setKey2] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { data: infoCedia, isLoading: isLoadingKey1 } = useCedia({
     enabled: key1,
@@ -21,19 +20,31 @@ export default function Cedia() {
 
   const handleSetKey1 = useCallback(() => setKey1((prev) => !prev), []);
   const handleSetKey2 = useCallback(() => setKey2((prev) => !prev), []);
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+
   return (
     <div className="flex space-x-0 p-3 md:space-x-3 lg:space-x-3">
-      <div className="hidden h-[calc(100vh_-_80px)] w-[400px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md md:lg:block lg:block">
+      <div
+        className={`${
+          isMenuOpen ? "block" : "hidden"
+        } fixed inset-0 z-50 h-full w-full bg-black bg-opacity-50 md:hidden`}
+        onClick={toggleMenu}
+      ></div>
+      <div
+        className={`${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        } fixed inset-y-0 left-0 z-50 w-64 transform overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md transition-transform duration-300 md:relative md:translate-x-0 md:w-[400px]`}
+      >
         <div
           id="accordion-flush"
           data-accordion="collapse"
-          data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
-          data-inactive-classes="text-gray-500 dark:text-gray-400"
+          data-active-classes="bg-white text-gray-900"
+          data-inactive-classes="text-gray-500"
         >
           <h2 id="accordion-flush-heading-1">
             <button
               type="button"
-              className="flex w-full items-center justify-between border-b border-gray-200 py-5 text-left font-medium text-gray-500 dark:border-gray-700 dark:text-gray-400"
+              className="flex w-full items-center justify-between border-b border-gray-200 py-5 text-left font-medium text-gray-500"
               data-accordion-target="#accordion-flush-body-1"
               aria-expanded="true"
               aria-controls="accordion-flush-body-1"
@@ -58,7 +69,7 @@ export default function Cedia() {
               className="hidden"
               aria-labelledby="accordion-flush-heading-1"
             >
-              <div className="border-b border-gray-200 py-5 dark:border-gray-700">
+              <div className="border-b border-gray-200 py-5">
                 <p className="text-lg font-semibold text-gray-500">Titulo</p>
                 <p className="text-base font-normal text-gray-500">
                   {proyect.title}
@@ -69,10 +80,10 @@ export default function Cedia() {
                 <p className="text-base font-normal text-gray-500">
                   {proyect.publication}
                 </p>
-                <div className="mt-5 inline-flex items-center">
+                <div className="mt-5 flex flex-wrap gap-2">
                   <button
                     type="button"
-                    className="mr-2 inline-flex items-center rounded-lg bg-rose-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-rose-800 focus:outline-none focus:ring-4 focus:ring-rose-300 dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800"
+                    className="flex items-center rounded-lg bg-rose-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-rose-800 focus:outline-none focus:ring-4 focus:ring-rose-300 dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800"
                     onClick={() =>
                       window.open(
                         host_api +
@@ -97,7 +108,7 @@ export default function Cedia() {
                   </button>
                   <button
                     type="button"
-                    className="mr-2 inline-flex items-center rounded-lg bg-rose-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-rose-800 focus:outline-none focus:ring-4 focus:ring-rose-300 dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800"
+                    className="flex items-center rounded-lg bg-rose-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-rose-800 focus:outline-none focus:ring-4 focus:ring-rose-300 dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800"
                     onClick={() =>
                       window.open(
                         host_api +
@@ -122,7 +133,7 @@ export default function Cedia() {
                   </button>
                   <button
                     type="button"
-                    className="mr-2 inline-flex items-center rounded-lg bg-rose-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-rose-800 focus:outline-none focus:ring-4 focus:ring-rose-300 dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800"
+                    className="flex items-center rounded-lg bg-rose-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-rose-800 focus:outline-none focus:ring-4 focus:ring-rose-300 dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800"
                     onClick={() =>
                       window.open(
                         host_api +
@@ -153,7 +164,7 @@ export default function Cedia() {
           <h2 id="accordion-flush-heading-2">
             <button
               type="button"
-              className="flex w-full items-center justify-between border-b border-gray-200 py-5 text-left font-medium text-gray-500 dark:border-gray-700 dark:text-gray-400"
+              className="flex w-full items-center justify-between border-b border-gray-200 py-5 text-left font-medium text-gray-500 "
               data-accordion-target="#accordion-flush-body-2"
               aria-expanded="false"
               aria-controls="accordion-flush-body-2"
@@ -176,7 +187,7 @@ export default function Cedia() {
             className="hidden"
             aria-labelledby="accordion-flush-heading-2"
           >
-            <div className="border-b border-gray-200 py-5 dark:border-gray-700">
+            <div className="border-b border-gray-200 py-5">
               <div className="mt-2">
                 <ul className="space-y-3">
                   <ChoseLayerItem
@@ -185,7 +196,6 @@ export default function Cedia() {
                     setEnabled={handleSetKey1}
                     isLoading={isLoadingKey1}
                   />
-                  {/* listo */}
                   <ChoseLayerItem
                     title="Suceptibilidad del azuay"
                     enabled={key2}
@@ -201,7 +211,7 @@ export default function Cedia() {
       </div>
       <div className="h-[calc(100vh_-_80px)] w-full overflow-hidden rounded-lg bg-white shadow-md">
         <div className="bottom-10 inline-flex items-center p-2 font-medium md:inline-flex lg:hidden">
-          <button className="mr-2">
+          <button className="mr-2" onClick={toggleMenu}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"

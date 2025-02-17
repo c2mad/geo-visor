@@ -5,6 +5,7 @@ import * as ReactDOMServer from "react-dom/server";
 // import markerShadow from "../../images/marker-shadow.png";
 import redMarker from "../../images/red-marker.png";
 import pinMarker from "../../images/pin-marker.png";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const centerPoint = [-2.8573835, -78.9633863];
 
 const parkIcon = new L.Icon({
@@ -491,9 +492,10 @@ const PopupKey1 = ({ properties }) => {
 
       <div className="mt-2 flex justify-center">
         <a href={img_origin} target="_blank" className="h-36" rel="noreferrer">
-          <img
+          <LazyLoadImage
             src={img_resize}
             alt={Fuente}
+            loading="lazy"
             className="h-full w-full object-cover"
           />
         </a>
@@ -522,9 +524,11 @@ const PopupKey2 = ({ properties }) => {
           className="w-full"
           rel="noreferrer"
         >
-          <img
+          <LazyLoadImage
             src={img_resize}
             alt={Fuente}
+            effect="black-and-white"
+            loading="lazy"
             className="h-full w-full object-cover"
           />
         </a>

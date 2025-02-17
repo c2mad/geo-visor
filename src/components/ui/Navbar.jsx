@@ -4,6 +4,7 @@ import logogeoportal from "../../assets/images/logo-ucacue-geoportal.png";
 import { Link } from "react-router-dom";
 import App from "App";
 import React, { useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export const Navbar = ({ isGeoportal = false }) => {
   const [open, setOpen] = useState(false);
@@ -20,7 +21,7 @@ export const Navbar = ({ isGeoportal = false }) => {
             <div>
               <div className="divide-x-3 divide-gray-300 px-10">
                 <Link to={isGeoportal ? "/geoportal" : "/"}>
-                  <img
+                  <LazyLoadImage
                     className="h-10 object-cover"
                     src={isGeoportal ? logogeoportal : logoIDE}
                     alt={
@@ -28,6 +29,7 @@ export const Navbar = ({ isGeoportal = false }) => {
                         ? "Logo IDE - UCACUE"
                         : "Logo Geoportal - UCACUE"
                     }
+                    loading="lazy"
                     onClick={App}
                   />
                 </Link>

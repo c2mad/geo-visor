@@ -1,3 +1,4 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "../assets/css/home.css";
 import id_elements from "../utils/id_elements";
 export const HomePage = () => {
@@ -54,10 +55,11 @@ export const HomePage = () => {
                           className="relative block overflow-hidden rounded-lg"
                         >
                           <div className="flex items-center justify-center p-5">
-                            <img
-                              className="mb-2 flex h-[128px] w-[128px] items-center justify-center rounded-lg text-xl font-semibold"
+                            <LazyLoadImage
                               src={item.image}
                               alt={item.name}
+                              className="mb-2 flex h-[128px] w-[128px] items-center justify-center rounded-lg text-xl font-semibold"
+                              loading="lazy"
                             />
                           </div>
                           <div className="bottom-0 left-0 right-0 p-4 text-center font-medium text-black group-hover:hidden">

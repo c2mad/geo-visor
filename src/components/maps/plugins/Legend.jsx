@@ -21,11 +21,12 @@ export const Legend = ({ key3, key4, key5 }) => {
         >
           {toggle ? (
             <>
-              {/* <img
+              {/* <LazyLoadImage
                 src={
                   key3 ? isoPeriodo : key4 ? geoLocal : key5 ? geoGlobal : ""
                 }
                 alt="geoglobal"
+                loading="lazy"
                 className="h-full w-full object-cover"
               /> */}
             </>

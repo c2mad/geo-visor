@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import "../assets/css/home.css";
 import categorias from "../utils/categories";
-import proyectos from "../utils/proyects";
+import proyects from "../utils/proyects";
 import Post from "components/ui/post";
 import Search from "components/ui/Search";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export const GeoportalPage = () => {
-  const [proyects] = useState(proyectos);
   const [categories] = useState(categorias);
-  const [, setItems] = useState(proyectos);
+  const [, setItems] = useState(proyects);
   const [, setCurrentPage] = useState(0);
 
   //Busqueda de proyectos
   const search2 = (searchQuery) => {
-    const filteredItems = proyectos.filter(
+    const filteredItems = proyects.filter(
       (item) =>
         item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.description.toLowerCase().includes(searchQuery.toLowerCase()),
@@ -102,8 +102,8 @@ export const GeoportalPage = () => {
                         href={item.to}
                         className="block overflow-hidden rounded-lg"
                       >
-                        <img
-                          className="h-auto w-full rounded-lg"
+                        <LazyLoadImage
+                          className="w-full h-48 object-cover bg-gray-800"
                           src={item.image}
                           alt={item.name}
                         />
