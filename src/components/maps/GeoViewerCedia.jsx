@@ -86,7 +86,7 @@ const GeoViewerCedia = ({ key1, key2, cedia, sucep }) => {
     }
   }, []);
 
-  const wmsUrl = "http://localhost:8085/geoserver/wms";
+  const wmsUrl = `${process.env.REACT_APP_HOST_API}/geoserver/wms`;
 
   return (
     <MapContainer
