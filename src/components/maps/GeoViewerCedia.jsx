@@ -30,7 +30,6 @@ const GeoViewerCedia = ({ key1, key2, cedia, sucep }) => {
       attribution: "© OpenStreetMap contributors",
       version: "1.1.0",
       request: "GetMap",
-      styles: "line",
     }),
     [],
   );
