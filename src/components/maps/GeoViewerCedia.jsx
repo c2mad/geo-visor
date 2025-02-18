@@ -129,7 +129,53 @@ const GeoViewerCedia = ({ key1, key2, cedia, sucep }) => {
                   </h2>
                   <div className="mt-3 divide-y rounded-lg border border-gray-300">
                     <PopupItemTable label="CASO" value={properties.CASO} />
-                    {/* Resto de los items... */}
+                    <PopupItemTable
+                      label="CÓDIGO MUESTRA DE ROCA"
+                      value={properties.CÓDIGO_MU}
+                    />
+                    <PopupItemTable
+                      label="DESCRIPCIÓN LITOLÓGICA"
+                      value={properties.DESCRIPCI}
+                    />
+                    <PopupItemTable
+                      label="MOVIMIENTO PRINCIPAL"
+                      value={properties.MOVIMIENTO}
+                    />
+                    <PopupItemTable
+                      label="MOVIMIENTO SECUNDARIO"
+                      value={properties.MOVIMIEN_1}
+                    />
+                    <PopupItemTable
+                      label="NIVEL DE HUMEDAD"
+                      value={properties.NIVEL_DE_H}
+                    />
+                    <PopupItemTable
+                      label="FACTOR CONDICIONANTE"
+                      value={properties.FACTOR_CON}
+                    />
+                    <PopupItemTable
+                      label="FACTOR DESENCADENANTE"
+                      value={properties.FACTOR_DES}
+                    />
+                    <PopupItemTable
+                      label="COBERTURA VEGETAL Y USO DEL SUELO"
+                      value={properties.COBERTURA_}
+                    />
+                    <PopupItemTable label="DAÑOS" value={properties.DAÑOS} />
+                    <PopupItemTable label="UTM X" value={properties.UTM_X} />
+                    <PopupItemTable label="UTM Y" value={properties.UTM_Y} />
+                    <PopupItemTable
+                      label="FECHA DE LEVANTAMIENTO DATOS GEOLÓGICOS"
+                      value={properties.FECHA_DE_L}
+                    />
+                    <PopupItemTable
+                      label="FECHA DE OCURRENCIA"
+                      value={properties.FECHA_DE_O}
+                    />
+                    <PopupItemTable
+                      label="ALTURA (msnm)"
+                      value={properties.ALTURA__ms}
+                    />
                   </div>
                 </div>,
               ),
