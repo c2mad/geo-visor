@@ -25,7 +25,8 @@ services:
       - backend
     environment:
       - REACT_APP_HOST_API=${REACT_APP_HOST_API}
-
+    env_file:
+      - .env
   geoserver:
     image: kartoza/geoserver:latest
     container_name: geoserver
