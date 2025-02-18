@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useMemo } from "react";
-import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
+import React, { useEffect, useRef, useMemo, useState } from "react";
+import { MapContainer, GeoJSON } from "react-leaflet";
 import L from "leaflet";
 import "leaflet-kml"; // Importar el plugin de leaflet-kml
-import localforage from "localforage";
-import redMarker from "../../images/red-marker.png";
+import redMarker from "../../images/icon.png";
 import * as ReactDOMServer from "react-dom/server";
 import { PluginWrapper } from "./plugins/PluginWrapper";
 import WMSLayer from "./WMSLayer";
@@ -20,11 +19,19 @@ const parkIcon = new L.Icon({
 const GeoViewerCedia = ({ key1, key2, cedia, sucep }) => {
   // Se mantiene la referencia al mapa
   const mapRef = useRef(null);
+  // Estado de la capa base seleccionada
+  const [activeBaseLayer, setActiveBaseLayer] = useState(
+    localStorage.getItem("activeBaseLayer") || "Mapa base",
+  );
 
+  // Guardar en localStorage cuando cambia
+  useEffect(() => {
+    localStorage.setItem("activeBaseLayer", activeBaseLayer);
+  }, [activeBaseLayer]);
   // Memoriza los parámetros WMS para evitar recreaciones
   const wmsParams = useMemo(
     () => ({
-      layers: "cedia:suceptibilidad",
+      layers: "cedia:deslizamiento",
       format: "image/png",
       transparent: true,
       attribution: "© OpenStreetMap contributors",
@@ -33,57 +40,6 @@ const GeoViewerCedia = ({ key1, key2, cedia, sucep }) => {
     }),
     [],
   );
-
-  useEffect(() => {
-    if (mapRef.current) {
-      const map = mapRef.current;
-      console.log("Mapa referenciado en useEffect:", map);
-
-      // Añadir la capa base con caché utilizando localforage
-      const tileLayerCache = L.tileLayer(
-        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        {
-          attribution:
-            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-          useCache: true,
-          saveToCache: true,
-          useOnlyCache: false,
-          cacheMaxAge: 24 * 3600 * 1000, // 24 horas
-        },
-      );
-
-      tileLayerCache.createTile = function (coords, done) {
-        const tile = document.createElement("img");
-
-        tile.onload = function () {
-          done(null, tile);
-        };
-
-        tile.onerror = function () {
-          done(new Error("Tile load error"), tile);
-        };
-
-        const key = `${coords.z}/${coords.x}/${coords.y}`;
-        localforage.getItem(key).then((cachedTile) => {
-          if (cachedTile) {
-            tile.src = cachedTile;
-          } else {
-            tile.src = this.getTileUrl(coords);
-            tile.crossOrigin = "Anonymous";
-            tile.onload = function () {
-              localforage.setItem(key, tile.src);
-              done(null, tile);
-            };
-          }
-        });
-
-        return tile;
-      };
-
-      console.log("Añadiendo capa base con caché");
-      map.addLayer(tileLayerCache);
-    }
-  }, []);
 
   const wmsUrl = `${process.env.REACT_APP_HOST_API}/geoserver/wms`;
 
@@ -101,17 +57,24 @@ const GeoViewerCedia = ({ key1, key2, cedia, sucep }) => {
         console.log("Mapa creado:", map);
       }}
     >
-      {/* Capa base desde el JSX (opcional, cuidado con duplicar) */}
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      <PluginWrapper
+        key3={false}
+        key4={false}
+        key5={false}
+        activeBaseLayer={activeBaseLayer}
+        setActiveBaseLayer={setActiveBaseLayer}
       />
-      <PluginWrapper key3={false} key4={false} key5={false} />
       {key1 && cedia && cedia.type === "FeatureCollection" && (
         <GeoJSON
           data={cedia}
           pointToLayer={(feature, latlng) =>
-            L.marker(latlng, { icon: parkIcon })
+            L.marker(latlng, { icon: parkIcon }).bindTooltip(
+              feature.properties.ZONA_CRÍT.toUpperCase(),
+              {
+                permanent: false,
+                direction: "center",
+              },
+            )
           }
           style={() => ({
             color: "#4a83ec",
@@ -120,11 +83,12 @@ const GeoViewerCedia = ({ key1, key2, cedia, sucep }) => {
             fillOpacity: 1,
           })}
           onEachFeature={({ properties }, layer) => {
+            console.log("Propiedades de la capa:", properties);
             layer.bindPopup(
               ReactDOMServer.renderToString(
                 <div>
                   <h2 className="text-center text-sm font-medium text-slate-700">
-                    {properties.ZONA_CRÍT}
+                    {properties.No_},{properties.ZONA_CRÍT.toUpperCase()}
                   </h2>
                   <div className="mt-3 divide-y rounded-lg border border-gray-300">
                     <PopupItemTable label="CASO" value={properties.CASO} />
@@ -183,7 +147,13 @@ const GeoViewerCedia = ({ key1, key2, cedia, sucep }) => {
         />
       )}
       {/* Renderiza la capa WMS solo si key2 es verdadero */}
-      {key2 && <WMSLayer url={wmsUrl} params={wmsParams} />}
+      {key2 && (
+        <WMSLayer
+          url={wmsUrl}
+          params={wmsParams}
+          activeBaseLayer={activeBaseLayer}
+        />
+      )}
     </MapContainer>
   );
 };

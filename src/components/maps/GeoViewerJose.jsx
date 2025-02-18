@@ -6,6 +6,7 @@ import * as ReactDOMServer from "react-dom/server";
 import redMarker from "../../images/red-marker.png";
 import pinMarker from "../../images/pin-marker.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useEffect, useState } from "react";
 const centerPoint = [-2.8573835, -78.9633863];
 
 const parkIcon = new L.Icon({
@@ -38,6 +39,14 @@ export const GeoViewerJose = ({
   key5,
   key6,
 }) => {
+  const [activeBaseLayer, setActiveBaseLayer] = useState(
+    localStorage.getItem("activeBaseLayer") || "Mapa base",
+  );
+
+  // Guardar en localStorage cuando cambia
+  useEffect(() => {
+    localStorage.setItem("activeBaseLayer", activeBaseLayer);
+  }, [activeBaseLayer]);
   return (
     <MapContainer
       style={{
@@ -47,7 +56,13 @@ export const GeoViewerJose = ({
       center={centerPoint}
       zoom={11}
     >
-      <PluginWrapper key3={key3} key4={key4} key5={key5} />
+      <PluginWrapper
+        key3={key3}
+        key4={key4}
+        key5={key5}
+        setActiveBaseLayer={setActiveBaseLayer}
+        activeBaseLayer={activeBaseLayer}
+      />
       {key0 && infoGeotecnica && (
         <GeoJSON
           key={0}
