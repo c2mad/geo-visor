@@ -30,7 +30,7 @@ export default function Listado() {
   const itemsToDisplay = items.slice(startIndex, endIndex);
 
   //Busqueda de proyectos
-  const search2 = (searchQuery) => {
+  const search2 = (searchQuery, categorie) => {
     // Filtra los elementos que coinciden con la consulta de búsqueda en el título
     const filteredItems = projects.filter(
       (item) =>

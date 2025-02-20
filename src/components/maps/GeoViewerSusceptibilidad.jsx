@@ -16,7 +16,7 @@ const parkIcon = new L.Icon({
   shadowAnchor: [13, 28],
 });
 
-const GeoViewerCedia = ({ key1, key2, cedia, sucep }) => {
+const GeoViewerSusceptibilidad = ({ key1, key2, cedia, sucep }) => {
   // Se mantiene la referencia al mapa
   const mapRef = useRef(null);
   // Estado de la capa base seleccionada
@@ -168,4 +168,4 @@ const PopupItemTable = ({ label, value }) => {
   );
 };
 
-export default React.memo(GeoViewerCedia);
+export default React.memo(GeoViewerSusceptibilidad);

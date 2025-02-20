@@ -5,21 +5,15 @@ import proyects from "../utils/proyects";
 import Post from "components/ui/post";
 import Search from "components/ui/Search";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useNavigate } from "react-router-dom";
 
 export const GeoportalPage = () => {
   const [categories] = useState(categorias);
-  const [, setItems] = useState(proyects);
-  const [, setCurrentPage] = useState(0);
-
+  const navigate = useNavigate();
   //Busqueda de proyectos
-  const search2 = (searchQuery) => {
-    const filteredItems = proyects.filter(
-      (item) =>
-        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase()),
-    );
-    setItems(filteredItems);
-    setCurrentPage(0);
+  const search = (searchQuery, categorie) => {
+    console.log(searchQuery, categorie);
+    navigate("/proyects");
   };
 
   return (
@@ -48,35 +42,9 @@ export const GeoportalPage = () => {
                 </div>
               </div>
               <div className="flex h-full items-center justify-center">
-                <form className="w-full px-10">
-                  <div className="flex flex-col sm:flex-row sm:px-0 md:px-10">
-                    <div
-                      id="dropdown"
-                      className="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow dark:bg-gray-700"
-                    >
-                      <ul
-                        className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                        aria-labelledby="dropdown-button"
-                      >
-                        {categories.map((category) => (
-                          <li key={category.id}>
-                            <a
-                              href={"/proyects/category/" + category.id}
-                              type="button"
-                              className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                            >
-                              {category.name}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="flex w-full">
-                      <Search onSearch={search2} />
-                    </div>
-                  </div>
-                </form>
+                <div className="w-full px-10">
+                  <Search onSearch={search} />
+                </div>
               </div>
             </div>
           </section>

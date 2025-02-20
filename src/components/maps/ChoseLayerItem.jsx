@@ -23,7 +23,7 @@ export const ChoseLayerItem = ({
               {" "}
               {/* Add space-x-2 class for margin */}
               <GSwitch enabled={enabled} setEnabled={setEnabled} />
-              <GDowloand to={to}></GDowloand>
+              {to && <GDowloand to={to}></GDowloand>}
             </div>
           )}
         </div>

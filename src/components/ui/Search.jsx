@@ -12,7 +12,11 @@ const Search = ({ onSearch }) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    onSearch(searchQuery);
+    if (selectedCategory === "All categories") {
+      onSearch(searchQuery, selectedCategory);
+      return;
+    }
+    onSearch(searchQuery, selectedCategory);
   };
 
   const handleCategorySelect = (category) => {

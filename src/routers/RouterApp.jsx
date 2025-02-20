@@ -12,7 +12,7 @@ import Normativa from "pages/NormativaPage";
 import GeoservicesPage from "pages/GeoservicesPage";
 import { ManualPage } from "pages/ManualPage";
 // import MetadatosPage from "pages/MetadatosPage";
-import Cedia from "pages/cedia";
+import SusceptibilidadMM from "pages/SusceptibilidadMMPage";
 
 export const RouterApp = () => {
   return (
@@ -22,13 +22,16 @@ export const RouterApp = () => {
           <Route path="/" element={<DefaultLayout />}>
             <Route index element={<HomePage />} />
           </Route>
-          <Route path="/mapas/jose" element={<GeoportalLayaut />}>
+          <Route
+            path="/geoportal/riesgos/propiedades-geo"
+            element={<GeoportalLayaut />}
+          >
             {/* <Route index element={<MapsPage />} /> */}
             <Route index element={<JoseMapsPage />} />
           </Route>
           <Route path="/mapas/cedia" element={<GeoportalLayaut />}>
             {/* <Route index element={<MapsPage />} /> */}
-            <Route index element={<Cedia />} />
+            <Route index element={<SusceptibilidadMM />} />
           </Route>
           <Route path="/servicios" element={<DefaultLayout />}>
             <Route index element={<ServicesPage />} />
@@ -42,8 +45,14 @@ export const RouterApp = () => {
           <Route path="/proyects/category/:id" element={<GeoportalLayaut />}>
             <Route index element={<ProyectPage />}></Route>
           </Route>
-          <Route path="/Geoportal" element={<GeoportalLayaut />}>
+          <Route path="/geoportal" element={<GeoportalLayaut />}>
             <Route index element={<GeoportalPage />}></Route>
+          </Route>
+          <Route
+            path="/geoportal/riesgos/susceptibilidad-mm"
+            element={<GeoportalLayaut />}
+          >
+            <Route index element={<SusceptibilidadMM />}></Route>
           </Route>
           <Route path="/normativa" element={<DefaultLayout />}>
             <Route index element={<Normativa />}></Route>

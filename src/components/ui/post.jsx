@@ -31,15 +31,17 @@ const Post = ({ proyects, categories }) => {
                   </span>
                   {" | "}
                   {"Fuente: "}
-                  {proyect.fuente.map((f) => (
-                    <span key={f.id}>
-                      {f.name}{" "}
-                      {proyect.fuente.length > 1 &&
-                      proyect.fuente.indexOf(f) + 1 < proyect.fuente.length
-                        ? ", "
-                        : ""}
-                    </span>
-                  ))}
+                  {proyect.fuente.map((f) => {
+                    return (
+                      <span key={f.id}>
+                        {f.name}{" "}
+                        {proyect.fuente.length > 1 &&
+                        proyect.fuente.indexOf(f) + 1 < proyect.fuente.length
+                          ? ", "
+                          : ""}
+                      </span>
+                    );
+                  })}
                   {" | "}
                   {"Categoría: "}
                   {
