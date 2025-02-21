@@ -9,9 +9,40 @@
 .tooltip-parroquia {
   @apply px-1 py-1 font-semibold text-slate-700;
 
-  shadow: none;
+  box-shadow: none;
+}
+.tooltip-parroquia {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  /* color: #e11d48; */
+  color: #fff;
+
+  /* color: rgba(0, 255, 255, 0.9); */
+  font-weight: bold;
+  font-size: 16px;
+  padding: 2px;
+  pointer-events: none; /* Evita la interacción con el tooltip */
+}
+.tooltip-parroquia-dark {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  /* color: #e11d48; */
+  color: #292727;
+
+  /* color: rgba(0, 255, 255, 0.9); */
+  font-weight: bold;
+  font-size: 16px;
+  padding: 2px;
+  pointer-events: none; /* Evita la interacción con el tooltip */
 }
 
+.tooltip-parroquia.leaflet-tooltip-active {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
 body {
   @apply bg-white;
   color: #000 !important;
@@ -59,4 +90,9 @@ body {
     min-width: 250px !important;
     max-width: 95vw;
   }
+}
+.custom-popup-no-border .leaflet-popup-content-wrapper,
+.custom-popup-no-border .leaflet-popup-tip {
+  border: none !important;
+  box-shadow: none !important;
 }

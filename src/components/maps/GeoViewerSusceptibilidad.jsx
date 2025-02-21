@@ -177,34 +177,38 @@ const GeoViewerSusceptibilidad = ({
           activeBaseLayer={activeBaseLayer}
         />
       )}
-      conso
       {key3 && parroquias && (
         <GeoJSON
-          key={6}
+          key={activeBaseLayer}
           data={parroquias}
           style={() => ({
-            color: "#f97316",
+            color: "#1D4ED8",
             weight: 2,
             fillColor: "#ca8a04",
             fillOpacity: 0,
           })}
           onEachFeature={({ properties }, layer) => {
             const { Color = "", DPA_DESPAR, DPA_DESCAN } = properties;
-            // Decodificar en caso de que vengan codificados en URI
-
             layer.setStyle({
               fillColor: Color,
             });
-
             layer.bindTooltip(DPA_DESPAR, {
-              permanent: true,
+              permanent: false,
               direction: "center",
-              className: "tooltip-parroquia",
+              className:
+                key2 || activeBaseLayer === "Mapa satelital"
+                  ? "tooltip-parroquia"
+                  : "tooltip-parroquia-dark ",
             });
 
-            layer.bindPopup(DPA_DESCAN, {
-              className: "popup-parroquia",
-            });
+            layer.bindPopup(
+              ReactDOMServer.renderToString(
+                <div className="mr-4 ml-1 border-none">{DPA_DESCAN}</div>,
+              ),
+              {
+                className: "custom-popup-no-border",
+              },
+            );
           }}
         />
       )}
