@@ -12,7 +12,6 @@ export const GeoportalPage = () => {
   const navigate = useNavigate();
   //Busqueda de proyectos
   const search = (searchQuery, categorie) => {
-    console.log(searchQuery, categorie);
     navigate("/proyects");
   };
 

@@ -96,5 +96,4 @@ const proyects = [
     to: "/geoportal/riesgos/susceptibilidad-mm",
   },
 ];
-console.log(proyects);
 export default proyects;

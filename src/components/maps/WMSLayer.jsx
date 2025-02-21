@@ -9,7 +9,6 @@ const WMSLayer = ({ url, params, activeBaseLayer }) => {
   const wmsLayerRef = useRef(null);
 
   useEffect(() => {
-    console.log("Capa WMS actualizada");
     if (!map) return;
 
     // Si ya existe una capa WMS, la removemos antes de añadir la nueva

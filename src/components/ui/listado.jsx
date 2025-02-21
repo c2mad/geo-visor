@@ -4,13 +4,10 @@ import "tailwindcss/tailwind.css";
 import Search from "./Search";
 import categories from "../../utils/categories";
 import projects from "../../utils/proyects";
-// import DateRangePicker from "flowbite-datepicker/DateRangePicker";
 import Post from "../../components/ui/post";
 import SearchAutoComplete from "../../components/ui/SearchAutoComplete";
 
 export default function Listado() {
-  const [startDate, setStartDate] = useState(null); // Filtro de fecha de inicio
-  const [endDate, setEndDate] = useState(null); // Filtro de fecha de fin
   //const [filteredItems, setFilteredItems] = useState(projects);
 
   const [items, setItems] = useState(projects); // Lista original de proyectos
@@ -42,43 +39,12 @@ export default function Listado() {
     setCurrentPage(0);
   };
 
-  // useEffect(() => {
-  //   const options = {
-  //     startDate: new Date(), // Fecha de inicio predeterminada
-  //     endDate: new Date(), // Fecha de fin predeterminada
-  //     format: "yyyy-mm-dd", // Formato de fecha
-  //     numberOfMonths: 2, // Número de meses visibles en el calendario
-  //     minDate: null, // Fecha mínima permitida
-  //     maxDate: null, // Fecha máxima permitida
-  //     allowSelectDates: true, // Permite la selección de fechas
-  //     onSelect: (date) => {
-  //       console.log("Fecha seleccionada:", date);
-  //     },
-  //     // Otras opciones específicas de la biblioteca
-  //   };
-  //   const onchange = (selectedDates, dateStr, instance) => {
-  //     // Aquí puedes controlar cuando la fecha cambia
-  //     console.log("Fechas seleccionadas:", selectedDates);
-  //     console.log("Fecha como cadena:", dateStr);
-  //   };
-  //   const dateRangePickerEl = document.getElementById("dateRangePickerId");
-  //   new DateRangePicker(dateRangePickerEl, onchange, options);
-  // }, []);
-  // Función para aplicar los filtros
-
   const applyFilters = (value, type) => {
-    console.log("Antes de aplicar filtros:", projects);
-
     let filteredItems = projects; // Inicialmente, los proyectos sin filtrar
     if (type === "fuente") {
-      // Filtra por fuente
-      console.log("selectedOption:", value);
-
       if (value !== "Seleccione la fuente") {
         filteredItems = filteredItems.filter((item) =>
           item.fuente.some((fuente) => {
-            console.log("fuente.name:", fuente.name);
-            console.log("selectedOption:", value);
             return fuente.name.toLowerCase() === value.toLowerCase();
           }),
         );
@@ -92,8 +58,6 @@ export default function Listado() {
       if (value) {
         filteredItems = filteredItems.filter((item) =>
           item.autores.some((autor) => {
-            console.log("auttor.name:", autor.name);
-            console.log("selectedOption:", value);
             return autor.name.toLowerCase() === value.toLowerCase();
           }),
         );
@@ -147,12 +111,8 @@ export default function Listado() {
   };
 
   const obtenerValorAutor = (valor) => {
-    console.log("Valor obtenido:", valor);
-    setAutor(valor.name);
     const existe = filtros.find((item) => item.id === 3);
-    console.log(existe);
     if (existe === null || existe === undefined) {
-      console.log("aqui");
       filtros.push({
         id: 3,
         content: (
@@ -176,7 +136,6 @@ export default function Listado() {
     }
     setFiltros(filtros);
     applyFilters(valor.name, "autor");
-    //console.log("Valor obtenido:", valor);
     // Haz lo que quieras con el valor aquí
   };
   const handleDeleteFiltro = (id) => {
@@ -189,8 +148,6 @@ export default function Listado() {
         setSelectedOption("Seleccione la fuente");
         break;
       case 2:
-        setStartDate("");
-        setEndDate("");
         break;
       case 3:
         setAutor("");
@@ -201,47 +158,6 @@ export default function Listado() {
     if (updatedFiltros.length === 0) {
       setItems(projects);
     }
-  };
-
-  const handleDateChange = (start, date) => {
-    if (start) setStartDate(date);
-    else setEndDate(date);
-    // Aquí puedes ejecutar diferentes funciones según la opción seleccionada
-    const existe = filtros.find((item) => item.id === 2);
-    if (existe === null || existe === undefined) {
-      filtros.push({
-        id: 2,
-        content: (
-          <>
-            <span className="mr-2 text-[12px]">
-              <strong>Publicados:</strong> {start ? date : startDate}{" "}
-              <strong>to</strong> {!start ? date : endDate}
-            </span>
-          </>
-        ),
-        description: start
-          ? date
-          : startDate + " to " + !start
-            ? date
-            : endDate,
-      });
-    } else {
-      existe.content = (
-        <>
-          <span className="mr-2 text-[12px]">
-            <strong>Publicados:</strong> {start ? date : startDate}{" "}
-            <strong>to</strong> {!start ? date : endDate}
-          </span>
-        </>
-      );
-      existe.description = start
-        ? date
-        : startDate + " to " + !start
-          ? date
-          : endDate;
-    }
-    setFiltros(filtros);
-    applyFilters();
   };
 
   const listado_fuente = projects.reduce((accumulator, project) => {

@@ -34,7 +34,6 @@ export const GeoViewerWithReact = () => {
 
       setLoading(true);
       const respCate = await axios.get(GEOSERVER, { params: REQUEST_PARAMS });
-      console.log(respCate);
       setData(respCate.data);
 
       const REQUEST_PARAMS_1 = {
@@ -48,7 +47,6 @@ export const GeoViewerWithReact = () => {
 
       const respJose = await axios.get(GEOSERVER, { params: REQUEST_PARAMS_1 });
       setDataJose(respJose.data);
-      console.log(respJose.data);
       const REQUEST_PARAMS_2 = {
         outputFormat: "application/json",
         request: "GetFeature",
@@ -142,12 +140,10 @@ export const GeoViewerWithReact = () => {
               fillColor: "#10b981",
             });
           }
-          console.log(DPA_DESPAR);
           layer.bindPopup(
             `<h1 className="text-lg text-slate-700">${DPA_DESPAR}</h1> `,
           );
-          //Add text html in layer
-          console.log(layer);
+          //Add text html in layer;
         }}
       />
       <GeoJSON
