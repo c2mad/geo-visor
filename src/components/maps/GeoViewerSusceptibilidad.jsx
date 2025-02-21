@@ -182,7 +182,7 @@ const GeoViewerSusceptibilidad = ({
           key={activeBaseLayer}
           data={parroquias}
           style={() => ({
-            color: "#1D4ED8",
+            color: "#f97316",
             weight: 2,
             fillColor: "#ca8a04",
             fillOpacity: 0,
