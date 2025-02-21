@@ -4,7 +4,6 @@ export const getFuture = async (params) => {
   const { data } = await geoApi.get("/geoserver/wfs", {
     params,
     headers: {
-      "Accept-Charset": "utf-8",
       "Content-Type": "application/json; charset=UTF-8",
     },
   });
