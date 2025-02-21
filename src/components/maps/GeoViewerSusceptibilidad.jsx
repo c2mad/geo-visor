@@ -27,7 +27,14 @@ const PopupItemTable = ({ label, value }) => {
   );
 };
 
-const GeoViewerSusceptibilidad = ({ key1, key2, cedia, sucep }) => {
+const GeoViewerSusceptibilidad = ({
+  key1,
+  key2,
+  key3,
+  cedia,
+  sucep,
+  parroquias,
+}) => {
   const mapRef = useRef(null);
   const [activeBaseLayer, setActiveBaseLayer] = useState(
     localStorage.getItem("activeBaseLayer") || "Mapa base",
@@ -168,6 +175,37 @@ const GeoViewerSusceptibilidad = ({ key1, key2, cedia, sucep }) => {
           url={wmsUrl}
           params={wmsParams}
           activeBaseLayer={activeBaseLayer}
+        />
+      )}
+      conso
+      {key3 && parroquias && (
+        <GeoJSON
+          key={6}
+          data={parroquias}
+          style={() => ({
+            color: "#f97316",
+            weight: 2,
+            fillColor: "#ca8a04",
+            fillOpacity: 0,
+          })}
+          onEachFeature={({ properties }, layer) => {
+            const { Color = "", DPA_DESPAR, DPA_DESCAN } = properties;
+            // Decodificar en caso de que vengan codificados en URI
+
+            layer.setStyle({
+              fillColor: Color,
+            });
+
+            layer.bindTooltip(DPA_DESPAR, {
+              permanent: true,
+              direction: "center",
+              className: "tooltip-parroquia",
+            });
+
+            layer.bindPopup(DPA_DESCAN, {
+              className: "popup-parroquia",
+            });
+          }}
         />
       )}
     </MapContainer>
