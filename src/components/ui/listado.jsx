@@ -49,6 +49,17 @@ export default function Listado() {
           }),
         );
       }
+      // Elimina duplicados por nombre de fuente
+      filteredItems = filteredItems.filter((item, index, self) => {
+        return (
+          index ===
+          self.findIndex((t) =>
+            t.fuente.some(
+              (fuente) => fuente.name.toLowerCase() === value.toLowerCase(),
+            ),
+          )
+        );
+      });
     }
 
     if (type === "autor") {
