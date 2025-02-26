@@ -28,13 +28,13 @@ const ide_elements = [
   //   image: imggeoserv,
   //   to: "/geoservicios",
   // },
-  {
-    id: 4,
-    name: "Normativa legal",
-    description: "Documentos legales para funcionamiento de la IDE",
-    image: imgnorm,
-    to: "/normativa",
-  },
+  // {
+  //   id: 4,
+  //   name: "Normativa legal",
+  //   description: "Documentos legales para funcionamiento de la IDE",
+  //   image: imgnorm,
+  //   to: "/normativa",
+  // },
   // {
   //   id: 5,
   //   name: "Metadatos",

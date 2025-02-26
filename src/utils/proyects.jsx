@@ -47,13 +47,11 @@ const proyects = [
     title:
       "Modelo de toma de decisión en grupo para la gestión del riesgo y planificación del territorio, a partir de la susceptibilidad por movimientos en masa generada mediante técnicas cuantitativas. Caso de estudio: Provincia del Azuay.",
     imageUrl: portada_cedia,
-    publication: "2024",
+    publication: "2025",
     description:
       "A nivel mundial, los movimientos en masa (MM) son causantes de desastres naturales de gran trascendencia por las pérdidas humanas y económicas que dejan. Esto se debe a una vulnerabilidad socio-económica propia de países en vías de desarrollo y condiciones geológicas, geomorfológicas, hidrológicas, y climatológicas de cada zona.",
-    fuente: [
-      { id: uuidv4(), name: "SIGDATA" },
-      { id: uuidv4(), name: "CEDIA" },
-      { id: uuidv4(), name: "UCACUE" },
+    fuente: [{ id: uuidv4(), name: "SIGDATA" }],
+    fuente_exter: [
       { id: uuidv4(), name: "EPN" },
       { id: uuidv4(), name: "UCUENCA" },
     ],
