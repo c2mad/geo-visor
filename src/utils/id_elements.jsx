@@ -21,13 +21,13 @@ const ide_elements = [
   //   image: imgdw,
   //   to: "/proyects",
   // },
-  {
-    id: 3,
-    name: "Geoservicios",
-    description: "Los servicios web que se utiliza en esta IDE",
-    image: imggeoserv,
-    to: "/geoservicios",
-  },
+  // {
+  //   id: 3,
+  //   name: "Geoservicios",
+  //   description: "Los servicios web que se utiliza en esta IDE",
+  //   image: imggeoserv,
+  //   to: "/geoservicios",
+  // },
   {
     id: 4,
     name: "Normativa legal",

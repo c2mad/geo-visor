@@ -64,6 +64,8 @@ const Footer = () => {
                     <li>
                       <strong>Email: </strong>
                       ciitt@ucacue.edu.ec
+                      <br />
+                      sigdata@ucacue.edu.ec
                     </li>
                   </ul>
                 </div>
